@@ -2,6 +2,7 @@
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV || 'development'}`
 })
+require('ts-node').register({files: true})
 
 const clientConfig = require('./client-config')
 const token = process.env.SANITY_READ_TOKEN
@@ -20,6 +21,8 @@ module.exports = {
         watchMode: !isProd,
         overlayDrafts: !isProd && token
       }
-    }
+    },
+    `gatsby-plugin-typescript`,
+    `gatsby-plugin-codegen`
   ]
 }
