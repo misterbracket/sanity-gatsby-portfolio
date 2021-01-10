@@ -28,9 +28,8 @@ module.exports = {
       options: {
         projectId: process.env.GATSBY_SANITY_PROJECT_ID || "4t789e8u",
         dataset: process.env.GATSBY_SANITY_DATASET || "production",
-        token : process.env.SANITY_TOKEN,
+        token : process.env.SANITY_READ_TOKEN,
         watchMode: !isProd,
-        overlayDrafts: !isProd && token
       }
     },
     `gatsby-plugin-typescript`,
