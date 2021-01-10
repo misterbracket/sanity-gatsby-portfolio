@@ -1,4 +1,4 @@
-import { MdPerson } from "react-icons/md";
+import {MdPerson} from 'react-icons/md'
 
 export default {
   name: 'person',

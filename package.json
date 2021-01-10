@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "build": "lerna run build --parallel",
-    "dev": "lerna run dev --parallel",
+    "start": "lerna run start --parallel",
     "format": "lerna run format",
     "build-sanity": "(cd sanity && npm run build)",
     "build-gatsby": "lerna bootstrap && (cd sanity && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN npm run graphql-deploy) && (cd gatsby && npm run build)",
