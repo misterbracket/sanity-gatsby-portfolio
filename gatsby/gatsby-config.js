@@ -4,8 +4,7 @@ require("dotenv").config({
 });
 require("ts-node").register({ files: true });
 
-const clientConfig = require("./client-config");
-const token = process.env.SANITY_READ_TOKEN;
+dotenv.config({ path: '.env' });
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -27,8 +26,9 @@ module.exports = {
     {
       resolve: "gatsby-source-sanity",
       options: {
-        ...clientConfig.sanity,
-        token,
+        projectId: process.env.GATSBY_SANITY_PROJECT_ID || "4t789e8u",
+        dataset: process.env.GATSBY_SANITY_DATASET || "production",
+        token : process.env.SANITY_TOKEN,
         watchMode: !isProd,
         overlayDrafts: !isProd && token
       }
