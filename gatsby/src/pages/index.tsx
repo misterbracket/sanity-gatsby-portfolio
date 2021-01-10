@@ -1,12 +1,13 @@
 import React from "react";
+import { PageProps } from "gatsby";
 import { SEO } from "../components";
 
-const index: React.FC = () => {
+const index = ({ location }: PageProps) => {
   const number: number = 2;
   console.log(number);
   return (
     <>
-      <SEO title={`A little about me`} />
+      <SEO title={`A little about me`} location={location} />
       <h1>About me</h1>
     </>
   );

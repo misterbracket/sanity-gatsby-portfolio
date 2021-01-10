@@ -1,12 +1,13 @@
 import React from "react";
+import { PageProps } from "gatsby";
 import { SEO } from "../components";
 
-const resume: React.FC = () => {
+const resume = ({ location }: PageProps) => {
   const number: number = 2;
   console.log(number);
   return (
     <>
-      <SEO title={`Where I come from`} />
+      <SEO title={`Where I come from`} location={location} />
       <h1>Resume</h1>
     </>
   );

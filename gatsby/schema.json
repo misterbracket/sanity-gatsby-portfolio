@@ -10473,16 +10473,6 @@
               "defaultValue": null
             },
             {
-              "name": "overlayDrafts",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "StringQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
               "name": "isTSX",
               "description": "",
               "type": {
@@ -11256,18 +11246,6 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "Boolean",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "overlayDrafts",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -12585,12 +12563,6 @@
             },
             {
               "name": "pluginCreator___pluginOptions___watchMode",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "pluginCreator___pluginOptions___overlayDrafts",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -31597,12 +31569,6 @@
             },
             {
               "name": "pluginOptions___watchMode",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "pluginOptions___overlayDrafts",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null

@@ -1,12 +1,11 @@
 import React from "react";
+import { PageProps } from "gatsby";
 import { SEO } from "../components";
 
-const contact: React.FC = () => {
-  const number: number = 2;
-  console.log(number);
+const contact = ({ location }: PageProps) => {
   return (
     <>
-      <SEO title={`Let's have a chat`} />
+      <SEO title={`Let's have a chat`} location={location} />
       <h1>Resume</h1>
     </>
   );

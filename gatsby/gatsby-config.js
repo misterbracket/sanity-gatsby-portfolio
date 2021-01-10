@@ -1,7 +1,5 @@
 // Load variables from `.env` as soon as possible
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV || "development"}`
-});
+import dotenv from 'dotenv';
 require("ts-node").register({ files: true });
 
 dotenv.config({ path: '.env' });
