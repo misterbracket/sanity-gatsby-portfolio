@@ -1,7 +1,10 @@
+import {ImPriceTags as icon} from 'react-icons/md'
+
 export default {
-  name: 'category',
+  name: 'tag',
   type: 'document',
-  title: 'Category',
+  title: 'Tag',
+  icon,
   fields: [
     {
       name: 'title',

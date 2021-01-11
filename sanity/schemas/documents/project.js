@@ -1,8 +1,10 @@
+import {GiAstronautHelmet as icon} from 'react-icons/md'
 import {format} from 'date-fns'
 
 export default {
-  name: 'sampleProject',
-  title: 'Sample project',
+  name: 'project',
+  title: 'Project',
+  icon,
   type: 'document',
   fields: [
     {
@@ -32,12 +34,6 @@ export default {
       type: 'simplePortableText'
     },
     {
-      name: 'members',
-      title: 'Members',
-      type: 'array',
-      of: [{type: 'projectMember'}]
-    },
-    {
       name: 'startedAt',
       title: 'Started at',
       type: 'datetime'
@@ -53,10 +49,10 @@ export default {
       type: 'figure'
     },
     {
-      name: 'categories',
-      title: 'Categories',
+      name: 'tag',
+      title: 'Tags',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}]
+      of: [{type: 'reference', to: {type: 'tag'}}]
     },
     {
       name: 'body',
@@ -67,7 +63,7 @@ export default {
       name: 'relatedProjects',
       title: 'Related projects',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'sampleProject'}}]
+      of: [{type: 'reference', to: {type: 'project'}}]
     }
   ],
   preview: {
