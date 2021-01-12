@@ -1,5 +1,4 @@
-import {BsFillBriefcaseFill as icon} from 'react-icons/md'
-import {format} from 'date-fns'
+import {BsFillBriefcaseFill as icon} from 'react-icons/bs'
 
 export default {
   name: 'job',

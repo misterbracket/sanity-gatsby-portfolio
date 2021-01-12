@@ -1,11 +1,11 @@
-import {GiAstronautHelmet as icon} from 'react-icons/md'
+import {GiAstronautHelmet as icon} from 'react-icons/gi'
 import {format} from 'date-fns'
 
 export default {
   name: 'project',
   title: 'Project',
-  icon,
   type: 'document',
+  icon,
   fields: [
     {
       name: 'title',

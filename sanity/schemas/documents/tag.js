@@ -1,4 +1,4 @@
-import {ImPriceTags as icon} from 'react-icons/md'
+import {ImPriceTags as icon} from 'react-icons/im'
 
 export default {
   name: 'tag',
