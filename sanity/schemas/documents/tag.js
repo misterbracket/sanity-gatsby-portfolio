@@ -7,14 +7,9 @@ export default {
   icon,
   fields: [
     {
-      name: 'title',
+      name: 'name',
       type: 'string',
-      title: 'Title'
-    },
-    {
-      name: 'description',
-      type: 'text',
-      title: 'Description'
+      title: 'Name'
     }
   ]
 }

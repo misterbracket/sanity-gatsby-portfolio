@@ -28,8 +28,8 @@ export default {
     },
     {
       name: 'bio',
-      title: 'Bio',
-      type: 'bioPortableText'
+      title: 'Short Bio',
+      type: 'text'
     }
   ],
   preview: {

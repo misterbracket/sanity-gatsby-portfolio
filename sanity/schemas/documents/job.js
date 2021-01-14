@@ -7,8 +7,8 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'title',
-      title: 'Title',
+      name: 'name',
+      title: 'Job Title',
       type: 'string'
     },
     {
@@ -24,7 +24,7 @@ export default {
     {
       name: 'excerpt',
       title: 'Excerpt',
-      type: 'simplePortableText'
+      type: 'text'
     },
     {
       name: 'startedAt',
@@ -48,24 +48,23 @@ export default {
       of: [{type: 'reference', to: {type: 'tag'}}]
     },
     {
-      name: 'body',
-      title: 'Body',
-      type: 'projectPortableText'
+      name: 'description',
+      title: 'Description',
+      type: 'text'
     }
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'name',
       slug: 'slug',
       media: 'mainImage',
       excerpt: 'excerpt'
     },
     prepare ({title = 'No title', excerpt, slug = {}, media}) {
-      console.log(excerpt[0].children[0].text)
       return {
         title,
         media,
-        subtitle: excerpt[0].children[0].text || 'Missing excerpt'
+        subtitle: excerpt || 'Missing excerpt'
       }
     }
   }
