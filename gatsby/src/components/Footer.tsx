@@ -1,10 +1,12 @@
 import React from "react";
+import styled from "styled-components";
 
-const Footer: React.FC = () => {
+const FooterStyles = styled.div``;
+const Footer = () => {
   return (
-    <footer>
+    <FooterStyles>
       <p> &copy; Maximilian Klammer {new Date().getFullYear()}</p>
-    </footer>
+    </FooterStyles>
   );
 };
 

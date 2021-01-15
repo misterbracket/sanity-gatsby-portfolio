@@ -2,9 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
 
-const NavStyles = styled.div``;
+const NavStyles = styled.nav`
+  grid-area: nav;
+`;
 
-const Nav: React.FC = () => {
+const Nav = () => {
   console.log("I am the Nav");
   return (
     <NavStyles>
