@@ -1287,7 +1287,7 @@
                   "defaultValue": null
                 },
                 {
-                  "name": "title",
+                  "name": "name",
                   "description": "",
                   "type": {
                     "kind": "INPUT_OBJECT",
@@ -1302,6 +1302,16 @@
                   "type": {
                     "kind": "INPUT_OBJECT",
                     "name": "SanitySlugFilterInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "excerpt",
+                  "description": "",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "StringQueryOperatorInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -1347,37 +1357,17 @@
                   "defaultValue": null
                 },
                 {
-                  "name": "excerpt",
+                  "name": "description",
                   "description": "",
                   "type": {
                     "kind": "INPUT_OBJECT",
-                    "name": "SanityBlockFilterListInput",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "body",
-                  "description": "",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "SanityBlockFilterListInput",
+                    "name": "StringQueryOperatorInput",
                     "ofType": null
                   },
                   "defaultValue": null
                 },
                 {
                   "name": "_rawSlug",
-                  "description": "",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "JSONQueryOperatorInput",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "_rawExcerpt",
                   "description": "",
                   "type": {
                     "kind": "INPUT_OBJECT",
@@ -1398,16 +1388,6 @@
                 },
                 {
                   "name": "_rawTag",
-                  "description": "",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "JSONQueryOperatorInput",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "_rawBody",
                   "description": "",
                   "type": {
                     "kind": "INPUT_OBJECT",
@@ -1621,7 +1601,7 @@
                   "description": "",
                   "type": {
                     "kind": "INPUT_OBJECT",
-                    "name": "SanityBlockFilterListInput",
+                    "name": "StringQueryOperatorInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -1638,16 +1618,6 @@
                 },
                 {
                   "name": "_rawImage",
-                  "description": "",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "JSONQueryOperatorInput",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "_rawBio",
                   "description": "",
                   "type": {
                     "kind": "INPUT_OBJECT",
@@ -1827,7 +1797,7 @@
                   "defaultValue": null
                 },
                 {
-                  "name": "title",
+                  "name": "name",
                   "description": "",
                   "type": {
                     "kind": "INPUT_OBJECT",
@@ -1852,6 +1822,16 @@
                   "type": {
                     "kind": "INPUT_OBJECT",
                     "name": "DateQueryOperatorInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "excerpt",
+                  "description": "",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "StringQueryOperatorInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -1897,6 +1877,16 @@
                   "defaultValue": null
                 },
                 {
+                  "name": "description",
+                  "description": "",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "StringQueryOperatorInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
                   "name": "relatedProjects",
                   "description": "",
                   "type": {
@@ -1907,37 +1897,7 @@
                   "defaultValue": null
                 },
                 {
-                  "name": "excerpt",
-                  "description": "",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "SanityBlockFilterListInput",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "body",
-                  "description": "",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "SanityBlockFilterListInput",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
                   "name": "_rawSlug",
-                  "description": "",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "JSONQueryOperatorInput",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "_rawExcerpt",
                   "description": "",
                   "type": {
                     "kind": "INPUT_OBJECT",
@@ -1958,16 +1918,6 @@
                 },
                 {
                   "name": "_rawTag",
-                  "description": "",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "JSONQueryOperatorInput",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "_rawBody",
                   "description": "",
                   "type": {
                     "kind": "INPUT_OBJECT",
@@ -3017,17 +2967,7 @@
                   "defaultValue": null
                 },
                 {
-                  "name": "title",
-                  "description": "",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "StringQueryOperatorInput",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "description",
+                  "name": "name",
                   "description": "",
                   "type": {
                     "kind": "INPUT_OBJECT",
@@ -14710,17 +14650,7 @@
               "defaultValue": null
             },
             {
-              "name": "title",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "StringQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "description",
+              "name": "name",
               "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -14765,160 +14695,6 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "InternalFilterInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "SanityBlockFilterListInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "elemMatch",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "SanityBlockFilterInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "SanityBlockFilterInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "_key",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "StringQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "_type",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "StringQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "sanityChildren",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "SanitySpanFilterListInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "style",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "StringQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "list",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "StringQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "SanitySpanFilterListInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "elemMatch",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "SanitySpanFilterInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "SanitySpanFilterInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "_key",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "StringQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "_type",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "StringQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "marks",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "StringQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "text",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "StringQueryOperatorInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -15088,7 +14864,7 @@
               "deprecationReason": null
             },
             {
-              "name": "title",
+              "name": "name",
               "description": null,
               "args": [],
               "type": {
@@ -15106,6 +14882,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "SanitySlug",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "excerpt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -15246,62 +15034,19 @@
               "deprecationReason": null
             },
             {
-              "name": "excerpt",
+              "name": "description",
               "description": null,
               "args": [],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "SanityBlock",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "SanityBlock",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "_rawSlug",
-              "description": null,
-              "args": [
-                {
-                  "name": "resolveReferences",
-                  "description": null,
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "SanityResolveReferencesConfiguration",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
               "type": {
                 "kind": "SCALAR",
-                "name": "JSON",
+                "name": "String",
                 "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "_rawExcerpt",
+              "name": "_rawSlug",
               "description": null,
               "args": [
                 {
@@ -15348,29 +15093,6 @@
             },
             {
               "name": "_rawTag",
-              "description": null,
-              "args": [
-                {
-                  "name": "resolveReferences",
-                  "description": null,
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "SanityResolveReferencesConfiguration",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "JSON",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "_rawBody",
               "description": null,
               "args": [
                 {
@@ -17378,19 +17100,7 @@
               "deprecationReason": null
             },
             {
-              "name": "title",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "description",
+              "name": "name",
               "description": null,
               "args": [],
               "type": {
@@ -17487,144 +17197,6 @@
           "possibleTypes": null
         },
         {
-          "kind": "OBJECT",
-          "name": "SanityBlock",
-          "description": null,
-          "fields": [
-            {
-              "name": "_key",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "_type",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "sanityChildren",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "SanitySpan",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "style",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "list",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "SanitySpan",
-          "description": null,
-          "fields": [
-            {
-              "name": "_key",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "_type",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "marks",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "text",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
           "kind": "INPUT_OBJECT",
           "name": "SanityJobFilterInput",
           "description": null,
@@ -17691,7 +17263,7 @@
               "defaultValue": null
             },
             {
-              "name": "title",
+              "name": "name",
               "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -17706,6 +17278,16 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "SanitySlugFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "excerpt",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -17751,37 +17333,17 @@
               "defaultValue": null
             },
             {
-              "name": "excerpt",
+              "name": "description",
               "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "SanityBlockFilterListInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "body",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "SanityBlockFilterListInput",
+                "name": "StringQueryOperatorInput",
                 "ofType": null
               },
               "defaultValue": null
             },
             {
               "name": "_rawSlug",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "JSONQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "_rawExcerpt",
               "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -17802,16 +17364,6 @@
             },
             {
               "name": "_rawTag",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "JSONQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "_rawBody",
               "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -17949,7 +17501,7 @@
               "deprecationReason": null
             },
             {
-              "name": "title",
+              "name": "name",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -17968,6 +17520,12 @@
             },
             {
               "name": "slug___current",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "excerpt",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -18471,13 +18029,7 @@
               "deprecationReason": null
             },
             {
-              "name": "tag___title",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "tag___description",
+              "name": "tag___name",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -18711,133 +18263,13 @@
               "deprecationReason": null
             },
             {
-              "name": "excerpt",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "excerpt____key",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "excerpt____type",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "excerpt___sanityChildren",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "excerpt___sanityChildren____key",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "excerpt___sanityChildren____type",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "excerpt___sanityChildren___marks",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "excerpt___sanityChildren___text",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "excerpt___style",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "excerpt___list",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body____key",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body____type",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body___sanityChildren",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body___sanityChildren____key",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body___sanityChildren____type",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body___sanityChildren___marks",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body___sanityChildren___text",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body___style",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body___list",
+              "name": "description",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "_rawSlug",
-              "description": null,
-              "isDeprecated": true,
-              "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-            },
-            {
-              "name": "_rawExcerpt",
               "description": null,
               "isDeprecated": true,
               "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -18850,12 +18282,6 @@
             },
             {
               "name": "_rawTag",
-              "description": null,
-              "isDeprecated": true,
-              "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-            },
-            {
-              "name": "_rawBody",
               "description": null,
               "isDeprecated": true,
               "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -19938,13 +19364,9 @@
               "description": null,
               "args": [],
               "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "SanityBlock",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -19974,29 +19396,6 @@
             },
             {
               "name": "_rawImage",
-              "description": null,
-              "args": [
-                {
-                  "name": "resolveReferences",
-                  "description": null,
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "SanityResolveReferencesConfiguration",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "JSON",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "_rawBio",
               "description": null,
               "args": [
                 {
@@ -20204,7 +19603,7 @@
               "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "SanityBlockFilterListInput",
+                "name": "StringQueryOperatorInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -20221,16 +19620,6 @@
             },
             {
               "name": "_rawImage",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "JSONQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "_rawBio",
               "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -20842,60 +20231,6 @@
               "deprecationReason": null
             },
             {
-              "name": "bio____key",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "bio____type",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "bio___sanityChildren",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "bio___sanityChildren____key",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "bio___sanityChildren____type",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "bio___sanityChildren___marks",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "bio___sanityChildren___text",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "bio___style",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "bio___list",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "_rawSlug",
               "description": null,
               "isDeprecated": true,
@@ -20903,12 +20238,6 @@
             },
             {
               "name": "_rawImage",
-              "description": null,
-              "isDeprecated": true,
-              "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-            },
-            {
-              "name": "_rawBio",
               "description": null,
               "isDeprecated": true,
               "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -21879,7 +21208,7 @@
               "defaultValue": null
             },
             {
-              "name": "title",
+              "name": "name",
               "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -21904,6 +21233,16 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "DateQueryOperatorInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "excerpt",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -21949,6 +21288,16 @@
               "defaultValue": null
             },
             {
+              "name": "description",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "relatedProjects",
               "description": "",
               "type": {
@@ -21959,37 +21308,7 @@
               "defaultValue": null
             },
             {
-              "name": "excerpt",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "SanityBlockFilterListInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "body",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "SanityBlockFilterListInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
               "name": "_rawSlug",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "JSONQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "_rawExcerpt",
               "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -22010,16 +21329,6 @@
             },
             {
               "name": "_rawTag",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "JSONQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "_rawBody",
               "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -22243,7 +21552,7 @@
               "deprecationReason": null
             },
             {
-              "name": "title",
+              "name": "name",
               "description": null,
               "args": [],
               "type": {
@@ -22314,6 +21623,18 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "Date",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "excerpt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -22454,6 +21775,18 @@
               "deprecationReason": null
             },
             {
+              "name": "description",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "relatedProjects",
               "description": null,
               "args": [],
@@ -22470,62 +21803,7 @@
               "deprecationReason": null
             },
             {
-              "name": "excerpt",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "SanityBlock",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "SanityBlock",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "_rawSlug",
-              "description": null,
-              "args": [
-                {
-                  "name": "resolveReferences",
-                  "description": null,
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "SanityResolveReferencesConfiguration",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "JSON",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "_rawExcerpt",
               "description": null,
               "args": [
                 {
@@ -22572,29 +21850,6 @@
             },
             {
               "name": "_rawTag",
-              "description": null,
-              "args": [
-                {
-                  "name": "resolveReferences",
-                  "description": null,
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "SanityResolveReferencesConfiguration",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "JSON",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "_rawBody",
               "description": null,
               "args": [
                 {
@@ -22808,7 +22063,7 @@
               "deprecationReason": null
             },
             {
-              "name": "title",
+              "name": "name",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -22833,6 +22088,12 @@
             },
             {
               "name": "publishedAt",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "excerpt",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -23336,13 +22597,7 @@
               "deprecationReason": null
             },
             {
-              "name": "tag___title",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "tag___description",
+              "name": "tag___name",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -23576,6 +22831,12 @@
               "deprecationReason": null
             },
             {
+              "name": "description",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "relatedProjects",
               "description": null,
               "isDeprecated": false,
@@ -23618,7 +22879,7 @@
               "deprecationReason": null
             },
             {
-              "name": "relatedProjects___title",
+              "name": "relatedProjects___name",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -23643,6 +22904,12 @@
             },
             {
               "name": "relatedProjects___publishedAt",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "relatedProjects___excerpt",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -23924,13 +23191,7 @@
               "deprecationReason": null
             },
             {
-              "name": "relatedProjects___tag___title",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___tag___description",
+              "name": "relatedProjects___tag___name",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -24020,6 +23281,12 @@
               "deprecationReason": null
             },
             {
+              "name": "relatedProjects___description",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "relatedProjects___relatedProjects",
               "description": null,
               "isDeprecated": false,
@@ -24062,7 +23329,7 @@
               "deprecationReason": null
             },
             {
-              "name": "relatedProjects___relatedProjects___title",
+              "name": "relatedProjects___relatedProjects___name",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -24087,6 +23354,12 @@
             },
             {
               "name": "relatedProjects___relatedProjects___publishedAt",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "relatedProjects___relatedProjects___excerpt",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -24170,13 +23443,7 @@
               "deprecationReason": null
             },
             {
-              "name": "relatedProjects___relatedProjects___tag___title",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___relatedProjects___tag___description",
+              "name": "relatedProjects___relatedProjects___tag___name",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -24189,6 +23456,12 @@
             },
             {
               "name": "relatedProjects___relatedProjects___tag___children",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "relatedProjects___relatedProjects___description",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -24236,13 +23509,19 @@
               "deprecationReason": null
             },
             {
-              "name": "relatedProjects___relatedProjects___relatedProjects___title",
+              "name": "relatedProjects___relatedProjects___relatedProjects___name",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "relatedProjects___relatedProjects___relatedProjects___publishedAt",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "relatedProjects___relatedProjects___relatedProjects___excerpt",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -24266,31 +23545,19 @@
               "deprecationReason": null
             },
             {
+              "name": "relatedProjects___relatedProjects___relatedProjects___description",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "relatedProjects___relatedProjects___relatedProjects___relatedProjects",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "relatedProjects___relatedProjects___relatedProjects___excerpt",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___relatedProjects___relatedProjects___body",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "relatedProjects___relatedProjects___relatedProjects____rawSlug",
-              "description": null,
-              "isDeprecated": true,
-              "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-            },
-            {
-              "name": "relatedProjects___relatedProjects___relatedProjects____rawExcerpt",
               "description": null,
               "isDeprecated": true,
               "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -24303,12 +23570,6 @@
             },
             {
               "name": "relatedProjects___relatedProjects___relatedProjects____rawTag",
-              "description": null,
-              "isDeprecated": true,
-              "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-            },
-            {
-              "name": "relatedProjects___relatedProjects___relatedProjects____rawBody",
               "description": null,
               "isDeprecated": true,
               "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -24332,85 +23593,7 @@
               "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
             },
             {
-              "name": "relatedProjects___relatedProjects___excerpt",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___relatedProjects___excerpt____key",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___relatedProjects___excerpt____type",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___relatedProjects___excerpt___sanityChildren",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___relatedProjects___excerpt___style",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___relatedProjects___excerpt___list",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___relatedProjects___body",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___relatedProjects___body____key",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___relatedProjects___body____type",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___relatedProjects___body___sanityChildren",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___relatedProjects___body___style",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___relatedProjects___body___list",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "relatedProjects___relatedProjects____rawSlug",
-              "description": null,
-              "isDeprecated": true,
-              "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-            },
-            {
-              "name": "relatedProjects___relatedProjects____rawExcerpt",
               "description": null,
               "isDeprecated": true,
               "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -24423,12 +23606,6 @@
             },
             {
               "name": "relatedProjects___relatedProjects____rawTag",
-              "description": null,
-              "isDeprecated": true,
-              "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-            },
-            {
-              "name": "relatedProjects___relatedProjects____rawBody",
               "description": null,
               "isDeprecated": true,
               "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -24524,133 +23701,7 @@
               "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
             },
             {
-              "name": "relatedProjects___excerpt",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___excerpt____key",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___excerpt____type",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___excerpt___sanityChildren",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___excerpt___sanityChildren____key",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___excerpt___sanityChildren____type",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___excerpt___sanityChildren___marks",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___excerpt___sanityChildren___text",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___excerpt___style",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___excerpt___list",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___body",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___body____key",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___body____type",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___body___sanityChildren",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___body___sanityChildren____key",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___body___sanityChildren____type",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___body___sanityChildren___marks",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___body___sanityChildren___text",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___body___style",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "relatedProjects___body___list",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "relatedProjects____rawSlug",
-              "description": null,
-              "isDeprecated": true,
-              "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-            },
-            {
-              "name": "relatedProjects____rawExcerpt",
               "description": null,
               "isDeprecated": true,
               "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -24663,12 +23714,6 @@
             },
             {
               "name": "relatedProjects____rawTag",
-              "description": null,
-              "isDeprecated": true,
-              "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-            },
-            {
-              "name": "relatedProjects____rawBody",
               "description": null,
               "isDeprecated": true,
               "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -24908,133 +23953,7 @@
               "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
             },
             {
-              "name": "excerpt",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "excerpt____key",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "excerpt____type",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "excerpt___sanityChildren",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "excerpt___sanityChildren____key",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "excerpt___sanityChildren____type",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "excerpt___sanityChildren___marks",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "excerpt___sanityChildren___text",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "excerpt___style",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "excerpt___list",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body____key",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body____type",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body___sanityChildren",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body___sanityChildren____key",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body___sanityChildren____type",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body___sanityChildren___marks",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body___sanityChildren___text",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body___style",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "body___list",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "_rawSlug",
-              "description": null,
-              "isDeprecated": true,
-              "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-            },
-            {
-              "name": "_rawExcerpt",
               "description": null,
               "isDeprecated": true,
               "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -25047,12 +23966,6 @@
             },
             {
               "name": "_rawTag",
-              "description": null,
-              "isDeprecated": true,
-              "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-            },
-            {
-              "name": "_rawBody",
               "description": null,
               "isDeprecated": true,
               "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -30039,60 +28952,6 @@
               "deprecationReason": null
             },
             {
-              "name": "author___bio____key",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "author___bio____type",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "author___bio___sanityChildren",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "author___bio___sanityChildren____key",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "author___bio___sanityChildren____type",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "author___bio___sanityChildren___marks",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "author___bio___sanityChildren___text",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "author___bio___style",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "author___bio___list",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "author____rawSlug",
               "description": null,
               "isDeprecated": true,
@@ -30100,12 +28959,6 @@
             },
             {
               "name": "author____rawImage",
-              "description": null,
-              "isDeprecated": true,
-              "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-            },
-            {
-              "name": "author____rawBio",
               "description": null,
               "isDeprecated": true,
               "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -31306,13 +30159,7 @@
               "deprecationReason": null
             },
             {
-              "name": "title",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "description",
+              "name": "name",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -35233,25 +34080,142 @@
           "possibleTypes": null
         },
         {
-          "kind": "UNION",
-          "name": "SanityBlockOrFigure",
+          "kind": "OBJECT",
+          "name": "SanityBlock",
           "description": null,
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": [
+          "fields": [
             {
-              "kind": "OBJECT",
-              "name": "SanityBlock",
-              "ofType": null
+              "name": "_key",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "kind": "OBJECT",
-              "name": "SanityFigure",
-              "ofType": null
+              "name": "_type",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "sanityChildren",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "SanitySpan",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "style",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "list",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
-          ]
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SanitySpan",
+          "description": null,
+          "fields": [
+            {
+              "name": "_key",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "_type",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "marks",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "text",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
         },
         {
           "kind": "OBJECT",
@@ -35685,7 +34649,7 @@
         },
         {
           "name": "childOf",
-          "description": "Define parent-child relations between types. This is used to add `child*` or `children*` convenience fields like `childImageSharp`.",
+          "description": "Define parent-child relations between types. This is used to add `child*` and `children*` convenience fields like `childImageSharp`.",
           "locations": [
             "OBJECT"
           ],
