@@ -10,14 +10,10 @@ const LayoutStyles = styled.div`
   width: 100%;
   grid-template-columns: 1fr;
   grid-template-areas: "header" "content" "footer";
-
-  footer {
-    grid-area: footer;
-  }
 `;
 
 type LayoutProps = {
-  children?: React.ReactNode;
+  children?: React.ReactElement;
 };
 
 const Layout = ({ children }: LayoutProps) => {

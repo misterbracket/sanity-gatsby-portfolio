@@ -7,11 +7,17 @@ const GlobalStyles = createGlobalStyle`
     --yellow: #ffc600;
     --white: #fff;
     --grey: #efefef;
+    --pink: rgba(244,236,230, 0.85);
+    --blue: #0050FF;
   }
   html {
     background-size: 450px;
     background-attachment: fixed;
     font-size: 10px;
+  }
+
+  *, *::before, *::after {
+  box-sizing: border-box;
   }
 
   body {
@@ -47,7 +53,7 @@ const GlobalStyles = createGlobalStyle`
   }
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--red) var(--white);
+    scrollbar-color: var(--blue) var(--white);
   }
   body::-webkit-scrollbar-track {
     background: var(--white);
