@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const TitleStyles = styled.div`
   grid-area: title;
+  
 `;
 
 const Title = () => {

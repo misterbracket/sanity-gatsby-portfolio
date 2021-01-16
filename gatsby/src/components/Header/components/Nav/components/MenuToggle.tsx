@@ -13,6 +13,9 @@ const MenuToggleStyles = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (min-width: 800px) {
+    display: none;
+  }
 `;
 function MenuToggle({ isOpen, toggleNav }: MenuToggleProps) {
   return (

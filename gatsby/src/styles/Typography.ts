@@ -1,21 +1,43 @@
 import { createGlobalStyle } from "styled-components";
 
-import font from "./../assets/fonts/montserat-black.ttf";
-
 const Typography = createGlobalStyle`
-  @font-face {
-    font-family: MontSerat;
-    src: url(${font});
-  }
+
+@font-face {
+  font-family: "Poppins";
+  src: url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+  font-weight: normal;
+  font-style: normal;
+
+  font-family: "Poppins";
+  src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+  font-weight: bold;
+  font-style: normal;
+
+  font-family: "Poppins";
+  src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
+  font-weight: bolder;
+  font-style: normal;
+
+  font-family: "Poppins";
+  src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+  font-weight: bold;
+  font-style: normal;
+
+  font-family: "Poppins";
+  src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
+  font-weight: normal;
+  font-style: italic;
+}
   html {
-    font-family: MontSerat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    font-family: Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: var(--black);
   }
   p, li {
     letter-spacing: 0.5px;
   }
   h1,h2,h3,h4,h5,h6 {
-    font-weight: normal;
+    font-weight: bold;
     margin: 0;
   }
   a {

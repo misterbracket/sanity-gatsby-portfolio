@@ -11,7 +11,10 @@ const HeaderSyles = styled.header`
   width: 100%;
   text-align: center;
   z-index: 999;
-  background: rgba(247, 247, 247, 0.85);
+  background: var(--white);
+  @media screen and (min-width: 800px) {
+    grid-template-columns: 1fr 2fr;
+  }
 `;
 
 function Header() {

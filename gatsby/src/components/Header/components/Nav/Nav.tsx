@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
+import { useMedia } from "react-use";
 import { Link } from "gatsby";
 import { MenuToggle } from "./components";
 
@@ -34,15 +35,31 @@ const NavStyles = styled.nav`
   .active {
     color: var(--blue);
   }
+  @media screen and (min-width: 800px) {
+    position: static;
+    display: grid;
+    place-items: center center;
+    height: auto;
+    width: auto;
+    background: var(--white);
+    ul {
+      flex-direction: row;
+      width: 100%;
+      justify-content: flex-end;
+      padding: 1rem;
+    }
+  }
 `;
 
 const Nav = () => {
   const navItems = useRef<HTMLElement>(null);
+  const isWide = useMedia("(min-width: 800px)");
+
   const [isOpen, setOpen] = useState(false);
 
   const toggleNav = () => {
     setOpen(!isOpen);
-    if (navItems && navItems.current) {
+    if (navItems.current!) {
       isOpen
         ? (navItems.current.style.display! = "none")
         : (navItems.current.style.display! = "grid");
@@ -55,7 +72,7 @@ const Nav = () => {
         <ul>
           <li>
             <Link
-              onClick={toggleNav}
+              onClick={!isWide ? toggleNav : undefined}
               className="link"
               activeClassName={"active"}
               to="/"
@@ -65,7 +82,7 @@ const Nav = () => {
           </li>
           <li>
             <Link
-              onClick={toggleNav}
+              onClick={!isWide ? toggleNav : undefined}
               className="link"
               activeClassName={"active"}
               to="/resume"
@@ -75,7 +92,7 @@ const Nav = () => {
           </li>
           <li>
             <Link
-              onClick={toggleNav}
+              onClick={!isWide ? toggleNav : undefined}
               className="link"
               activeClassName={"active"}
               to="/projects"
@@ -85,7 +102,7 @@ const Nav = () => {
           </li>
           <li>
             <Link
-              onClick={toggleNav}
+              onClick={!isWide ? toggleNav : undefined}
               className="link"
               activeClassName={"active"}
               to="/contact"
