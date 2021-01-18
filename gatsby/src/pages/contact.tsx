@@ -3,7 +3,7 @@ import { PageProps } from "gatsby";
 import { SEO } from "../components";
 import styled from "styled-components";
 
-const ConactStyles = styled.div`
+const ConactStyles = styled.main`
   height: 200vh;
   background-image: url("https://unsplash.it/1000/1000");
   background-color: #333;

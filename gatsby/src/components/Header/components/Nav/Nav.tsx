@@ -13,15 +13,16 @@ const NavStyles = styled.nav`
   width: 100vw;
   height: 100vh;
   display: none;
-  place-items: center center;
+  justify-items: center;
   ul {
+    top: 30vh;
     position: relative;
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 3rem;
   }
 
@@ -29,8 +30,9 @@ const NavStyles = styled.nav`
     text-align: left;
     color: var(--black);
     text-decoration: none;
-    font-size: 1.8rem;
+    font-size: 2rem;
     text-transform: uppercase;
+    font-weight: bolder;
   }
   .active {
     color: var(--blue);
@@ -43,10 +45,14 @@ const NavStyles = styled.nav`
     width: auto;
     background: var(--white);
     ul {
+      top: 0;
       flex-direction: row;
       width: 100%;
       justify-content: flex-end;
       padding: 1rem;
+    }
+    .link {
+      line-height: 35px;
     }
   }
 `;

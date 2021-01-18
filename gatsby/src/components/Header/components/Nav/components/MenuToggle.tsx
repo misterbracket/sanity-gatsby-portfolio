@@ -11,8 +11,9 @@ type MenuToggleProps = {
 const MenuToggleStyles = styled.div`
   z-index: 9999;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  padding-right: 3rem;
   @media screen and (min-width: 800px) {
     display: none;
   }
@@ -24,10 +25,10 @@ function MenuToggle({ isOpen, toggleNav }: MenuToggleProps) {
         <AiOutlineClose
           color={"var(--blue)"}
           title={"Close Menu"}
-          size={"30"}
+          size={"35"}
         />
       ) : (
-        <RiMenuFill color={"var(--blue)"} title={"Open Menu"} size={"30"} />
+        <RiMenuFill color={"var(--blue)"} title={"Open Menu"} size={"35"} />
       )}
     </MenuToggleStyles>
   );

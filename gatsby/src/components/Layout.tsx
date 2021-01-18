@@ -8,8 +8,14 @@ import Header from "./Header";
 const LayoutStyles = styled.div`
   display: grid;
   width: 100%;
+  height: 100vh;
   grid-template-columns: 1fr;
-  grid-template-areas: "header" "content" "footer";
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "header" "main" "footer";
+  main {
+    width: 100vw;
+    grid-area: main;
+  }
 `;
 
 type LayoutProps = {

@@ -30,14 +30,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   button {
-    background: var(--red);
+    background: var(--blue);
     color: white;
     border: 0;
     padding: 0.6rem 1rem;
     border-radius: 2px;
     cursor: pointer;
     --cast: 2px;
-    box-shadow: var(--cast) var(--cast) 0 var(--grey);
+    box-shadow: var(--cast) var(--cast) 0 var(--xxdx);
     text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.2);
     transition: all 0.2s;
     &:hover {
@@ -48,20 +48,25 @@ const GlobalStyles = createGlobalStyle`
 
 
   /* Scrollbar Styles */
-  body::-webkit-scrollbar {
-    width: 12px;
-  }
+  /*Firefox implementation */
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--blue) var(--white);
+    scrollbar-color: var(--grey) var(--white);
+    scroll-padding-top: 230px; /* height of sticky header */
+  }
+
+
+  /* Chrome implementation*/
+  body::-webkit-scrollbar {
+    width: 10px;
   }
   body::-webkit-scrollbar-track {
     background: var(--white);
   }
   body::-webkit-scrollbar-thumb {
     background-color: var(--grey) ;
-    border-radius: 6px;
-    border: 3px solid var(--white);
+    border-radius: 5px;
+    border: 2px solid var(--white);
   }
 
   hr {
