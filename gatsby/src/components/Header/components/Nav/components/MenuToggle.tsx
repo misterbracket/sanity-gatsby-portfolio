@@ -14,7 +14,7 @@ const MenuToggleStyles = styled.div`
   justify-content: flex-end;
   align-items: center;
   padding-right: 3rem;
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 840px) {
     display: none;
   }
 `;

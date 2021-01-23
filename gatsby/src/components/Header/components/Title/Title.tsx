@@ -7,7 +7,7 @@ const TitleStyles = styled.div`
   text-align: left;
   padding: 1rem 3rem;
   .title {
-    line-height: 2.5rem;
+    margin-bottom: 0;
   }
   .blueDot {
     display: inline-block;
@@ -19,8 +19,9 @@ const TitleStyles = styled.div`
     position: relative;
     left: 20px;
     text-decoration: none;
-    font-weight: 900;
-    font-size: 2rem;
+    font-weight: bolder;
+    font-size: var(--big);
+    white-space: nowrap;
   }
   .slug {
     margin-top: 0rem;
@@ -28,7 +29,8 @@ const TitleStyles = styled.div`
   .slug p {
     font-size: 1.4rem;
     text-transform: uppercase;
-    line-height: 0.8rem;
+    white-space: nowrap;
+    margin: 0;
   }
 `;
 

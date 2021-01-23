@@ -28,16 +28,63 @@ const Typography = createGlobalStyle`
   font-weight: normal;
   font-style: italic;
 }
-  html {
 
-    font-family: Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: var(--black);
-  }
+:root {
+  --very-very-small: 0.75rem;
+  --very-small: 1rem;
+  --small: 1.333rem;
+  --normal: 1.777rem;
+  --big: 2.369rem;
+  --very-big: 3.157rem;
+  --very-very-big: 4.209rem
+}
 
-  h1,h2,h3,h4,h5,h6 {
-    font-weight: bolder;
-    margin: 0;
-  }
+
+/*Done with https://type-scale.com/*/
+html {font-size: 62.5%;} /*10px*/
+
+body {
+  background: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #000000;
+}
+
+p {
+   font-size: var(--normal)}
+
+h1, h2, h3, h4, h5 {
+  margin: 3rem 0 1.38rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: var(--very-very-big);
+  font-weight: bolder;
+}
+
+h2 {font-size: var(--very-big);
+  font-weight: bolder;
+}
+
+h3 {font-size: var(--big);
+  font-weight: bold;
+}
+
+h4 {font-size: var(--normal);
+  font-weight: bold;
+}
+
+h5 {font-size: var(--small);
+  font-weight: bold;
+}
+
+small, .text_small {font-size: var(--very-small);}
+
   a {
     color: var(--black);
     text-decoration-color: var(--blue);

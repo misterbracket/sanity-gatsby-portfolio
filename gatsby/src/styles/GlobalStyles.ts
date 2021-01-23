@@ -89,6 +89,14 @@ const GlobalStyles = createGlobalStyle`
     image-rendering: -moz-crisp-edges;
     image-rendering: pixelated;
   }
+
+  .red {
+    background-color: var(--red);
+  }
+
+  .blue {
+    background-color: var(--blue);
+  }
 `;
 
 export default GlobalStyles;

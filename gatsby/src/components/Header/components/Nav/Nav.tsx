@@ -32,12 +32,12 @@ const NavStyles = styled.nav`
     text-decoration: none;
     font-size: 2rem;
     text-transform: uppercase;
-    font-weight: bolder;
+    font-weight: lighter;
   }
   .active {
     color: var(--blue);
   }
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 840px) {
     position: static;
     display: grid;
     place-items: center center;
@@ -49,7 +49,7 @@ const NavStyles = styled.nav`
       flex-direction: row;
       width: 100%;
       justify-content: flex-end;
-      padding: 1rem;
+      padding: 1rem 2rem;
     }
     .link {
       line-height: 35px;
@@ -59,7 +59,7 @@ const NavStyles = styled.nav`
 
 const Nav = () => {
   const navItems = useRef<HTMLElement>(null);
-  const isWide = useMedia("(min-width: 800px)");
+  const isWide = useMedia("(min-width: 840px)");
 
   const [isOpen, setOpen] = useState(false);
 
