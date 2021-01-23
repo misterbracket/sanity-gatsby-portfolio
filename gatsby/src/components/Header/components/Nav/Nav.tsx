@@ -12,7 +12,7 @@ const NavStyles = styled.nav`
   background-color: var(--pink);
   width: 100vw;
   height: 100vh;
-  display: none;
+  display: grid;
   justify-items: center;
   ul {
     top: 30vh;
@@ -65,59 +65,56 @@ const Nav = () => {
 
   const toggleNav = () => {
     setOpen(!isOpen);
-    if (navItems.current!) {
-      isOpen
-        ? (navItems.current.style.display! = "none")
-        : (navItems.current.style.display! = "grid");
-    }
   };
   return (
     <>
       <MenuToggle isOpen={isOpen} toggleNav={toggleNav} />
-      <NavStyles ref={navItems}>
-        <ul>
-          <li>
-            <Link
-              onClick={!isWide ? toggleNav : undefined}
-              className="link"
-              activeClassName={"active"}
-              to="/"
-            >
-              About Me
-            </Link>
-          </li>
-          <li>
-            <Link
-              onClick={!isWide ? toggleNav : undefined}
-              className="link"
-              activeClassName={"active"}
-              to="/resume"
-            >
-              Resume
-            </Link>
-          </li>
-          <li>
-            <Link
-              onClick={!isWide ? toggleNav : undefined}
-              className="link"
-              activeClassName={"active"}
-              to="/projects"
-            >
-              Projects
-            </Link>
-          </li>
-          <li>
-            <Link
-              onClick={!isWide ? toggleNav : undefined}
-              className="link"
-              activeClassName={"active"}
-              to="/contact"
-            >
-              Contact Me
-            </Link>
-          </li>
-        </ul>
-      </NavStyles>
+      {isOpen || isWide ? (
+        <NavStyles ref={navItems}>
+          <ul>
+            <li>
+              <Link
+                onClick={!isWide ? toggleNav : undefined}
+                className="link"
+                activeClassName={"active"}
+                to="/"
+              >
+                About Me
+              </Link>
+            </li>
+            <li>
+              <Link
+                onClick={!isWide ? toggleNav : undefined}
+                className="link"
+                activeClassName={"active"}
+                to="/resume"
+              >
+                Resume
+              </Link>
+            </li>
+            <li>
+              <Link
+                onClick={!isWide ? toggleNav : undefined}
+                className="link"
+                activeClassName={"active"}
+                to="/projects"
+              >
+                Projects
+              </Link>
+            </li>
+            <li>
+              <Link
+                onClick={!isWide ? toggleNav : undefined}
+                className="link"
+                activeClassName={"active"}
+                to="/contact"
+              >
+                Contact Me
+              </Link>
+            </li>
+          </ul>
+        </NavStyles>
+      ) : null}
     </>
   );
 };
