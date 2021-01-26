@@ -1,33 +1,12 @@
 import { createGlobalStyle } from "styled-components";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/700.css";
+import "@fontsource/poppins/900.css";
+import "@fontsource/poppins/900-italic.css";
 
 const Typography = createGlobalStyle`
 
-@font-face {
-  font-family: "Poppins";
-  src: url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-  font-weight: normal;
-  font-style: normal;
 
-  font-family: "Poppins";
-  src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
-  font-weight: bold;
-  font-style: normal;
-
-  font-family: "Poppins";
-  src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
-  font-weight: bolder;
-  font-style: normal;
-
-  font-family: "Poppins";
-  src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
-  font-weight: bold;
-  font-style: normal;
-
-  font-family: "Poppins";
-  src: url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap');
-  font-weight: normal;
-  font-style: italic;
-}
 
 :root {
   --very-very-small: 0.75rem;
@@ -83,7 +62,7 @@ h5 {font-size: var(--small);
   font-weight: bold;
 }
 
-small, .text_small {font-size: var(--very-small);}
+small, .text_small {font-size: var(--small);}
 
   a {
     color: var(--black);

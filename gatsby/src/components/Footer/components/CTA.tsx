@@ -10,13 +10,13 @@ const FooterStyles = styled.div`
     flex-basis: 150px;
     flex-grow: 1;
     flex-shrink: 0;
-    padding: 1rem 2rem;
+    padding: 0.75rem 2rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
-    min-height: 70px;
-    h5 {
+    min-height: 50px;
+    h4 {
       margin: 0 2rem 0 0;
       width: 35px;
     }
@@ -33,11 +33,11 @@ const CTA = ({}) => {
   return (
     <FooterStyles>
       <div className="item">
-        <h5>Call</h5>
+        <h4>Call</h4>
         <p>🇲🇹 +356 7903 4344</p>
       </div>
       <div className="item">
-        <h5>Write</h5>
+        <h4>Write</h4>
         <p>
           <a href="mailto:maximilian.klammer@gmail.com">
             maximilian.klammer@gmail.com

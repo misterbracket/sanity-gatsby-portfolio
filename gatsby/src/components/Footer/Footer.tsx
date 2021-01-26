@@ -8,7 +8,7 @@ const FooterStyles = styled.footer`
   flex-wrap: wrap;
 
   .copy {
-    padding: 1rem 2rem;
+    padding: 0.75rem 2rem;
     display: flex;
     align-items: center;
   }
@@ -23,9 +23,9 @@ const Footer = () => {
   return (
     <FooterStyles>
       <CTA></CTA>
-      <p className="text_small copy">
+      <div className="text_small copy">
         &copy; Maximilian Klammer {new Date().getFullYear()}
-      </p>
+      </div>
     </FooterStyles>
   );
 };

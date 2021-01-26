@@ -8,6 +8,8 @@ const GlobalStyles = createGlobalStyle`
     --white: #fff;
     --grey: #efefef;
     --pink: rgba(244,236,230, 0.85);
+    --dark-pink: #E6DACE;
+    --light-pink: #F4ECE6;
     --blue: #0050FF;
   }
   html {
