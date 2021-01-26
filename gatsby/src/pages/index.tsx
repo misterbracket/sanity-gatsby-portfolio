@@ -17,7 +17,7 @@ const AboutMeStyles = styled.main`
     background: var(--dark-pink);
   }
   .subheading {
-    font-weight: lighter;
+    font-weight: 300;
   }
 `;
 

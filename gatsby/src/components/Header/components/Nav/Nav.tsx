@@ -32,7 +32,7 @@ const NavStyles = styled.nav`
     text-decoration: none;
     font-size: 2rem;
     text-transform: uppercase;
-    font-weight: lighter;
+    font-weight: 300;
   }
   .active {
     color: var(--blue);

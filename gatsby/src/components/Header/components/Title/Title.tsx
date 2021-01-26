@@ -19,7 +19,7 @@ const TitleStyles = styled.div`
     position: relative;
     left: 20px;
     text-decoration: none;
-    font-weight: bolder;
+    font-weight: 900;
     font-size: var(--big);
     white-space: nowrap;
   }
