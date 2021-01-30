@@ -9,8 +9,10 @@ const GlobalStyles = createGlobalStyle`
     --grey: #efefef;
     --pink: rgba(244,236,230, 0.85);
     --dark-pink: #E6DACE;
-    --light-pink: #F4ECE6;
+    --light-pink: rgba(244, 236, 230,1);
     --blue: #0050FF;
+    /**Boxshadow */
+    --shd:-11.31px 11.31px 17px 0px rgba(138,131,124,0.23);
   }
   html {
     background-size: 450px;
