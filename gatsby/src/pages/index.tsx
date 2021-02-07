@@ -44,7 +44,8 @@ const ContentStyles = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 150px;
+    padding-left: 17rem;
+    padding-right: 7rem;
 
     .content-wrapper {
       background-color: var(--white);
