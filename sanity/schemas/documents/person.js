@@ -27,6 +27,11 @@ export default {
       type: 'figure'
     },
     {
+      name: 'profileslug',
+      type: 'string',
+      title: 'Profile Slug'
+    },
+    {
       name: 'bio',
       title: 'Short Bio',
       type: 'text'

@@ -1,8 +1,10 @@
 import React from "react";
-import { graphql, PageProps } from "gatsby";
+import { graphql, Link, PageProps } from "gatsby";
 import { SEO } from "../components";
 import styled from "styled-components";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
+import { useMedia } from "react-use";
+import { Button } from "../components/Button";
 
 const AboutMeStyles = styled.main`
   --margin-top: 270px;
@@ -16,6 +18,18 @@ const AboutMeStyles = styled.main`
   .container {
     position: relative;
     top: -150px;
+    @media screen and (min-width: 840px) {
+      display: grid;
+      grid-template: auto / 45% 55%;
+      position: static;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @media screen and (min-width: 840px) {
+    position: static;
+    margin: 0;
   }
 `;
 const ContentStyles = styled.section`
@@ -23,9 +37,43 @@ const ContentStyles = styled.section`
   .subheading {
     font-weight: 300;
   }
+
+  @media screen and (min-width: 840px) {
+    background-color: var(--white);
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 150px;
+
+    .content-wrapper {
+      background-color: var(--white);
+      max-height: 500px;
+      overflow: scroll;
+    }
+    .subheading {
+      font-weight: 400;
+    }
+    h1 {
+      font-size: var(--super-big);
+      margin: 0;
+      line-height: normal;
+      font-weight: 700;
+    }
+  }
+  .btn-group {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 270px;
+    gap: 1rem;
+  }
 `;
 
 const index = ({ location, data }: PageProps) => {
+  const isWide = useMedia("(min-width: 840px)");
+
   const person = data.sanityPerson;
   return (
     <>
@@ -34,9 +82,25 @@ const index = ({ location, data }: PageProps) => {
         <div className="container">
           <ProfileCard person={person}></ProfileCard>
           <ContentStyles>
-            <h1>HELLO</h1>
-            <h3 className="subheading">Here's who I am am & what I do</h3>
-            <p>{person.bio}</p>
+            <div className="content-wrapper">
+              <h1>HELLO</h1>
+              <h3 className="subheading">Here's who I am am & what I do</h3>
+              {isWide && (
+                <div className="btn-group">
+                  <Button color="dark">
+                    <Link className="link" to="/resume">
+                      Resume
+                    </Link>
+                  </Button>
+                  <Button color="light">
+                    <Link className="link" to="/projects">
+                      Projects
+                    </Link>
+                  </Button>
+                </div>
+              )}
+              <p>{person.bio}</p>
+            </div>
           </ContentStyles>
         </div>
       </AboutMeStyles>

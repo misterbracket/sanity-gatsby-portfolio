@@ -14,7 +14,8 @@ const Typography = createGlobalStyle`
     --normal: 1.777rem;
     --big: 2.369rem;
     --very-big: 3.157rem;
-    --very-very-big: 4.209rem
+    --very-very-big: 4.209rem;
+    --super-big: 10rem;
   }
 
 
@@ -24,13 +25,14 @@ const Typography = createGlobalStyle`
   body {
     background: white;
     font-family: 'Poppins', sans-serif;
-    font-weight: 400;
+    font-weight: lighter;
     line-height: 1.75;
     color: #000000;
   }
 
   p {
-    font-size: var(--normal)}
+    font-size: var(--normal)
+    }
 
   h1, h2, h3, h4, h5 {
     margin: 3rem 0 1.38rem;

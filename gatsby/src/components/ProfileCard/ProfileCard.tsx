@@ -4,6 +4,7 @@ import { AiFillLinkedin } from "react-icons/ai";
 import styled from "styled-components";
 import { Link } from "gatsby";
 import { Button } from "../Button";
+import { useMedia } from "react-use";
 
 const ProfileCardStyles = styled.div`
   display: grid;
@@ -12,6 +13,13 @@ const ProfileCardStyles = styled.div`
   background: var(--light-pink);
   box-shadow: var(--shd, 0 1px 4px rgba(0, 0, 0, 0.6));
   max-width: 370px;
+  @media screen and (min-width: 840px) {
+    position: relative;
+    right: -150px;
+    margin-left: auto;
+    max-height: 500px;
+    margin-top: auto;
+    margin-bottom: auto;
 `;
 const CardStyles = styled.div`
   display: flex;
@@ -24,8 +32,8 @@ const CardStyles = styled.div`
       max-width: 100%;
     }
     border-radius: 50%;
-    height: 15rem;
-    width: 15rem;
+    height: 18rem;
+    width: 18rem;
   }
   .name {
     text-decoration: none;
@@ -45,6 +53,9 @@ const CardStyles = styled.div`
     width: 100%;
     max-width: 270px;
     gap: 1rem;
+  }
+  .profile-slug {
+    letter-spacing: 0.25em;
   }
 `;
 const SocialLinksStyles = styled.div`
@@ -75,6 +86,8 @@ type ProfileCardProps = {
 };
 
 const ProfileCard = ({ person }: ProfileCardProps) => {
+  const isWide = useMedia("(min-width: 840px)");
+
   return (
     <ProfileCardStyles>
       <CardStyles>
@@ -85,18 +98,24 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
         />
         <h2 className="name center">{person.name}</h2>
         <hr />
-        <div className="btn-group">
-          <Button color="dark">
-            <Link className="link" to="/resume">
-              Resume
-            </Link>
-          </Button>
-          <Button color="light">
-            <Link className="link" to="/projects">
-              Projects
-            </Link>
-          </Button>
-        </div>
+        {isWide ? (
+          <span className="profile-slug center">
+            Web Dev and Tech Enthusiast
+          </span>
+        ) : (
+          <div className="btn-group">
+            <Button color="dark">
+              <Link className="link" to="/resume">
+                Resume
+              </Link>
+            </Button>
+            <Button color="light">
+              <Link className="link" to="/projects">
+                Projects
+              </Link>
+            </Button>
+          </div>
+        )}
       </CardStyles>
       <SocialLinksStyles>
         <Link
