@@ -1,31 +1,35 @@
-import {GiAstronautHelmet as icon} from 'react-icons/gi'
-import {format} from 'date-fns'
+import {FaGraduationCap as icon} from 'react-icons/fa'
 
 export default {
-  name: 'project',
-  title: 'Project',
-  type: 'document',
+  name: 'education',
+  title: 'Education',
   icon,
+  type: 'document',
   fields: [
     {
-      name: 'name',
-      title: 'Name',
+      name: 'degree',
+      title: 'Degree',
       type: 'string'
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      description: 'Education Slug',
       options: {
-        source: 'name',
+        source: 'degree',
         maxLength: 96
       }
     },
     {
-      name: 'publishedAt',
-      title: 'Published at',
-      description: 'You can use this field to schedule projects where you show them',
-      type: 'date'
+      name: 'institution',
+      title: 'Institution',
+      type: 'string'
+    },
+    {
+      name: 'location',
+      title: 'Location',
+      type: 'string' // refactor to geopoint at some point
     },
     {
       name: 'excerpt',
@@ -63,28 +67,20 @@ export default {
       name: 'description',
       title: 'Description',
       type: 'text'
-    },
-    {
-      name: 'relatedProjects',
-      title: 'Related projects',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'project'}}]
     }
   ],
   preview: {
     select: {
-      title: 'name',
-      publishedAt: 'publishedAt',
+      title: 'degree',
       slug: 'slug',
-      media: 'mainImage'
+      media: 'mainImage',
+      excerpt: 'excerpt'
     },
-    prepare ({title = 'No title', publishedAt, slug = {}, media}) {
-      const dateSegment = format(publishedAt, 'YYYY/MM')
-      const path = `/${dateSegment}/${slug.current}/`
+    prepare ({title = 'No title', excerpt, slug = {}, media}) {
       return {
         title,
         media,
-        subtitle: publishedAt ? path : 'Missing publishing date'
+        subtitle: excerpt || 'Missing excerpt'
       }
     }
   }

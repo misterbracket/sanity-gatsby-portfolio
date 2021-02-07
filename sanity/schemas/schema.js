@@ -10,6 +10,7 @@ import person from './documents/person'
 import project from './documents/project'
 import siteSettings from './documents/siteSettings'
 import job from './documents/job'
+import education from './documents/education'
 
 // Object types
 import figure from './objects/figure'
@@ -31,6 +32,7 @@ export default createSchema({
     person,
     project,
     siteSettings,
-    job
+    job,
+    education
   ])
 })

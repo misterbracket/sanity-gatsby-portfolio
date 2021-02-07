@@ -15,9 +15,8 @@ export default {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      description: 'Some frontend will require a slug to be set to be able to show the job',
       options: {
-        source: 'title',
+        source: 'name',
         maxLength: 96
       }
     },
@@ -39,12 +38,18 @@ export default {
     {
       name: 'startedAt',
       title: 'Started at',
-      type: 'datetime'
+      type: 'date',
+      options: {
+        dateFormat: 'DD-MM-YYYY'
+      }
     },
     {
       name: 'endedAt',
       title: 'Ended at',
-      type: 'datetime'
+      type: 'date',
+      options: {
+        dateFormat: 'DD-MM-YYYY'
+      }
     },
     {
       name: 'mainImage',
