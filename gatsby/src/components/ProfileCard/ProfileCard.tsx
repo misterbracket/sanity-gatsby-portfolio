@@ -93,8 +93,6 @@ type ProfileCardProps = {
 
 const ProfileCard = ({ person }: ProfileCardProps) => {
   const isWide = useMedia("(min-width: 840px)");
-
-  console.log(person);
   return (
     <ProfileCardStyles>
       <CardStyles>

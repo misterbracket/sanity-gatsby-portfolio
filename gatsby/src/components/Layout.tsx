@@ -10,7 +10,7 @@ const LayoutStyles = styled.div`
   width: 100%;
   height: 100vh;
   grid-template-columns: 1fr;
-  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
   grid-template-areas: "header" "main" "footer";
   main {
     width: 100vw;
