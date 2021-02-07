@@ -9,17 +9,18 @@ import { useMedia } from "react-use";
 const ProfileCardStyles = styled.div`
   display: grid;
   grid-template: 1fr auto / 1fr;
-  margin: 3rem 2rem;
+  margin: 3rem auto;
   background: var(--light-pink);
   box-shadow: var(--shd, 0 1px 4px rgba(0, 0, 0, 0.6));
   max-width: 370px;
+  align-self: center;
   @media screen and (min-width: 840px) {
     position: relative;
-    right: -150px;
-    margin-left: auto;
     max-height: 500px;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: auto 0;
+    justify-self: end;
+    right: -8rem;
+  }
 `;
 const CardStyles = styled.div`
   display: flex;
@@ -55,9 +56,10 @@ const CardStyles = styled.div`
     gap: 1rem;
   }
   .profile-slug {
-    letter-spacing: 0.25em;
+    letter-spacing: 0.2em;
   }
 `;
+
 const SocialLinksStyles = styled.div`
   background: var(--white);
   display: flex;
@@ -82,12 +84,17 @@ const SocialLinksStyles = styled.div`
 `;
 
 type ProfileCardProps = {
-  person: { name: string; image: { asset: { fluid: any } } };
+  person: {
+    name: string;
+    profileslug: string;
+    image: { asset: { fluid: any } };
+  };
 };
 
 const ProfileCard = ({ person }: ProfileCardProps) => {
   const isWide = useMedia("(min-width: 840px)");
 
+  console.log(person);
   return (
     <ProfileCardStyles>
       <CardStyles>
@@ -99,9 +106,7 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
         <h2 className="name center">{person.name}</h2>
         <hr />
         {isWide ? (
-          <span className="profile-slug center">
-            Web Dev and Tech Enthusiast
-          </span>
+          <span className="profile-slug center">{person.profileslug}</span>
         ) : (
           <div className="btn-group">
             <Button color="dark">

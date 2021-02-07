@@ -32,6 +32,16 @@ export default {
       title: 'Profile Slug'
     },
     {
+      name: 'profiletitle',
+      type: 'string',
+      title: 'Profile Title'
+    },
+    {
+      name: 'profilesubheading',
+      type: 'string',
+      title: 'Profile Heading'
+    },
+    {
       name: 'bio',
       title: 'Short Bio',
       type: 'text'

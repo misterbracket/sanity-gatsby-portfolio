@@ -44,7 +44,7 @@ const ContentStyles = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 17rem;
+    padding-left: 10rem;
     padding-right: 7rem;
 
     .content-wrapper {
@@ -61,6 +61,11 @@ const ContentStyles = styled.section`
       line-height: normal;
       font-weight: 700;
     }
+  }
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
   }
   .btn-group {
     margin-top: 1.5rem;
@@ -84,8 +89,8 @@ const index = ({ location, data }: PageProps) => {
           <ProfileCard person={person}></ProfileCard>
           <ContentStyles>
             <div className="content-wrapper">
-              <h1>HELLO</h1>
-              <h3 className="subheading">Here's who I am am & what I do</h3>
+              <h1>{person.profiletitle}</h1>
+              <h3 className="subheading">{person.profilesubheading}</h3>
               {isWide && (
                 <div className="btn-group">
                   <Button color="dark">
@@ -114,6 +119,9 @@ export const query = graphql`
     sanityPerson(name: { regex: "/max/i" }) {
       name
       bio
+      profileslug
+      profiletitle
+      profilesubheading
       image {
         asset {
           fluid(maxWidth: 500) {

@@ -10,7 +10,7 @@ const ButtonStyles = styled.button`
     ${props => (props.color === "dark" ? "var(--blue)" : "var(--black)")};
   padding-left: 3rem;
   padding-right: 3rem;
-  font-size: var(--small);
+  font-size: var(--normal);
 
   a {
     text-decoration: none;

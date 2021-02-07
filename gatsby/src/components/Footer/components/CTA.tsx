@@ -23,7 +23,7 @@ const FooterStyles = styled.div`
     p {
       margin-top: 0;
       margin-bottom: 0;
-      font-size: var(--small);
+      font-size: var(--normal);
       width: 200px;
     }
   }

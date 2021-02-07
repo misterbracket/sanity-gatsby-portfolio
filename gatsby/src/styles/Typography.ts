@@ -8,14 +8,14 @@ import "@fontsource/poppins/400-italic.css";
 const Typography = createGlobalStyle`
 
   :root {
-    --very-very-small: 0.75rem;
-    --very-small: 1rem;
-    --small: 1.333rem;
-    --normal: 1.777rem;
-    --big: 2.369rem;
-    --very-big: 3.157rem;
-    --very-very-big: 4.209rem;
-    --super-big: 10rem;
+    --very-very-small: 0.5rem;
+    --very-small: 0.707rem;
+    --small: 1rem;
+    --normal: 1.414rem;
+    --big: 1.999rem;
+    --very-big: 2.827rem;
+    --very-very-big: 3.998rem;
+    --super-big: 11.302rem;
   }
 
 
