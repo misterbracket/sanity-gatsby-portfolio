@@ -22,6 +22,16 @@ export default {
       }
     },
     {
+      name: 'company',
+      title: 'Company',
+      type: 'string'
+    },
+    {
+      name: 'location',
+      title: 'Location',
+      type: 'string' // refactor to geopoint at some point
+    },
+    {
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text'

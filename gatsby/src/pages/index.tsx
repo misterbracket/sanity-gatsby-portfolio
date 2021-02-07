@@ -7,7 +7,7 @@ import { useMedia } from "react-use";
 import { Button } from "../components/Button";
 
 const AboutMeStyles = styled.main`
-  --margin-top: 270px;
+  --margin-top: 150px;
   margin-top: var(--margin-top);
   background: var(--dark-pink);
   width: 100%;

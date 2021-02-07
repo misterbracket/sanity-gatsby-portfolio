@@ -31,7 +31,8 @@ const Typography = createGlobalStyle`
   }
 
   p {
-    font-size: var(--normal)
+    font-size: var(--normal);
+    line-height: 3rem;
     }
 
   h1, h2, h3, h4, h5 {

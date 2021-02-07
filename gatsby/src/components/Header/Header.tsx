@@ -7,7 +7,8 @@ const HeaderSyles = styled.header`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-template-areas: "title nav";
-  position: fixed;
+  position: sticky;
+  top: 0;
   width: 100%;
   text-align: center;
   z-index: 999;
