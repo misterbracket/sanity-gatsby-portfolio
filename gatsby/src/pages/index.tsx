@@ -4,7 +4,7 @@ import { SEO } from "../components";
 import styled from "styled-components";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
 import { useMedia } from "react-use";
-import { Button } from "../components/Button";
+import { Button } from "../components/ui-components";
 
 const AboutMeStyles = styled.main`
   --margin-top: 150px;

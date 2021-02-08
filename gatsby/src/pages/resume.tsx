@@ -3,11 +3,21 @@ import { graphql, PageProps } from "gatsby";
 import { SEO } from "../components";
 import styled from "styled-components";
 import { ResumeCard } from "../components/ResumeCard";
+import { Heading } from "../components/ui-components";
 
 const ResumeStyles = styled.main`
   display: grid;
-  place-items: center;
+  place-items: center center;
+  font-size: var(--normal);
+  grid-template: repeat(auto-fill, minmax(20px, 100%)) / 1fr calc(65ch + 14rem) 1fr;
+  gap: 2.5rem;
   background: var(--dark-pink);
+  & > * {
+    grid-column: 2;
+  }
+  .subheading {
+    justify-self: flex-start;
+  }
 `;
 
 type allJobData = {
@@ -31,10 +41,12 @@ const resume = ({ location, data }: allJobData & PageProps) => {
     <>
       <SEO title={`Where I come from`} location={location} />
       <ResumeStyles>
-        <h1>Resume</h1>
+        <Heading>Resume</Heading>
+        <h2 className="subheading">Experience</h2>
         {data.allSanityJob.nodes.map(job => (
-          <ResumeCard key={job.id} jobData={job} />
+          <ResumeCard key={job.id} job={job} />
         ))}
+        <h2 className="subheading">Education</h2>
       </ResumeStyles>
     </>
   );

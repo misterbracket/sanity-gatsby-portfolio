@@ -3,7 +3,7 @@ import Img from "gatsby-image";
 import { AiFillLinkedin } from "react-icons/ai";
 import styled from "styled-components";
 import { Link } from "gatsby";
-import { Button } from "../Button";
+import { Button } from "../ui-components";
 import { useMedia } from "react-use";
 
 const ProfileCardStyles = styled.div`
