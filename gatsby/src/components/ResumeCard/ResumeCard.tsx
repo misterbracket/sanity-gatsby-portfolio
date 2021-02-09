@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { GoLocation } from "react-icons/go";
 import { JobData } from "../../pages/resume";
 
 const ResumeCardStyles = styled.article`
@@ -27,8 +28,16 @@ const ResumeCardStyles = styled.article`
     font-size: var(--normal);
     font-weight: 600;
   }
-  h5 {
+  .company {
     margin: 1rem 0;
+  }
+  .location {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    h5 {
+      margin: 0 0 0 0.5rem;
+    }
   }
 `;
 
@@ -40,8 +49,11 @@ export default function ResumeCard({ job }: { job: JobData }) {
           {job.startedAt} - {job.endedAt}
         </p>
         <h4>{job.name}</h4>
-        <h5>{job.company}</h5>
-        <h5>{job.location}</h5>
+        <h5 className="company">{job.company}</h5>
+        <div className="location">
+          <GoLocation className="location-logo" />
+          <h5>{job.location}</h5>
+        </div>
       </div>
       <p className="job-excerpt">{job.excerpt}</p>
     </ResumeCardStyles>
