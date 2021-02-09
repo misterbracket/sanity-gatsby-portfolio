@@ -34,8 +34,12 @@ const AboutMeStyles = styled.main`
 `;
 const ContentStyles = styled.section`
   padding: 3rem 3rem;
+  .hero-title {
+    font-size: var(--very-very-big);
+    font-weight: 700;
+  }
   .subheading {
-    font-weight: 300;
+    font-weight: 500;
   }
 
   @media screen and (min-width: 840px) {
@@ -89,7 +93,7 @@ const index = ({ location, data }: PageProps) => {
           <ProfileCard person={person}></ProfileCard>
           <ContentStyles>
             <div className="content-wrapper">
-              <h1>{person.profiletitle}</h1>
+              <p className="hero-title">{person.profiletitle}</p>
               <h3 className="subheading">{person.profilesubheading}</h3>
               {isWide && (
                 <div className="btn-group">

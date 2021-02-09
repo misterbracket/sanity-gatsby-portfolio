@@ -30,9 +30,9 @@ const NavStyles = styled.nav`
     text-align: left;
     color: var(--black);
     text-decoration: none;
-    font-size: var(--normal);
+    font-size: var(--big);
     text-transform: uppercase;
-    font-weight: 300;
+    font-weight: 700;
   }
   .active {
     color: var(--blue);
@@ -53,6 +53,7 @@ const NavStyles = styled.nav`
     }
     .link {
       line-height: 35px;
+      font-weight: 300;
     }
   }
 `;

@@ -7,14 +7,24 @@ const ResumeCardStyles = styled.article`
   font-size: var(--normal);
   padding: 5rem;
   box-shadow: var(--shd);
+
+  .date {
+    color: var(--blue);
+    font-size: var(--normal);
+    font-weight: bold;
+  }
+  h4 {
+    font-size: var(--normal);
+    font-weight: 400;
+  }
 `;
 
 export default function ResumeCard({ job }: { job: JobData }) {
   return (
     <ResumeCardStyles>
-      <h3>
+      <p className="date">
         {job.startedAt} - {job.endedAt}
-      </h3>
+      </p>
       <h4>{job.name}</h4>
       <h5>{job.company}</h5>
       <h5>{job.location}</h5>

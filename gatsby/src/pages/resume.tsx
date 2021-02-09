@@ -7,15 +7,16 @@ import { Heading } from "../components/ui-components";
 
 const ResumeStyles = styled.main`
   display: grid;
-  place-items: center center;
   font-size: var(--normal);
-  grid-template: repeat(auto-fill, minmax(20px, 100%)) / 1fr calc(65ch + 14rem) 1fr;
+  grid-template-columns: 1fr min(65ch, 100%) 1fr;
   gap: 2.5rem;
   background: var(--dark-pink);
   & > * {
     grid-column: 2;
+    width: 100%;
   }
   .subheading {
+    margin-top: 2.5rem;
     justify-self: flex-start;
   }
 `;
