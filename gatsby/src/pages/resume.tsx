@@ -8,7 +8,7 @@ import { Heading } from "../components/ui-components";
 const ResumeStyles = styled.main`
   display: grid;
   font-size: var(--normal);
-  grid-template-columns: 1fr min(65ch, 100%) 1fr;
+  grid-template-columns: 1fr min(65ch, calc(100% - 5rem)) 1fr;
   gap: 2.5rem;
   background: var(--dark-pink);
   & > * {

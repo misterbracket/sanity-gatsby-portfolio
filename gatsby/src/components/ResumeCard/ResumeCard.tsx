@@ -15,7 +15,7 @@ const ResumeCardStyles = styled.article`
   }
   h4 {
     font-size: var(--normal);
-    font-weight: 400;
+    font-weight: 600;
   }
 `;
 
