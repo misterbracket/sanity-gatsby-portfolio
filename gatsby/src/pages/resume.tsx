@@ -19,6 +19,9 @@ const ResumeStyles = styled.main`
     margin-top: 2.5rem;
     justify-self: flex-start;
   }
+  @media screen and (min-width: 840px) {
+    grid-template-columns: 1fr min(90ch, calc(100% - 5rem)) 1fr;
+  }
 `;
 
 type allJobData = {
@@ -55,7 +58,7 @@ const resume = ({ location, data }: allJobData & PageProps) => {
 
 export const query = graphql`
   query JobQuery {
-    allSanityJob {
+    allSanityJob(sort: { fields: [endedAt], order: DESC }) {
       nodes {
         id
         location

@@ -30,7 +30,7 @@ const NavStyles = styled.nav`
     text-align: left;
     color: var(--black);
     text-decoration: none;
-    font-size: var(--big);
+    font-size: var(--normal);
     text-transform: uppercase;
     font-weight: 700;
   }

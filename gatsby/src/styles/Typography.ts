@@ -64,8 +64,8 @@ const Typography = createGlobalStyle`
   }
 
   h5 {
-    font-size: var(--small);
-    font-weight: 700;
+    font-size: var(--normal);
+    font-weight: 400;
   }
 
   small,
@@ -76,8 +76,6 @@ const Typography = createGlobalStyle`
   a {
     color: var(--black);
     text-decoration-color: var(--blue);
-    /* Chrome renders this weird with this font, so we turn it off */
-    text-decoration-skip-ink: none;
     cursor: pointer;
   }
   mark, .mark {
