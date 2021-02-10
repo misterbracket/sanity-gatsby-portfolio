@@ -49,7 +49,7 @@ const NavStyles = styled.nav`
       flex-direction: row;
       width: 100%;
       justify-content: flex-end;
-      padding: 1rem 2rem;
+      padding: 1rem 7rem 1rem 3rem;
     }
     .link {
       line-height: 35px;

@@ -20,7 +20,6 @@ module.exports = {
         postCssPlugins: [require(`postcss-preset-env`)({ stage: 0 })]
       }
     },
-    "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-source-sanity",
       options: {
@@ -31,6 +30,8 @@ module.exports = {
       }
     },
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-codegen`
+    `gatsby-plugin-codegen`,
+    'gatsby-plugin-styled-components',
+    "gatsby-plugin-react-helmet",
   ]
 };
