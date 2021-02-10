@@ -28,6 +28,7 @@ const ProjectsStyles = styled.main`
 
 const projects = ({ location, data }: PageProps) => {
   console.log(data);
+  console.log(data);
   return (
     <>
       <SEO title={`I've been busy...`} location={location} />
