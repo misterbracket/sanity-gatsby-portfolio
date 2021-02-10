@@ -11,6 +11,8 @@ import project from './documents/project'
 import siteSettings from './documents/siteSettings'
 import job from './documents/job'
 import education from './documents/education'
+import professionalSkill from './documents/professionalSkill'
+import language from './documents/language'
 
 // Object types
 import figure from './objects/figure'
@@ -33,6 +35,8 @@ export default createSchema({
     project,
     siteSettings,
     job,
-    education
+    education,
+    professionalSkill,
+    language
   ])
 })

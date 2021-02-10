@@ -61,11 +61,6 @@ export default {
       title: 'Tags',
       type: 'array',
       of: [{type: 'reference', to: {type: 'tag'}}]
-    },
-    {
-      name: 'description',
-      title: 'Description',
-      type: 'text'
     }
   ],
   preview: {

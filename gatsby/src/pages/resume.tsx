@@ -57,7 +57,7 @@ const resume = ({ location, data }: allJobData & PageProps) => {
 };
 
 export const query = graphql`
-  query JobQuery {
+  query ResumeQuery {
     allSanityJob(sort: { fields: [endedAt], order: DESC }) {
       nodes {
         id
@@ -73,6 +73,33 @@ export const query = graphql`
         company
       }
     }
+    allSanityProfessionalSkill {
+      nodes {
+        name
+      }
+    }
+    allSanityLanguage {
+      nodes {
+        name
+        level
+      }
+    }
+    allSanityEducation {
+    nodes {
+      degreeLevel
+      description
+      education
+      excerpt
+      endedAt(formatString: "DD-MM-YYYY")
+      startedAt(formatString: "DD-MM-YYYY")
+      slug {
+        current
+      }
+      location
+      id
+      institution
+    }
+  }
   }
 `;
 

@@ -7,8 +7,13 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'degree',
-      title: 'Degree',
+      name: 'education',
+      title: 'Education Name',
+      type: 'string'
+    },
+    {
+      name: 'degreeLevel',
+      title: 'Degree Level',
       type: 'string'
     },
     {
@@ -17,7 +22,7 @@ export default {
       type: 'slug',
       description: 'Education Slug',
       options: {
-        source: 'degree',
+        source: 'education',
         maxLength: 96
       }
     },
@@ -62,11 +67,6 @@ export default {
       title: 'Tags',
       type: 'array',
       of: [{type: 'reference', to: {type: 'tag'}}]
-    },
-    {
-      name: 'description',
-      title: 'Description',
-      type: 'text'
     }
   ],
   preview: {
