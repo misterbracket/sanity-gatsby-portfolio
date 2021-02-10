@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { GoLocation } from "react-icons/go";
-import { JobData } from "../../pages/resume";
+import { EducationData, JobData } from "../../pages/resume";
 
 const ResumeCardStyles = styled.article`
   background: var(--white);
@@ -11,17 +11,17 @@ const ResumeCardStyles = styled.article`
   display: flex;
   flex-wrap: wrap;
   column-gap: 3rem;
-  .job-headings {
+  .headings {
     flex-grow: 1;
     flex-basis: 35%;
   }
-  .job-excerpt {
+  .excerpt {
     flex-grow: 1;
     flex-basis: 60%;
   }
   .date {
     color: var(--blue);
-    font-size: var(--normal);
+    font-size: var(--big);
     font-weight: bold;
   }
   h4 {
@@ -41,21 +41,48 @@ const ResumeCardStyles = styled.article`
   }
 `;
 
-export default function ResumeCard({ job }: { job: JobData }) {
+export default function ResumeCard({
+  job,
+  education
+}: {
+  job?: JobData;
+  education?: EducationData;
+}) {
   return (
     <ResumeCardStyles>
-      <div className="job-headings">
-        <p className="date">
-          {job.startedAt} - {job.endedAt}
-        </p>
-        <h4>{job.name}</h4>
-        <h5 className="company">{job.company}</h5>
-        <div className="location">
-          <GoLocation className="location-logo" />
-          <h5>{job.location}</h5>
-        </div>
-      </div>
-      <p className="job-excerpt">{job.excerpt}</p>
+      {job && (
+        <>
+          <div className="headings">
+            <p className="date">
+              {job.startedAt} - {job.endedAt}
+            </p>
+            <h4>{job.name}</h4>
+            <h5 className="company">{job.company}</h5>
+            <div className="location">
+              <GoLocation className="location-logo" />
+              <h5>{job.location}</h5>
+            </div>
+          </div>
+          <p className="excerpt">{job.excerpt}</p>
+        </>
+      )}
+      {education && (
+        <>
+          <div className="headings">
+            <p className="date">
+              {education.startedAt} - {education.endedAt}
+            </p>
+            <h4>{education.education}</h4>
+            <h5 className="company">{education.degreeLevel}</h5>
+            <h5 className="company">{education.institution}</h5>
+            <div className="location">
+              <GoLocation className="location-logo" />
+              <h5>{education.location}</h5>
+            </div>
+          </div>
+          <p className="excerpt">{education.excerpt}</p>
+        </>
+      )}
     </ResumeCardStyles>
   );
 }

@@ -7,10 +7,12 @@ import { Heading } from "../components/ui-components";
 
 const ResumeStyles = styled.main`
   display: grid;
+  --gap: 2.5rem;
   font-size: var(--normal);
-  grid-template-columns: 1fr min(65ch, calc(100% - 5rem)) 1fr;
-  gap: 2.5rem;
+  grid-template-columns: 1fr min(65ch, calc(100% - calc(2 * var(--gap)))) 1fr;
+  gap: var(--gap);
   background: var(--dark-pink);
+  padding-bottom: var(--gap);
   & > * {
     grid-column: 2;
     width: 100%;
@@ -24,8 +26,11 @@ const ResumeStyles = styled.main`
   }
 `;
 
-type allJobData = {
-  data: { allSanityJob: { nodes: JobData[] } };
+type allResumeData = {
+  data: {
+    allSanityJob: { nodes: JobData[] };
+    allSanityEducation: { nodes: EducationData[] };
+  };
 };
 
 export interface JobData {
@@ -36,21 +41,35 @@ export interface JobData {
   name: string;
   slug: { current: string };
   excerpt: string;
-  description: string;
   company: string;
 }
 
-const resume = ({ location, data }: allJobData & PageProps) => {
+export interface EducationData {
+  id: string;
+  location: string;
+  endedAt: string;
+  startedAt: string;
+  education: string;
+  degreeLevel: string;
+  slug: { current: string };
+  excerpt: string;
+  institution: string;
+}
+
+const resume = ({ location, data }: allResumeData & PageProps) => {
   return (
     <>
       <SEO title={`Where I come from`} location={location} />
       <ResumeStyles>
         <Heading>Resume</Heading>
         <h2 className="subheading">Experience</h2>
-        {data.allSanityJob.nodes.map(job => (
-          <ResumeCard key={job.id} job={job} />
+        {data.allSanityJob.nodes.map(item => (
+          <ResumeCard key={item.id} job={item} />
         ))}
         <h2 className="subheading">Education</h2>
+        {data.allSanityEducation.nodes.map(item => (
+          <ResumeCard key={item.id} education={item} />
+        ))}
       </ResumeStyles>
     </>
   );
@@ -62,8 +81,8 @@ export const query = graphql`
       nodes {
         id
         location
-        endedAt(formatString: "DD-MM-YYYY")
-        startedAt(formatString: "DD-MM-YYYY")
+        endedAt(formatString: "MMM YYYY")
+        startedAt(formatString: "MMM YYYY")
         name
         slug {
           current
@@ -85,21 +104,21 @@ export const query = graphql`
       }
     }
     allSanityEducation {
-    nodes {
-      degreeLevel
-      description
-      education
-      excerpt
-      endedAt(formatString: "DD-MM-YYYY")
-      startedAt(formatString: "DD-MM-YYYY")
-      slug {
-        current
+      nodes {
+        degreeLevel
+        description
+        education
+        excerpt
+        endedAt(formatString: "MMM YYYY")
+        startedAt(formatString: "MMM YYYY")
+        slug {
+          current
+        }
+        location
+        id
+        institution
       }
-      location
-      id
-      institution
     }
-  }
   }
 `;
 
