@@ -13,6 +13,7 @@ import job from './documents/job'
 import education from './documents/education'
 import professionalSkill from './documents/professionalSkill'
 import language from './documents/language'
+import projectIntroduction from './documents/projectIntroduction'
 
 // Object types
 import figure from './objects/figure'
@@ -37,6 +38,7 @@ export default createSchema({
     job,
     education,
     professionalSkill,
-    language
+    language,
+    projectIntroduction
   ])
 })

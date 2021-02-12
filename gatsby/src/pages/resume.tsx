@@ -88,7 +88,6 @@ export const query = graphql`
           current
         }
         excerpt
-        description
         company
       }
     }
@@ -106,7 +105,6 @@ export const query = graphql`
     allSanityEducation {
       nodes {
         degreeLevel
-        description
         education
         excerpt
         endedAt(formatString: "MMM YYYY")

@@ -4,6 +4,7 @@ import { SEO } from "../components";
 import styled from "styled-components";
 import { Heading } from "../components/ui-components";
 import { ProjectCard } from "../components/ProjectCard";
+import { SanityImageObject } from "@sanity/image-url/lib/types/types";
 
 const ProjectsStyles = styled.main`
   display: grid;
@@ -26,8 +27,20 @@ const ProjectsStyles = styled.main`
   }
 `;
 
+export interface ProjectData {
+  descrption: string;
+  endedAt: string;
+  id: string;
+  name: string;
+  publishedAt: string;
+  startedAt: string;
+  slug: { current: string };
+  mainImage: SanityImageObject;
+  description: any;
+  except: any;
+}
+
 const projects = ({ location, data }: PageProps) => {
-  console.log(data);
   console.log(data);
   return (
     <>
@@ -45,9 +58,7 @@ export const query = graphql`
   query ProjectQuery {
     allSanityProject {
       nodes {
-        excerpt
         endedAt(formatString: "MMM YYYY")
-        description
         id
         name
         mainImage {

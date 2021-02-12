@@ -8,8 +8,6 @@ const HeadingStyles = styled.div`
   padding: 5rem 3rem 0rem 3rem;
   --move: -1rem;
   --blue-dot-size: 1.9rem;
-  position: relative;
-  left: calc(var(--move) - var(--blue-dot-size));
   h1 {
     white-space: nowrap;
     margin: 0;

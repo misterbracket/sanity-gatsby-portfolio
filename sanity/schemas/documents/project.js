@@ -30,7 +30,12 @@ export default {
     {
       name: 'excerpt',
       title: 'Excerpt',
-      type: 'text'
+      type: 'array',
+      of: [
+        {
+          type: 'block'
+        }
+      ]
     },
     {
       name: 'startedAt',
@@ -62,7 +67,15 @@ export default {
     {
       name: 'description',
       title: 'Description',
-      type: 'text'
+      type: 'array',
+      of: [
+        {
+          type: 'block'
+        },
+        {
+          type: 'image'
+        }
+      ]
     },
     {
       name: 'relatedProjects',

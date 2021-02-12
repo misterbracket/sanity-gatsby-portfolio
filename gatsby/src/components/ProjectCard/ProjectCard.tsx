@@ -12,7 +12,7 @@ const ProjectCardStyles = styled.article`
 `;
 
 export default function ProjectCard({ project }: { project: any }) {
-  console.log(project);
+  
   return (
     <ProjectCardStyles>
       <h1>Project1</h1>
