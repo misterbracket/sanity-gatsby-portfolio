@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, PageProps } from "gatsby";
 import { SEO } from "../components";
 import styled from "styled-components";
-import { Heading } from "../components/ui-components";
+import { BlockText, Heading } from "../components/ui-components";
 import { ProjectCard } from "../components/ProjectCard";
 import { SanityImageObject } from "@sanity/image-url/lib/types/types";
 
@@ -40,7 +40,7 @@ export interface ProjectData {
   except: any;
 }
 
-const projects = ({ location, data }: PageProps) => {
+const projects = ({ location, data }: PageProps & any) => {
   console.log(data);
   return (
     <>
@@ -48,6 +48,11 @@ const projects = ({ location, data }: PageProps) => {
 
       <ProjectsStyles>
         <Heading>Projects</Heading>
+        <BlockText
+          blocks={
+            data.allSanityProjectIntroduction.nodes[0]._rawProjectIntroduction
+          }
+        ></BlockText>
         <ProjectCard project=""></ProjectCard>
       </ProjectsStyles>
     </>
@@ -56,6 +61,12 @@ const projects = ({ location, data }: PageProps) => {
 
 export const query = graphql`
   query ProjectQuery {
+    allSanityProjectIntroduction {
+      nodes {
+        title
+        _rawProjectIntroduction
+      }
+    }
     allSanityProject {
       nodes {
         endedAt(formatString: "MMM YYYY")
