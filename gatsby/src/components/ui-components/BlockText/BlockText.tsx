@@ -1,4 +1,5 @@
-import BaseBlockContent from "@sanity/block-content-to-react";
+import React from "react";
+import PortableText from "@sanity/block-content-to-react";
 
 const serializers = {
   types: {
@@ -11,7 +12,7 @@ const serializers = {
   }
 };
 const BlockText = ({ blocks }: any) => (
-  <BaseBlockContent blocks={blocks} serializers={serializers} />
+  <PortableText blocks={blocks} serializers={serializers} />
 );
 
 export default BlockText;
