@@ -19,10 +19,6 @@ const ProjectsStyles = styled.main`
     grid-column: 2;
     width: 100%;
   }
-  .subheading {
-    margin-top: 2.5rem;
-    justify-self: flex-start;
-  }
   @media screen and (min-width: 840px) {
     grid-template-columns: 1fr min(90ch, calc(100% - 5rem)) 1fr;
   }
@@ -43,7 +39,6 @@ export interface ProjectData {
   startedAt: string;
   slug: { current: string };
   mainImage: SanityImageObject & { asset: { fluid: any } };
-
   description: any;
   _rawExcerpt: BlockContentProps["blocks"];
 }

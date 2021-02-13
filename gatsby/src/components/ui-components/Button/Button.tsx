@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { HTMLAttributes, ReactNode } from "react";
 import styled from "styled-components";
 
 const ButtonStyles = styled.button`
@@ -21,11 +21,12 @@ const ButtonStyles = styled.button`
 
 type ButtonProps = {
   children: ReactNode;
-  color: "dark" | "light";
+  color?: "dark" | "light";
+  type?: "button" | "submit" | "reset" | undefined;
 };
-const Button = ({ children, color = "dark" }: ButtonProps) => {
+const Button = ({ children, color = "dark", type = "button" }: ButtonProps) => {
   return (
-    <ButtonStyles color={color} type="button">
+    <ButtonStyles color={color} type={type}>
       {children}
     </ButtonStyles>
   );
