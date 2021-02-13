@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { BlockText, Heading } from "../components/ui-components";
 import { ProjectCard } from "../components/ProjectCard";
 import { SanityImageObject } from "@sanity/image-url/lib/types/types";
+import { BlockContentProps } from "@sanity/block-content-to-react";
 
 const ProjectsStyles = styled.main`
   display: grid;
@@ -27,6 +28,12 @@ const ProjectsStyles = styled.main`
   }
 `;
 
+type allProjectData = {
+  data: {
+    allSanityProjectIntroduction: { nodes: any[] };
+    allSanityProject: { nodes: ProjectData[] };
+  };
+};
 export interface ProjectData {
   descrption: string;
   endedAt: string;
@@ -35,17 +42,17 @@ export interface ProjectData {
   publishedAt: string;
   startedAt: string;
   slug: { current: string };
-  mainImage: SanityImageObject;
+  mainImage: SanityImageObject & { asset: { fluid: any } };
+
   description: any;
-  except: any;
+  _rawExcerpt: BlockContentProps["blocks"];
 }
 
-const projects = ({ location, data }: PageProps & any) => {
-  console.log(data);
+const projects = ({ location, data }: PageProps & allProjectData) => {
+  console.log(data.allSanityProject.nodes);
   return (
     <>
       <SEO title={`I've been busy...`} location={location} />
-
       <ProjectsStyles>
         <Heading>Projects</Heading>
         <BlockText
@@ -53,7 +60,9 @@ const projects = ({ location, data }: PageProps & any) => {
             data.allSanityProjectIntroduction.nodes[0]._rawProjectIntroduction
           }
         ></BlockText>
-        <ProjectCard project=""></ProjectCard>
+        {data.allSanityProject.nodes.map(project => {
+          return <ProjectCard key={project.id} project={project}></ProjectCard>;
+        })}
       </ProjectsStyles>
     </>
   );
@@ -72,6 +81,7 @@ export const query = graphql`
         endedAt(formatString: "MMM YYYY")
         id
         name
+        _rawExcerpt
         mainImage {
           asset {
             fluid(maxWidth: 500) {

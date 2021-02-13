@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 import { Button } from "../ui-components";
 import { useMedia } from "react-use";
+import { SanityImageObject } from "@sanity/image-url/lib/types/types";
 
 const ProfileCardStyles = styled.div`
   display: grid;
@@ -87,7 +88,7 @@ type ProfileCardProps = {
   person: {
     name: string;
     profileslug: string;
-    image: { asset: { fluid: any } };
+    image: SanityImageObject & { asset: { fluid: any } };
   };
 };
 
