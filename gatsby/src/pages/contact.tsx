@@ -4,7 +4,6 @@ import { SEO } from "../components";
 import styled from "styled-components";
 import { Button, Heading } from "../components/ui-components";
 import { useContactForm } from "./../components/hooks";
-import { ContactDataType } from "../components/context/ContactContext";
 
 const ConactStyles = styled.main`
   display: grid;
@@ -30,9 +29,8 @@ const SendEmailStyles = styled.form`
   height: fit-content;
   display: flex;
   flex-direction: column;
-  legend {
+  h3 {
     color: var(--blue);
-    font-size: var(--big);
   }
 
   label {
@@ -61,6 +59,7 @@ const SendEmailStyles = styled.form`
     margin-top: 2rem;
     width: max-content;
     align-self: flex-end;
+    outline: none;
   }
   .mapleSyrup {
     display: none;
@@ -75,9 +74,9 @@ const contact = ({ location }: PageProps) => {
       <SEO title={`Let's have a chat`} location={location} />
       <ConactStyles>
         <Heading>Let's talk</Heading>
-        <SendEmailStyles onSubmit={submitEmail}>
-          <fieldset disabled={loading}>
-            <legend>Your Info</legend>
+        <SendEmailStyles onSubmit={submitEmail} disabled={loading}>
+          <fieldset >
+            <h3>Your Info</h3>
             <label htmlFor="name">
               Name
               <input

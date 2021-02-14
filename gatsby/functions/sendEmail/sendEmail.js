@@ -1,34 +1,38 @@
 const nodemailer = require('nodemailer');
+let AWS = require('aws-sdk');
+
 
 function generateResponseEmail({ name }) {
   return (`<div>
     <h2>Hi, ${name}</h2>
-    <p>Thank you for your message! I will get back to you as soon as possible 📬</p>
-
-  </div>`);
+      <p>Thank you for your message! I will get back to you as soon as possible 📬</p>
+    </div>`);
  }
 
  function generateMyEmail({ name, email, message }) {
   return (`<div>
-    <h2>Hi,Max</h2>
+    <h2>NEW MESSAGE FROM THE PORTFOLIO</h2>
+    <p>Hi Max,</p>
     <p>Someone wants to talk to you</p>
     <ul>
       <li>Name : ${name}</li>
       <li>Email: ${email}</li>
       <li>Message: ${message}</li>
     </ul>
-
   </div>`);
  }
 
-// create a transport for nodemailer
+AWS.config.update({
+  accessKeyId: process.env.ACCESS_KEY,
+  secretAccessKey: process.env.SECRET_ACCESS_KEY,
+  region: "us-east-1"
+});
+
 const transporter = nodemailer.createTransport({
-  host: process.env.MAIL_HOST,
-  port: 587,
-  auth: {
-    user: process.env.MAIL_USER,
-    pass: process.env.MAIL_PASS,
-  },
+  SES: new AWS.SES({
+      apiVersion: '2010-12-01'
+  }),
+
 });
 
 // Little function that makes you wait
@@ -73,25 +77,26 @@ exports.handler = async (event, context) => {
     };
   }
 
-  // send the email to person
-  const info = await transporter.sendMail(
-{
-    from: "Maximilian Klammer <max@maxklammer.com>",
-    to: `${body.name} <${body.email}>`,
-    subject: 'Thank you for reaching out!',
-    html: generateResponseEmail({ name: body.name, })
-  }
-  );
+//   // send the email to person
+//   const info = await transporter.sendMail(
+// {
+//     from: "Maximilian Klammer <max@maxklammer.com>",
+//     to: `${body.name} <${body.email}>`,
+//     subject: 'Thank you for reaching out!',
+//     html: generateResponseEmail({ name: body.name, })
+//   }
+//   );
 
   // send the email to myself
   const infoToMe = await transporter.sendMail(
   {
-    from: "Portfoliopage <webpage@maxklammer.com>",
-    to: `Maximilian Klammer <maximilian.klammer@gmail.com>`,
-    subject: 'New Message',
-    html: generateMyEmail({ name: body.name, email: body.email, message: body.message })
+    from: '"Portfolio Website" <portfolio@maxklammer.com>',
+    to: '"Maximilian Klammer" <maximilian.klammer@gmail.com>',
+    subject: 'New Message from Protfolio',
+    html: generateMyEmail({ name: body.name, email: body.email, message: body.message})
   }
   );
+  console.log(infoToMe)
   return {
     statusCode: 200,
     body: JSON.stringify({ message: 'Success' }),
