@@ -1,9 +1,22 @@
 const nodemailer = require('nodemailer');
 
-function generateOrderEmail({ name }) {
+function generateResponseEmail({ name }) {
   return (`<div>
     <h2>Hi, ${name}</h2>
     <p>Thank you for your message! I will get back to you as soon as possible 📬</p>
+
+  </div>`);
+ }
+
+ function generateMyEmail({ name, email, message }) {
+  return (`<div>
+    <h2>Hi,Max</h2>
+    <p>Someone wants to talk to you</p>
+    <ul>
+      <li>Name : ${name}</li>
+      <li>Email: ${email}</li>
+      <li>Message: ${message}</li>
+    </ul>
 
   </div>`);
  }
@@ -60,13 +73,23 @@ exports.handler = async (event, context) => {
     };
   }
 
-  // send the email
+  // send the email to person
   const info = await transporter.sendMail(
 {
     from: "Maximilian Klammer <max@maxklammer.com>",
-    to: `${body.name} <${body.email}>, maximilian.klammer@gmail.com`,
+    to: `${body.name} <${body.email}>`,
     subject: 'Thank you for reaching out!',
-    html: generateOrderEmail({ name: body.name, })
+    html: generateResponseEmail({ name: body.name, })
+  }
+  );
+
+  // send the email to myself
+  const infoToMe = await transporter.sendMail(
+  {
+    from: "Portfoliopage <webpage@maxklammer.com>",
+    to: `Maximilian Klammer <maximilian.klammer@gmail.com>`,
+    subject: 'New Message',
+    html: generateMyEmail({ name: body.name, email: body.email, message: body.message })
   }
   );
   return {
