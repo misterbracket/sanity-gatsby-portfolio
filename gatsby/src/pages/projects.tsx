@@ -44,7 +44,6 @@ export interface ProjectData {
 }
 
 const projects = ({ location, data }: PageProps & allProjectData) => {
-  console.log(data.allSanityProject.nodes);
   return (
     <>
       <SEO title={`I've been busy...`} location={location} />

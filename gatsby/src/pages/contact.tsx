@@ -74,8 +74,8 @@ const contact = ({ location }: PageProps) => {
       <SEO title={`Let's have a chat`} location={location} />
       <ConactStyles>
         <Heading>Let's talk</Heading>
-        <SendEmailStyles onSubmit={submitEmail} disabled={loading}>
-          <fieldset >
+        <SendEmailStyles onSubmit={submitEmail} >
+          <fieldset disabled={loading}>
             <h3>Your Info</h3>
             <label htmlFor="name">
               Name
