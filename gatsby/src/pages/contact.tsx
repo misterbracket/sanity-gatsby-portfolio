@@ -3,6 +3,8 @@ import { PageProps } from "gatsby";
 import { SEO } from "../components";
 import styled from "styled-components";
 import { Button, Heading } from "../components/ui-components";
+import { useContactForm } from "./../components/hooks";
+import { ContactDataType } from "../components/context/ContactContext";
 
 const ConactStyles = styled.main`
   display: grid;
@@ -17,22 +19,22 @@ const ConactStyles = styled.main`
     width: 100%;
   }
   @media screen and (min-width: 840px) {
-    grid-template-columns: 1fr min(90ch, calc(100% - 5rem)) 1fr;
+    grid-template-columns: 1fr min(70ch, calc(100% - 5rem)) 1fr;
   }
 `;
 
 const SendEmailStyles = styled.form`
+  padding: 3rem;
+  background-color: var(--white);
+  box-shadow: var(--shd);
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
   legend {
     color: var(--blue);
     font-size: var(--big);
   }
-  fieldset {
-    display: flex;
-    flex-direction: column;
-    padding: 3rem;
-    background-color: var(--white);
-    box-shadow: var(--shd);
-  }
+
   label {
     display: flex;
     flex-direction: column;
@@ -50,9 +52,8 @@ const SendEmailStyles = styled.form`
     outline: none;
   }
   textarea {
-    border-right: none;
-    border-top: none;
-    border-left: none;
+    border: 0;
+    border-bottom: 1px solid var(--black);
     resize: none;
     height: 4rem;
   }
@@ -66,36 +67,76 @@ const SendEmailStyles = styled.form`
   }
 `;
 const contact = ({ location }: PageProps) => {
+  const { values, updateValue, loading, message, submitEmail } = useContactForm();
+
+  if (message) {
+    return <p>{message}</p>;
+  }
   return (
     <>
       <SEO title={`Let's have a chat`} location={location} />
       <ConactStyles>
         <Heading>Let's talk</Heading>
-        <SendEmailStyles>
-          <fieldset>
+        <SendEmailStyles onSubmit={submitEmail}>
+          <fieldset disabled={loading}>
             <legend>Your Info</legend>
             <label htmlFor="name">
               Name
-              <input id="name" type="text" name="name" />
+              <input
+                id="name"
+                type="text"
+                name="name"
+                value={values?.name}
+                onChange={e =>
+                  updateValue?.({
+                    name: e.target.value
+                  })
+                }
+              />
             </label>
             <label htmlFor="email">
               Email
-              <input id="email" type="text" name="email" />
+              <input
+                id="email"
+                type="text"
+                name="email"
+                value={values?.email}
+                onChange={e =>
+                  updateValue?.({
+                    email: e.target.value
+                  })
+                }
+              />
               <input
                 id="mapleSyrup"
                 className="mapleSyrup"
                 type="text"
                 name="mapleSyrup"
+                value={values?.mapleSyrup}
+                onChange={e =>
+                  updateValue?.({
+                    mapleSyrup: e.target.value
+                  })
+                }
               />
             </label>
             <label htmlFor="message">
               Tell me something good!!
-              <textarea id="message" name="message" />
+              <textarea
+                id="message"
+                name="message"
+                value={values?.message}
+                onChange={e =>
+                  updateValue?.({
+                    message: e.target.value
+                  })
+                }
+              />
             </label>
-            <Button type="submit">
-              {"" ? "Sending Email..." : "Send Email"}
-            </Button>
           </fieldset>
+          <Button type="submit">
+            {loading ? "Sending Email..." : "Send Email"}
+          </Button>
         </SendEmailStyles>
       </ConactStyles>
     </>
