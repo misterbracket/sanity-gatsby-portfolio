@@ -69,9 +69,7 @@ const SendEmailStyles = styled.form`
 const contact = ({ location }: PageProps) => {
   const { values, updateValue, loading, message, submitEmail } = useContactForm();
 
-  if (message) {
-    return <p>{message}</p>;
-  }
+
   return (
     <>
       <SEO title={`Let's have a chat`} location={location} />
@@ -134,9 +132,10 @@ const contact = ({ location }: PageProps) => {
               />
             </label>
           </fieldset>
-          <Button type="submit">
+
+          {message ? (<p>{message}</p>) : (<Button type="submit">
             {loading ? "Sending Email..." : "Send Email"}
-          </Button>
+          </Button>)}
         </SendEmailStyles>
       </ConactStyles>
     </>
