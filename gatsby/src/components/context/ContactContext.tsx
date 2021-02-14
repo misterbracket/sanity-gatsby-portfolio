@@ -17,6 +17,7 @@ export type ContactDataType = {
 export type ContactStateType = {
   values?: typeof initialState;
   updateValue?: <T>(value: T) => void;
+  setInputs?: (state: typeof initialState) => void;
 };
 
 const ContactContext = React.createContext<ContactStateType>({});
@@ -30,7 +31,7 @@ export function ContactProvider({ children }: { children: ReactNode }) {
     setInputs({ ...values, ...value });
   }
   return (
-    <ContactContext.Provider value={{ values, updateValue }}>
+    <ContactContext.Provider value={{ values, updateValue, setInputs }}>
       {children}
     </ContactContext.Provider>
   );

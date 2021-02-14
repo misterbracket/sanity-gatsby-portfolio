@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useContact } from "../context";
 
 function useContactForm() {
-  const { values, updateValue } = useContact();
+  const { values, updateValue, setInputs } = useContact();
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>("");
@@ -42,8 +42,8 @@ function useContactForm() {
           setError(text.message);
         } else {
           setLoading(false);
-
           setMessage('Message was sent! Talk to you soon!');
+          setInputs?.({name: "", email: "", mapleSyrup: "", message: ""})
         }
   };
 
