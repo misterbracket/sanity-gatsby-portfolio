@@ -46,7 +46,7 @@ const Title = () => {
         </h1>
       </div>
       <div className="slug">
-        <p>Web Dev and Tech Enthusiast</p>
+        <p>Web Developer by Passion</p>
       </div>
     </TitleStyles>
   );

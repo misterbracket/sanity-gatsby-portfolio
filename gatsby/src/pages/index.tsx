@@ -59,25 +59,26 @@ const ContentStyles = styled.section`
     .subheading {
       font-weight: 400;
     }
-    h1 {
+
+    .hero-title {
       font-size: var(--super-big);
       margin: 0;
       line-height: normal;
       font-weight: 700;
     }
-  }
-  .content-wrapper {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-  }
-  .btn-group {
-    margin-top: 1.5rem;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 270px;
-    gap: 1rem;
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+    }
+    .btn-group {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      max-width: 270px;
+      gap: 1rem;
+    }
   }
 `;
 
