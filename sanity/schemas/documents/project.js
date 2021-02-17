@@ -28,6 +28,11 @@ export default {
       type: 'date'
     },
     {
+      title: 'Project URL',
+      name: 'projectUrl',
+      type: 'url'
+    },
+    {
       name: 'excerpt',
       title: 'Excerpt',
       type: 'array',
