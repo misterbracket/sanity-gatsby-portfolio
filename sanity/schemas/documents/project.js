@@ -64,7 +64,7 @@ export default {
       type: 'figure'
     },
     {
-      name: 'tag',
+      name: 'tags',
       title: 'Tags',
       type: 'array',
       of: [{type: 'reference', to: {type: 'tag'}}]

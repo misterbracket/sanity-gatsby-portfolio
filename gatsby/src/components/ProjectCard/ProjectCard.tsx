@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Img from "gatsby-image";
 import { ProjectData } from "../../pages/projects";
 import { BlockText } from "../ui-components";
+import { Tags } from "./components";
 
 const ProjectCardStyles = styled.article`
   background: var(--white);
@@ -53,6 +54,8 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
           Teleport to project 🚀
         </a>
         <BlockText blocks={project._rawExcerpt}></BlockText>
+
+        <Tags tags={project.tags} />
       </section>
 
       <Img
