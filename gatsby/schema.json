@@ -2537,6 +2537,16 @@
                   "defaultValue": null
                 },
                 {
+                  "name": "projectUrl",
+                  "description": "",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "StringQueryOperatorInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
                   "name": "startedAt",
                   "description": "",
                   "type": {
@@ -27723,6 +27733,16 @@
               "defaultValue": null
             },
             {
+              "name": "projectUrl",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "startedAt",
               "description": "",
               "type": {
@@ -28282,6 +28302,18 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "Date",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "projectUrl",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -28939,6 +28971,12 @@
             },
             {
               "name": "publishedAt",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "projectUrl",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -29748,6 +29786,12 @@
               "deprecationReason": null
             },
             {
+              "name": "relatedProjects___projectUrl",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "relatedProjects___startedAt",
               "description": null,
               "isDeprecated": false,
@@ -30186,6 +30230,12 @@
               "deprecationReason": null
             },
             {
+              "name": "relatedProjects___relatedProjects___projectUrl",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "relatedProjects___relatedProjects___startedAt",
               "description": null,
               "isDeprecated": false,
@@ -30331,6 +30381,12 @@
             },
             {
               "name": "relatedProjects___relatedProjects___relatedProjects___publishedAt",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "relatedProjects___relatedProjects___relatedProjects___projectUrl",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null

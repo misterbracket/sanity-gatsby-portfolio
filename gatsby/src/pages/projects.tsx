@@ -37,6 +37,8 @@ export interface ProjectData {
   name: string;
   publishedAt: string;
   startedAt: string;
+  tag: { name: string };
+  projectUrl: string;
   slug: { current: string };
   mainImage: SanityImageObject & { asset: { fluid: any } };
   description: any;
@@ -88,6 +90,10 @@ export const query = graphql`
         slug {
           current
         }
+        tag {
+          name
+        }
+        projectUrl
       }
     }
   }

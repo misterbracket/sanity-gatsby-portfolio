@@ -88,11 +88,11 @@ const GlobalStyles = createGlobalStyle`
     position: relative;
     display: inline-block;
   }
-
+/*
   .gatsby-image-wrapper img[src*=base64\\,] {
     image-rendering: -moz-crisp-edges;
     image-rendering: pixelated;
-  }
+  } */
 
   .red {
     background-color: var(--red);

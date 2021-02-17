@@ -25,6 +25,16 @@ const ProjectCardStyles = styled.article`
     flex-grow: 1;
     flex-basis: 30%;
   }
+  .project-link {
+    text-align: left;
+    color: var(--black);
+    text-decoration: none;
+    font-size: var(--big);
+    text-transform: uppercase;
+    line-height: 35px;
+    font-weight: 300;
+    font-size: var(--normal);
+  }
   @media screen and (min-width: 840px) {
     column-gap: 0rem;
 
@@ -35,12 +45,13 @@ const ProjectCardStyles = styled.article`
 `;
 
 export default function ProjectCard({ project }: { project: ProjectData }) {
-  console.log(project);
-
   return (
     <ProjectCardStyles>
       <section className="text">
         <h2 className="project-name">{project.name}</h2>
+        <a className="project-link" href={project.projectUrl}>
+          Teleport to project 🚀
+        </a>
         <BlockText blocks={project._rawExcerpt}></BlockText>
       </section>
 
