@@ -4,7 +4,7 @@ import { AiFillLinkedin } from "react-icons/ai";
 import styled from "styled-components";
 import { Link } from "gatsby";
 import { Button } from "../ui-components";
-import { useMedia } from "react-use";
+import { useMedia } from "./../utils";
 import { SanityImageObject } from "@sanity/image-url/lib/types/types";
 
 const ProfileCardStyles = styled.div`

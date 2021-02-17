@@ -3,7 +3,7 @@ import { graphql, Link, PageProps } from "gatsby";
 import { SEO } from "../components";
 import styled from "styled-components";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
-import { useMedia } from "react-use";
+import { useMedia } from "./../components/utils";
 import { Button } from "../components/ui-components";
 
 const AboutMeStyles = styled.main`

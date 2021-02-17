@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
-import { useMedia } from "react-use";
+import { useMedia } from "./../../../utils";
 import { Link } from "gatsby";
 import { MenuToggle } from "./components";
 
