@@ -29,12 +29,15 @@ const ProjectCardStyles = styled.article`
   .project-link {
     text-align: left;
     color: var(--black);
-    text-decoration: none;
     font-size: var(--big);
     text-transform: uppercase;
     line-height: 35px;
     font-weight: 300;
     font-size: var(--normal);
+    transition: font-size ease 300ms;
+  }
+  .project-link:hover {
+    font-size: 16px;
   }
   @media screen and (min-width: 840px) {
     column-gap: 0rem;
@@ -50,11 +53,10 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
     <ProjectCardStyles>
       <section className="text">
         <h2 className="project-name">{project.name}</h2>
+        <BlockText blocks={project._rawExcerpt}></BlockText>
         <a className="project-link" href={project.projectUrl}>
           Teleport to project 🚀
         </a>
-        <BlockText blocks={project._rawExcerpt}></BlockText>
-
         <Tags tags={project.tags} />
       </section>
 
