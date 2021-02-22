@@ -31,7 +31,6 @@ type allProjectData = {
   };
 };
 export interface ProjectData {
-  descrption: string;
   endedAt: string;
   id: string;
   name: string;
@@ -41,7 +40,7 @@ export interface ProjectData {
   projectUrl: string;
   slug: { current: string };
   mainImage: SanityImageObject & { asset: { fluid: any } };
-  description: any;
+  _rawDescription: BlockContentProps["blocks"];
   _rawExcerpt: BlockContentProps["blocks"];
 }
 
