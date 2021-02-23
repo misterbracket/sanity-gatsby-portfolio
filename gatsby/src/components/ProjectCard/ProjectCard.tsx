@@ -4,6 +4,8 @@ import Img from "gatsby-image";
 import { ProjectData } from "../../pages/projects";
 import { BlockText } from "../ui-components";
 import { Tags } from "./components";
+import { Link } from "gatsby";
+import { link } from "fs";
 
 const ProjectCardStyles = styled.article`
   background: var(--white);
@@ -21,24 +23,26 @@ const ProjectCardStyles = styled.article`
   .project-name {
     color: var(--blue);
   }
-  .project-img {
+
+  .project-link-wrapper {
     flex-shrink: 1;
     flex-grow: 1;
     flex-basis: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .project-link {
+      .project-img {
+        flex-grow: 1;
+        flex-basis: 30%;
+      }
+    }
   }
-  .project-link {
-    text-align: left;
-    color: var(--black);
-    font-size: var(--big);
-    text-transform: uppercase;
-    line-height: 35px;
-    font-weight: 300;
-    font-size: var(--normal);
-    transition: font-size ease 300ms;
-  }
+
   .project-link:hover {
-    font-size: 16px;
+    cursor: pointer;
   }
+
   @media screen and (min-width: 840px) {
     column-gap: 0rem;
 
@@ -52,22 +56,26 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
   return (
     <ProjectCardStyles>
       <section className="text">
-        <h2 className="project-name">{project.name}</h2>
+        <Link to={`/project/${project.slug.current}`}>
+          {" "}
+          <h2 className="project-name">{project.name}</h2>
+        </Link>
         <BlockText blocks={project._rawExcerpt}></BlockText>
-        <a className="project-link" href={project.projectUrl}>
-          Teleport to project 🚀
-        </a>
         <Tags tags={project.tags} />
       </section>
 
-      <Img
-        className="project-img"
-        fluid={project.mainImage.asset.fluid}
-        imgStyle={{
-          objectFit: "contain"
-        }}
-        alt={project.name}
-      />
+      <div className={"project-link-wrapper"}>
+        <Link to={`/project/${project.slug.current}`} className="project-link">
+          <Img
+            className="project-img"
+            fluid={project.mainImage.asset.fluid}
+            imgStyle={{
+              objectFit: "contain"
+            }}
+            alt={project.name}
+          />
+        </Link>
+      </div>
     </ProjectCardStyles>
   );
 }
