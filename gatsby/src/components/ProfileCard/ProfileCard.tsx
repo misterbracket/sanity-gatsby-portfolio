@@ -101,6 +101,7 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
           className="profile-img"
           fluid={person.image.asset.fluid}
           alt={person.name}
+          fadeIn={true}
         />
         <h2 className="name center">{person.name}</h2>
         <hr />

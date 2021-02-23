@@ -22,7 +22,7 @@ const FooterStyles = styled.footer`
 const Footer = () => {
   return (
     <FooterStyles>
-      <CTA></CTA>
+      {/* <CTA></CTA> */}
       <div className="text_small copy">
         &copy; Maximilian Klammer {new Date().getFullYear()}
       </div>
