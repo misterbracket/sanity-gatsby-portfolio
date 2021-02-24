@@ -5,7 +5,6 @@ import { ProjectData } from "../../pages/projects";
 import { BlockText } from "../ui-components";
 import { Tags } from "./components";
 import { Link } from "gatsby";
-import { link } from "fs";
 
 const ProjectCardStyles = styled.article`
   background: var(--white);

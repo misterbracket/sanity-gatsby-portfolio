@@ -4,6 +4,7 @@ import Img from "gatsby-image";
 import { SEO } from "../components";
 import { graphql } from "gatsby";
 import { ProjectData } from "../pages/projects";
+import { BlockText, Heading } from "../components/ui-components";
 
 type ProjectType = {
   data: {
@@ -11,26 +12,49 @@ type ProjectType = {
   };
 };
 
-const ProjectGrid = styled.article`
-  display: flex;
-  flex-direction: column;
-  padding: 4rem;
 
+const ProjectPageStyles = styled.article`
+  display: grid;
+  --gap: 2.5rem;
+  font-size: var(--normal);
+  grid-template-columns: 1fr min(65ch, calc(100% - calc(2 * var(--gap)))) 1fr;
+  gap: var(--gap);
+  background: var(--dark-pink);
+  padding-bottom: var(--gap);
+  & > * {
+    grid-column: 2;
+    width: 100%;
+
+  }
   .project-image {
     width: 100%;
     height: auto;
     max-width: 600px;
-    justify-self: center;
+    align-self: center;
+  }
+  @media screen and (min-width: 840px) {
+    grid-template-columns: 1fr min(90ch, calc(100% - 5rem)) 1fr;
   }
 `;
+
+const ProjectStyles = styled.article`
+padding: 4rem;
+background: var(--white);
+font-size: var(--normal);
+box-shadow: var(--shd);
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+column-gap: 3rem;`
 
 function Project({ data: { sanityProject } }: ProjectType) {
   return (
     <>
       <SEO title={sanityProject.name} image={sanityProject.mainImage?.asset?.fluid?.src} />
-      <ProjectGrid>
-        <div>
-          <h1>{sanityProject.name}</h1>
+      <ProjectPageStyles>
+          <Heading>{sanityProject.name}</Heading>
+        <ProjectStyles>
+        <BlockText blocks={sanityProject._rawDescription}></BlockText>
           <a className="project-link" href={sanityProject.projectUrl}>
             Teleport to project 🚀
           </a>
@@ -43,8 +67,8 @@ function Project({ data: { sanityProject } }: ProjectType) {
             fluid={sanityProject.mainImage.asset.fluid}
             className="project-image"
           />
-        </div>
-      </ProjectGrid>
+        </ProjectStyles>
+      </ProjectPageStyles>
     </>
   );
 }
