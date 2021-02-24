@@ -17,9 +17,6 @@ const TagStyles = styled.li`
 `;
 
 function Tags({ tags }: { tags: [{ name: string }] }) {
-  const colorIndex = Math.floor(Math.random() * 4);
-  const color = colors[colorIndex];
-  console.log(color);
   return (
     <TagListStyles>
       {tags.map(tag => {
