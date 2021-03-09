@@ -29,6 +29,13 @@ module.exports = {
         watchMode: !isProd,
       }
     },
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-537S6M6",
+        includeInDevelopment: false,
+      },
+    },
     `gatsby-plugin-typescript`,
     `gatsby-plugin-codegen`,
     'gatsby-plugin-styled-components',
