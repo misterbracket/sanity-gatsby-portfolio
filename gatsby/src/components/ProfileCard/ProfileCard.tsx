@@ -1,6 +1,10 @@
 import React from "react";
 import Img from "gatsby-image";
-import { AiFillLinkedin } from "react-icons/ai";
+import {
+  AiFillGithub,
+  AiFillLinkedin,
+  AiFillTwitterSquare
+} from "react-icons/ai";
 import styled from "styled-components";
 import { Link } from "gatsby";
 import { Button } from "../ui-components";
@@ -69,7 +73,8 @@ const SocialLinksStyles = styled.div`
   justify-content: center;
   position: relative;
   bottom: 1rem;
-  .linkedin-link {
+  gap: 2rem;
+  .social-link {
     width: 30px;
     height: 30px;
     margin: 0.5rem;
@@ -124,10 +129,24 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
       </CardStyles>
       <SocialLinksStyles>
         <Link
-          className="linkedin-link"
+          className="social-link"
           to="http://at.linkedin.com/in/maximilian-klammer-97bab592"
         >
           <AiFillLinkedin
+            color={"black"}
+            title={"Go to Linkedin Profile"}
+            size={"35"}
+          />
+        </Link>
+        <Link className="social-link" to="https://twitter.com/maxklammer">
+          <AiFillTwitterSquare
+            color={"black"}
+            title={"Go to Linkedin Profile"}
+            size={"35"}
+          />
+        </Link>
+        <Link className="social-link" to="https://github.com/misterbracket">
+          <AiFillGithub
             color={"black"}
             title={"Go to Linkedin Profile"}
             size={"35"}
