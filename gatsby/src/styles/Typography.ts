@@ -28,7 +28,8 @@ const Typography = createGlobalStyle`
     font-weight: lighter;
     line-height: 1.75;
     color: #000000;
-  }
+    -webkit-font-smoothing: antialiased;
+    }
 
   p {
     font-size: var(--normal);
