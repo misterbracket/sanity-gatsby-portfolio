@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { GatsbyImage } from "gatsby-plugin-image";
+import SanityImage from "gatsby-plugin-sanity-image";
 import { ProjectData } from "../../pages/projects";
 import { BlockText } from "../ui-components";
 import { Tags } from "./components";
@@ -65,13 +65,14 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
 
       <div className={"project-link-wrapper"}>
         <Link to={`/project/${project.slug.current}`} className="project-link">
-          {/* <GatsbyImage
-            image={project.mainImage.childImageSharp.gatsbyImageData}
+          <SanityImage
+            {...project.mainImage}
             className="project-img"
             imgStyle={{
-              objectFit: "contain"
+              objectFit: "contain",
             }}
-            alt={project.name} /> */}
+            alt={project.name}
+          />
         </Link>
       </div>
     </ProjectCardStyles>

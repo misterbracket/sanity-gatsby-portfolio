@@ -1,5 +1,6 @@
 import React from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
+import SanityImage from "gatsby-plugin-sanity-image";
+
 import {
   AiFillGithub,
   AiFillLinkedin,
@@ -9,7 +10,6 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 import { Button } from "../ui-components";
 import { useMedia } from "./../utils";
-import { SanityImageObject } from "@sanity/image-url/lib/types/types";
 
 const ProfileCardStyles = styled.div`
   display: grid;
@@ -101,8 +101,8 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
   return (
     <ProfileCardStyles>
       <CardStyles>
-        <GatsbyImage
-          image={person.image}
+        <SanityImage
+          {...person.image}
           className="profile-img"
           alt={person.name}
         />

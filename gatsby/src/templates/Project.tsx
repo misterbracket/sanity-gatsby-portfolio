@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { GatsbyImage } from "gatsby-plugin-image";
+import SanityImage from "gatsby-plugin-sanity-image";
 import { SEO } from "../components";
 import { graphql } from "gatsby";
 import { ProjectData } from "../pages/projects";
@@ -65,10 +65,7 @@ function Project({ data: { sanityProject } }: ProjectType) {
               <li key={tag.name}>{tag.name}</li>
             ))}
           </ul>
-          <GatsbyImage
-            image={sanityProject.mainImage}
-            className="project-image"
-          />
+          <SanityImage {...sanityProject.mainImage} className="project-image" />
         </ProjectStyles>
       </ProjectPageStyles>
     </>
