@@ -40,5 +40,14 @@ module.exports = {
     `gatsby-plugin-codegen`,
     'gatsby-plugin-styled-components',
     "gatsby-plugin-react-helmet",
+    `gatsby-plugin-image`,
+    {
+      resolve: "gatsby-plugin-sanity-image",
+      options: {
+        projectId: process.env.GATSBY_SANITY_PROJECT_ID || "4t789e8u",
+        dataset: process.env.GATSBY_SANITY_DATASET || "production",
+        fragmentTypeName: "SanityFigure"
+      },
+    }
   ]
 };

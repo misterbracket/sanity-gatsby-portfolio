@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { ProjectData } from "../../pages/projects";
 import { BlockText } from "../ui-components";
 import { Tags } from "./components";
@@ -65,14 +65,13 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
 
       <div className={"project-link-wrapper"}>
         <Link to={`/project/${project.slug.current}`} className="project-link">
-          <Img
+          {/* <GatsbyImage
+            image={project.mainImage.childImageSharp.gatsbyImageData}
             className="project-img"
-            fluid={project.mainImage.asset.fluid}
             imgStyle={{
               objectFit: "contain"
             }}
-            alt={project.name}
-          />
+            alt={project.name} /> */}
         </Link>
       </div>
     </ProjectCardStyles>

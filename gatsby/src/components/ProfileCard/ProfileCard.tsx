@@ -1,9 +1,9 @@
 import React from "react";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import {
   AiFillGithub,
   AiFillLinkedin,
-  AiFillTwitterSquare
+  AiFillTwitterSquare,
 } from "react-icons/ai";
 import styled from "styled-components";
 import { Link } from "gatsby";
@@ -93,7 +93,6 @@ type ProfileCardProps = {
   person: {
     name: string;
     profileslug: string;
-    image: SanityImageObject & { asset: { fluid: any } };
   };
 };
 
@@ -102,11 +101,10 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
   return (
     <ProfileCardStyles>
       <CardStyles>
-        <Img
+        <GatsbyImage
+          image={person.image}
           className="profile-img"
-          fluid={person.image.asset.fluid}
           alt={person.name}
-          fadeIn={true}
         />
         <h2 className="name center">{person.name}</h2>
         <hr />
@@ -128,30 +126,30 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
         )}
       </CardStyles>
       <SocialLinksStyles>
-        <Link
+        <a
           className="social-link"
-          to="http://at.linkedin.com/in/maximilian-klammer-97bab592"
+          href="http://at.linkedin.com/in/maximilian-klammer-97bab592"
         >
           <AiFillLinkedin
             color={"black"}
             title={"Go to Linkedin Profile"}
             size={"35"}
           />
-        </Link>
-        <Link className="social-link" to="https://twitter.com/maxklammer">
+        </a>
+        <a className="social-link" href="https://twitter.com/maxklammer">
           <AiFillTwitterSquare
             color={"black"}
             title={"Go to Linkedin Profile"}
             size={"35"}
           />
-        </Link>
-        <Link className="social-link" to="https://github.com/misterbracket">
+        </a>
+        <a className="social-link" href="https://github.com/misterbracket">
           <AiFillGithub
             color={"black"}
             title={"Go to Linkedin Profile"}
             size={"35"}
           />
-        </Link>
+        </a>
       </SocialLinksStyles>
     </ProfileCardStyles>
   );

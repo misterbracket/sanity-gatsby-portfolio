@@ -55,7 +55,7 @@ const projects = ({ location, data }: PageProps & allProjectData) => {
             data.allSanityProjectIntroduction.nodes[0]._rawProjectIntroduction
           }
         ></BlockText>
-        {data.allSanityProject.nodes.map(project => {
+        {data.allSanityProject.nodes.map((project) => {
           return <ProjectCard key={project.id} project={project}></ProjectCard>;
         })}
       </ProjectsStyles>
@@ -78,11 +78,7 @@ export const query = graphql`
         name
         _rawExcerpt
         mainImage {
-          asset {
-            fluid(maxWidth: 500) {
-              ...GatsbySanityImageFluid
-            }
-          }
+          ...ImageWithPreview
         }
         publishedAt(formatString: "MMM YYYY")
         startedAt(formatString: "MMM YYYY")

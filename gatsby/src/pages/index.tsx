@@ -84,8 +84,8 @@ const ContentStyles = styled.section`
 
 const index = ({ location, data }: PageProps) => {
   const isWide = useMedia("(min-width: 840px)");
-
   const person = data.sanityPerson;
+
   return (
     <>
       <SEO title={`A little about me`} location={location} />
@@ -128,11 +128,7 @@ export const query = graphql`
       profiletitle
       profilesubheading
       image {
-        asset {
-          fluid(maxWidth: 500) {
-            ...GatsbySanityImageFluid
-          }
-        }
+        ...ImageWithPreview
       }
     }
   }
