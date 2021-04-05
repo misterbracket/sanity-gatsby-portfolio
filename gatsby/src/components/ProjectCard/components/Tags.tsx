@@ -9,7 +9,7 @@ const TagListStyles = styled.ul`
   padding: 0;
 `;
 const TagStyles = styled.li`
-  background: ${props => props.color};
+  background: ${(props) => props.color};
   border-radius: 100px;
   list-style: none;
   padding: 0.5rem 1rem;
@@ -19,10 +19,14 @@ const TagStyles = styled.li`
 function Tags({ tags }: { tags: [{ name: string }] }) {
   return (
     <TagListStyles>
-      {tags.map(tag => {
+      {tags.map((tag) => {
         const colorIndex = Math.floor(Math.random() * 4);
         const color = colors[colorIndex];
-        return <TagStyles color={color}>{tag.name}</TagStyles>;
+        return (
+          <TagStyles key={tag.name} color={color}>
+            {tag.name}
+          </TagStyles>
+        );
       })}
     </TagListStyles>
   );
