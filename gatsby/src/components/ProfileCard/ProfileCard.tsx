@@ -1,15 +1,14 @@
 import React from "react";
+import styled from "styled-components";
 import SanityImage from "gatsby-plugin-sanity-image";
-
+import { Link } from "gatsby";
+import { Button } from "../ui-components";
+import { useMedia } from "./../utils";
 import {
   AiFillGithub,
   AiFillLinkedin,
   AiFillTwitterSquare,
 } from "react-icons/ai";
-import styled from "styled-components";
-import { Link } from "gatsby";
-import { Button } from "../ui-components";
-import { useMedia } from "./../utils";
 
 const ProfileCardStyles = styled.div`
   display: grid;
@@ -27,20 +26,22 @@ const ProfileCardStyles = styled.div`
     right: -8rem;
   }
 `;
+
+const ProfileImage = styled.div`
+  height: 18rem;
+  width: 18rem;
+  img {
+    height: auto;
+    width: 100%;
+    border-radius: 50%;
+  }
+`;
 const CardStyles = styled.div`
   display: flex;
   flex-direction: column;
   place-items: center center;
   padding: 5rem 1rem 4rem;
-  .profile-img {
-    img {
-      height: auto;
-      max-width: 100%;
-    }
-    border-radius: 50%;
-    height: 18rem;
-    width: 18rem;
-  }
+
   .name {
     text-decoration: none;
     font-weight: 900;
@@ -65,8 +66,10 @@ const CardStyles = styled.div`
   }
 `;
 
-const SocialLinksStyles = styled.div`
+const SocialLinksListStyles = styled.ul`
   background: var(--white);
+  margin: 0;
+  padding: 0;
   display: flex;
   width: 100%;
   height: 100%;
@@ -74,7 +77,11 @@ const SocialLinksStyles = styled.div`
   position: relative;
   bottom: 1rem;
   gap: 2rem;
-  .social-link {
+`;
+
+const SocialLink = styled.li`
+  list-style: none;
+  a {
     width: 30px;
     height: 30px;
     margin: 0.5rem;
@@ -82,6 +89,7 @@ const SocialLinksStyles = styled.div`
     justify-content: center;
     align-items: center;
   }
+
   .link {
     a {
       color: orange;
@@ -93,6 +101,20 @@ type ProfileCardProps = {
   person: {
     name: string;
     profileslug: string;
+    image: {
+      [x: string]: any;
+      asset: any;
+      hotspot: any;
+      crop: any;
+      width: any;
+      height: any;
+      options?: {} | undefined;
+      config?: {} | undefined;
+      __typename: any;
+      _type: any;
+      _key: any;
+      sources: any;
+    };
   };
 };
 
@@ -101,11 +123,9 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
   return (
     <ProfileCardStyles>
       <CardStyles>
-        <SanityImage
-          {...person.image}
-          className="profile-img"
-          alt={person.name}
-        />
+        <ProfileImage>
+          <SanityImage {...person.image} />
+        </ProfileImage>
         <h2 className="name center">{person.name}</h2>
         <hr />
         {isWide ? (
@@ -125,32 +145,35 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
           </div>
         )}
       </CardStyles>
-      <SocialLinksStyles>
-        <a
-          className="social-link"
-          href="http://at.linkedin.com/in/maximilian-klammer-97bab592"
-        >
-          <AiFillLinkedin
-            color={"black"}
-            title={"Go to Linkedin Profile"}
-            size={"35"}
-          />
-        </a>
-        <a className="social-link" href="https://twitter.com/maxklammer">
-          <AiFillTwitterSquare
-            color={"black"}
-            title={"Go to Linkedin Profile"}
-            size={"35"}
-          />
-        </a>
-        <a className="social-link" href="https://github.com/misterbracket">
-          <AiFillGithub
-            color={"black"}
-            title={"Go to Linkedin Profile"}
-            size={"35"}
-          />
-        </a>
-      </SocialLinksStyles>
+      <SocialLinksListStyles>
+        <SocialLink>
+          <a href="http://at.linkedin.com/in/maximilian-klammer-97bab592">
+            <AiFillLinkedin
+              color={"black"}
+              title={"Go to Linkedin Profile"}
+              size={"35"}
+            />
+          </a>
+        </SocialLink>
+        <SocialLink>
+          <a href="https://twitter.com/maxklammer">
+            <AiFillTwitterSquare
+              color={"black"}
+              title={"Go to Linkedin Profile"}
+              size={"35"}
+            />
+          </a>
+        </SocialLink>
+        <SocialLink>
+          <a href="https://github.com/misterbracket">
+            <AiFillGithub
+              color={"black"}
+              title={"Go to Linkedin Profile"}
+              size={"35"}
+            />
+          </a>
+        </SocialLink>
+      </SocialLinksListStyles>
     </ProfileCardStyles>
   );
 };
