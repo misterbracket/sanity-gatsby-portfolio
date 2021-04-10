@@ -14,29 +14,7 @@ const NavStyles = styled.nav`
   height: 100vh;
   display: grid;
   justify-items: center;
-  ul {
-    top: 30vh;
-    position: relative;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
-  }
 
-  .link {
-    text-align: left;
-    color: var(--black);
-    text-decoration: none;
-    font-size: var(--big);
-    text-transform: uppercase;
-    font-weight: 700;
-  }
-  .active {
-    color: var(--blue);
-  }
   @media screen and (min-width: 840px) {
     position: static;
     display: grid;
@@ -44,18 +22,44 @@ const NavStyles = styled.nav`
     height: auto;
     width: auto;
     background: var(--white);
-    ul {
-      top: 0;
-      flex-direction: row;
-      width: 100%;
-      justify-content: flex-end;
-      padding: 1rem 7rem 1rem 3rem;
-    }
-    .link {
-      line-height: 35px;
-      font-weight: 300;
-      font-size: var(--normal);
-    }
+  }
+`;
+
+const NavList = styled.ul`
+  top: 30vh;
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+
+  .active {
+    color: var(--blue);
+  }
+  @media screen and (min-width: 840px) {
+    top: 0;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+    padding: 1rem 7rem 1rem 3rem;
+  }
+`;
+
+const NavLink = styled(Link)`
+  text-align: left;
+  color: var(--black);
+  text-decoration: none;
+  font-size: var(--big);
+  text-transform: uppercase;
+  font-weight: 700;
+
+  @media screen and (min-width: 840px) {
+    line-height: 35px;
+    font-weight: 300;
+    font-size: var(--normal);
   }
 `;
 
@@ -71,52 +75,48 @@ const Nav = () => {
   return (
     <>
       <MenuToggle isOpen={isOpen} toggleNav={toggleNav} />
-      {isOpen || isWide ? (
+      {(isOpen || isWide) && (
         <NavStyles ref={navItems}>
-          <ul>
+          <NavList>
             <li>
-              <Link
+              <NavLink
                 onClick={!isWide ? toggleNav : undefined}
-                className="link"
                 activeClassName={"active"}
                 to="/"
               >
                 About Me
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 onClick={!isWide ? toggleNav : undefined}
-                className="link"
                 activeClassName={"active"}
                 to="/resume"
               >
                 Resume
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 onClick={!isWide ? toggleNav : undefined}
-                className="link"
                 activeClassName={"active"}
                 to="/projects"
               >
                 Projects
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 onClick={!isWide ? toggleNav : undefined}
-                className="link"
                 activeClassName={"active"}
                 to="/contact"
               >
                 Contact Me
-              </Link>
+              </NavLink>
             </li>
-          </ul>
+          </NavList>
         </NavStyles>
-      ) : null}
+      )}
     </>
   );
 };

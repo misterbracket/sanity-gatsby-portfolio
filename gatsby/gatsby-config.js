@@ -39,7 +39,6 @@ module.exports = {
     `gatsby-plugin-typescript`,
     'gatsby-plugin-styled-components',
     "gatsby-plugin-react-helmet",
-    `gatsby-plugin-image`,
     {
       resolve: "gatsby-plugin-sanity-image",
       options: {
