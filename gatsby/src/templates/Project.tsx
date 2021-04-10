@@ -24,15 +24,17 @@ const ProjectPageStyles = styled.article`
     grid-column: 2;
     width: 100%;
   }
-  .project-image {
-    width: 100%;
-    height: auto;
-    max-width: 600px;
-    align-self: center;
-  }
+
   @media screen and (min-width: 840px) {
     grid-template-columns: 1fr min(90ch, calc(100% - 5rem)) 1fr;
   }
+`;
+
+const ProjectImage = styled(SanityImage)`
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  align-self: center;
 `;
 
 const ProjectStyles = styled.article`
@@ -47,11 +49,12 @@ const ProjectStyles = styled.article`
 `;
 
 function Project({ data: { sanityProject } }: ProjectType) {
+  console.log(sanityProject.mainImage);
   return (
     <>
       <SEO
         title={sanityProject.name}
-        image={sanityProject.mainImage?.asset?.fluid?.src}
+        image={sanityProject.mainImage.asset.path}
       />
       <ProjectPageStyles>
         <Heading>{sanityProject.name}</Heading>
@@ -65,7 +68,7 @@ function Project({ data: { sanityProject } }: ProjectType) {
               <li key={tag.name}>{tag.name}</li>
             ))}
           </ul>
-          <SanityImage {...sanityProject.mainImage} className="project-image" />
+          <ProjectImage {...sanityProject.mainImage} />
         </ProjectStyles>
       </ProjectPageStyles>
     </>
@@ -86,6 +89,10 @@ export const query = graphql`
       }
       mainImage {
         ...ImageWithPreview
+        alt
+        asset {
+          path
+        }
       }
 
       publishedAt(formatString: "MMM YYYY")

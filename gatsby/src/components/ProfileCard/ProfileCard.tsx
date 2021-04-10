@@ -9,6 +9,7 @@ import {
   AiFillLinkedin,
   AiFillTwitterSquare,
 } from "react-icons/ai";
+import { PersonProps } from "../../pages";
 
 const ProfileCardStyles = styled.div`
   display: grid;
@@ -27,15 +28,13 @@ const ProfileCardStyles = styled.div`
   }
 `;
 
-const ProfileImage = styled.div`
-  height: 18rem;
-  width: 18rem;
-  img {
-    height: auto;
-    width: 100%;
-    border-radius: 50%;
-  }
+const ProfileImage = styled(SanityImage)`
+  height: 23rem;
+  width: 23rem;
+  border-radius: 50%;
+  object-fit: cover;
 `;
+
 const CardStyles = styled.div`
   display: flex;
   flex-direction: column;
@@ -79,43 +78,20 @@ const SocialLinksListStyles = styled.ul`
   gap: 2rem;
 `;
 
-const SocialLink = styled.li`
+const SocialLinkItem = styled.li`
   list-style: none;
-  a {
-    width: 30px;
-    height: 30px;
-    margin: 0.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .link {
-    a {
-      color: orange;
-    }
-  }
 `;
 
+const SocialLink = styled.a`
+  width: 30px;
+  height: 30px;
+  margin: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 type ProfileCardProps = {
-  person: {
-    name: string;
-    profileslug: string;
-    image: {
-      [x: string]: any;
-      asset: any;
-      hotspot: any;
-      crop: any;
-      width: any;
-      height: any;
-      options?: {} | undefined;
-      config?: {} | undefined;
-      __typename: any;
-      _type: any;
-      _key: any;
-      sources: any;
-    };
-  };
+  person: PersonProps;
 };
 
 const ProfileCard = ({ person }: ProfileCardProps) => {
@@ -123,9 +99,7 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
   return (
     <ProfileCardStyles>
       <CardStyles>
-        <ProfileImage>
-          <SanityImage {...person.image} />
-        </ProfileImage>
+        <ProfileImage alt={person.alt} {...person.image} />
         <h2 className="name center">{person.name}</h2>
         <hr />
         {isWide ? (
@@ -146,33 +120,33 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
         )}
       </CardStyles>
       <SocialLinksListStyles>
-        <SocialLink>
-          <a href="http://at.linkedin.com/in/maximilian-klammer-97bab592">
+        <SocialLinkItem>
+          <SocialLink href="http://at.linkedin.com/in/maximilian-klammer-97bab592">
             <AiFillLinkedin
               color={"black"}
               title={"Go to Linkedin Profile"}
               size={"35"}
             />
-          </a>
-        </SocialLink>
-        <SocialLink>
-          <a href="https://twitter.com/maxklammer">
+          </SocialLink>
+        </SocialLinkItem>
+        <SocialLinkItem>
+          <SocialLink href="https://twitter.com/maxklammer">
             <AiFillTwitterSquare
               color={"black"}
               title={"Go to Linkedin Profile"}
               size={"35"}
             />
-          </a>
-        </SocialLink>
-        <SocialLink>
-          <a href="https://github.com/misterbracket">
+          </SocialLink>
+        </SocialLinkItem>
+        <SocialLinkItem>
+          <SocialLink href="https://github.com/misterbracket">
             <AiFillGithub
               color={"black"}
               title={"Go to Linkedin Profile"}
               size={"35"}
             />
-          </a>
-        </SocialLink>
+          </SocialLink>
+        </SocialLinkItem>
       </SocialLinksListStyles>
     </ProfileCardStyles>
   );

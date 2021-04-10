@@ -4,7 +4,6 @@ import { SEO } from "../components";
 import styled from "styled-components";
 import { BlockText, Heading } from "../components/ui-components";
 import { ProjectCard } from "../components/ProjectCard";
-import { SanityImageObject } from "@sanity/image-url/lib/types/types";
 import { BlockContentProps } from "@sanity/block-content-to-react";
 
 const ProjectsStyles = styled.main`
@@ -39,7 +38,12 @@ export interface ProjectData {
   tags: [{ name: string }];
   projectUrl: string;
   slug: { current: string };
-  mainImage: SanityImageObject & { asset: { fluid: any } };
+  mainImage: {
+    alt: string;
+    asset: {
+      path: string;
+    };
+  };
   _rawDescription: BlockContentProps["blocks"];
   _rawExcerpt: BlockContentProps["blocks"];
 }
