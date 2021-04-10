@@ -9,7 +9,7 @@ const isProd = process.env.NODE_ENV === "production";
 module.exports = {
   siteMetadata: {
     title: `MK`,
-    siteUrl: `https://maximilianklammer.com`,
+    siteUrl: `https://maxklammer.com`,
     description: `Welcome to my Portfolio Website`
   },
   plugins: [
@@ -37,7 +37,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-codegen`,
     'gatsby-plugin-styled-components',
     "gatsby-plugin-react-helmet",
     `gatsby-plugin-image`,
