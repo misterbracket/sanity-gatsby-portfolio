@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Img from "gatsby-image";
+import SanityImage from "gatsby-plugin-sanity-image";
 import { SEO } from "../components";
 import { graphql } from "gatsby";
 import { ProjectData } from "../pages/projects";
@@ -11,7 +11,6 @@ type ProjectType = {
     sanityProject: ProjectData;
   };
 };
-
 
 const ProjectPageStyles = styled.article`
   display: grid;
@@ -24,49 +23,52 @@ const ProjectPageStyles = styled.article`
   & > * {
     grid-column: 2;
     width: 100%;
+  }
 
-  }
-  .project-image {
-    width: 100%;
-    height: auto;
-    max-width: 600px;
-    align-self: center;
-  }
   @media screen and (min-width: 840px) {
     grid-template-columns: 1fr min(90ch, calc(100% - 5rem)) 1fr;
   }
 `;
 
+const ProjectImage = styled(SanityImage)`
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  align-self: center;
+`;
+
 const ProjectStyles = styled.article`
-padding: 4rem;
-background: var(--white);
-font-size: var(--normal);
-box-shadow: var(--shd);
-display: flex;
-flex-direction: column;
-flex-wrap: wrap;
-column-gap: 3rem;`
+  padding: 4rem;
+  background: var(--white);
+  font-size: var(--normal);
+  box-shadow: var(--shd);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  column-gap: 3rem;
+`;
 
 function Project({ data: { sanityProject } }: ProjectType) {
+  console.log(sanityProject.mainImage);
   return (
     <>
-      <SEO title={sanityProject.name} image={sanityProject.mainImage?.asset?.fluid?.src} />
+      <SEO
+        title={sanityProject.name}
+        image={sanityProject.mainImage.asset.path}
+      />
       <ProjectPageStyles>
-          <Heading>{sanityProject.name}</Heading>
+        <Heading>{sanityProject.name}</Heading>
         <ProjectStyles>
-        <BlockText blocks={sanityProject._rawDescription}></BlockText>
+          <BlockText blocks={sanityProject._rawDescription}></BlockText>
           <a className="project-link" href={sanityProject.projectUrl}>
             Teleport to project 🚀
           </a>
           <ul>
-            {sanityProject.tags.map(tag => (
+            {sanityProject.tags.map((tag) => (
               <li key={tag.name}>{tag.name}</li>
             ))}
           </ul>
-          <Img
-            fluid={sanityProject.mainImage.asset.fluid}
-            className="project-image"
-          />
+          <ProjectImage {...sanityProject.mainImage} />
         </ProjectStyles>
       </ProjectPageStyles>
     </>
@@ -86,12 +88,13 @@ export const query = graphql`
         name
       }
       mainImage {
+        ...ImageWithPreview
+        alt
         asset {
-          fluid(maxWidth: 500) {
-            ...GatsbySanityImageFluid
-          }
+          path
         }
       }
+
       publishedAt(formatString: "MMM YYYY")
       startedAt(formatString: "MMM YYYY")
       endedAt(formatString: "MMM YYYY")

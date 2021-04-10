@@ -9,7 +9,7 @@ const isProd = process.env.NODE_ENV === "production";
 module.exports = {
   siteMetadata: {
     title: `MK`,
-    siteUrl: `https://maximilianklammer.com`,
+    siteUrl: `https://maxklammer.com`,
     description: `Welcome to my Portfolio Website`
   },
   plugins: [
@@ -37,8 +37,15 @@ module.exports = {
       },
     },
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-codegen`,
     'gatsby-plugin-styled-components',
     "gatsby-plugin-react-helmet",
+    {
+      resolve: "gatsby-plugin-sanity-image",
+      options: {
+        projectId: process.env.GATSBY_SANITY_PROJECT_ID || "4t789e8u",
+        dataset: process.env.GATSBY_SANITY_DATASET || "production",
+        fragmentTypeName: "SanityFigure"
+      },
+    }
   ]
 };

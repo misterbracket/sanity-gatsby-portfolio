@@ -15,32 +15,26 @@ const AboutMeStyles = styled.main`
   place-items: center;
   flex-direction: column;
 
-  .container {
-    position: relative;
-    top: -150px;
-    @media screen and (min-width: 840px) {
-      display: grid;
-      grid-template: auto / 45% 55%;
-      position: static;
-      width: 100%;
-      height: 100%;
-    }
-  }
-
   @media screen and (min-width: 840px) {
     position: static;
     margin: 0;
   }
 `;
-const ContentStyles = styled.section`
+
+const MainWrapper = styled.div`
+  position: relative;
+  top: -150px;
+  @media screen and (min-width: 840px) {
+    display: grid;
+    grid-template: auto / 45% 55%;
+    position: static;
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+const TextSection = styled.section`
   padding: 3rem 3rem;
-  .hero-title {
-    font-size: var(--very-very-big);
-    font-weight: 700;
-  }
-  .subheading {
-    font-weight: 500;
-  }
 
   @media screen and (min-width: 840px) {
     background-color: var(--white);
@@ -50,54 +44,77 @@ const ContentStyles = styled.section`
     justify-content: center;
     padding-left: 10rem;
     padding-right: 7rem;
-
-    .content-wrapper {
-      background-color: var(--white);
-      max-height: 500px;
-      overflow: scroll;
-    }
-    .subheading {
-      font-weight: 400;
-    }
-
-    .hero-title {
-      font-size: var(--super-big);
-      margin: 0;
-      line-height: normal;
-      font-weight: 700;
-    }
-    .content-wrapper {
-      display: flex;
-      flex-direction: column;
-      max-width: 500px;
-    }
-    .btn-group {
-      margin-top: 1.5rem;
-      display: flex;
-      justify-content: space-around;
-      width: 100%;
-      max-width: 270px;
-      gap: 1rem;
-    }
   }
 `;
 
-const index = ({ location, data }: PageProps) => {
-  const isWide = useMedia("(min-width: 840px)");
+const ContentWrapper = styled.div`
+  @media screen and (min-width: 840px) {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    background-color: var(--white);
+    max-height: 500px;
+    overflow: scroll;
+  }
+`;
 
+const HeroTitle = styled.h1`
+  font-size: var(--very-very-big);
+  font-weight: 700;
+  @media screen and (min-width: 840px) {
+    font-size: var(--super-big);
+    margin: 0;
+    line-height: normal;
+    font-weight: 700;
+  }
+`;
+
+const Subheading = styled.h3`
+  font-weight: 500;
+  @media screen and (min-width: 840px) {
+    font-weight: 400;
+  }
+`;
+
+const ButtonGroup = styled.div`
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 270px;
+  gap: 1rem;
+`;
+export interface PersonProps {
+  name: string;
+  profileslug: string;
+  profiletitle: string;
+  profilesubheading: string;
+  bio: string;
+  alt: string;
+  image: {};
+}
+
+interface AboutMePageProps {
+  data: {
+    sanityPerson: PersonProps;
+  };
+}
+
+const index = ({ location, data }: PageProps & AboutMePageProps) => {
+  const isWide = useMedia("(min-width: 840px)");
   const person = data.sanityPerson;
   return (
     <>
       <SEO title={`A little about me`} location={location} />
       <AboutMeStyles>
-        <div className="container">
+        <MainWrapper>
           <ProfileCard person={person}></ProfileCard>
-          <ContentStyles>
-            <div className="content-wrapper">
-              <p className="hero-title">{person.profiletitle}</p>
-              <h3 className="subheading">{person.profilesubheading}</h3>
+          <TextSection>
+            <ContentWrapper>
+              <HeroTitle>{person.profiletitle}</HeroTitle>
+              <Subheading>{person.profilesubheading}</Subheading>
               {isWide && (
-                <div className="btn-group">
+                <ButtonGroup>
                   <Button color="dark">
                     <Link className="link" to="/resume">
                       Resume
@@ -108,12 +125,12 @@ const index = ({ location, data }: PageProps) => {
                       Projects
                     </Link>
                   </Button>
-                </div>
+                </ButtonGroup>
               )}
               <p>{person.bio}</p>
-            </div>
-          </ContentStyles>
-        </div>
+            </ContentWrapper>
+          </TextSection>
+        </MainWrapper>
       </AboutMeStyles>
     </>
   );
@@ -128,11 +145,8 @@ export const query = graphql`
       profiletitle
       profilesubheading
       image {
-        asset {
-          fluid(maxWidth: 500) {
-            ...GatsbySanityImageFluid
-          }
-        }
+        ...ImageWithPreview
+        alt
       }
     }
   }
