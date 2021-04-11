@@ -49,7 +49,6 @@ const ProjectStyles = styled.article`
 `;
 
 function Project({ data: { sanityProject } }: ProjectType) {
-  console.log(sanityProject.mainImage);
   return (
     <>
       <SEO
