@@ -12,7 +12,7 @@ import {
 } from "react-icons/ai";
 import { PersonProps } from "../../pages";
 
-const ProfileCardStyles = styled.div`
+const ProfileCardStyles = styled(motion.div)`
   display: grid;
   grid-template: 1fr auto / 1fr;
   margin: 3rem auto;
@@ -101,7 +101,19 @@ type ProfileCardProps = {
 const ProfileCard = ({ person }: ProfileCardProps) => {
   const isWide = useMedia("(min-width: 840px)");
   return (
-    <ProfileCardStyles>
+    <ProfileCardStyles
+      initial={{
+        opacity: 0,
+        y: 50,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      transition={{
+        duration: 0.5,
+      }}
+    >
       <CardStyles>
         <ProfileImage alt={person.alt} {...person.image} />
         <Name>{person.name}</Name>

@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { Button, Heading } from "../components/ui-components";
 import { useContactForm } from "./../components/hooks";
 
-const ConactStyles = styled.main`
+const ContactStyle = styled.main`
   display: grid;
   --gap: 2.5rem;
   font-size: var(--normal);
@@ -86,7 +86,7 @@ const contact = ({ location }: PageProps) => {
   return (
     <>
       <SEO title={`Let's have a chat`} location={location} />
-      <ConactStyles>
+      <ContactStyle>
         <Heading>Let's talk</Heading>
         <SendEmailStyles onSubmit={submitEmail}>
           <fieldset disabled={loading}>
@@ -153,7 +153,7 @@ const contact = ({ location }: PageProps) => {
             </SendButton>
           )}
         </SendEmailStyles>
-      </ConactStyles>
+      </ContactStyle>
     </>
   );
 };

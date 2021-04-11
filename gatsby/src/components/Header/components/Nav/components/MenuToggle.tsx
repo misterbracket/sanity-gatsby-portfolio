@@ -2,6 +2,7 @@ import React from "react";
 import { RiMenuFill } from "react-icons/ri";
 import { AiOutlineClose } from "react-icons/ai";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 type MenuToggleProps = {
   isOpen: boolean;
@@ -18,17 +19,25 @@ const MenuToggleStyles = styled.div`
     display: none;
   }
 `;
+
+const AnimatedBurgerMenu = motion(RiMenuFill);
+const AnimatedCloseMenu = motion(AiOutlineClose);
+
 function MenuToggle({ isOpen, toggleNav }: MenuToggleProps) {
   return (
     <MenuToggleStyles onClick={() => toggleNav()}>
       {isOpen ? (
-        <AiOutlineClose
+        <AnimatedCloseMenu
           color={"var(--blue)"}
           title={"Close Menu"}
           size={"35"}
         />
       ) : (
-        <RiMenuFill color={"var(--blue)"} title={"Open Menu"} size={"35"} />
+        <AnimatedBurgerMenu
+          color={"var(--blue)"}
+          title={"Open Menu"}
+          size={"35"}
+        />
       )}
     </MenuToggleStyles>
   );

@@ -5,8 +5,9 @@ import styled from "styled-components";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
 import { useMedia } from "./../components/utils";
 import { Button } from "../components/ui-components";
+import { motion } from "framer-motion";
 
-const AboutMeStyles = styled.main`
+const AboutMeStyles = styled(motion.div)`
   --margin-top: 150px;
   margin-top: var(--margin-top);
   background: var(--dark-pink);
@@ -106,7 +107,19 @@ const index = ({ location, data }: PageProps & AboutMePageProps) => {
   return (
     <>
       <SEO title={`A little about me`} location={location} />
-      <AboutMeStyles>
+      <AboutMeStyles
+        initial={{
+          opacity: 0,
+          y: 50,
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: 0.5,
+        }}
+      >
         <MainWrapper>
           <ProfileCard person={person}></ProfileCard>
           <TextSection>
