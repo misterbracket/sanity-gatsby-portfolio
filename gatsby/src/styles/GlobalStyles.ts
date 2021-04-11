@@ -24,8 +24,7 @@ const GlobalStyles = createGlobalStyle`
   *, *::before, *::after {
   box-sizing: border-box;
   }
-
-  body {
+  body, #___gatsby, #gatsby-focus-wrapper {
     font-size: 2rem;
     height: 100%;
   }
@@ -85,24 +84,6 @@ const GlobalStyles = createGlobalStyle`
     max-width: 100%;
   }
 
-  .tilt {
-    transform: rotate(-2deg);
-    position: relative;
-    display: inline-block;
-  }
-/*
-  .gatsby-image-wrapper img[src*=base64\\,] {
-    image-rendering: -moz-crisp-edges;
-    image-rendering: pixelated;
-  } */
-
-  .red {
-    background-color: var(--red);
-  }
-
-  .blue {
-    background-color: var(--blue);
-  }
 `;
 
 export default GlobalStyles;
