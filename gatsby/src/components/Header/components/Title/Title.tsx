@@ -47,7 +47,7 @@ const Title = () => {
   return (
     <TitleStyles>
       <NameWrapper>
-        <BlueDot />
+        <BlueDot></BlueDot>
         <Name to="/">Max Klammer</Name>
       </NameWrapper>
       <SlugWrapper>
