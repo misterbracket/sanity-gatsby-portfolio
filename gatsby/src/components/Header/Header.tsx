@@ -21,8 +21,8 @@ const HeaderSyles = styled.header`
 function Header() {
   return (
     <HeaderSyles>
-      <Title></Title>
-      <Nav></Nav>
+      <Title />
+      <Nav />
     </HeaderSyles>
   );
 }

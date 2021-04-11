@@ -69,11 +69,6 @@ const Typography = createGlobalStyle`
     font-weight: 400;
   }
 
-  small,
-  .text_small {
-    font-size: var(--small);
-  }
-
   a {
     color: var(--black);
     text-decoration-color: var(--blue);

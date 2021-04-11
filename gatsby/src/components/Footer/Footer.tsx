@@ -1,31 +1,25 @@
 import React from "react";
 import styled from "styled-components";
-import CTA from "./components";
 
 const FooterStyles = styled.footer`
   grid-area: footer;
-  display: flex;
-  flex-wrap: wrap;
+`;
 
-  .copy {
-    padding: 0.75rem 2rem;
-    display: flex;
-    align-items: center;
-  }
+const SmallText = styled.p`
+  font-size: var(--small);
+  padding: 0.75rem 2rem;
+  width: fit-content;
   @media screen and (min-width: 800px) {
-    .copy {
-      margin-left: auto;
-    }
+    margin-left: auto;
   }
 `;
 
 const Footer = () => {
   return (
     <FooterStyles>
-      {/* <CTA></CTA> */}
-      <div className="text_small copy">
+      <SmallText>
         &copy; Maximilian Klammer {new Date().getFullYear()}
-      </div>
+      </SmallText>
     </FooterStyles>
   );
 };
