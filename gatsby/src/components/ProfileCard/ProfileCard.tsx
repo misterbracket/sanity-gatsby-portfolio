@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import SanityImage from "gatsby-plugin-sanity-image";
+import { motion } from "framer-motion";
 import { Link } from "gatsby";
 import { Button } from "../ui-components";
 import { useMedia } from "./../utils";
@@ -35,34 +36,37 @@ const ProfileImage = styled(SanityImage)`
   object-fit: cover;
 `;
 
+const Name = styled.h2`
+  text-decoration: none;
+  font-weight: 900;
+  font-size: var(--big);
+  max-width: 250px;
+`;
+
 const CardStyles = styled.div`
   display: flex;
   flex-direction: column;
   place-items: center center;
   padding: 5rem 1rem 4rem;
+`;
 
-  .name {
-    text-decoration: none;
-    font-weight: 900;
-    font-size: var(--big);
-    max-width: 250px;
-  }
-  hr {
-    width: 10rem;
-    background-color: var(--blue);
-    height: 2px;
-  }
-  .btn-group {
-    margin-top: 1.5rem;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 270px;
-    gap: 1rem;
-  }
-  .profile-slug {
-    letter-spacing: 0.2em;
-  }
+const HorizontalRuler = styled.hr`
+  width: 10rem;
+  background-color: var(--blue);
+  height: 2px;
+`;
+const ButtonGroup = styled.div`
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 270px;
+  gap: 1rem;
+`;
+
+const ProfileSlug = styled.span`
+  letter-spacing: 0.2em;
+  text-align: center;
 `;
 
 const SocialLinksListStyles = styled.ul`
@@ -100,12 +104,12 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
     <ProfileCardStyles>
       <CardStyles>
         <ProfileImage alt={person.alt} {...person.image} />
-        <h2 className="name center">{person.name}</h2>
-        <hr />
+        <Name>{person.name}</Name>
+        <HorizontalRuler />
         {isWide ? (
-          <span className="profile-slug center">{person.profileslug}</span>
+          <ProfileSlug>{person.profileslug}</ProfileSlug>
         ) : (
-          <div className="btn-group">
+          <ButtonGroup>
             <Button color="dark">
               <Link className="link" to="/resume">
                 Resume
@@ -116,7 +120,7 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
                 Projects
               </Link>
             </Button>
-          </div>
+          </ButtonGroup>
         )}
       </CardStyles>
       <SocialLinksListStyles>
