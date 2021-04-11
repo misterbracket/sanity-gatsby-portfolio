@@ -18,6 +18,7 @@ const GlobalStyles = createGlobalStyle`
     background-size: 450px;
     background-attachment: fixed;
     font-size: 10px;
+    height: 100%;
   }
 
   *, *::before, *::after {
@@ -26,6 +27,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-size: 2rem;
+    height: 100%;
   }
 
   fieldset {

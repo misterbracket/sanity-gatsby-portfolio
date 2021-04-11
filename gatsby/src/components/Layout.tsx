@@ -8,7 +8,7 @@ import Header from "./Header";
 const LayoutStyles = styled.div`
   display: grid;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
   grid-template-areas: "header" "main" "footer";
