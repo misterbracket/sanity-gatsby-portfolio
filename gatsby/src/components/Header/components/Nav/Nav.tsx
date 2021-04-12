@@ -95,7 +95,7 @@ const Nav = () => {
             initial={!isWide && "hidden"}
             animate="visible"
           >
-            <li>
+            <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               <NavLink
                 onClick={!isWide ? toggleNav : undefined}
                 activeClassName={"active"}
@@ -103,34 +103,43 @@ const Nav = () => {
               >
                 About Me
               </NavLink>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               <NavLink
                 onClick={!isWide ? toggleNav : undefined}
                 activeClassName={"active"}
                 to="/resume"
+                as={motion.a}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
                 Resume
               </NavLink>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               <NavLink
                 onClick={!isWide ? toggleNav : undefined}
                 activeClassName={"active"}
                 to="/projects"
+                as={motion.a}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
                 Projects
               </NavLink>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               <NavLink
                 onClick={!isWide ? toggleNav : undefined}
                 activeClassName={"active"}
                 to="/contact"
+                as={motion.a}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
                 Contact Me
               </NavLink>
-            </li>
+            </motion.li>
           </NavList>
         </NavStyles>
       )}
