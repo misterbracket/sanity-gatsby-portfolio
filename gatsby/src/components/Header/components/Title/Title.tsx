@@ -14,7 +14,7 @@ const NameWrapper = styled.p`
   padding: 0;
 `;
 
-const BlueDot = styled.div`
+const BlueDot = styled.span`
   display: inline-block;
   background: var(--blue);
   width: 16px;

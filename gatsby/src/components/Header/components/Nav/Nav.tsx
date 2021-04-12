@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useMedia } from "./../../../utils";
 import { Link } from "gatsby";
 import { MenuToggle } from "./components";
+import { motion } from "framer-motion";
 
 const NavStyles = styled.nav`
   grid-area: nav;
@@ -25,7 +26,7 @@ const NavStyles = styled.nav`
   }
 `;
 
-const NavList = styled.ul`
+const NavList = styled(motion.ul)`
   top: 30vh;
   position: relative;
   list-style: none;
@@ -63,6 +64,18 @@ const NavLink = styled(Link)`
   }
 `;
 
+const animationVariants = {
+  hidden: { opacity: 0, y: "10vh" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      duration: 0.2,
+    },
+  },
+};
+
 const Nav = () => {
   const navItems = useRef<HTMLElement>(null);
   const isWide = useMedia("(min-width: 840px)");
@@ -77,7 +90,11 @@ const Nav = () => {
       <MenuToggle isOpen={isOpen} toggleNav={toggleNav} />
       {(isOpen || isWide) && (
         <NavStyles ref={navItems}>
-          <NavList>
+          <NavList
+            variants={!isWide && animationVariants}
+            initial={!isWide && "hidden"}
+            animate="visible"
+          >
             <li>
               <NavLink
                 onClick={!isWide ? toggleNav : undefined}

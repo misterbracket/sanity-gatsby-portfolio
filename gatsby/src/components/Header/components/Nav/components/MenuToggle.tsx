@@ -20,24 +20,20 @@ const MenuToggleStyles = styled.div`
   }
 `;
 
-const AnimatedBurgerMenu = motion(RiMenuFill);
-const AnimatedCloseMenu = motion(AiOutlineClose);
+// const AnimatedBurgerMenu = motion(RiMenuFill);
+// const AnimatedCloseMenu = motion(AiOutlineClose);
 
 function MenuToggle({ isOpen, toggleNav }: MenuToggleProps) {
   return (
     <MenuToggleStyles onClick={() => toggleNav()}>
       {isOpen ? (
-        <AnimatedCloseMenu
+        <AiOutlineClose
           color={"var(--blue)"}
           title={"Close Menu"}
           size={"35"}
         />
       ) : (
-        <AnimatedBurgerMenu
-          color={"var(--blue)"}
-          title={"Open Menu"}
-          size={"35"}
-        />
+        <RiMenuFill color={"var(--blue)"} title={"Open Menu"} size={"35"} />
       )}
     </MenuToggleStyles>
   );

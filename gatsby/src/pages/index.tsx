@@ -101,6 +101,11 @@ interface AboutMePageProps {
   };
 }
 
+const animationVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },
+};
+
 const index = ({ location, data }: PageProps & AboutMePageProps) => {
   const isWide = useMedia("(min-width: 840px)");
   const person = data.sanityPerson;
@@ -108,17 +113,9 @@ const index = ({ location, data }: PageProps & AboutMePageProps) => {
     <>
       <SEO title={`A little about me`} location={location} />
       <AboutMeStyles
-        initial={{
-          opacity: 0,
-          y: 50,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-        }}
-        transition={{
-          duration: 0.5,
-        }}
+        variants={animationVariants}
+        initial="hidden"
+        animate="visible"
       >
         <MainWrapper>
           <ProfileCard person={person}></ProfileCard>

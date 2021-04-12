@@ -22,13 +22,14 @@ const ContactStyle = styled.main`
   }
 `;
 
-const SendEmailStyles = styled.form`
+const SendEmailForm = styled.form`
   padding: 3rem;
   background-color: var(--white);
   box-shadow: var(--shd);
   height: fit-content;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 
   .mapleSyrup {
     display: none;
@@ -88,7 +89,7 @@ const contact = ({ location }: PageProps) => {
       <SEO title={`Let's have a chat`} location={location} />
       <ContactStyle>
         <Heading>Let's talk</Heading>
-        <SendEmailStyles onSubmit={submitEmail}>
+        <SendEmailForm onSubmit={submitEmail}>
           <fieldset disabled={loading}>
             <Subheading>Your Info</Subheading>
             <Label htmlFor="name">
@@ -152,7 +153,7 @@ const contact = ({ location }: PageProps) => {
               {loading ? "Sending Email..." : "Send Email"}
             </SendButton>
           )}
-        </SendEmailStyles>
+        </SendEmailForm>
       </ContactStyle>
     </>
   );

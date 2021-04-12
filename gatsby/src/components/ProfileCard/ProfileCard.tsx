@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import SanityImage from "gatsby-plugin-sanity-image";
-import { motion } from "framer-motion";
 import { Link } from "gatsby";
 import { Button } from "../ui-components";
 import { useMedia } from "./../utils";
@@ -12,7 +11,7 @@ import {
 } from "react-icons/ai";
 import { PersonProps } from "../../pages";
 
-const ProfileCardStyles = styled(motion.div)`
+const ProfileCardStyles = styled.div`
   display: grid;
   grid-template: 1fr auto / 1fr;
   margin: 3rem auto;
@@ -101,19 +100,7 @@ type ProfileCardProps = {
 const ProfileCard = ({ person }: ProfileCardProps) => {
   const isWide = useMedia("(min-width: 840px)");
   return (
-    <ProfileCardStyles
-      initial={{
-        opacity: 0,
-        y: 50,
-      }}
-      animate={{
-        opacity: 1,
-        y: 0,
-      }}
-      transition={{
-        duration: 0.5,
-      }}
-    >
+    <ProfileCardStyles>
       <CardStyles>
         <ProfileImage alt={person.alt} {...person.image} />
         <Name>{person.name}</Name>
