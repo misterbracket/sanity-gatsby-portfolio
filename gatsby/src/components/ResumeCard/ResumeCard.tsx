@@ -2,8 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { GoLocation } from "react-icons/go";
 import { EducationData, JobData } from "../../pages/resume";
+import { useIntersection } from "../hooks";
+import { motion } from "framer-motion";
 
-const ResumeCardStyles = styled.article`
+const ResumeCardStyles = styled(motion.article)`
   background: var(--white);
   font-size: var(--normal);
   padding: 5rem;
@@ -11,76 +13,105 @@ const ResumeCardStyles = styled.article`
   display: flex;
   flex-wrap: wrap;
   column-gap: 3rem;
-  .headings {
-    flex-grow: 1;
-    flex-basis: 35%;
-  }
-  .excerpt {
-    flex-grow: 1;
-    flex-basis: 60%;
-  }
-  .date {
-    color: var(--blue);
-    font-size: var(--big);
-    font-weight: bold;
-  }
-  h4 {
-    font-size: var(--normal);
-    font-weight: 600;
-  }
-  .company {
-    margin: 1rem 0;
-  }
-  .location {
-    margin: 1rem 0;
-    display: flex;
-    align-items: center;
-    h5 {
-      margin: 0 0 0 0.5rem;
-    }
+`;
+
+const Headings = styled.div`
+  flex-grow: 1;
+  flex-basis: 35%;
+`;
+
+const RoleName = styled.h4`
+  font-size: var(--normal);
+  font-weight: 600;
+`;
+
+const Date = styled.p`
+  color: var(--blue);
+  font-size: var(--big);
+  font-weight: bold;
+`;
+
+const Company = styled.h5`
+  margin: 1rem 0;
+`;
+
+const Location = styled.div`
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  h5 {
+    margin: 0 0 0 0.5rem;
   }
 `;
 
+const Excerpt = styled.p`
+  flex-grow: 1;
+  flex-basis: 60%;
+`;
+
+const fadeInVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "tween", duration: 0.2 },
+  },
+};
+
 export default function ResumeCard({
   job,
-  education
+  education,
 }: {
   job?: JobData;
   education?: EducationData;
 }) {
+  const intersectionRef = React.useRef(null);
+  const intersection = useIntersection(intersectionRef, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1,
+  });
+
   return (
-    <ResumeCardStyles>
+    <ResumeCardStyles
+      ref={intersectionRef}
+      variants={fadeInVariants}
+      initial="hidden"
+      animate={
+        intersection && intersection.intersectionRatio > 0.08 ? "visible" : ""
+      }
+    >
       {job && (
         <>
-          <div className="headings">
-            <p className="date">
+          <Headings>
+            <Date>
               {job.startedAt} - {job.endedAt}
-            </p>
-            <h4>{job.name}</h4>
-            <h5 className="company">{job.company}</h5>
-            <div className="location">
+            </Date>
+            <RoleName>{job.name}</RoleName>
+            <Company>{job.company}</Company>
+            <Location>
               <GoLocation className="location-logo" />
               <h5>{job.location}</h5>
-            </div>
-          </div>
-          <p className="excerpt">{job.excerpt}</p>
+            </Location>
+          </Headings>
+          <Excerpt>{job.excerpt}</Excerpt>
         </>
       )}
       {education && (
         <>
-          <div className="headings">
-            <p className="date">
+          <Headings>
+            <Date>
               {education.startedAt} - {education.endedAt}
-            </p>
-            <h4>{education.education}</h4>
-            <h5 className="company">{education.degreeLevel}</h5>
-            <h5 className="company">{education.institution}</h5>
-            <div className="location">
+            </Date>
+            <RoleName>{education.education}</RoleName>
+            <Company>{education.degreeLevel}</Company>
+            <Company>{education.institution}</Company>
+            <Location>
               <GoLocation className="location-logo" />
               <h5>{education.location}</h5>
-            </div>
-          </div>
-          <p className="excerpt">{education.excerpt}</p>
+            </Location>
+          </Headings>
+          <Excerpt>{education.excerpt}</Excerpt>
         </>
       )}
     </ResumeCardStyles>

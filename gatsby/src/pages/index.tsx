@@ -103,7 +103,11 @@ interface AboutMePageProps {
 
 const animationVariants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", mass: 0.2, damping: 2 },
+  },
 };
 
 const index = ({ location, data }: PageProps & AboutMePageProps) => {

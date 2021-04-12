@@ -5,8 +5,10 @@ import { ProjectData } from "../../pages/projects";
 import { BlockText } from "../ui-components";
 import { Tags } from "./components";
 import { Link } from "gatsby";
+import { useIntersection } from "../hooks";
+import { motion } from "framer-motion";
 
-const ProjectCardStyles = styled.article`
+const ProjectCardStyles = styled(motion.article)`
   background: var(--white);
   font-size: var(--normal);
   box-shadow: var(--shd);
@@ -51,14 +53,34 @@ const ProjectImage = styled(SanityImage)`
   img {
     object-fit: "contain";
   }
-  @media screen and (min-width: 840px) {
-    /* margin-right: 3rem; */
-  }
 `;
 
+const fadeInVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "tween", duration: 0.2 },
+  },
+};
+
 export default function ProjectCard({ project }: { project: ProjectData }) {
+  const intersectionRef = React.useRef(null);
+  const intersection = useIntersection(intersectionRef, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1,
+  });
+
   return (
-    <ProjectCardStyles>
+    <ProjectCardStyles
+      ref={intersectionRef}
+      variants={fadeInVariants}
+      initial="hidden"
+      animate={
+        intersection && intersection.intersectionRatio > 0.08 ? "visible" : ""
+      }
+    >
       <ProjectTextSection>
         <Link to={`/project/${project.slug.current}`}>
           <ProjectTitle>{project.name}</ProjectTitle>

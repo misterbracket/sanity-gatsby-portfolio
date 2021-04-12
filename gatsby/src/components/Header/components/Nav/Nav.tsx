@@ -109,9 +109,6 @@ const Nav = () => {
                 onClick={!isWide ? toggleNav : undefined}
                 activeClassName={"active"}
                 to="/resume"
-                as={motion.a}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
               >
                 Resume
               </NavLink>
@@ -121,9 +118,6 @@ const Nav = () => {
                 onClick={!isWide ? toggleNav : undefined}
                 activeClassName={"active"}
                 to="/projects"
-                as={motion.a}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
               >
                 Projects
               </NavLink>
@@ -133,9 +127,6 @@ const Nav = () => {
                 onClick={!isWide ? toggleNav : undefined}
                 activeClassName={"active"}
                 to="/contact"
-                as={motion.a}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
               >
                 Contact Me
               </NavLink>
