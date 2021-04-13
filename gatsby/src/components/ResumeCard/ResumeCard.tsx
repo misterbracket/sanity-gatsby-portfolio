@@ -35,13 +35,13 @@ const Company = styled.h5`
   margin: 1rem 0;
 `;
 
-const Location = styled.div`
+const LocationWrapper = styled.div`
   margin: 1rem 0;
   display: flex;
   align-items: center;
-  h5 {
-    margin: 0 0 0 0.5rem;
-  }
+`;
+const Location = styled.h5`
+  margin: 0 0 0 0.5rem;
 `;
 
 const Excerpt = styled.p`
@@ -69,7 +69,7 @@ export default function ResumeCard({
   const intersection = useIntersection(intersectionRef, {
     root: null,
     rootMargin: "0px",
-    threshold: 0.1,
+    threshold: 0.07,
   });
 
   return (
@@ -78,7 +78,7 @@ export default function ResumeCard({
       variants={fadeInVariants}
       initial="hidden"
       animate={
-        intersection && intersection.intersectionRatio > 0.08 ? "visible" : ""
+        intersection && intersection.intersectionRatio > 0.07 ? "visible" : ""
       }
     >
       {job && (
@@ -89,10 +89,10 @@ export default function ResumeCard({
             </Date>
             <RoleName>{job.name}</RoleName>
             <Company>{job.company}</Company>
-            <Location>
-              <GoLocation className="location-logo" />
-              <h5>{job.location}</h5>
-            </Location>
+            <LocationWrapper>
+              <GoLocation />
+              <Location>{job.location}</Location>
+            </LocationWrapper>
           </Headings>
           <Excerpt>{job.excerpt}</Excerpt>
         </>
@@ -106,10 +106,10 @@ export default function ResumeCard({
             <RoleName>{education.education}</RoleName>
             <Company>{education.degreeLevel}</Company>
             <Company>{education.institution}</Company>
-            <Location>
-              <GoLocation className="location-logo" />
-              <h5>{education.location}</h5>
-            </Location>
+            <LocationWrapper>
+              <GoLocation />
+              <Location>{education.location}</Location>
+            </LocationWrapper>
           </Headings>
           <Excerpt>{education.excerpt}</Excerpt>
         </>

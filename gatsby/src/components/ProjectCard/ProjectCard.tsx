@@ -69,7 +69,7 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
   const intersection = useIntersection(intersectionRef, {
     root: null,
     rootMargin: "0px",
-    threshold: 0.1,
+    threshold: 0.07,
   });
 
   return (
@@ -78,7 +78,7 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
       variants={fadeInVariants}
       initial="hidden"
       animate={
-        intersection && intersection.intersectionRatio > 0.08 ? "visible" : ""
+        intersection && intersection.intersectionRatio > 0.07 ? "visible" : ""
       }
     >
       <ProjectTextSection>
@@ -88,7 +88,6 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
         <BlockText blocks={project._rawExcerpt}></BlockText>
         <Tags tags={project.tags} />
       </ProjectTextSection>
-
       <ProjectImageWrapper>
         <ProjectLink to={`/project/${project.slug.current}`}>
           <ProjectImage {...project.mainImage} alt={project.name} />
