@@ -22,9 +22,9 @@ const ProjectCardStyles = styled(motion.article)`
 `;
 
 const ProjectTextSection = styled.section`
-  padding: 5rem 0 5rem 5rem;
+  padding: 5rem;
   flex-grow: 1;
-  flex-basis: 50%;
+  flex-basis: 400px;
 `;
 
 const ProjectTitle = styled.h2`
@@ -32,13 +32,13 @@ const ProjectTitle = styled.h2`
 `;
 
 const ProjectImageWrapper = styled.div`
+  padding: 2rem;
   flex-shrink: 1;
   flex-grow: 1;
-  flex-basis: 30%;
+  flex-basis: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 20px;
 `;
 
 const ProjectLink = styled(Link)`

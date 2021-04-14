@@ -65,13 +65,13 @@ const HeroTitle = styled.h1`
   @media screen and (min-width: 840px) {
     font-size: var(--super-big);
     margin: 0;
-    line-height: normal;
     font-weight: 700;
   }
 `;
 
 const Subheading = styled.h3`
   font-weight: 500;
+  margin: 1px 0 15px 0;
   @media screen and (min-width: 840px) {
     font-weight: 400;
   }
@@ -80,9 +80,9 @@ const Subheading = styled.h3`
 const ButtonGroup = styled.div`
   margin-top: 1.5rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
-  max-width: 270px;
+  max-width: 250px;
   gap: 1rem;
 `;
 export interface PersonProps {
@@ -129,12 +129,12 @@ const index = ({ location, data }: PageProps & AboutMePageProps) => {
               <Subheading>{person.profilesubheading}</Subheading>
               {isWide && (
                 <ButtonGroup>
-                  <Button color="dark">
+                  <Button type="button" color="dark">
                     <Link className="link" to="/resume">
                       Resume
                     </Link>
                   </Button>
-                  <Button color="light">
+                  <Button type="button" color="light">
                     <Link className="link" to="/projects">
                       Projects
                     </Link>
