@@ -3,8 +3,8 @@ import { graphql, Link, PageProps } from "gatsby";
 import { SEO } from "../components";
 import styled from "styled-components";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
-import { useMedia } from "./../components/utils";
-import { Button } from "../components/ui-components";
+import { useMedia, usePrefersReducedMotion } from "./../components/hooks";
+import { Button, Sparkles } from "../components/ui-components";
 import { motion } from "framer-motion";
 
 const AboutMeStyles = styled(motion.div)`
@@ -64,14 +64,13 @@ const HeroTitle = styled.h1`
   font-weight: 700;
   @media screen and (min-width: 840px) {
     font-size: var(--super-big);
-    margin: 0;
     font-weight: 700;
+    margin: 50px 0 0 0;
   }
 `;
 
 const Subheading = styled.h3`
   font-weight: 500;
-  margin: 1px 0 15px 0;
   @media screen and (min-width: 840px) {
     font-weight: 400;
   }
@@ -112,12 +111,15 @@ const animationVariants = {
 
 const index = ({ location, data }: PageProps & AboutMePageProps) => {
   const isWide = useMedia("(min-width: 840px)");
+  const prefersReducedMotion = usePrefersReducedMotion();
+
   const person = data.sanityPerson;
+
   return (
     <>
       <SEO title={`A little about me`} location={location} />
       <AboutMeStyles
-        variants={animationVariants}
+        variants={prefersReducedMotion ? null : animationVariants}
         initial="hidden"
         animate="visible"
       >
@@ -125,7 +127,9 @@ const index = ({ location, data }: PageProps & AboutMePageProps) => {
           <ProfileCard person={person}></ProfileCard>
           <TextSection>
             <ContentWrapper>
-              <HeroTitle>{person.profiletitle}</HeroTitle>
+              <Sparkles>
+                <HeroTitle>{person.profiletitle}</HeroTitle>
+              </Sparkles>
               <Subheading>{person.profilesubheading}</Subheading>
               {isWide && (
                 <ButtonGroup>

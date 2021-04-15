@@ -5,7 +5,7 @@ import { ProjectData } from "../../pages/projects";
 import { BlockText } from "../ui-components";
 import { Tags } from "./components";
 import { Link } from "gatsby";
-import { useIntersection } from "../hooks";
+import { useIntersection, usePrefersReducedMotion } from "../hooks";
 import { motion } from "framer-motion";
 
 const ProjectCardStyles = styled(motion.article)`
@@ -71,11 +71,12 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
     rootMargin: "0px",
     threshold: 0.07,
   });
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   return (
     <ProjectCardStyles
       ref={intersectionRef}
-      variants={fadeInVariants}
+      variants={!prefersReducedMotion && fadeInVariants}
       initial="hidden"
       animate={
         intersection && intersection.intersectionRatio > 0.07 ? "visible" : ""

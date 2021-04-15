@@ -23,7 +23,7 @@ const BlueDot = styled.span`
 
 const Name = styled(Link)`
   position: relative;
-  left: 20px;
+  left: 10px;
   text-decoration: none;
   font-weight: 900;
   font-size: var(--big);
@@ -51,7 +51,7 @@ const Title = () => {
         <Name to="/">Max Klammer</Name>
       </NameWrapper>
       <SlugWrapper>
-        <Slug>Web Developer by Passion</Slug>
+        <Slug>Frontend Developer by Passion</Slug>
       </SlugWrapper>
     </TitleStyles>
   );

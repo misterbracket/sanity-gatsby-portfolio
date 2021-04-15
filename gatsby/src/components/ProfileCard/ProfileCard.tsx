@@ -3,7 +3,7 @@ import styled from "styled-components";
 import SanityImage from "gatsby-plugin-sanity-image";
 import { Link } from "gatsby";
 import { Button } from "../ui-components";
-import { useMedia } from "./../utils";
+import { useMedia } from "./../hooks";
 import {
   AiFillGithub,
   AiFillLinkedin,
@@ -53,6 +53,7 @@ const HorizontalRuler = styled.hr`
   width: 10rem;
   background-color: var(--blue);
   height: 2px;
+  margin-top: 5px 0 15px 0;
 `;
 const ButtonGroup = styled.div`
   margin-top: 1.5rem;
@@ -64,7 +65,7 @@ const ButtonGroup = styled.div`
 `;
 
 const ProfileSlug = styled.span`
-  letter-spacing: 0.2em;
+  letter-spacing: 0.2rem;
   text-align: center;
 `;
 

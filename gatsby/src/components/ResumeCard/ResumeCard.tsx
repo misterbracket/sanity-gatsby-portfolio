@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { GoLocation } from "react-icons/go";
 import { EducationData, JobData } from "../../pages/resume";
-import { useIntersection } from "../hooks";
+import { useIntersection, usePrefersReducedMotion } from "../hooks";
 import { motion } from "framer-motion";
 
 const ResumeCardStyles = styled(motion.article)`
@@ -72,10 +72,11 @@ export default function ResumeCard({
     threshold: 0.07,
   });
 
+  const prefersReducedMotion = usePrefersReducedMotion();
   return (
     <ResumeCardStyles
       ref={intersectionRef}
-      variants={fadeInVariants}
+      variants={!prefersReducedMotion && fadeInVariants}
       initial="hidden"
       animate={
         intersection && intersection.intersectionRatio > 0.07 ? "visible" : ""
