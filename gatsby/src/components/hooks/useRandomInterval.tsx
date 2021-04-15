@@ -15,8 +15,7 @@ const useRandomInterval = (
   });
 
   React.useEffect(() => {
-    let isEnabled = typeof minDelay == "number" && typeof maxDelay === "number";
-    if (isEnabled) {
+    if (typeof minDelay == "number" && typeof maxDelay === "number") {
       const handleTick = () => {
         const nextTickAt = random(minDelay, maxDelay);
         timeoutId.current = window.setTimeout(() => {

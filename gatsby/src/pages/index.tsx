@@ -71,6 +71,7 @@ const HeroTitle = styled.h1`
 
 const Subheading = styled.h3`
   font-weight: 500;
+  margin: 1rem 0 1.38rem;
   @media screen and (min-width: 840px) {
     font-weight: 400;
   }

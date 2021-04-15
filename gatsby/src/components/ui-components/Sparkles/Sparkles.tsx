@@ -101,6 +101,7 @@ const spin = keyframes`
 const Wrapper = styled.span`
   display: inline-block;
   position: relative;
+  width: fit-content;
 `;
 const SparkleWrapper = styled.span`
   position: absolute;
