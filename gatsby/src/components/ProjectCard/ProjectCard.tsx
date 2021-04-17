@@ -9,6 +9,7 @@ import { useIntersection, usePrefersReducedMotion } from "../hooks";
 import { motion } from "framer-motion";
 
 const ProjectCardStyles = styled(motion.article)`
+  padding: 5rem;
   background: var(--white);
   font-size: var(--normal);
   box-shadow: var(--shd);
@@ -17,12 +18,11 @@ const ProjectCardStyles = styled(motion.article)`
   column-gap: 3rem;
 
   @media screen and (min-width: 840px) {
-    column-gap: 0rem;
+    column-gap: 3rem;
   }
 `;
 
 const ProjectTextSection = styled.section`
-  padding: 5rem;
   flex-grow: 1;
   flex-basis: 400px;
 `;
@@ -32,7 +32,6 @@ const ProjectTitle = styled.h2`
 `;
 
 const ProjectImageWrapper = styled.div`
-  padding: 2rem;
   flex-shrink: 1;
   flex-grow: 1;
   flex-basis: 200px;

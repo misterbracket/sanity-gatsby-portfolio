@@ -19,7 +19,7 @@ const generateSparkle = (color: string) => {
 };
 
 interface SparklesProps {
-  color: string;
+  color?: string;
   children: ReactNode;
 }
 

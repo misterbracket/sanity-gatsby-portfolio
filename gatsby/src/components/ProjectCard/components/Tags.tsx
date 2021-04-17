@@ -9,7 +9,7 @@ const TagListStyles = styled.ul`
   padding: 0;
 `;
 const TagStyles = styled.li`
-  background: ${(props) => props.color};
+  border-left: 4px ${(props) => props.color} groove;
   list-style: none;
   padding: 0.5rem 1rem;
   margin: 0.25rem;
