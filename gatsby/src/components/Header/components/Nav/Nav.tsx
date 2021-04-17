@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
-import { useMedia } from "./../../../utils";
+import { useMedia, usePrefersReducedMotion } from "./../../../hooks";
 import { Link } from "gatsby";
 import { MenuToggle } from "./components";
 import { motion } from "framer-motion";
@@ -79,6 +79,7 @@ const animationVariants = {
 const Nav = () => {
   const navItems = useRef<HTMLElement>(null);
   const isWide = useMedia("(min-width: 840px)");
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const [isOpen, setOpen] = useState(false);
 
@@ -91,11 +92,14 @@ const Nav = () => {
       {(isOpen || isWide) && (
         <NavStyles ref={navItems}>
           <NavList
-            variants={!isWide && animationVariants}
+            variants={!isWide && !prefersReducedMotion && animationVariants}
             initial={!isWide && "hidden"}
             animate="visible"
           >
-            <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+            <motion.li
+              whileHover={prefersReducedMotion ? "" : { scale: 1.1 }}
+              whileTap={prefersReducedMotion ? "" : { scale: 0.9 }}
+            >
               <NavLink
                 onClick={!isWide ? toggleNav : undefined}
                 activeClassName={"active"}

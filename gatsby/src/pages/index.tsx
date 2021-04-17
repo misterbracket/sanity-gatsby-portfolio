@@ -3,8 +3,8 @@ import { graphql, Link, PageProps } from "gatsby";
 import { SEO } from "../components";
 import styled from "styled-components";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
-import { useMedia } from "./../components/utils";
-import { Button } from "../components/ui-components";
+import { useMedia, usePrefersReducedMotion } from "./../components/hooks";
+import { Button, Sparkles } from "../components/ui-components";
 import { motion } from "framer-motion";
 
 const AboutMeStyles = styled(motion.div)`
@@ -68,14 +68,14 @@ const HeroTitle = styled.h1`
   font-weight: 700;
   @media screen and (min-width: 840px) {
     font-size: var(--super-big);
-    margin: 0;
-    line-height: normal;
     font-weight: 700;
+    margin: 50px 0 0 0;
   }
 `;
 
 const Subheading = styled.h3`
   font-weight: 500;
+  margin: 1rem 0 1.38rem;
   @media screen and (min-width: 840px) {
     font-weight: 400;
   }
@@ -84,9 +84,9 @@ const Subheading = styled.h3`
 const ButtonGroup = styled.div`
   margin-top: 1.5rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
-  max-width: 270px;
+  max-width: 250px;
   gap: 1rem;
 `;
 export interface PersonProps {
@@ -116,12 +116,15 @@ const animationVariants = {
 
 const index = ({ location, data }: PageProps & AboutMePageProps) => {
   const isWide = useMedia("(min-width: 840px)");
+  const prefersReducedMotion = usePrefersReducedMotion();
+
   const person = data.sanityPerson;
+
   return (
     <>
       <SEO title={`A little about me`} location={location} />
       <AboutMeStyles
-        variants={animationVariants}
+        variants={prefersReducedMotion ? null : animationVariants}
         initial="hidden"
         animate="visible"
       >
@@ -129,16 +132,18 @@ const index = ({ location, data }: PageProps & AboutMePageProps) => {
           <ProfileCard person={person}></ProfileCard>
           <TextSection>
             <ContentWrapper>
-              <HeroTitle>{person.profiletitle}</HeroTitle>
+              <Sparkles>
+                <HeroTitle>{person.profiletitle}</HeroTitle>
+              </Sparkles>
               <Subheading>{person.profilesubheading}</Subheading>
               {isWide && (
                 <ButtonGroup>
-                  <Button color="dark">
+                  <Button type="button" color="dark">
                     <Link className="link" to="/resume">
                       Resume
                     </Link>
                   </Button>
-                  <Button color="light">
+                  <Button type="button" color="light">
                     <Link className="link" to="/projects">
                       Projects
                     </Link>
