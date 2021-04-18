@@ -17,6 +17,7 @@ export interface post {
   excerpt: string;
   frontmatter: {
     title: string;
+    date: string;
   };
   headings: [{ depth: number; value: string }];
   id: string;
@@ -46,9 +47,9 @@ function blog({ data, location }: PageProps & allBlogPostsData) {
       <SEO title={`Blog Posts`} location={location} />
       <BlogWrapper>
         <Heading>Things I Wrote About</Heading>
-        {data.allMdx.nodes.map((post, index) => {
-          <BlogPostExcerpt data={post} key={index} />;
-        })}
+        {data.allMdx.nodes.map((post, index) => (
+          <BlogPostExcerpt data={post} key={index} />
+        ))}
       </BlogWrapper>
     </>
   );
@@ -58,16 +59,17 @@ export const query = graphql`
   query BlogPostList {
     allMdx {
       nodes {
+        id
         slug
         excerpt
         headings {
           depth
           value
         }
-        id
         timeToRead
         frontmatter {
           title
+          date(formatString: "DD-MM-YYYY")
         }
       }
     }
