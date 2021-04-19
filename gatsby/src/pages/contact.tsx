@@ -36,17 +36,19 @@ const SendEmailForm = styled.form`
   }
 `;
 
-const Subheading = styled.h3`
+const Subheading = styled.h2`
   color: var(--blue);
 `;
 
 const Label = styled.label`
   display: flex;
   flex-direction: column;
-  padding: 0.5rem 0;
+  padding: 1.5rem 0;
   font-size: var(--normal);
 `;
 const Input = styled.input`
+  padding-top: 5px;
+  padding-left: 0;
   border-right: none;
   border-top: none;
   border-left: none;
@@ -59,16 +61,14 @@ const Input = styled.input`
 
 const SendButton = styled(Button)`
   margin-top: 2rem;
-  width: max-content;
-  align-self: flex-end;
+  width: fit-content;
   outline: none;
+  align-self: center;
 `;
 
 const TextArea = styled.textarea`
   border: 0;
   border-bottom: 1px solid var(--black);
-  resize: none;
-  height: 4rem;
   &:focus {
     border-bottom: 2px solid var(--black);
     outline: none;
@@ -98,6 +98,7 @@ const contact = ({ location }: PageProps) => {
                 id="name"
                 type="text"
                 name="name"
+                placeholder="Iwanto Mechu... "
                 value={values?.name}
                 onChange={(e) =>
                   updateValue?.({
@@ -112,6 +113,7 @@ const contact = ({ location }: PageProps) => {
                 id="email"
                 type="text"
                 name="email"
+                placeholder="iwanto.mechu@gmail.com"
                 value={values?.email}
                 onChange={(e) =>
                   updateValue?.({
@@ -133,10 +135,11 @@ const contact = ({ location }: PageProps) => {
               />
             </Label>
             <Label htmlFor="message">
-              Tell me something good!!
+              Tell me something good
               <TextArea
                 id="message"
                 name="message"
+                placeholder="Hi Max, My name name is Iwanto Mechu and I just wanted to say..."
                 value={values?.message}
                 onChange={(e) =>
                   updateValue?.({

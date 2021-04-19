@@ -30,8 +30,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   fieldset {
-    border-color: rgba(0,0,0,0.1);
-    border-width: 1px;
+    border: none;
   }
 
   button {

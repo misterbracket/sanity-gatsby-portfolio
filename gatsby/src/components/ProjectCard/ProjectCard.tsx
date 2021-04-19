@@ -16,10 +16,6 @@ const ProjectCardStyles = styled(motion.article)`
   display: flex;
   flex-wrap: wrap;
   column-gap: 3rem;
-
-  @media screen and (min-width: 840px) {
-    column-gap: 3rem;
-  }
 `;
 
 const ProjectTextSection = styled.section`
@@ -29,6 +25,7 @@ const ProjectTextSection = styled.section`
 
 const ProjectTitle = styled.h2`
   color: var(--blue);
+  text-decoration: none;
 `;
 
 const ProjectImageWrapper = styled.div`

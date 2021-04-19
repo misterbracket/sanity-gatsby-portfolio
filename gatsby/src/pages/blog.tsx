@@ -61,7 +61,7 @@ export const query = graphql`
       nodes {
         id
         slug
-        excerpt
+        excerpt(pruneLength: 320)
         headings {
           depth
           value
