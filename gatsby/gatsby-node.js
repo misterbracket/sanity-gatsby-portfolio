@@ -3,7 +3,7 @@ import path from 'path';
 
 
 async function turnProjectsIntoPages({ graphql, actions }) {
-  const projectTemplate = path.resolve('./src/templates/Project.tsx');
+  const projectTemplate = path.resolve('./src/templates/ProjectTemplate.tsx');
   // 2. Query all projects
   const { data } = await graphql(`
     query {

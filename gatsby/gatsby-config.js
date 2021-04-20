@@ -60,7 +60,7 @@ module.exports = {
         path: `${__dirname}/src/posts`,
       },
     },
-    `gatsby-plugin-mdx`,
+    `gatsby-plugin-mdx`
   ],
 
 

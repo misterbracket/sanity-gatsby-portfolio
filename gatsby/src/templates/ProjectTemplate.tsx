@@ -12,7 +12,7 @@ type ProjectType = {
   };
 };
 
-const ProjectPageStyles = styled.article`
+const ProjectPageStyles = styled.main`
   display: grid;
   --gap: 2.5rem;
   font-size: var(--normal);
