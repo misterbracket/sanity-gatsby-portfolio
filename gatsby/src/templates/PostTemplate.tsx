@@ -1,5 +1,9 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
+import { graphql } from "gatsby";
+import { H1, H2, P } from "./../components/BlogComponents";
+import { MDXProvider } from "@mdx-js/react";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
 const PostPageStyles = styled.main`
   display: grid;
@@ -31,15 +35,61 @@ const PostStyles = styled.article`
   box-shadow: var(--shd);
 `;
 
+const shortcodes = {
+  h1: (props) => <H1 {...props} />,
+  h2: (props) => <H2 {...props} />,
+  p: (props) => <P {...props} />,
+};
+
 const TableOfContent = styled.aside``;
 
-export default function PostLayout({ children }: { children: ReactNode }) {
+export default function PostLayout({ data }: { data: any }) {
+  const { body, frontmatter } = data.mdx;
   return (
-    <PostPageStyles>
-      <ContentWrapper>
-        <TableOfContent>Table of Content</TableOfContent>
-        <PostStyles>{children}</PostStyles>
-      </ContentWrapper>
-    </PostPageStyles>
+    <MDXProvider components={shortcodes}>
+      <PostPageStyles>
+        <PostStyles>
+          <ContentWrapper>
+            <h1>{frontmatter.title}</h1>
+            <p>{frontmatter.date}</p>
+            <MDXRenderer>{body}</MDXRenderer>
+            <TableOfContent>Table of Content</TableOfContent>
+          </ContentWrapper>
+        </PostStyles>
+      </PostPageStyles>
+    </MDXProvider>
   );
 }
+
+// import React from "react";
+// import { graphql } from "gatsby";
+// import { MDXProvider } from "@mdx-js/react";
+// import { MDXRenderer } from "gatsby-plugin-mdx";
+// import { Link } from "gatsby";
+// const shortcodes = { Link }; // Provide common components here
+// export default function PageTemplate({ data: { mdx } }) {
+//   return (
+//     <div>
+//       <h1>{mdx.frontmatter.title}</h1>
+//       <MDXProvider components={shortcodes}>
+//         <MDXRenderer>{mdx.body}</MDXRenderer>
+//       </MDXProvider>
+//     </div>
+//   );
+// }
+
+export const pageQuery = graphql`
+  query BlogPostQuery($id: String) {
+    mdx(id: { eq: $id }) {
+      frontmatter {
+        title
+        date(formatString: "YYYY MMMM Do")
+      }
+      body
+      excerpt
+      tableOfContents
+      timeToRead
+      slug
+    }
+  }
+`;

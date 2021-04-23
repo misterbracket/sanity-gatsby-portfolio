@@ -1,8 +1,8 @@
 // Load variables from `.env` as soon as possible
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 require("ts-node").register({ files: true });
 
-dotenv.config({ path: '.env' });
+dotenv.config({ path: ".env" });
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -10,24 +10,24 @@ module.exports = {
   siteMetadata: {
     title: `MK`,
     siteUrl: `https://maxklammer.com`,
-    description: `Welcome to my Portfolio Website`
+    description: `Welcome to my Portfolio Website`,
   },
   plugins: [
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
         // eslint-disable-next-line global-require
-        postCssPlugins: [require(`postcss-preset-env`)({ stage: 0 })]
-      }
+        postCssPlugins: [require(`postcss-preset-env`)({ stage: 0 })],
+      },
     },
     {
       resolve: "gatsby-source-sanity",
       options: {
         projectId: process.env.GATSBY_SANITY_PROJECT_ID || "4t789e8u",
         dataset: process.env.GATSBY_SANITY_DATASET || "production",
-        token : process.env.SANITY_READ_TOKEN,
+        token: process.env.SANITY_READ_TOKEN,
         watchMode: !isProd,
-      }
+      },
     },
     {
       resolve: "gatsby-plugin-google-tagmanager",
@@ -37,31 +37,29 @@ module.exports = {
       },
     },
     `gatsby-plugin-typescript`,
-    'gatsby-plugin-styled-components',
+    "gatsby-plugin-styled-components",
     "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-plugin-sanity-image",
       options: {
         projectId: process.env.GATSBY_SANITY_PROJECT_ID || "4t789e8u",
         dataset: process.env.GATSBY_SANITY_DATASET || "production",
-        fragmentTypeName: "SanityFigure"
+        fragmentTypeName: "SanityFigure",
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
-        path: `${__dirname}/src/posts`,
+        path: `${__dirname}/src/posts/`,
       },
     },
     {
-      resolve: "gatsby-plugin-page-creator",
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        path: `${__dirname}/src/posts`,
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [`gatsby-remark-autolink-headers`],
       },
     },
-    `gatsby-plugin-mdx`
   ],
-
-
 };
