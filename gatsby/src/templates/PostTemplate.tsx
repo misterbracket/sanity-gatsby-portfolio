@@ -1,9 +1,26 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
-import { graphql } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import { H1, H2, P } from "./../components/BlogComponents";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+
+interface BlogPostProps {
+  data: {
+    mdx: {
+      body: string;
+      excerpt: string;
+      frontmatter: {
+        title: string;
+        date: string;
+      };
+      tableOfContents: {
+        items: [{ url: string; title: string }];
+      };
+      timeToRead: number;
+    };
+  };
+}
 
 const PostPageStyles = styled.main`
   display: grid;
@@ -23,11 +40,6 @@ const PostPageStyles = styled.main`
   }
 `;
 
-const ContentWrapper = styled.section`
-  display: flex;
-  flex-wrap: wrap-reverse;
-`;
-
 const PostStyles = styled.article`
   padding: 4rem;
   background: var(--white);
@@ -36,47 +48,47 @@ const PostStyles = styled.article`
 `;
 
 const shortcodes = {
-  h1: (props) => <H1 {...props} />,
-  h2: (props) => <H2 {...props} />,
-  p: (props) => <P {...props} />,
+  h1: (props: any) => <H1 {...props} />,
+  h2: (props: any) => <H2 {...props} />,
+  p: (props: any) => <P {...props} />,
 };
 
-const TableOfContent = styled.aside``;
+const TableOfContentWrapper = styled.aside``;
 
-export default function PostLayout({ data }: { data: any }) {
-  const { body, frontmatter } = data.mdx;
+const TableOfContent = styled.ul``;
+
+const InnerScroll = styled.div`
+  overflow: hidden;
+  overflow-y: scroll;
+`;
+
+export default function PostLayout({ data }: PageProps & BlogPostProps) {
   return (
     <MDXProvider components={shortcodes}>
       <PostPageStyles>
         <PostStyles>
-          <ContentWrapper>
-            <h1>{frontmatter.title}</h1>
-            <p>{frontmatter.date}</p>
-            <MDXRenderer>{body}</MDXRenderer>
-            <TableOfContent>Table of Content</TableOfContent>
-          </ContentWrapper>
+          <h1>{data.mdx.frontmatter.title}</h1>
+          <p>{data.mdx.frontmatter.date}</p>
+          {data.mdx?.tableOfContents && (
+            <TableOfContentWrapper>
+              <InnerScroll>
+                <TableOfContent>Table of Content</TableOfContent>
+                {data.mdx?.tableOfContents.items.map((i) => (
+                  <li key={i.url}>
+                    <a href={i.url} key={i.url}>
+                      {i.title}
+                    </a>
+                  </li>
+                ))}
+              </InnerScroll>
+            </TableOfContentWrapper>
+          )}
+          <MDXRenderer>{data.mdx.body}</MDXRenderer>
         </PostStyles>
       </PostPageStyles>
     </MDXProvider>
   );
 }
-
-// import React from "react";
-// import { graphql } from "gatsby";
-// import { MDXProvider } from "@mdx-js/react";
-// import { MDXRenderer } from "gatsby-plugin-mdx";
-// import { Link } from "gatsby";
-// const shortcodes = { Link }; // Provide common components here
-// export default function PageTemplate({ data: { mdx } }) {
-//   return (
-//     <div>
-//       <h1>{mdx.frontmatter.title}</h1>
-//       <MDXProvider components={shortcodes}>
-//         <MDXRenderer>{mdx.body}</MDXRenderer>
-//       </MDXProvider>
-//     </div>
-//   );
-// }
 
 export const pageQuery = graphql`
   query BlogPostQuery($id: String) {

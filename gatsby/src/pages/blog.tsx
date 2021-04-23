@@ -8,7 +8,7 @@ import { Heading } from "../components/ui-components";
 type allBlogPostsData = {
   data: {
     allMdx: {
-      nodes: [post];
+      edges: [{ node: post }];
     };
   };
 };
@@ -21,7 +21,7 @@ export interface post {
   };
   headings: [{ depth: number; value: string }];
   id: string;
-  slug: string;
+  fields: { slug: string };
   timeToRead: number;
 }
 
@@ -47,8 +47,8 @@ function blog({ data, location }: PageProps & allBlogPostsData) {
       <SEO title={`Blog Posts`} location={location} />
       <BlogWrapper>
         <Heading>Things I Wrote About</Heading>
-        {data.allMdx.nodes.map((post, index) => (
-          <BlogPostExcerpt data={post} key={index} />
+        {data.allMdx.edges.map((post, index) => (
+          <BlogPostExcerpt data={post.node} key={index} />
         ))}
       </BlogWrapper>
     </>
@@ -58,18 +58,22 @@ function blog({ data, location }: PageProps & allBlogPostsData) {
 export const query = graphql`
   query BlogPostList {
     allMdx {
-      nodes {
-        id
-        slug
-        excerpt(pruneLength: 320)
-        headings {
-          depth
-          value
-        }
-        timeToRead
-        frontmatter {
-          title
-          date(formatString: "DD-MM-YYYY")
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          excerpt(pruneLength: 320)
+          headings {
+            depth
+            value
+          }
+          timeToRead
+          frontmatter {
+            title
+            date(formatString: "DD-MM-YYYY")
+          }
         }
       }
     }

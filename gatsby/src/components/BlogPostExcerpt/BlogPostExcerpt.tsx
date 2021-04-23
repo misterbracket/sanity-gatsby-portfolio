@@ -58,7 +58,7 @@ function BlogPostExcerpt({ data }: { data: post }) {
     threshold: 0.07,
   });
   const prefersReducedMotion = usePrefersReducedMotion();
-
+  console.log(data);
   return (
     <BlogPostExcerptWrapper
       ref={intersectionRef}
@@ -68,7 +68,7 @@ function BlogPostExcerpt({ data }: { data: post }) {
         intersection && intersection.intersectionRatio > 0.07 ? "visible" : ""
       }
     >
-      <Link to={`posts/${data.slug}`}>
+      <Link to={`${data.fields.slug}`}>
         <BlogTitle>{data.frontmatter.title}</BlogTitle>
       </Link>
       <ContentSection>
@@ -83,7 +83,7 @@ function BlogPostExcerpt({ data }: { data: post }) {
           </MetaDataContainer>
         </MetaData>
         <p>{data.excerpt}</p>
-        <LinkStyles to={`posts/${data.slug}`}>Read more...</LinkStyles>
+        <LinkStyles to={`${data.fields.slug}`}>Read more...</LinkStyles>
       </ContentSection>
     </BlogPostExcerptWrapper>
   );

@@ -152,7 +152,7 @@ const contact = ({ location }: PageProps) => {
           {message ? (
             <p>{message}</p>
           ) : (
-            <SendButton type="submit">
+            <SendButton color={"dark"} type="submit">
               {loading ? "Sending Email..." : "Send Email"}
             </SendButton>
           )}
