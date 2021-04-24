@@ -10,6 +10,11 @@ export const StyledP = styled.p`
   }
 `;
 
-export const P = ({ children, ...delegated }: { children: ReactNode }) => {
+export const Paragraph = ({
+  children,
+  ...delegated
+}: {
+  children: ReactNode;
+}) => {
   return <StyledP {...delegated}>{children}</StyledP>;
 };

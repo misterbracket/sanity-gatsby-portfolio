@@ -2,7 +2,8 @@ import React, { ReactNode } from "react";
 import styled from "styled-components";
 
 export const StyledH2 = styled.h2`
-  color: rebeccapurple;
+  color: var(--dark-blue);
+  //Style the Link SVG
   a {
     float: left;
     padding-right: 4px;
@@ -20,6 +21,11 @@ export const StyledH2 = styled.h2`
   }
 `;
 
-export const H2 = ({ children, ...delegated }: { children: ReactNode }) => {
+export const Heading2 = ({
+  children,
+  ...delegated
+}: {
+  children: ReactNode;
+}) => {
   return <StyledH2 {...delegated}>{children}</StyledH2>;
 };

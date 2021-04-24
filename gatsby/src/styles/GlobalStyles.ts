@@ -11,6 +11,7 @@ const GlobalStyles = createGlobalStyle`
     --dark-pink: hsl(30, 32%, 85%);
     --light-pink: hsla(26, 39%, 93%, 1);
     --blue: hsl(221, 100%, 50%);
+    --dark-blue: hsl(221deg 55% 43%);
     /**Boxshadow */
     --shd:-11.31px 11.31px 17px 0px hsla(30, 6%, 51%, 0.23);
   }
@@ -19,6 +20,7 @@ const GlobalStyles = createGlobalStyle`
     background-attachment: fixed;
     font-size: 10px;
     height: 100%;
+    scroll-behavior: smooth
   }
 
   *, *::before, *::after {

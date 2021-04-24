@@ -58,7 +58,6 @@ function BlogPostExcerpt({ data }: { data: post }) {
     threshold: 0.07,
   });
   const prefersReducedMotion = usePrefersReducedMotion();
-  console.log(data);
   return (
     <BlogPostExcerptWrapper
       ref={intersectionRef}

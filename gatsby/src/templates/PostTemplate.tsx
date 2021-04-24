@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 import { graphql, PageProps } from "gatsby";
-import { H1, H2, P } from "./../components/BlogComponents";
+import { Heading1, Heading2, Paragraph } from "./../components/BlogComponents";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
@@ -48,9 +48,15 @@ const PostStyles = styled.article`
 `;
 
 const shortcodes = {
-  h1: (props: any) => <H1 {...props} />,
-  h2: (props: any) => <H2 {...props} />,
-  p: (props: any) => <P {...props} />,
+  h1: (props: { children: ReactNode; delegated: Array<any> }) => (
+    <Heading1 {...props} />
+  ),
+  h2: (props: { children: ReactNode; delegated: Array<any> }) => (
+    <Heading2 {...props} />
+  ),
+  p: (props: { children: ReactNode; delegated: Array<any> }) => (
+    <Paragraph {...props} />
+  ),
 };
 
 const TableOfContentWrapper = styled.aside``;
@@ -67,8 +73,8 @@ export default function PostLayout({ data }: PageProps & BlogPostProps) {
     <MDXProvider components={shortcodes}>
       <PostPageStyles>
         <PostStyles>
-          <h1>{data.mdx.frontmatter.title}</h1>
-          <p>{data.mdx.frontmatter.date}</p>
+          <Heading1>{data.mdx.frontmatter.title}</Heading1>
+          <Paragraph>{data.mdx.frontmatter.date}</Paragraph>
           {data.mdx?.tableOfContents && (
             <TableOfContentWrapper>
               <InnerScroll>
