@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
-const TableOfContentWrapper = styled.aside``;
+const TableOfContentWrapper = styled.aside`
+  margin: 3rem 0;
+`;
 
 const TableOfContentTitle = styled.h2`
   padding: 0;
@@ -10,7 +12,9 @@ const TableOfContentTitle = styled.h2`
   color: var(--dark-blue);
 `;
 
-const LinkList = styled.ol``;
+const LinkList = styled.ol`
+  padding-inline-start: 20px;
+`;
 const ListItem = styled.li`
   font-size: var(--big);
   list-style-type: "👉";
@@ -19,8 +23,10 @@ const ListItem = styled.li`
 
 const ContentLink = styled.a`
   text-decoration: none;
-  &:hover {
-    color: var(--blue);
+  @media screen and (min-width: 840px) {
+    &:hover {
+      color: var(--blue);
+    }
   }
 `;
 

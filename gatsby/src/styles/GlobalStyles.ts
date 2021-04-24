@@ -35,6 +35,7 @@ const GlobalStyles = createGlobalStyle`
     border: none;
   }
 
+
   button {
     background: var(--blue);
     color: white;
