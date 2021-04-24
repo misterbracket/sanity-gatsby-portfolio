@@ -1,15 +1,12 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 
-export const StyledH1 = styled.h1`
+const StyledH1 = styled.h1`
   color: var(--dark-blue);
 `;
 
-export const Heading1 = ({
-  children,
-  ...delegated
-}: {
-  children: ReactNode;
-}) => {
+const Heading1 = ({ children, ...delegated }: { children: ReactNode }) => {
   return <StyledH1 {...delegated}>{children}</StyledH1>;
 };
+
+export default Heading1;

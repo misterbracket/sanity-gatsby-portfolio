@@ -1,9 +1,16 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 import { graphql, PageProps } from "gatsby";
-import { Heading1, Heading2, Paragraph } from "./../components/BlogComponents";
+import {
+  Heading1,
+  Heading2,
+  Paragraph,
+  TableOfContent,
+} from "./../components/BlogComponents";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import { Heading } from "../components/ui-components";
+import { useMedia } from "../components/hooks";
 
 interface BlogPostProps {
   data: {
@@ -23,28 +30,36 @@ interface BlogPostProps {
 }
 
 const PostPageStyles = styled.main`
-  display: grid;
-  --gap: 2.5rem;
   font-size: var(--normal);
-  grid-template-columns: 1fr min(65ch, calc(100% - calc(2 * var(--gap)))) 1fr;
-  gap: var(--gap);
+  gap: 2.5rem;
   background: var(--dark-pink);
-  padding: var(--gap) 0;
-  & > * {
-    grid-column: 2;
-    width: 100%;
-  }
+  padding: 2.5rem 0;
 
   @media screen and (min-width: 840px) {
-    grid-template-columns: 1fr min(90ch, calc(100% - 5rem)) 1fr;
+    display: grid;
+    padding: 5rem 0;
+    grid-template-columns: 1fr min(80ch, calc(100% - 5rem)) 1fr;
+    & > * {
+      grid-column: 2;
+    }
   }
 `;
 
 const PostStyles = styled.article`
-  padding: 4rem;
-  background: var(--white);
+  padding: 3rem;
   font-size: var(--normal);
   box-shadow: var(--shd);
+  @media screen and (min-width: 840px) {
+    background: var(--white);
+    padding: 6rem;
+  }
+`;
+
+const PublishDate = styled.section`
+  padding: 1rem 0;
+  @media screen and (min-width: 840px) {
+    text-align: end;
+  }
 `;
 
 const shortcodes = {
@@ -59,36 +74,20 @@ const shortcodes = {
   ),
 };
 
-const TableOfContentWrapper = styled.aside``;
-
-const TableOfContent = styled.ul``;
-
-const InnerScroll = styled.div`
-  overflow: hidden;
-  overflow-y: scroll;
-`;
-
 export default function PostLayout({ data }: PageProps & BlogPostProps) {
+  const isWide = useMedia("(min-width: 840px)");
+
   return (
     <MDXProvider components={shortcodes}>
       <PostPageStyles>
+        {isWide && <Heading>{data.mdx.frontmatter.title}</Heading>}
         <PostStyles>
-          <Heading1>{data.mdx.frontmatter.title}</Heading1>
-          <Paragraph>{data.mdx.frontmatter.date}</Paragraph>
-          {data.mdx?.tableOfContents && (
-            <TableOfContentWrapper>
-              <InnerScroll>
-                <TableOfContent>Table of Content</TableOfContent>
-                {data.mdx?.tableOfContents.items.map((i) => (
-                  <li key={i.url}>
-                    <a href={i.url} key={i.url}>
-                      {i.title}
-                    </a>
-                  </li>
-                ))}
-              </InnerScroll>
-            </TableOfContentWrapper>
-          )}
+          {!isWide && <Heading1>{data.mdx.frontmatter.title}</Heading1>}
+          <PublishDate>
+            <strong>Published on: </strong>
+            <span>{data.mdx.frontmatter.date}</span>
+          </PublishDate>
+          <TableOfContent>{data.mdx.tableOfContents.items}</TableOfContent>
           <MDXRenderer>{data.mdx.body}</MDXRenderer>
         </PostStyles>
       </PostPageStyles>

@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 
-export const StyledP = styled.p`
+const StyledP = styled.p`
   strong {
     font-weight: bold;
   }
@@ -10,11 +10,8 @@ export const StyledP = styled.p`
   }
 `;
 
-export const Paragraph = ({
-  children,
-  ...delegated
-}: {
-  children: ReactNode;
-}) => {
+const Paragraph = ({ children, ...delegated }: { children: ReactNode }) => {
   return <StyledP {...delegated}>{children}</StyledP>;
 };
+
+export default Paragraph;
