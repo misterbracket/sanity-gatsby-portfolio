@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const TableOfContentWrapper = styled.aside`
@@ -17,7 +17,7 @@ const LinkList = styled.ol`
 `;
 const ListItem = styled.li`
   font-size: var(--big);
-  list-style-type: "👉";
+  list-style-type: "→";
   padding-inline-start: 2ch;
 `;
 

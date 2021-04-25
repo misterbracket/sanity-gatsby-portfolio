@@ -47,6 +47,7 @@ module.exports = {
         fragmentTypeName: "SanityFigure",
       },
     },
+    //Used to get the data like MDX from the local filesystem
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -54,12 +55,20 @@ module.exports = {
         path: `${__dirname}/src/posts/`,
       },
     },
+    //Used use to integrate Gastby with MDX
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
-        gatsbyRemarkPlugins: [`gatsby-remark-autolink-headers`],
+        gatsbyRemarkPlugins: [
+          `gatsby-remark-autolink-headers`,
+          `gatsby-remark-images`,
+        ],
       },
     },
+    //Used for image processing from the local file system
+    `gatsby-plugin-sharp`,
+    //Used from importing images in MDX
+    `gatsby-remark-images`,
   ],
 };
