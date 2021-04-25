@@ -5,9 +5,11 @@ const HeadingStyles = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem 3rem 0rem 3rem;
+  padding: 5rem 3rem 0rem 2rem;
   --move: -1rem;
   --blue-dot-size: 1.9rem;
+  position: relative;
+  left: --4rem;
   h1 {
     white-space: nowrap;
     margin: 0;

@@ -18,18 +18,22 @@ const TableOfContentWrapper = styled.aside`
 
 const TableOfContentTitle = styled.h2`
   padding: 0;
-  font-size: var(--very-big);
-  font-weight: 600;
+  font-size: var(--big);
+  font-weight: 400;
   color: var(--dark-blue);
 `;
 
 const LinkList = styled.ol`
-  padding-inline-start: 20px;
+  padding-inline-start: 2rem;
 `;
 const ListItem = styled.li`
   font-size: var(--big);
   list-style-type: "→";
-  padding-inline-start: 2ch;
+
+  padding-inline-start: 1ch;
+  &::marker {
+    color: var(--dark-blue);
+  }
 `;
 
 const ContentLink = styled.a`
