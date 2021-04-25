@@ -3,6 +3,7 @@ import React, { ReactNode } from "react";
 import styled from "styled-components";
 
 const ButtonStyles = styled(motion.button)`
+  cursor: pointer;
   background: ${(props) =>
     props.color === "dark" ? "var(--blue)" : "transparent"};
   color: ${(props) =>
@@ -10,8 +11,7 @@ const ButtonStyles = styled(motion.button)`
   border-radius: 50px;
   border: 1px solid
     ${(props) => (props.color === "dark" ? "var(--blue)" : "var(--black)")};
-  padding-left: 3rem;
-  padding-right: 3rem;
+  padding: 0.6rem 3rem;
   font-size: var(--normal);
 
   a {
@@ -26,9 +26,15 @@ type ButtonProps = {
   color: "dark" | "light";
   type: "button" | "submit" | "reset";
 };
-const Button = ({ children, color = "dark", type = "button" }: ButtonProps) => {
+const Button = ({
+  children,
+  color = "dark",
+  type = "button",
+  ...delegated
+}: ButtonProps) => {
   return (
     <ButtonStyles
+      {...delegated}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       color={color}

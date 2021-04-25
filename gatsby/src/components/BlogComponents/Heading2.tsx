@@ -2,7 +2,6 @@ import React, { ReactNode } from "react";
 import styled from "styled-components";
 
 const StyledH2 = styled.h2`
-  color: var(--dark-blue);
   //Style the Link SVG
   a {
     float: left;

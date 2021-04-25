@@ -36,24 +36,6 @@ const GlobalStyles = createGlobalStyle`
   }
 
 
-  button {
-    background: var(--blue);
-    color: white;
-    border: 0;
-    padding: 0.6rem 1rem;
-    border-radius: 2px;
-    cursor: pointer;
-    --cast: 2px;
-    box-shadow: var(--cast) var(--cast) 0 var(--xxdx);
-    text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.2);
-    transition: all 0.2s;
-    &:hover {
-      --cast: 4px;
-    }
-  }
-
-
-
   /* Scrollbar Styles */
   /*Firefox implementation */
   html {

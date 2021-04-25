@@ -36,6 +36,10 @@ const SendEmailForm = styled.form`
   }
 `;
 
+const SendButton = styled(Button)`
+  align-self: end;
+`;
+
 const Subheading = styled.h2`
   color: var(--blue);
 `;
@@ -57,13 +61,6 @@ const Input = styled.input`
     border-bottom: 2px solid var(--black);
     outline: none;
   }
-`;
-
-const SendButton = styled(Button)`
-  margin-top: 2rem;
-  width: fit-content;
-  outline: none;
-  align-self: center;
 `;
 
 const TextArea = styled.textarea`
