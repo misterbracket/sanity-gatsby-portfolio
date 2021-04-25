@@ -11,6 +11,8 @@ import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Heading } from "../components/ui-components";
 import { useMedia } from "../components/hooks";
+import { motion } from "framer-motion";
+import useFadeIn from "../components/hooks/useFadeIn";
 
 interface BlogPostProps {
   data: {
@@ -45,7 +47,7 @@ const PostPageStyles = styled.main`
   }
 `;
 
-const PostStyles = styled.article`
+const PostStyles = styled(motion.article)`
   padding: 3rem;
   font-size: var(--normal);
   @media screen and (min-width: 840px) {
@@ -76,7 +78,8 @@ const shortcodes = {
 
 export default function PostLayout({ data }: PageProps & BlogPostProps) {
   const isWide = useMedia("(min-width: 840px)");
-
+  const intersectionRef = React.useRef(null);
+  const [initial, animate, fadeInVariants] = useFadeIn(intersectionRef);
   return (
     <MDXProvider components={shortcodes}>
       <PostPageStyles>
@@ -84,7 +87,12 @@ export default function PostLayout({ data }: PageProps & BlogPostProps) {
           <>
             <Heading>{data.mdx.frontmatter.title}</Heading>
             <TableOfContent>{data.mdx.tableOfContents.items}</TableOfContent>
-            <PostStyles>
+            <PostStyles
+              ref={intersectionRef}
+              variants={fadeInVariants}
+              initial={initial}
+              animate={animate}
+            >
               <PublishDate>
                 <strong>Published on: </strong>
                 <span>{data.mdx.frontmatter.date}</span>
