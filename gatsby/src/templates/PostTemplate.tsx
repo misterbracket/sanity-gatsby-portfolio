@@ -31,14 +31,14 @@ interface BlogPostProps {
 
 const PostPageStyles = styled.main`
   font-size: var(--normal);
-  gap: 2.5rem;
   background: var(--dark-pink);
   padding: 2.5rem 0;
 
   @media screen and (min-width: 840px) {
     display: grid;
+    gap: 2.5rem;
     padding: 5rem 0;
-    grid-template-columns: 1fr min(80ch, calc(100% - 5rem)) 1fr;
+    grid-template-columns: 1fr min(75ch, calc(100% - 5rem)) 1fr;
     & > * {
       grid-column: 2;
     }
@@ -48,10 +48,10 @@ const PostPageStyles = styled.main`
 const PostStyles = styled.article`
   padding: 3rem;
   font-size: var(--normal);
-  box-shadow: var(--shd);
   @media screen and (min-width: 840px) {
     background: var(--white);
     padding: 6rem;
+    box-shadow: var(--shd);
   }
 `;
 
@@ -80,16 +80,29 @@ export default function PostLayout({ data }: PageProps & BlogPostProps) {
   return (
     <MDXProvider components={shortcodes}>
       <PostPageStyles>
-        {isWide && <Heading>{data.mdx.frontmatter.title}</Heading>}
-        <PostStyles>
-          {!isWide && <Heading1>{data.mdx.frontmatter.title}</Heading1>}
-          <PublishDate>
-            <strong>Published on: </strong>
-            <span>{data.mdx.frontmatter.date}</span>
-          </PublishDate>
-          <TableOfContent>{data.mdx.tableOfContents.items}</TableOfContent>
-          <MDXRenderer>{data.mdx.body}</MDXRenderer>
-        </PostStyles>
+        {isWide ? (
+          <>
+            <Heading>{data.mdx.frontmatter.title}</Heading>
+            <TableOfContent>{data.mdx.tableOfContents.items}</TableOfContent>
+            <PostStyles>
+              <PublishDate>
+                <strong>Published on: </strong>
+                <span>{data.mdx.frontmatter.date}</span>
+              </PublishDate>
+              <MDXRenderer>{data.mdx.body}</MDXRenderer>
+            </PostStyles>
+          </>
+        ) : (
+          <PostStyles>
+            <Heading1>{data.mdx.frontmatter.title}</Heading1>
+            <PublishDate>
+              <strong>Published on: </strong>
+              <span>{data.mdx.frontmatter.date}</span>
+            </PublishDate>
+            <TableOfContent>{data.mdx.tableOfContents.items}</TableOfContent>
+            <MDXRenderer>{data.mdx.body}</MDXRenderer>
+          </PostStyles>
+        )}
       </PostPageStyles>
     </MDXProvider>
   );

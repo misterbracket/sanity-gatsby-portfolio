@@ -3,6 +3,17 @@ import styled from "styled-components";
 
 const TableOfContentWrapper = styled.aside`
   margin: 3rem 0;
+
+  @media screen and (min-width: 840px) {
+    grid-column: 1 !important;
+    margin: 0 0 0 3rem;
+    padding: 2rem;
+    position: sticky;
+    height: min-content;
+    top: 90px;
+    background-color: var(--white);
+    box-shadow: var(--shd);
+  }
 `;
 
 const TableOfContentTitle = styled.h2`
