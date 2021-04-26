@@ -25,13 +25,20 @@ const MetaData = styled.div`
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
-const MetaDataContainer = styled.div`
+const TimeToRead = styled.div`
+  margin: 0.5rem 0;
   strong {
     padding-right: 10px;
     font-weight: 700;
   }
-  em {
+`;
+const PublishedDate = styled.div`
+  margin: 0.5rem 0;
+  strong {
+    padding-right: 10px;
+    font-weight: 700;
   }
 `;
 
@@ -72,14 +79,14 @@ function BlogPostExcerpt({ data }: { data: post }) {
       </Link>
       <ContentSection>
         <MetaData>
-          <MetaDataContainer>
+          <TimeToRead>
             <strong>Time to read:</strong>
             <em>{data.timeToRead}</em>
-          </MetaDataContainer>
-          <MetaDataContainer>
+          </TimeToRead>
+          <PublishedDate>
             <strong>Published:</strong>
             <em>{data.frontmatter.date}</em>
-          </MetaDataContainer>
+          </PublishedDate>
         </MetaData>
         <p>{data.excerpt}</p>
         <LinkStyles to={`${data.fields.slug}`}>Read more...</LinkStyles>

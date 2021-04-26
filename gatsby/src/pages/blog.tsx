@@ -46,7 +46,7 @@ function blog({ data, location }: PageProps & allBlogPostsData) {
     <>
       <SEO title={`Blog Posts`} location={location} />
       <BlogWrapper>
-        <Heading>Things I Wrote About</Heading>
+        <Heading>Things I Write About</Heading>
         {data.allMdx.edges.map((post, index) => (
           <BlogPostExcerpt data={post.node} key={index} />
         ))}
