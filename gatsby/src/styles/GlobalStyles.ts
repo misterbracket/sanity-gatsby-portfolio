@@ -15,10 +15,7 @@ const GlobalStyles = createGlobalStyle`
     /**Boxshadow */
     --shd:-11.31px 11.31px 17px 0px hsla(30, 6%, 51%, 0.23);
   }
-  html {
-    background-size: 450px;
-    background-attachment: fixed;
-    font-size: 10px;
+  html, body {
     height: 100%;
     scroll-behavior: smooth
   }
@@ -26,10 +23,7 @@ const GlobalStyles = createGlobalStyle`
   *, *::before, *::after {
   box-sizing: border-box;
   }
-  body, #___gatsby, #gatsby-focus-wrapper {
-    font-size: 2rem;
-    height: 100%;
-  }
+
 
   fieldset {
     border: none;

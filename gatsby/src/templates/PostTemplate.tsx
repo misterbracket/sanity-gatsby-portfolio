@@ -6,6 +6,7 @@ import {
   Heading2,
   Paragraph,
   TableOfContent,
+  Quote,
 } from "./../components/BlogComponents";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -74,6 +75,7 @@ const shortcodes = {
   p: (props: { children: ReactNode; delegated: Array<any> }) => (
     <Paragraph {...props} />
   ),
+  Quote,
 };
 
 export default function PostLayout({ data }: PageProps & BlogPostProps) {
