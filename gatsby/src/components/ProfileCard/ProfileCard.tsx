@@ -66,6 +66,7 @@ const ButtonGroup = styled.div`
 `;
 
 const ProfileSlug = styled.span`
+  font-size: 2rem;
   letter-spacing: 0.2rem;
   text-align: center;
 `;
