@@ -75,6 +75,11 @@ const shortcodes = {
   p: (props: { children: ReactNode; delegated: Array<any> }) => (
     <Paragraph {...props} />
   ),
+  strong: (props: { children: ReactNode; delegated: Array<any> }) => (
+    <strong {...props} style={{ color: "var(--dark-blue)" }}>
+      {props.children}
+    </strong>
+  ),
   Quote,
 };
 

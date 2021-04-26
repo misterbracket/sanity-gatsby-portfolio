@@ -15,13 +15,21 @@ const GlobalStyles = createGlobalStyle`
     /**Boxshadow */
     --shd:-11.31px 11.31px 17px 0px hsla(30, 6%, 51%, 0.23);
   }
-  html, body {
+  html {
+    height: 100%
+  }
+
+ body {
     height: 100%;
     scroll-behavior: smooth
   }
 
-  #___gatsby, #gatsby-focus-wrapper {
-    height: 100%
+  #___gatsby{
+    height: 100%;
+  }
+
+  #gatsby-focus-wrapper {
+    height: 100%;
   }
 
   *, *::before, *::after {
