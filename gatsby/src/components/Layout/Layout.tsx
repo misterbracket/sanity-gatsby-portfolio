@@ -13,7 +13,6 @@ const LayoutStyles = styled.div`
   grid-template-rows: auto 1fr auto;
   grid-template-areas: "header" "main" "footer";
   main {
-    width: 100vw;
     grid-area: main;
   }
 `;

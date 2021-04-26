@@ -59,7 +59,7 @@ const ContentWrapper = styled.div`
     max-width: 500px;
     background-color: var(--white);
     max-height: 500px;
-    overflow: scroll;
+    overflow-y: scroll;
   }
 `;
 

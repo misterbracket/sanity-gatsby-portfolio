@@ -20,6 +20,10 @@ const GlobalStyles = createGlobalStyle`
     scroll-behavior: smooth
   }
 
+  #___gatsby, #gatsby-focus-wrapper {
+    height: 100%
+  }
+
   *, *::before, *::after {
   box-sizing: border-box;
   }
