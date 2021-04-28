@@ -10,6 +10,7 @@ const LayoutStyles = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
   grid-template-areas: "header" "main" "footer";
+  min-height: 100%;
   main {
     grid-area: main;
   }

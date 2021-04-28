@@ -1,6 +1,7 @@
 // Load variables from `.env` as soon as possible
 import dotenv from "dotenv";
 require("ts-node").register({ files: true });
+const capitalize = require(`remark-capitalize`)
 
 dotenv.config({ path: ".env" });
 
@@ -64,6 +65,7 @@ module.exports = {
           `gatsby-remark-autolink-headers`,
           `gatsby-remark-images`,
         ],
+        remarkPlugins: [capitalize],
       },
     },
     //Used for image processing from the local file system

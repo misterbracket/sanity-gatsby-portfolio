@@ -30,6 +30,7 @@ const GlobalStyles = createGlobalStyle`
 
   #gatsby-focus-wrapper {
     height: 100%;
+    min-height: 100%;
   }
 
   *, *::before, *::after {
