@@ -5,6 +5,8 @@ import { SEO } from "../components";
 import { graphql } from "gatsby";
 import { ProjectData } from "../pages/projects";
 import { BlockText, Heading } from "../components/ui-components";
+import useFadeIn from "../components/hooks/useFadeIn";
+import { motion } from "framer-motion";
 
 type ProjectType = {
   data: {
@@ -12,7 +14,7 @@ type ProjectType = {
   };
 };
 
-const ProjectPageStyles = styled.article`
+const ProjectPageStyles = styled.main`
   display: grid;
   --gap: 2.5rem;
   font-size: var(--normal);
@@ -37,7 +39,7 @@ const ProjectImage = styled(SanityImage)`
   align-self: center;
 `;
 
-const ProjectStyles = styled.article`
+const ProjectStyles = styled(motion.article)`
   padding: 4rem;
   background: var(--white);
   font-size: var(--normal);
@@ -49,6 +51,8 @@ const ProjectStyles = styled.article`
 `;
 
 function Project({ data: { sanityProject } }: ProjectType) {
+  const intersectionRef = React.useRef(null);
+  const [initial, animate, fadeInVariants] = useFadeIn(intersectionRef);
   return (
     <>
       <SEO
@@ -57,7 +61,12 @@ function Project({ data: { sanityProject } }: ProjectType) {
       />
       <ProjectPageStyles>
         <Heading>{sanityProject.name}</Heading>
-        <ProjectStyles>
+        <ProjectStyles
+          ref={intersectionRef}
+          variants={fadeInVariants}
+          initial={initial}
+          animate={animate}
+        >
           <BlockText blocks={sanityProject._rawDescription}></BlockText>
           <a className="project-link" href={sanityProject.projectUrl}>
             Teleport to project 🚀

@@ -5,8 +5,8 @@ import { ProjectData } from "../../pages/projects";
 import { BlockText } from "../ui-components";
 import { Tags } from "./components";
 import { Link } from "gatsby";
-import { useIntersection, usePrefersReducedMotion } from "../hooks";
 import { motion } from "framer-motion";
+import useFadeIn from "../hooks/useFadeIn";
 
 const ProjectCardStyles = styled(motion.article)`
   padding: 5rem;
@@ -16,10 +16,6 @@ const ProjectCardStyles = styled(motion.article)`
   display: flex;
   flex-wrap: wrap;
   column-gap: 3rem;
-
-  @media screen and (min-width: 840px) {
-    column-gap: 3rem;
-  }
 `;
 
 const ProjectTextSection = styled.section`
@@ -29,6 +25,7 @@ const ProjectTextSection = styled.section`
 
 const ProjectTitle = styled.h2`
   color: var(--blue);
+  text-decoration: none;
 `;
 
 const ProjectImageWrapper = styled.div`
@@ -54,32 +51,17 @@ const ProjectImage = styled(SanityImage)`
   }
 `;
 
-const fadeInVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "tween", duration: 0.2 },
-  },
-};
-
 export default function ProjectCard({ project }: { project: ProjectData }) {
   const intersectionRef = React.useRef(null);
-  const intersection = useIntersection(intersectionRef, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.07,
-  });
-  const prefersReducedMotion = usePrefersReducedMotion();
+
+  const [initial, animate, fadeInVariants] = useFadeIn(intersectionRef);
 
   return (
     <ProjectCardStyles
       ref={intersectionRef}
-      variants={!prefersReducedMotion && fadeInVariants}
-      initial="hidden"
-      animate={
-        intersection && intersection.intersectionRatio > 0.07 ? "visible" : ""
-      }
+      variants={fadeInVariants}
+      initial={initial}
+      animate={animate}
     >
       <ProjectTextSection>
         <Link to={`/project/${project.slug.current}`}>

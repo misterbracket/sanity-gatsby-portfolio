@@ -17,6 +17,7 @@ const ProfileCardStyles = styled.div`
   margin: 3rem auto;
   background: var(--light-pink);
   box-shadow: var(--shd, 0 1px 4px rgba(0, 0, 0, 0.6));
+  width: 370px;
   max-width: 370px;
   align-self: center;
   @media screen and (min-width: 840px) {
@@ -65,6 +66,7 @@ const ButtonGroup = styled.div`
 `;
 
 const ProfileSlug = styled.span`
+  font-size: 2rem;
   letter-spacing: 0.2rem;
   text-align: center;
 `;

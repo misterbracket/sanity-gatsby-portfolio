@@ -45,12 +45,12 @@ const Typography = createGlobalStyle`
 
   h1 {
     margin-top: 0;
-    font-size: var(--very-big);
+    font-size: var( --very-very-big);
     font-weight: 700;
   }
 
   h2 {
-    font-size: var(--big);
+    font-size: var(--very-big);
     font-weight: 700;
   }
 

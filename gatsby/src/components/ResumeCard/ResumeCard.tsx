@@ -4,6 +4,7 @@ import { GoLocation } from "react-icons/go";
 import { EducationData, JobData } from "../../pages/resume";
 import { useIntersection, usePrefersReducedMotion } from "../hooks";
 import { motion } from "framer-motion";
+import useFadeIn from "../hooks/useFadeIn";
 
 const ResumeCardStyles = styled(motion.article)`
   background: var(--white);
@@ -49,15 +50,6 @@ const Excerpt = styled.p`
   flex-basis: 60%;
 `;
 
-const fadeInVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "tween", duration: 0.2 },
-  },
-};
-
 export default function ResumeCard({
   job,
   education,
@@ -66,21 +58,13 @@ export default function ResumeCard({
   education?: EducationData;
 }) {
   const intersectionRef = React.useRef(null);
-  const intersection = useIntersection(intersectionRef, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.07,
-  });
-
-  const prefersReducedMotion = usePrefersReducedMotion();
+  const [initial, animate, fadeInVariants] = useFadeIn(intersectionRef);
   return (
     <ResumeCardStyles
       ref={intersectionRef}
-      variants={!prefersReducedMotion && fadeInVariants}
-      initial="hidden"
-      animate={
-        intersection && intersection.intersectionRatio > 0.07 ? "visible" : ""
-      }
+      variants={fadeInVariants}
+      initial={initial}
+      animate={animate}
     >
       {job && (
         <>

@@ -11,8 +11,6 @@ const NavStyles = styled.nav`
   right: 0;
   text-decoration: none;
   background-color: var(--pink);
-  width: 100vw;
-  height: 100vh;
   display: grid;
   justify-items: center;
 
@@ -20,8 +18,6 @@ const NavStyles = styled.nav`
     position: static;
     display: grid;
     place-items: center center;
-    height: auto;
-    width: auto;
     background: var(--white);
   }
 `;
@@ -124,6 +120,15 @@ const Nav = () => {
                 to="/projects"
               >
                 Projects
+              </NavLink>
+            </motion.li>
+            <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <NavLink
+                onClick={!isWide ? toggleNav : undefined}
+                activeClassName={"active"}
+                to="/blog"
+              >
+                Blog
               </NavLink>
             </motion.li>
             <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>

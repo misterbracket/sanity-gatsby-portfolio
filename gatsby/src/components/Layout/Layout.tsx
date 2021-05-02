@@ -1,19 +1,17 @@
 import React from "react";
-import { GlobalStyles, Typography } from "../styles";
-import Footer from "./Footer";
+import { GlobalStyles, Typography } from "../../styles";
+import Footer from "../Footer";
 import "normalize.css";
 import styled from "styled-components";
-import Header from "./Header";
+import Header from "../Header";
 
 const LayoutStyles = styled.div`
   display: grid;
-  width: 100%;
-  height: 100%;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
   grid-template-areas: "header" "main" "footer";
+  min-height: 100%;
   main {
-    width: 100vw;
     grid-area: main;
   }
 `;

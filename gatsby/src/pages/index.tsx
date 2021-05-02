@@ -25,7 +25,11 @@ const AboutMeStyles = styled(motion.div)`
 const MainWrapper = styled.div`
   position: relative;
   top: -150px;
+  padding-left: 20px;
+  padding-right: 20px;
   @media screen and (min-width: 840px) {
+    padding-left: 0;
+    padding-right: 0;
     display: grid;
     grid-template: auto / 45% 55%;
     position: static;
@@ -55,7 +59,7 @@ const ContentWrapper = styled.div`
     max-width: 500px;
     background-color: var(--white);
     max-height: 500px;
-    overflow: scroll;
+    overflow-y: scroll;
   }
 `;
 
