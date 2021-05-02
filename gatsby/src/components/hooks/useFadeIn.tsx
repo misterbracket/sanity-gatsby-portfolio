@@ -19,7 +19,7 @@ function useFadeIn(intersectionRef: React.MutableRefObject<null>) {
   const prefersReducedMotion = usePrefersReducedMotion();
 
   const variants = !prefersReducedMotion && fadeInVariants;
-  const isIntersecting = intersection && intersection.intersectionRatio > 0.07;
+  const isIntersecting = intersection && intersection.intersectionRatio > 0.06;
   const animate = isIntersecting ? "visible" : "";
 
   const initial = "hidden";

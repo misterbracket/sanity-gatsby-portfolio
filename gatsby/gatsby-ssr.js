@@ -3,11 +3,10 @@ import React from "react";
 import { Layout } from "./src/components/index";
 import { ContactProvider } from "./src/components/context";
 
-
 export function wrapPageElement({ element, props }) {
   return (
     <ContactProvider>
-        <Layout {...props}>{element}</Layout>
+      <Layout {...props}>{element}</Layout>
     </ContactProvider>
   );
 }

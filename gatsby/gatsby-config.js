@@ -1,13 +1,17 @@
 // Load variables from `.env` as soon as possible
 import dotenv from "dotenv";
 require("ts-node").register({ files: true });
-const capitalize = require(`remark-capitalize`)
+const capitalize = require(`remark-capitalize`);
 
 dotenv.config({ path: ".env" });
 
 const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
+  flags: {
+    FAST_DEV: true,
+    FAST_REFRESH: true,
+  },
   siteMetadata: {
     title: `MK`,
     siteUrl: `https://maxklammer.com`,

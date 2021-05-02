@@ -6,7 +6,7 @@
   "scripts": {
     "build": "NODE_OPTIONS=\"-r esm\" gatsby build",
     "clean-cache": "gatsby clean",
-    "develop": " npm run clean-cache && NODE_OPTIONS=\"-r esm\" gatsby develop --port 8001",
+    "develop": "NODE_OPTIONS=\"-r esm\" gatsby develop --port 8001",
     "start": " npm run develop",
     "lint": "eslint .",
     "format": "prettier-eslint --write \"**/*.js\" \"!.cache/**\" \"!node_modules/**\" \"!public/**\"",
