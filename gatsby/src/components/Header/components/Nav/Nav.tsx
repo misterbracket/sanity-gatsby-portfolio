@@ -57,6 +57,9 @@ const NavLink = styled(Link)`
     line-height: 35px;
     font-weight: 300;
     font-size: var(--normal);
+    &:hover {
+      color: var(--blue);
+    }
   }
 `;
 
@@ -104,7 +107,10 @@ const Nav = () => {
                 About Me
               </NavLink>
             </motion.li>
-            <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+            <motion.li
+              whileHover={prefersReducedMotion ? "" : { scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
               <NavLink
                 onClick={!isWide ? toggleNav : undefined}
                 activeClassName={"active"}
@@ -113,7 +119,10 @@ const Nav = () => {
                 Resume
               </NavLink>
             </motion.li>
-            <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+            <motion.li
+              whileHover={prefersReducedMotion ? "" : { scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
               <NavLink
                 onClick={!isWide ? toggleNav : undefined}
                 activeClassName={"active"}
@@ -122,7 +131,10 @@ const Nav = () => {
                 Projects
               </NavLink>
             </motion.li>
-            <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+            <motion.li
+              whileHover={prefersReducedMotion ? "" : { scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
               <NavLink
                 onClick={!isWide ? toggleNav : undefined}
                 activeClassName={"active"}
