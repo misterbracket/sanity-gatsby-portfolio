@@ -70,7 +70,7 @@ export default function ResumeCard({
         <>
           <Headings>
             <Date>
-              {job.startedAt} - {job.endedAt}
+              {job.startedAt} - {job?.endedAt || "now"}
             </Date>
             <RoleName>{job.name}</RoleName>
             <Company>{job.company}</Company>
