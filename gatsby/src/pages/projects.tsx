@@ -18,7 +18,7 @@ const ProjectsStyles = styled.main`
     grid-column: 2;
     width: 100%;
   }
-  @media screen and (min-width: 840px) {
+  @media ${props => props.theme.queries.laptopAndUp}{
     grid-template-columns: 1fr min(90ch, calc(100% - 5rem)) 1fr;
   }
 `;

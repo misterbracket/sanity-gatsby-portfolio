@@ -21,7 +21,7 @@ const ResumeStyles = styled.main`
     margin-top: 2.5rem;
     justify-self: flex-start;
   }
-  @media screen and (min-width: 840px) {
+  @media ${props => props.theme.queries.laptopAndUp}{
     grid-template-columns: 1fr min(90ch, calc(100% - 5rem)) 1fr;
   }
 `;

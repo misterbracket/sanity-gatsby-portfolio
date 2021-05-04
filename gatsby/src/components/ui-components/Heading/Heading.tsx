@@ -23,7 +23,7 @@ const HeadingStyles = styled.div`
     position: relative;
     left: var(--move);
   }
-  @media screen and (min-width: 840px) {
+  @media ${props => props.theme.queries.laptopAndUp}{
     padding: 10rem 3rem 6rem 3rem;
   }
 `;

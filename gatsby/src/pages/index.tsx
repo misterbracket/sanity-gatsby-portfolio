@@ -16,7 +16,7 @@ const AboutMeStyles = styled(motion.div)`
   place-items: center;
   flex-direction: column;
 
-  @media screen and (min-width: 840px) {
+  @media ${props => props.theme.queries.laptopAndUp}{
     position: static;
     margin: 0;
   }
@@ -27,7 +27,7 @@ const MainWrapper = styled.div`
   top: -150px;
   padding-left: 20px;
   padding-right: 20px;
-  @media screen and (min-width: 840px) {
+  @media ${props => props.theme.queries.laptopAndUp}{
     padding-left: 0;
     padding-right: 0;
     display: grid;
@@ -41,7 +41,7 @@ const MainWrapper = styled.div`
 const TextSection = styled.section`
   padding: 3rem 3rem;
 
-  @media screen and (min-width: 840px) {
+  @media ${props => props.theme.queries.laptopAndUp}{
     background-color: var(--white);
     grid-column: 2/3;
     display: flex;
@@ -53,7 +53,7 @@ const TextSection = styled.section`
 `;
 
 const ContentWrapper = styled.div`
-  @media screen and (min-width: 840px) {
+  @media ${props => props.theme.queries.laptopAndUp}{
     display: flex;
     flex-direction: column;
     max-width: 500px;
@@ -66,7 +66,7 @@ const ContentWrapper = styled.div`
 const HeroTitle = styled.h1`
   font-size: var(--very-very-big);
   font-weight: 700;
-  @media screen and (min-width: 840px) {
+  @media ${props => props.theme.queries.laptopAndUp}{
     font-size: var(--super-big);
     font-weight: 700;
     margin: 50px 0 0 0;
@@ -76,7 +76,7 @@ const HeroTitle = styled.h1`
 const Subheading = styled.h3`
   font-weight: 500;
   margin: 1rem 0 1.38rem;
-  @media screen and (min-width: 840px) {
+  @media ${props => props.theme.queries.laptopAndUp}{
     font-weight: 400;
   }
 `;

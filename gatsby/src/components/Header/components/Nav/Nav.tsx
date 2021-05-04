@@ -19,7 +19,7 @@ const NavStyles = styled.nav`
   display: grid;
   justify-items: center;
 
-  @media screen and (min-width: 840px) {
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     position: static;
     display: grid;
     place-items: center center;
@@ -41,7 +41,7 @@ const NavList = styled(motion.ul)`
   .active {
     color: var(--blue);
   }
-  @media screen and (min-width: 840px) {
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     top: 0;
     flex-direction: row;
     width: 100%;
@@ -58,7 +58,7 @@ const NavLink = styled(Link)`
   text-transform: uppercase;
   font-weight: 700;
 
-  @media screen and (min-width: 840px) {
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     line-height: 35px;
     font-weight: 300;
     font-size: var(--normal);
@@ -82,7 +82,7 @@ const animationVariants = {
 
 const Nav = () => {
   const navItems = useRef<HTMLElement>(null);
-  const isWide = useMedia("(min-width: 840px)");
+  const isWide = useMedia("(min-width: 1100px)");
   const prefersReducedMotion = usePrefersReducedMotion();
 
   const [isOpen, setOpen] = useState(false);

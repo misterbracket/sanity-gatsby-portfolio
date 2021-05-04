@@ -20,7 +20,7 @@ const ProfileCardStyles = styled.div`
   width: 370px;
   max-width: 370px;
   align-self: center;
-  @media screen and (min-width: 840px) {
+  @media ${props => props.theme.queries.laptopAndUp}{
     position: relative;
     max-height: 500px;
     margin: auto 0;

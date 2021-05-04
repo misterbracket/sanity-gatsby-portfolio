@@ -9,7 +9,7 @@ const SmallText = styled.p`
   font-size: var(--small);
   padding: 0.75rem 2rem;
   width: fit-content;
-  @media screen and (min-width: 800px) {
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     margin-left: auto;
   }
 `;

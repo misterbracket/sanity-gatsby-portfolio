@@ -37,7 +37,7 @@ const PostPageStyles = styled.main`
   background: var(--dark-pink);
   padding: 2.5rem 0;
 
-  @media screen and (min-width: 840px) {
+  @media ${props => props.theme.queries.laptopAndUp}{
     display: grid;
     gap: 2.5rem;
     padding: 5rem 0;
@@ -51,7 +51,7 @@ const PostPageStyles = styled.main`
 const PostStyles = styled(motion.article)`
   padding: 3rem;
   font-size: var(--normal);
-  @media screen and (min-width: 840px) {
+  @media ${props => props.theme.queries.laptopAndUp}{
     background: var(--white);
     padding: 6rem;
     box-shadow: var(--shd);
@@ -60,7 +60,7 @@ const PostStyles = styled(motion.article)`
 
 const PublishDate = styled.section`
   padding: 1rem 0;
-  @media screen and (min-width: 840px) {
+  @media ${props => props.theme.queries.laptopAndUp}{
     text-align: end;
   }
 `;
