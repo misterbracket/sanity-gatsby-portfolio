@@ -11,7 +11,6 @@ import {
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Heading } from "../components/ui-components";
-import { useMedia } from "../components/hooks";
 import { motion } from "framer-motion";
 import useFadeIn from "../components/hooks/useFadeIn";
 
@@ -37,7 +36,7 @@ const PostPageStyles = styled.main`
   background: var(--dark-pink);
   padding: 2.5rem 0;
 
-  @media ${props => props.theme.queries.laptopAndUp}{
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     display: grid;
     gap: 2.5rem;
     padding: 5rem 0;
@@ -48,10 +47,34 @@ const PostPageStyles = styled.main`
   }
 `;
 
+const PostHeading = styled(Heading)`
+  @media (max-width: 1100px) {
+    display: none;
+  }
+`;
+
+const PostHeading1 = styled(Heading1)`
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    display: none;
+  }
+`;
+
+const MobileTableOfContent = styled(TableOfContent)`
+  @media (max-width: 1100px) {
+    display: none;
+  }
+`;
+
+const DesktopTableOfContent = styled(TableOfContent)`
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    display: none;
+  }
+`;
+
 const PostStyles = styled(motion.article)`
   padding: 3rem;
   font-size: var(--normal);
-  @media ${props => props.theme.queries.laptopAndUp}{
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     background: var(--white);
     padding: 6rem;
     box-shadow: var(--shd);
@@ -60,7 +83,7 @@ const PostStyles = styled(motion.article)`
 
 const PublishDate = styled.section`
   padding: 1rem 0;
-  @media ${props => props.theme.queries.laptopAndUp}{
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     text-align: end;
   }
 `;
@@ -84,40 +107,33 @@ const shortcodes = {
 };
 
 export default function PostLayout({ data }: PageProps & BlogPostProps) {
-  const isWide = useMedia("(min-width: 840px)");
   const intersectionRef = React.useRef(null);
   const [initial, animate, fadeInVariants] = useFadeIn(intersectionRef);
   return (
     <MDXProvider components={shortcodes}>
       <PostPageStyles>
-        {isWide ? (
-          <>
-            <Heading>{data.mdx.frontmatter.title}</Heading>
-            <TableOfContent>{data.mdx.tableOfContents.items}</TableOfContent>
-            <PostStyles
-              ref={intersectionRef}
-              variants={fadeInVariants}
-              initial={initial}
-              animate={animate}
-            >
-              <PublishDate>
-                <strong>Published on: </strong>
-                <span>{data.mdx.frontmatter.date}</span>
-              </PublishDate>
-              <MDXRenderer>{data.mdx.body}</MDXRenderer>
-            </PostStyles>
-          </>
-        ) : (
-          <PostStyles>
-            <Heading1>{data.mdx.frontmatter.title}</Heading1>
-            <PublishDate>
-              <strong>Published on: </strong>
-              <span>{data.mdx.frontmatter.date}</span>
-            </PublishDate>
-            <TableOfContent>{data.mdx.tableOfContents.items}</TableOfContent>
-            <MDXRenderer>{data.mdx.body}</MDXRenderer>
-          </PostStyles>
-        )}
+        <PostHeading>{data.mdx.frontmatter.title}</PostHeading>
+        <MobileTableOfContent>
+          {data.mdx.tableOfContents.items}
+        </MobileTableOfContent>
+        <PostStyles
+          ref={intersectionRef}
+          variants={fadeInVariants}
+          initial={initial}
+          animate={animate}
+        >
+          <PostHeading1>{data.mdx.frontmatter.title}</PostHeading1>
+          <PublishDate>
+            <strong>Published on: </strong>
+            <span>{data.mdx.frontmatter.date}</span>
+          </PublishDate>
+
+          <DesktopTableOfContent>
+            {data.mdx.tableOfContents.items}
+          </DesktopTableOfContent>
+
+          <MDXRenderer>{data.mdx.body}</MDXRenderer>
+        </PostStyles>
       </PostPageStyles>
     </MDXProvider>
   );

@@ -1,6 +1,5 @@
-require("ts-node").register({ files: true });
 import path from "path";
-const { createFilePath } = require("gatsby-source-filesystem");
+import { createFilePath } from "gatsby-source-filesystem";
 
 async function turnProjectsIntoPages({ graphql, actions }) {
   const projectTemplate = path.resolve("./src/templates/ProjectTemplate.tsx");

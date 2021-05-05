@@ -23,14 +23,19 @@ const HeadingStyles = styled.div`
     position: relative;
     left: var(--move);
   }
-  @media ${props => props.theme.queries.laptopAndUp}{
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     padding: 10rem 3rem 6rem 3rem;
   }
 `;
 
-export default function Heading({ children }: { children: string }) {
+export default function Heading({
+  children,
+  ...delegated
+}: {
+  children: string;
+}) {
   return (
-    <HeadingStyles>
+    <HeadingStyles {...delegated}>
       <div className="blueDot"></div>
       <h1>{children}</h1>
     </HeadingStyles>

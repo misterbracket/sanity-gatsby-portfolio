@@ -115,7 +115,7 @@ const animationVariants = {
 };
 
 const index = ({ location, data }: PageProps & AboutMePageProps) => {
-  const isWide = useMedia("(min-width: 840px)");
+  const isWide = useMedia("(min-width: 1100px)");
   const prefersReducedMotion = usePrefersReducedMotion();
 
   const person = data.sanityPerson;
