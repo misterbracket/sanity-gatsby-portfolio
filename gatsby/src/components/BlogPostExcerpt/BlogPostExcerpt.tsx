@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
-import { useIntersection, usePrefersReducedMotion } from "../hooks";
+import { usePrefersReducedMotion } from "../hooks";
+import useFadeIn from "../hooks/useFadeIn";
 import { post } from "./../../pages/blog";
 
 const BlogPostExcerptWrapper = styled(motion.article)`
@@ -48,31 +49,18 @@ const LinkStyles = styled(Link)`
   display: block;
 `;
 
-const fadeInVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "tween", duration: 0.2 },
-  },
-};
-
 function BlogPostExcerpt({ data }: { data: post }) {
   const intersectionRef = React.useRef(null);
-  const intersection = useIntersection(intersectionRef, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.07,
-  });
+
+  const [initial, animate, fadeInVariants] = useFadeIn(intersectionRef);
+
   const prefersReducedMotion = usePrefersReducedMotion();
   return (
     <BlogPostExcerptWrapper
       ref={intersectionRef}
-      variants={!prefersReducedMotion && fadeInVariants}
-      initial="hidden"
-      animate={
-        intersection && intersection.intersectionRatio > 0.07 ? "visible" : ""
-      }
+      variants={fadeInVariants}
+      initial={initial}
+      animate={animate}
     >
       <Link to={`${data.fields.slug}`}>
         <BlogTitle>{data.frontmatter.title}</BlogTitle>

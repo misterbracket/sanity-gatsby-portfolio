@@ -5,7 +5,7 @@ const fadeInVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: "tween", duration: 0.2 },
+    transition: { type: "Inertia", duration: 0.7 },
   },
 };
 

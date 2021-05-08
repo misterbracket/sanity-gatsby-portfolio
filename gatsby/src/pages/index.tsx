@@ -5,9 +5,8 @@ import styled from "styled-components";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
 import { useMedia, usePrefersReducedMotion } from "./../components/hooks";
 import { Button, Sparkles } from "../components/ui-components";
-import { motion } from "framer-motion";
 
-const AboutMeStyles = styled(motion.div)`
+const AboutMeStyles = styled.div`
   --margin-top: 150px;
   margin-top: var(--margin-top);
   background: var(--dark-pink);
@@ -16,7 +15,7 @@ const AboutMeStyles = styled(motion.div)`
   place-items: center;
   flex-direction: column;
 
-  @media ${props => props.theme.queries.laptopAndUp}{
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     position: static;
     margin: 0;
   }
@@ -27,7 +26,7 @@ const MainWrapper = styled.div`
   top: -150px;
   padding-left: 20px;
   padding-right: 20px;
-  @media ${props => props.theme.queries.laptopAndUp}{
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     padding-left: 0;
     padding-right: 0;
     display: grid;
@@ -41,7 +40,7 @@ const MainWrapper = styled.div`
 const TextSection = styled.section`
   padding: 3rem 3rem;
 
-  @media ${props => props.theme.queries.laptopAndUp}{
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     background-color: var(--white);
     grid-column: 2/3;
     display: flex;
@@ -53,7 +52,7 @@ const TextSection = styled.section`
 `;
 
 const ContentWrapper = styled.div`
-  @media ${props => props.theme.queries.laptopAndUp}{
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     display: flex;
     flex-direction: column;
     max-width: 500px;
@@ -66,7 +65,7 @@ const ContentWrapper = styled.div`
 const HeroTitle = styled.h1`
   font-size: var(--very-very-big);
   font-weight: 700;
-  @media ${props => props.theme.queries.laptopAndUp}{
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     font-size: var(--super-big);
     font-weight: 700;
     margin: 50px 0 0 0;
@@ -76,7 +75,7 @@ const HeroTitle = styled.h1`
 const Subheading = styled.h3`
   font-weight: 500;
   margin: 1rem 0 1.38rem;
-  @media ${props => props.theme.queries.laptopAndUp}{
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     font-weight: 400;
   }
 `;
@@ -105,29 +104,16 @@ interface AboutMePageProps {
   };
 }
 
-const animationVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "spring", mass: 0.2, damping: 2 },
-  },
-};
-
 const index = ({ location, data }: PageProps & AboutMePageProps) => {
   const isWide = useMedia("(min-width: 1100px)");
-  const prefersReducedMotion = usePrefersReducedMotion();
+  // const prefersReducedMotion = usePrefersReducedMotion();
 
   const person = data.sanityPerson;
 
   return (
     <>
       <SEO title={`A little about me`} location={location} />
-      <AboutMeStyles
-        variants={prefersReducedMotion ? null : animationVariants}
-        initial="hidden"
-        animate="visible"
-      >
+      <AboutMeStyles>
         <MainWrapper>
           <ProfileCard person={person}></ProfileCard>
           <TextSection>
