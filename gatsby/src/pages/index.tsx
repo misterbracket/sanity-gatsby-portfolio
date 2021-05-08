@@ -5,6 +5,7 @@ import styled from "styled-components";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
 import { useMedia, usePrefersReducedMotion } from "./../components/hooks";
 import { Button, Sparkles } from "../components/ui-components";
+import { motion } from "framer-motion";
 
 const AboutMeStyles = styled.div`
   --margin-top: 150px;
@@ -51,7 +52,26 @@ const TextSection = styled.section`
   }
 `;
 
-const ContentWrapper = styled.div`
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      deplay: 0.5,
+    },
+  },
+};
+const item = {
+  hidden: { opacity: 0, y: 50 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, deplay: 0.2 },
+  },
+};
+
+const ContentWrapper = styled(motion.div)`
   @media ${(props) => props.theme.queries.laptopAndUp} {
     display: flex;
     flex-direction: column;
@@ -62,7 +82,7 @@ const ContentWrapper = styled.div`
   }
 `;
 
-const HeroTitle = styled.h1`
+const HeroTitle = styled(motion.h1)`
   font-size: var(--very-very-big);
   font-weight: 700;
   @media ${(props) => props.theme.queries.laptopAndUp} {
@@ -72,7 +92,7 @@ const HeroTitle = styled.h1`
   }
 `;
 
-const Subheading = styled.h3`
+const Subheading = styled(motion.h3)`
   font-weight: 500;
   margin: 1rem 0 1.38rem;
   @media ${(props) => props.theme.queries.laptopAndUp} {
@@ -80,7 +100,7 @@ const Subheading = styled.h3`
   }
 `;
 
-const ButtonGroup = styled.div`
+const ButtonGroup = styled(motion.div)`
   margin-top: 1.5rem;
   display: flex;
   justify-content: space-between;
@@ -117,13 +137,19 @@ const index = ({ location, data }: PageProps & AboutMePageProps) => {
         <MainWrapper>
           <ProfileCard person={person}></ProfileCard>
           <TextSection>
-            <ContentWrapper>
+            <ContentWrapper
+              variants={container}
+              initial="hidden"
+              animate="show"
+            >
               <Sparkles>
-                <HeroTitle>{person.profiletitle}</HeroTitle>
+                <HeroTitle variants={item}>{person.profiletitle}</HeroTitle>
               </Sparkles>
-              <Subheading>{person.profilesubheading}</Subheading>
+              <Subheading variants={item}>
+                {person.profilesubheading}
+              </Subheading>
               {isWide && (
-                <ButtonGroup>
+                <ButtonGroup variants={item}>
                   <Button type="button" color="dark">
                     <Link className="link" to="/resume">
                       Resume
@@ -136,7 +162,7 @@ const index = ({ location, data }: PageProps & AboutMePageProps) => {
                   </Button>
                 </ButtonGroup>
               )}
-              <p>{person.bio}</p>
+              <motion.p variants={item}>{person.bio}</motion.p>
             </ContentWrapper>
           </TextSection>
         </MainWrapper>

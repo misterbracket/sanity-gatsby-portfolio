@@ -3,15 +3,16 @@ import styled from "styled-components";
 import SanityImage from "gatsby-plugin-sanity-image";
 import { Link } from "gatsby";
 import { Button } from "../ui-components";
-import { useMedia } from "./../hooks";
+import { useMedia, usePrefersReducedMotion } from "./../hooks";
 import {
   AiFillGithub,
   AiFillLinkedin,
   AiFillTwitterSquare,
 } from "react-icons/ai";
 import { PersonProps } from "../../pages";
+import { motion } from "framer-motion";
 
-const ProfileCardStyles = styled.div`
+const ProfileCardStyles = styled(motion.div)`
   display: grid;
   grid-template: 1fr auto / 1fr;
   margin: 3rem auto;
@@ -20,7 +21,7 @@ const ProfileCardStyles = styled.div`
   width: 370px;
   max-width: 370px;
   align-self: center;
-  @media ${props => props.theme.queries.laptopAndUp}{
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     position: relative;
     max-height: 500px;
     margin: auto 0;
@@ -100,10 +101,24 @@ type ProfileCardProps = {
   person: PersonProps;
 };
 
+const fadeInVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7 },
+  },
+};
+
 const ProfileCard = ({ person }: ProfileCardProps) => {
   const isWide = useMedia("(min-width: 1100px)");
+  const prefersReducedMotion = usePrefersReducedMotion();
   return (
-    <ProfileCardStyles>
+    <ProfileCardStyles
+      variants={fadeInVariants}
+      initial={prefersReducedMotion ? "" : "hidden"}
+      animate={"visible"}
+    >
       <CardStyles>
         <ProfileImage alt={person.alt} {...person.image} />
         <Name>{person.name}</Name>
