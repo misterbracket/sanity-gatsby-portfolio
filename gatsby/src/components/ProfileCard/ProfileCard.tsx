@@ -3,7 +3,6 @@ import styled from "styled-components";
 import SanityImage from "gatsby-plugin-sanity-image";
 import { Link } from "gatsby";
 import { Button } from "../ui-components";
-import { useMedia, usePrefersReducedMotion } from "./../hooks";
 import {
   AiFillGithub,
   AiFillLinkedin,
@@ -11,6 +10,7 @@ import {
 } from "react-icons/ai";
 import { PersonProps } from "../../pages";
 import { motion } from "framer-motion";
+import { usePrefersReducedMotion } from "../hooks";
 
 const ProfileCardStyles = styled(motion.div)`
   display: grid;
@@ -21,6 +21,7 @@ const ProfileCardStyles = styled(motion.div)`
   width: 370px;
   max-width: 370px;
   align-self: center;
+  opacity: 0;
   @media ${(props) => props.theme.queries.laptopAndUp} {
     position: relative;
     max-height: 500px;
@@ -118,7 +119,6 @@ const fadeInVariants = {
 };
 
 const ProfileCard = ({ person }: ProfileCardProps) => {
-  const isWide = useMedia("(min-width: 1100px)");
   const prefersReducedMotion = usePrefersReducedMotion();
   return (
     <ProfileCardStyles

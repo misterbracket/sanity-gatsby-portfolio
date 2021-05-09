@@ -3,7 +3,6 @@ import { graphql, Link, PageProps } from "gatsby";
 import { SEO } from "../components";
 import styled from "styled-components";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
-import { useMedia, usePrefersReducedMotion } from "./../components/hooks";
 import { Button, Sparkles } from "../components/ui-components";
 import { motion } from "framer-motion";
 
@@ -101,12 +100,15 @@ const Subheading = styled(motion.h3)`
 `;
 
 const ButtonGroup = styled(motion.div)`
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 250px;
-  gap: 1rem;
+  display: none;
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 250px;
+    gap: 1rem;
+  }
 `;
 export interface PersonProps {
   name: string;
@@ -125,9 +127,6 @@ interface AboutMePageProps {
 }
 
 const index = ({ location, data }: PageProps & AboutMePageProps) => {
-  const isWide = useMedia("(min-width: 1100px)");
-  // const prefersReducedMotion = usePrefersReducedMotion();
-
   const person = data.sanityPerson;
 
   return (
@@ -148,20 +147,18 @@ const index = ({ location, data }: PageProps & AboutMePageProps) => {
               <Subheading variants={item}>
                 {person.profilesubheading}
               </Subheading>
-              {isWide && (
-                <ButtonGroup variants={item}>
-                  <Button type="button" color="dark">
-                    <Link className="link" to="/resume">
-                      Resume
-                    </Link>
-                  </Button>
-                  <Button type="button" color="light">
-                    <Link className="link" to="/projects">
-                      Projects
-                    </Link>
-                  </Button>
-                </ButtonGroup>
-              )}
+              <ButtonGroup variants={item}>
+                <Button type="button" color="dark">
+                  <Link className="link" to="/resume">
+                    Resume
+                  </Link>
+                </Button>
+                <Button type="button" color="light">
+                  <Link className="link" to="/projects">
+                    Projects
+                  </Link>
+                </Button>
+              </ButtonGroup>
               <motion.p variants={item}>{person.bio}</motion.p>
             </ContentWrapper>
           </TextSection>
