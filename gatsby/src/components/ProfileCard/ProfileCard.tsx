@@ -64,12 +64,19 @@ const ButtonGroup = styled.div`
   width: 100%;
   max-width: 270px;
   gap: 1rem;
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    display: none;
+  }
 `;
 
 const ProfileSlug = styled.span`
-  font-size: 2rem;
-  letter-spacing: 0.2rem;
-  text-align: center;
+  display: none;
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    display: inline;
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+    text-align: center;
+  }
 `;
 
 const SocialLinksListStyles = styled.ul`
@@ -123,22 +130,19 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
         <ProfileImage alt={person.alt} {...person.image} />
         <Name>{person.name}</Name>
         <HorizontalRuler />
-        {isWide ? (
-          <ProfileSlug>{person.profileslug}</ProfileSlug>
-        ) : (
-          <ButtonGroup>
-            <Button type="button" color="dark">
-              <Link className="link" to="/resume">
-                Resume
-              </Link>
-            </Button>
-            <Button type="button" color="light">
-              <Link className="link" to="/projects">
-                Projects
-              </Link>
-            </Button>
-          </ButtonGroup>
-        )}
+        <ProfileSlug>{person.profileslug}</ProfileSlug>
+        <ButtonGroup>
+          <Button type="button" color="dark">
+            <Link className="link" to="/resume">
+              Resume
+            </Link>
+          </Button>
+          <Button type="button" color="light">
+            <Link className="link" to="/projects">
+              Projects
+            </Link>
+          </Button>
+        </ButtonGroup>
       </CardStyles>
       <SocialLinksListStyles>
         <SocialLinkItem>
