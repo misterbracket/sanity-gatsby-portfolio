@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 const AboutMeStyles = styled.div`
   --margin-top: 150px;
   margin-top: var(--margin-top);
-  background: var(--dark-pink);
+  background: var(--color-one);
   width: 100%;
   display: flex;
   place-items: center;

@@ -31,7 +31,7 @@ const BlogWrapper = styled.main`
   font-size: var(--normal);
   grid-template-columns: 1fr min(65ch, calc(100% - calc(2 * var(--gap)))) 1fr;
   gap: var(--gap);
-  background: var(--dark-pink);
+  background: var(--color-one);
   padding-bottom: var(--gap);
   & > * {
     grid-column: 2;

@@ -19,7 +19,7 @@ const ContentSection = styled.section`
 `;
 
 const BlogTitle = styled.h2`
-  color: var(--blue);
+  color: var(--color-two);
 `;
 
 const MetaData = styled.div`
@@ -44,7 +44,7 @@ const PublishedDate = styled.div`
 `;
 
 const LinkStyles = styled(Link)`
-  color: var(--blue);
+  color: var(--color-two);
   text-align: right;
   display: block;
 `;

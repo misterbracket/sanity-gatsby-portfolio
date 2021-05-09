@@ -27,7 +27,7 @@ const RoleName = styled.h4`
 `;
 
 const Date = styled.p`
-  color: var(--blue);
+  color: var(--color-two);
   font-size: var(--big);
   font-weight: bold;
 `;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const QuoteContent = styled.blockquote`
   margin: 0;
-  background: var(--grey);
+  background: var(--color-gray-100);
   padding: 16px 20px;
   border-radius: 8px;
   font-style: italic;

@@ -16,7 +16,7 @@ const ProfileCardStyles = styled(motion.div)`
   display: grid;
   grid-template: 1fr auto / 1fr;
   margin: 3rem auto;
-  background: var(--light-pink);
+  background: var(--color-one-light);
   box-shadow: var(--shd, 0 1px 4px rgba(0, 0, 0, 0.6));
   width: 370px;
   max-width: 370px;
@@ -54,7 +54,7 @@ const CardStyles = styled.div`
 
 const HorizontalRuler = styled.hr`
   width: 10rem;
-  background-color: var(--blue);
+  background-color: var(--color-two);
   height: 2px;
   margin-top: 5px 0 15px 0;
 `;

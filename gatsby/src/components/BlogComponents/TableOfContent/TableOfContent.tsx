@@ -24,7 +24,7 @@ const TableOfContentTitle = styled.h2`
   font-size: var(--big);
   font-weight: 400;
   @media ${(props) => props.theme.queries.laptopAndUp} {
-    color: var(--dark-blue);
+    color: var(--color-two-dark);
   }
 `;
 
@@ -37,7 +37,7 @@ const ListItem = styled.li`
 
   padding-inline-start: 1ch;
   &::marker {
-    color: var(--dark-blue);
+    color: var(--color-two-dark);
   }
 `;
 
@@ -45,7 +45,7 @@ const ContentLink = styled.a`
   text-decoration: none;
   @media ${(props) => props.theme.queries.laptopAndUp} {
     &:hover {
-      color: var(--blue);
+      color: var(--color-two);
     }
   }
 `;

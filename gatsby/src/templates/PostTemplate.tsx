@@ -33,7 +33,7 @@ interface BlogPostProps {
 
 const PostPageStyles = styled.main`
   font-size: var(--normal);
-  background: var(--dark-pink);
+  background: var(--color-one);
   padding: 2.5rem 0;
 
   @media ${(props) => props.theme.queries.laptopAndUp} {
@@ -99,7 +99,7 @@ const shortcodes = {
     <Paragraph {...props} />
   ),
   strong: (props: { children: ReactNode; delegated: Array<any> }) => (
-    <strong {...props} style={{ color: "var(--dark-blue)" }}>
+    <strong {...props} style={{ color: "var(--color-two-dark)" }}>
       {props.children}
     </strong>
   ),

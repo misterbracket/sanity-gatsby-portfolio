@@ -15,7 +15,7 @@ const NavStyles = styled.nav`
   width: 100%;
   height: 100%;
   text-decoration: none;
-  background-color: var(--pink);
+  background-color: var(--color-one-alpha-700);
   display: ${(p: { isOpen: boolean }) => (p.isOpen ? "grid" : "none")};
   justify-items: center;
 
@@ -39,7 +39,7 @@ const NavList = styled(motion.ul)`
   gap: 3rem;
 
   .active {
-    color: var(--blue);
+    color: var(--color-two);
   }
   @media ${(props) => props.theme.queries.laptopAndUp} {
     top: 0;
@@ -63,7 +63,7 @@ const NavLink = styled(Link)`
     font-weight: 300;
     font-size: var(--normal);
     &:hover {
-      color: var(--blue);
+      color: var(--color-two);
     }
   }
 `;

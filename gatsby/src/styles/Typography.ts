@@ -71,21 +71,9 @@ const Typography = createGlobalStyle`
 
   a {
     color: var(--color-gray-900);
-    text-decoration-color: var(--blue);
+    text-decoration-color: var(--color-two);
     cursor: pointer;
   }
-  mark, .mark {
-    background: var(--yellow);
-    padding: 0 2px 2px 2px;
-    margin: 0;
-    display: inline;
-    line-height: 1;
-  }
-
-  .center {
-    text-align: center;
-  }
-
 `;
 
 export default Typography;

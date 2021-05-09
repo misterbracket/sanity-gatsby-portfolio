@@ -33,7 +33,7 @@ const GlobalStyles = createGlobalStyle`
   /*Firefox implementation */
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--grey) var(--white);
+    scrollbar-color: var(--color-gray-300) var(--white);
     scroll-padding-top: 230px; /* height of sticky header */
   }
 
@@ -46,7 +46,7 @@ const GlobalStyles = createGlobalStyle`
     background: var(--white);
   }
   body::-webkit-scrollbar-thumb {
-    background-color: var(--grey) ;
+    background-color: var(--color-gray-300) ;
     border-radius: 5px;
     border: 2px solid var(--white);
   }

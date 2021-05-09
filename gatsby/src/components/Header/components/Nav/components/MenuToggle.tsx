@@ -24,12 +24,12 @@ function MenuToggle({ isOpen, toggleNav }: MenuToggleProps) {
     <MenuToggleStyles onClick={() => toggleNav()}>
       {isOpen ? (
         <AiOutlineClose
-          color={"var(--blue)"}
+          color={"var(--color-two)"}
           title={"Close Menu"}
           size={"35"}
         />
       ) : (
-        <RiMenuFill color={"var(--blue)"} title={"Open Menu"} size={"35"} />
+        <RiMenuFill color={"var(--color-two)"} title={"Open Menu"} size={"35"} />
       )}
     </MenuToggleStyles>
   );
