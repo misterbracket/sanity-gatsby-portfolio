@@ -16,7 +16,7 @@ const NavStyles = styled.nav`
   height: 100%;
   text-decoration: none;
   background-color: var(--pink);
-  display: grid;
+  display: ${(p: { isOpen: boolean }) => (p.isOpen ? "grid" : "none")};
   justify-items: center;
 
   @media ${(props) => props.theme.queries.laptopAndUp} {
@@ -93,73 +93,71 @@ const Nav = () => {
   return (
     <>
       <MenuToggle isOpen={isOpen} toggleNav={toggleNav} />
-      {(isOpen || isWide) && (
-        <NavStyles ref={navItems}>
-          <NavList
-            variants={!isWide && !prefersReducedMotion && animationVariants}
-            initial={!isWide && "hidden"}
-            animate="visible"
+      <NavStyles isOpen={isOpen} ref={navItems}>
+        <NavList
+          variants={!isWide && !prefersReducedMotion && animationVariants}
+          initial={!isWide && "hidden"}
+          animate="visible"
+        >
+          <motion.li
+            whileHover={prefersReducedMotion ? "" : { scale: 1.1 }}
+            whileTap={prefersReducedMotion ? "" : { scale: 0.9 }}
           >
-            <motion.li
-              whileHover={prefersReducedMotion ? "" : { scale: 1.1 }}
-              whileTap={prefersReducedMotion ? "" : { scale: 0.9 }}
+            <NavLink
+              onClick={!isWide ? toggleNav : undefined}
+              activeClassName={"active"}
+              to="/"
             >
-              <NavLink
-                onClick={!isWide ? toggleNav : undefined}
-                activeClassName={"active"}
-                to="/"
-              >
-                About Me
-              </NavLink>
-            </motion.li>
-            <motion.li
-              whileHover={prefersReducedMotion ? "" : { scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              About Me
+            </NavLink>
+          </motion.li>
+          <motion.li
+            whileHover={prefersReducedMotion ? "" : { scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <NavLink
+              onClick={!isWide ? toggleNav : undefined}
+              activeClassName={"active"}
+              to="/resume"
             >
-              <NavLink
-                onClick={!isWide ? toggleNav : undefined}
-                activeClassName={"active"}
-                to="/resume"
-              >
-                Resume
-              </NavLink>
-            </motion.li>
-            <motion.li
-              whileHover={prefersReducedMotion ? "" : { scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              Resume
+            </NavLink>
+          </motion.li>
+          <motion.li
+            whileHover={prefersReducedMotion ? "" : { scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <NavLink
+              onClick={!isWide ? toggleNav : undefined}
+              activeClassName={"active"}
+              to="/projects"
             >
-              <NavLink
-                onClick={!isWide ? toggleNav : undefined}
-                activeClassName={"active"}
-                to="/projects"
-              >
-                Projects
-              </NavLink>
-            </motion.li>
-            <motion.li
-              whileHover={prefersReducedMotion ? "" : { scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              Projects
+            </NavLink>
+          </motion.li>
+          <motion.li
+            whileHover={prefersReducedMotion ? "" : { scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <NavLink
+              onClick={!isWide ? toggleNav : undefined}
+              activeClassName={"active"}
+              to="/blog"
             >
-              <NavLink
-                onClick={!isWide ? toggleNav : undefined}
-                activeClassName={"active"}
-                to="/blog"
-              >
-                Blog
-              </NavLink>
-            </motion.li>
-            <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-              <NavLink
-                onClick={!isWide ? toggleNav : undefined}
-                activeClassName={"active"}
-                to="/contact"
-              >
-                Contact Me
-              </NavLink>
-            </motion.li>
-          </NavList>
-        </NavStyles>
-      )}
+              Blog
+            </NavLink>
+          </motion.li>
+          <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+            <NavLink
+              onClick={!isWide ? toggleNav : undefined}
+              activeClassName={"active"}
+              to="/contact"
+            >
+              Contact Me
+            </NavLink>
+          </motion.li>
+        </NavList>
+      </NavStyles>
     </>
   );
 };
