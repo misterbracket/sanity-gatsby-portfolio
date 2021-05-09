@@ -52,7 +52,7 @@ const NavList = styled(motion.ul)`
 
 const NavLink = styled(Link)`
   text-align: left;
-  color: var(--black);
+  color: var(--color-gray-900);
   text-decoration: none;
   font-size: var(--big);
   text-transform: uppercase;

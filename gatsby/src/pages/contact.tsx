@@ -56,18 +56,22 @@ const Input = styled.input`
   border-right: none;
   border-top: none;
   border-left: none;
-  border-bottom: 1px solid var(--black);
+  border-bottom: 1px solid var(--color-gray-900);
+;
   &:focus {
-    border-bottom: 2px solid var(--black);
+    border-bottom: 2px solid var(--color-gray-900);
+;
     outline: none;
   }
 `;
 
 const TextArea = styled.textarea`
   border: 0;
-  border-bottom: 1px solid var(--black);
+  border-bottom: 1px solid var(--color-gray-900);
+;
   &:focus {
-    border-bottom: 2px solid var(--black);
+    border-bottom: 2px solid var(--color-gray-900);
+;
     outline: none;
   }
 `;

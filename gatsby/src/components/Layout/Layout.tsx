@@ -1,5 +1,5 @@
 import React from "react";
-import { GlobalStyles, Typography } from "../../styles";
+import { GlobalStyles, Typography, Colors } from "../../styles";
 import Footer from "../Footer";
 import "normalize.css";
 import styled from "styled-components";
@@ -23,8 +23,9 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <>
-      <GlobalStyles />
+      <Colors />
       <Typography />
+      <GlobalStyles />
       <LayoutStyles>
         <Header />
         {children}

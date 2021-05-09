@@ -66,7 +66,7 @@ const item = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, deplay: 0.2 },
+    transition: { ease: "easeOut", duration: 0.7, deplay: 0.2 },
   },
 };
 

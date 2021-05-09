@@ -27,7 +27,7 @@ const Typography = createGlobalStyle`
     font-family: 'Poppins', sans-serif;
     font-weight: lighter;
     line-height: 1.75;
-    color: #000000;
+    color: var(--color-gray-900);
     -webkit-font-smoothing: antialiased;
     }
 
@@ -70,7 +70,7 @@ const Typography = createGlobalStyle`
   }
 
   a {
-    color: var(--black);
+    color: var(--color-gray-900);
     text-decoration-color: var(--blue);
     cursor: pointer;
   }

@@ -7,17 +7,20 @@ const ButtonStyles = styled(motion.button)`
   background: ${(props) =>
     props.color === "dark" ? "var(--blue)" : "transparent"};
   color: ${(props) =>
-    props.color === "dark" ? "var(--white)" : "var(--black)"};
+    props.color === "dark" ? "var(--white)" : "var(--color-gray-900)"
+};
   border-radius: 50px;
   border: 1px solid
-    ${(props) => (props.color === "dark" ? "var(--blue)" : "var(--black)")};
+    ${(props) => (props.color === "dark" ? "var(--blue)" : "var(--color-gray-900)"
+)};
   padding: 0.6rem 3rem;
   font-size: var(--normal);
 
   a {
     text-decoration: none;
     color: ${(props) =>
-      props.color === "dark" ? "var(--white)" : "var(--black)"};
+      props.color === "dark" ? "var(--white)" : "var(--color-gray-900)"
+};
   }
 `;
 
