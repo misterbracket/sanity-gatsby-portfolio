@@ -78,6 +78,7 @@ const ContentWrapper = styled(motion.div)`
     background-color: var(--white);
     max-height: 500px;
     overflow-y: scroll;
+    padding-left: 10px;
   }
 `;
 
