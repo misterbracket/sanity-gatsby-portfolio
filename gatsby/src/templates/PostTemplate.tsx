@@ -35,9 +35,9 @@ const PostPageStyles = styled.main`
   font-size: var(--normal);
   background: var(--color-one);
   padding: 2.5rem 0;
+  display: grid;
 
   @media ${(props) => props.theme.queries.laptopAndUp} {
-    display: grid;
     gap: 2.5rem;
     padding: 5rem 0;
     grid-template-columns: 1fr min(75ch, calc(100% - 5rem)) 1fr;
@@ -75,7 +75,7 @@ const PostStyles = styled(motion.article)`
   padding: 3rem;
   font-size: var(--normal);
   max-width: 60rem;
-  margin: auto;
+  grid-column: 2;
   @media ${(props) => props.theme.queries.laptopAndUp} {
     background: var(--white);
     padding: 6rem;
