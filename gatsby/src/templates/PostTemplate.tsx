@@ -74,6 +74,8 @@ const DesktopTableOfContent = styled(TableOfContent)`
 const PostStyles = styled(motion.article)`
   padding: 3rem;
   font-size: var(--normal);
+  max-width: 60rem;
+  margin: auto;
   @media ${(props) => props.theme.queries.laptopAndUp} {
     background: var(--white);
     padding: 6rem;

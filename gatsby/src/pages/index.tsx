@@ -39,7 +39,7 @@ const MainWrapper = styled.div`
 
 const TextSection = styled.section`
   padding: 3rem 3rem;
-
+  max-width: 60rem;
   @media ${(props) => props.theme.queries.laptopAndUp} {
     background-color: var(--white);
     grid-column: 2/3;
