@@ -3,24 +3,26 @@ import styled from "styled-components";
 import SanityImage from "gatsby-plugin-sanity-image";
 import { Link } from "gatsby";
 import { Button } from "../ui-components";
-import { useMedia } from "./../hooks";
 import {
   AiFillGithub,
   AiFillLinkedin,
   AiFillTwitterSquare,
 } from "react-icons/ai";
 import { PersonProps } from "../../pages";
+import { motion } from "framer-motion";
+import { usePrefersReducedMotion } from "../hooks";
 
-const ProfileCardStyles = styled.div`
+const ProfileCardStyles = styled(motion.div)`
   display: grid;
   grid-template: 1fr auto / 1fr;
   margin: 3rem auto;
-  background: var(--light-pink);
+  background: var(--color-one-light);
   box-shadow: var(--shd, 0 1px 4px rgba(0, 0, 0, 0.6));
   width: 370px;
   max-width: 370px;
   align-self: center;
-  @media screen and (min-width: 840px) {
+  opacity: 0;
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     position: relative;
     max-height: 500px;
     margin: auto 0;
@@ -52,7 +54,7 @@ const CardStyles = styled.div`
 
 const HorizontalRuler = styled.hr`
   width: 10rem;
-  background-color: var(--blue);
+  background-color: var(--color-two);
   height: 2px;
   margin-top: 5px 0 15px 0;
 `;
@@ -63,12 +65,19 @@ const ButtonGroup = styled.div`
   width: 100%;
   max-width: 270px;
   gap: 1rem;
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    display: none;
+  }
 `;
 
 const ProfileSlug = styled.span`
-  font-size: 2rem;
-  letter-spacing: 0.2rem;
-  text-align: center;
+  display: none;
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    display: inline;
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+    text-align: center;
+  }
 `;
 
 const SocialLinksListStyles = styled.ul`
@@ -100,30 +109,40 @@ type ProfileCardProps = {
   person: PersonProps;
 };
 
+const fadeInVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7 },
+  },
+};
+
 const ProfileCard = ({ person }: ProfileCardProps) => {
-  const isWide = useMedia("(min-width: 840px)");
+  const prefersReducedMotion = usePrefersReducedMotion();
   return (
-    <ProfileCardStyles>
+    <ProfileCardStyles
+      variants={fadeInVariants}
+      initial={prefersReducedMotion ? "" : "hidden"}
+      animate={"visible"}
+    >
       <CardStyles>
         <ProfileImage alt={person.alt} {...person.image} />
         <Name>{person.name}</Name>
         <HorizontalRuler />
-        {isWide ? (
-          <ProfileSlug>{person.profileslug}</ProfileSlug>
-        ) : (
-          <ButtonGroup>
-            <Button type="button" color="dark">
-              <Link className="link" to="/resume">
-                Resume
-              </Link>
-            </Button>
-            <Button type="button" color="light">
-              <Link className="link" to="/projects">
-                Projects
-              </Link>
-            </Button>
-          </ButtonGroup>
-        )}
+        <ProfileSlug>{person.profileslug}</ProfileSlug>
+        <ButtonGroup>
+          <Button type="button" color="dark">
+            <Link className="link" to="/resume">
+              Resume
+            </Link>
+          </Button>
+          <Button type="button" color="light">
+            <Link className="link" to="/projects">
+              Projects
+            </Link>
+          </Button>
+        </ButtonGroup>
       </CardStyles>
       <SocialLinksListStyles>
         <SocialLinkItem>

@@ -13,7 +13,7 @@ const HeaderSyles = styled.header`
   text-align: center;
   z-index: 999;
   background: var(--white);
-  @media screen and (min-width: 800px) {
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     grid-template-columns: 1fr 2fr;
   }
 `;

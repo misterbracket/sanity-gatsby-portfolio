@@ -3,20 +3,19 @@ import { graphql, Link, PageProps } from "gatsby";
 import { SEO } from "../components";
 import styled from "styled-components";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
-import { useMedia, usePrefersReducedMotion } from "./../components/hooks";
 import { Button, Sparkles } from "../components/ui-components";
 import { motion } from "framer-motion";
 
-const AboutMeStyles = styled(motion.div)`
+const AboutMeStyles = styled.div`
   --margin-top: 150px;
   margin-top: var(--margin-top);
-  background: var(--dark-pink);
+  background: var(--color-one);
   width: 100%;
   display: flex;
   place-items: center;
   flex-direction: column;
 
-  @media screen and (min-width: 840px) {
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     position: static;
     margin: 0;
   }
@@ -27,7 +26,7 @@ const MainWrapper = styled.div`
   top: -150px;
   padding-left: 20px;
   padding-right: 20px;
-  @media screen and (min-width: 840px) {
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     padding-left: 0;
     padding-right: 0;
     display: grid;
@@ -40,8 +39,8 @@ const MainWrapper = styled.div`
 
 const TextSection = styled.section`
   padding: 3rem 3rem;
-
-  @media screen and (min-width: 840px) {
+  max-width: 60rem;
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     background-color: var(--white);
     grid-column: 2/3;
     display: flex;
@@ -52,42 +51,65 @@ const TextSection = styled.section`
   }
 `;
 
-const ContentWrapper = styled.div`
-  @media screen and (min-width: 840px) {
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      deplay: 0.5,
+    },
+  },
+};
+const item = {
+  hidden: { opacity: 0, y: 50 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { ease: "easeOut", duration: 0.7, deplay: 0.2 },
+  },
+};
+
+const ContentWrapper = styled(motion.div)`
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     display: flex;
     flex-direction: column;
     max-width: 500px;
     background-color: var(--white);
     max-height: 500px;
     overflow-y: scroll;
+    padding-left: 10px;
   }
 `;
 
-const HeroTitle = styled.h1`
+const HeroTitle = styled(motion.h1)`
   font-size: var(--very-very-big);
   font-weight: 700;
-  @media screen and (min-width: 840px) {
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     font-size: var(--super-big);
     font-weight: 700;
     margin: 50px 0 0 0;
   }
 `;
 
-const Subheading = styled.h3`
+const Subheading = styled(motion.h3)`
   font-weight: 500;
   margin: 1rem 0 1.38rem;
-  @media screen and (min-width: 840px) {
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     font-weight: 400;
   }
 `;
 
-const ButtonGroup = styled.div`
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 250px;
-  gap: 1rem;
+const ButtonGroup = styled(motion.div)`
+  display: none;
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 250px;
+    gap: 1rem;
+  }
 `;
 export interface PersonProps {
   name: string;
@@ -105,52 +127,40 @@ interface AboutMePageProps {
   };
 }
 
-const animationVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "spring", mass: 0.2, damping: 2 },
-  },
-};
-
 const index = ({ location, data }: PageProps & AboutMePageProps) => {
-  const isWide = useMedia("(min-width: 840px)");
-  const prefersReducedMotion = usePrefersReducedMotion();
-
   const person = data.sanityPerson;
 
   return (
     <>
       <SEO title={`A little about me`} location={location} />
-      <AboutMeStyles
-        variants={prefersReducedMotion ? null : animationVariants}
-        initial="hidden"
-        animate="visible"
-      >
+      <AboutMeStyles>
         <MainWrapper>
           <ProfileCard person={person}></ProfileCard>
           <TextSection>
-            <ContentWrapper>
+            <ContentWrapper
+              variants={container}
+              initial="hidden"
+              animate="show"
+            >
               <Sparkles>
-                <HeroTitle>{person.profiletitle}</HeroTitle>
+                <HeroTitle variants={item}>{person.profiletitle}</HeroTitle>
               </Sparkles>
-              <Subheading>{person.profilesubheading}</Subheading>
-              {isWide && (
-                <ButtonGroup>
-                  <Button type="button" color="dark">
-                    <Link className="link" to="/resume">
-                      Resume
-                    </Link>
-                  </Button>
-                  <Button type="button" color="light">
-                    <Link className="link" to="/projects">
-                      Projects
-                    </Link>
-                  </Button>
-                </ButtonGroup>
-              )}
-              <p>{person.bio}</p>
+              <Subheading variants={item}>
+                {person.profilesubheading}
+              </Subheading>
+              <ButtonGroup variants={item}>
+                <Button type="button" color="dark">
+                  <Link className="link" to="/resume">
+                    Resume
+                  </Link>
+                </Button>
+                <Button type="button" color="light">
+                  <Link className="link" to="/projects">
+                    Projects
+                  </Link>
+                </Button>
+              </ButtonGroup>
+              <motion.p variants={item}>{person.bio}</motion.p>
             </ContentWrapper>
           </TextSection>
         </MainWrapper>

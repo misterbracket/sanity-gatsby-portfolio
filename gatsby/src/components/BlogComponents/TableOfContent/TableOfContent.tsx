@@ -4,7 +4,7 @@ import styled from "styled-components";
 const TableOfContentWrapper = styled.aside`
   margin: 3rem 0;
 
-  @media screen and (min-width: 840px) {
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     min-width: 250px;
     grid-column: 1 !important;
     margin: 0 0 0 3rem;
@@ -23,8 +23,8 @@ const TableOfContentTitle = styled.h2`
   padding: 0;
   font-size: var(--big);
   font-weight: 400;
-  @media screen and (min-width: 840px) {
-    color: var(--dark-blue);
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    color: var(--color-two-dark);
   }
 `;
 
@@ -37,15 +37,15 @@ const ListItem = styled.li`
 
   padding-inline-start: 1ch;
   &::marker {
-    color: var(--dark-blue);
+    color: var(--color-two-dark);
   }
 `;
 
 const ContentLink = styled.a`
   text-decoration: none;
-  @media screen and (min-width: 840px) {
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     &:hover {
-      color: var(--blue);
+      color: var(--color-two);
     }
   }
 `;

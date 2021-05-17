@@ -24,7 +24,7 @@ const ProjectTextSection = styled.section`
 `;
 
 const ProjectTitle = styled.h2`
-  color: var(--blue);
+  color: var(--color-two);
   text-decoration: none;
 `;
 

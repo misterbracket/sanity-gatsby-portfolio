@@ -5,19 +5,22 @@ import styled from "styled-components";
 const ButtonStyles = styled(motion.button)`
   cursor: pointer;
   background: ${(props) =>
-    props.color === "dark" ? "var(--blue)" : "transparent"};
+    props.color === "dark" ? "var(--color-two)" : "transparent"};
   color: ${(props) =>
-    props.color === "dark" ? "var(--white)" : "var(--black)"};
+    props.color === "dark" ? "var(--white)" : "var(--color-gray-900)"
+};
   border-radius: 50px;
   border: 1px solid
-    ${(props) => (props.color === "dark" ? "var(--blue)" : "var(--black)")};
+    ${(props) => (props.color === "dark" ? "var(--color-two)" : "var(--color-gray-900)"
+)};
   padding: 0.6rem 3rem;
   font-size: var(--normal);
 
   a {
     text-decoration: none;
     color: ${(props) =>
-      props.color === "dark" ? "var(--white)" : "var(--black)"};
+      props.color === "dark" ? "var(--white)" : "var(--color-gray-900)"
+};
   }
 `;
 

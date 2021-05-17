@@ -27,7 +27,7 @@ const Typography = createGlobalStyle`
     font-family: 'Poppins', sans-serif;
     font-weight: lighter;
     line-height: 1.75;
-    color: #000000;
+    color: var(--color-gray-900);
     -webkit-font-smoothing: antialiased;
     }
 
@@ -70,22 +70,10 @@ const Typography = createGlobalStyle`
   }
 
   a {
-    color: var(--black);
-    text-decoration-color: var(--blue);
+    color: var(--color-gray-900);
+    text-decoration-color: var(--color-two);
     cursor: pointer;
   }
-  mark, .mark {
-    background: var(--yellow);
-    padding: 0 2px 2px 2px;
-    margin: 0;
-    display: inline;
-    line-height: 1;
-  }
-
-  .center {
-    text-align: center;
-  }
-
 `;
 
 export default Typography;

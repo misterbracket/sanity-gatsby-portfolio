@@ -11,13 +11,13 @@ const ContactStyle = styled.main`
   font-size: var(--normal);
   grid-template-columns: 1fr min(65ch, calc(100% - calc(2 * var(--gap)))) 1fr;
   gap: var(--gap);
-  background: var(--dark-pink);
+  background: var(--color-one);
   padding-bottom: var(--gap);
   & > * {
     grid-column: 2;
     width: 100%;
   }
-  @media screen and (min-width: 840px) {
+  @media ${props => props.theme.queries.laptopAndUp}{
     grid-template-columns: 1fr min(70ch, calc(100% - 5rem)) 1fr;
   }
 `;
@@ -41,7 +41,7 @@ const SendButton = styled(Button)`
 `;
 
 const Subheading = styled.h2`
-  color: var(--blue);
+  color: var(--color-two);
 `;
 
 const Label = styled.label`
@@ -56,18 +56,22 @@ const Input = styled.input`
   border-right: none;
   border-top: none;
   border-left: none;
-  border-bottom: 1px solid var(--black);
+  border-bottom: 1px solid var(--color-gray-900);
+;
   &:focus {
-    border-bottom: 2px solid var(--black);
+    border-bottom: 2px solid var(--color-gray-900);
+;
     outline: none;
   }
 `;
 
 const TextArea = styled.textarea`
   border: 0;
-  border-bottom: 1px solid var(--black);
+  border-bottom: 1px solid var(--color-gray-900);
+;
   &:focus {
-    border-bottom: 2px solid var(--black);
+    border-bottom: 2px solid var(--color-gray-900);
+;
     outline: none;
   }
 `;
