@@ -116,10 +116,13 @@ export default function PostLayout({
 }: PageProps & BlogPostProps) {
   const intersectionRef = React.useRef(null);
   const [initial, animate, fadeInVariants] = useFadeIn(intersectionRef);
-  console.log(data);
   return (
     <>
-      <SEO location={location} publishDate={data.mdx.frontmatter.seodate} />
+      <SEO
+        description={data.mdx.excerpt}
+        location={location}
+        publishDate={data.mdx.frontmatter.seodate}
+      />
       <MDXProvider components={shortcodes}>
         <PostPageStyles>
           <PostHeading>{data.mdx.frontmatter.title}</PostHeading>

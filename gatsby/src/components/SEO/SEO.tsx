@@ -55,6 +55,13 @@ const SEO = ({
         key="ogsitename"
       />
       <meta property="og:description" content={description} key="ogdesc" />
+      {publishDate && (
+        <meta
+          property="og:publish_date"
+          name="publish_date"
+          content={publishDate}
+        />
+      )}
       {/* Pass additional Children */}
       {children}
     </Helmet>
