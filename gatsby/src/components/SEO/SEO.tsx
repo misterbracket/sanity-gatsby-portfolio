@@ -8,9 +8,17 @@ type SEOProps = {
   description?: string;
   title?: string;
   image?: string;
+  publishDate?: string;
 };
 
-const SEO = ({ children, location, description, title, image }: SEOProps) => {
+const SEO = ({
+  children,
+  location,
+  description,
+  title,
+  image,
+  publishDate,
+}: SEOProps) => {
   const { site } = useStaticQuery(graphql`
     query getSiteData {
       site {
@@ -26,6 +34,10 @@ const SEO = ({ children, location, description, title, image }: SEOProps) => {
       {/** specify in which language your website is in */}
       <html lang="en" />
       <title>{title}</title>
+      <meta name="author" content="Max Klammer" />
+      {publishDate && (
+        <meta property="article:published_time" content={publishDate} />
+      )}
       {/* Fav Icon */}
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       <link rel="alternate icon" href="/favicon.ico" />

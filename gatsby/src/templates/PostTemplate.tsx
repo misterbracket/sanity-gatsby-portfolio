@@ -13,6 +13,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Heading } from "../components/ui-components";
 import { motion } from "framer-motion";
 import useFadeIn from "../components/hooks/useFadeIn";
+import { SEO } from "../components";
 
 interface BlogPostProps {
   data: {
@@ -22,6 +23,7 @@ interface BlogPostProps {
       frontmatter: {
         title: string;
         date: string;
+        seodate: string;
       };
       tableOfContents: {
         items: [{ url: string; title: string }];
@@ -108,36 +110,42 @@ const shortcodes = {
   Quote,
 };
 
-export default function PostLayout({ data }: PageProps & BlogPostProps) {
+export default function PostLayout({
+  data,
+  location,
+}: PageProps & BlogPostProps) {
   const intersectionRef = React.useRef(null);
   const [initial, animate, fadeInVariants] = useFadeIn(intersectionRef);
+  console.log(data);
   return (
-    <MDXProvider components={shortcodes}>
-      <PostPageStyles>
-        <PostHeading>{data.mdx.frontmatter.title}</PostHeading>
-        <MobileTableOfContent>
-          {data.mdx.tableOfContents.items}
-        </MobileTableOfContent>
-        <PostStyles
-          ref={intersectionRef}
-          variants={fadeInVariants}
-          initial={initial}
-          animate={animate}
-        >
-          <PostHeading1>{data.mdx.frontmatter.title}</PostHeading1>
-          <PublishDate>
-            <strong>Published on: </strong>
-            <span>{data.mdx.frontmatter.date}</span>
-          </PublishDate>
-
-          <DesktopTableOfContent>
+    <>
+      <SEO location={location} publishDate={data.mdx.frontmatter.seodate} />
+      <MDXProvider components={shortcodes}>
+        <PostPageStyles>
+          <PostHeading>{data.mdx.frontmatter.title}</PostHeading>
+          <MobileTableOfContent>
             {data.mdx.tableOfContents.items}
-          </DesktopTableOfContent>
+          </MobileTableOfContent>
+          <PostStyles
+            ref={intersectionRef}
+            variants={fadeInVariants}
+            initial={initial}
+            animate={animate}
+          >
+            <PostHeading1>{data.mdx.frontmatter.title}</PostHeading1>
+            <PublishDate>
+              <strong>Published on: </strong>
+              <span>{data.mdx.frontmatter.date}</span>
+            </PublishDate>
 
-          <MDXRenderer>{data.mdx.body}</MDXRenderer>
-        </PostStyles>
-      </PostPageStyles>
-    </MDXProvider>
+            <DesktopTableOfContent>
+              {data.mdx.tableOfContents.items}
+            </DesktopTableOfContent>
+            <MDXRenderer>{data.mdx.body}</MDXRenderer>
+          </PostStyles>
+        </PostPageStyles>
+      </MDXProvider>
+    </>
   );
 }
 
@@ -146,7 +154,8 @@ export const pageQuery = graphql`
     mdx(id: { eq: $id }) {
       frontmatter {
         title
-        date(formatString: "YYYY MMMM Do")
+        date: date(formatString: "YYYY MMMM Do")
+        seodate: date(formatString: "YYYY-MM-DD")
       }
       body
       excerpt
