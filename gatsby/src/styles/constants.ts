@@ -1,8 +1,8 @@
-const BREAKPOINTS = {
-  tabletMin: 550,
-  laptopMin: 1100,
-  desktopMin: 1500,
-};
+enum BREAKPOINTS {
+  tabletMin = 550,
+  laptopMin = 1100,
+  desktopMin = 1500,
+}
 export const QUERIES = {
   tabletAndUp: `(min-width: ${BREAKPOINTS.tabletMin / 16}rem)`,
   laptopAndUp: `(min-width: ${BREAKPOINTS.laptopMin / 16}rem)`,
