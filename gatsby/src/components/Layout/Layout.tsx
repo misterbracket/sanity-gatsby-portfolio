@@ -12,6 +12,7 @@ const LayoutStyles = styled.div`
   grid-template-rows: auto 1fr auto;
   grid-template-areas: "header" "main" "footer";
   min-height: 100%;
+  isolation: isolate;
   main {
     grid-area: main;
   }
@@ -27,12 +28,12 @@ const Layout = ({ children }: LayoutProps) => {
       <Colors />
       <Typography />
       <GlobalStyles />
-      <ColorSlider />
       <LayoutStyles>
         <Header />
         {children}
         <Footer />
       </LayoutStyles>
+      {/* <ColorSlider /> */}
     </>
   );
 };

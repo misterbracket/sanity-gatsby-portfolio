@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { RiArrowLeftSLine } from "react-icons/ri";
 
@@ -37,6 +37,88 @@ const SingleSlider = styled.div`
 
 const Slider = styled.input`
   margin-left: 10px;
+  & {
+    height: 40px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+  }
+
+  &::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    box-shadow: var(--sdh);
+    background: var(--color-one-dark);
+    border-radius: 12px;
+    border: 1px solid var(--gray-900);
+  }
+  &::-webkit-slider-thumb {
+    box-shadow: 1px 1px 2px var(--gray-900);
+    border: 1px solid var(--color-gray-00);
+    height: 15px;
+    width: 15px;
+    border-radius: 39px;
+    background: var(--color-two);
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -6px;
+  }
+  &:focus::-webkit-slider-runnable-track {
+    background: var(--color-one-dark);
+  }
+  &::-moz-range-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    box-shadow: var(--sdh);
+    background: var(--color-one-dark);
+    border-radius: 12px;
+  }
+  &::-moz-range-thumb {
+    box-shadow: 1px 1px 2px var(--gray-900);
+    border: 1px solid var(--gray-900);
+    height: 15px;
+    width: 15px;
+    border-radius: 39px;
+    background: var(--color-two);
+    cursor: pointer;
+  }
+  &::-ms-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  &::-ms-fill-lower {
+    background: var(--color-two);
+    border: 1px solid var(--gray-900);
+    border-radius: 24px;
+    box-shadow: var(--sdh);
+  }
+  &::-ms-fill-upper {
+    background: var(--color-two);
+    border: 1px solid var(--gray-900);
+    border-radius: 24px;
+    box-shadow: var(--sdh);
+  }
+  &::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 1px 1px 2px var(--gray-900);
+    border: 1px solid var(--gray-900);
+    height: 15px;
+    width: 15px;
+    border-radius: 39px;
+    background: var(--color-two);
+    cursor: pointer;
+  }
+  &:focus::-ms-fill-lower {
+    background: var(--color-two);
+  }
+  &:focus::-ms-fill-upper {
+    background: var(--color-two);
+  }
 `;
 
 const SliderLabel = styled.label``;

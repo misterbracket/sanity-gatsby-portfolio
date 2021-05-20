@@ -17,11 +17,11 @@ const HeadingStyles = styled.div`
   .blueDot {
     flex-shrink: 0;
     display: inline-block;
-    background: var(--blue);
     width: var(--blue-dot-size);
     height: var(--blue-dot-size);
     position: relative;
     left: var(--move);
+    background: var(--color-two);
   }
   @media ${(props) => props.theme.queries.laptopAndUp} {
     padding: 10rem 3rem 6rem 3rem;
