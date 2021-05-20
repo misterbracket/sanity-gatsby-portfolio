@@ -14,18 +14,19 @@ const HeadingStyles = styled.div`
     margin: 0;
   }
 
-  .blueDot {
-    flex-shrink: 0;
-    display: inline-block;
-    width: var(--blue-dot-size);
-    height: var(--blue-dot-size);
-    position: relative;
-    left: var(--move);
-    background: var(--color-two);
-  }
   @media ${(props) => props.theme.queries.laptopAndUp} {
     padding: 10rem 3rem 6rem 3rem;
   }
+`;
+
+const BlueDot = styled.div`
+  flex-shrink: 0;
+  display: inline-block;
+  width: var(--blue-dot-size);
+  height: var(--blue-dot-size);
+  position: relative;
+  left: var(--move);
+  background: var(--color-two);
 `;
 
 export default function Heading({
@@ -36,7 +37,7 @@ export default function Heading({
 }) {
   return (
     <HeadingStyles {...delegated}>
-      <div className="blueDot"></div>
+      <BlueDot></BlueDot>
       <h1>{children}</h1>
     </HeadingStyles>
   );
