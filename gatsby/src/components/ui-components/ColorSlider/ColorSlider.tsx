@@ -8,13 +8,14 @@ const SliderWrapper = styled.section`
   flex-direction: column;
   align-items: center;
   position: relative;
-  margin-top: ${(p: { isOpen: boolean }) => (p.isOpen ? "0px" : "-60px")};
+  will-change: transform;
+  margin-top: ${(p: { isOpen: boolean }) => (p.isOpen ? "0px" : "-80px")};
   transition: margin-top 0.5s;
   @media (prefers-reduced-motion: reduce) {
     transition: unset;
   }
-  will-change: transform;
   @media ${(props) => props.theme.queries.laptopAndUp} {
+    margin-top: ${(p: { isOpen: boolean }) => (p.isOpen ? "0px" : "-60px")};
   }
 `;
 
@@ -32,20 +33,27 @@ const ExpandButton = styled.button`
   border-radius: 500px;
   width: 30px;
   align-items: center;
-  background-color: var(--color-two-light);
+  background-color: transparent;
   border: none;
   padding: 0;
   position: absolute;
-  bottom: -45px;
+  bottom: -15px;
+
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    bottom: -45px;
+  }
 `;
 
 const SingleSlider = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 20px;
   height: 40px;
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    justify-content: space-between;
+  }
 `;
 
 const Slider = styled.input`
@@ -136,6 +144,12 @@ const Slider = styled.input`
 
 const SliderLabel = styled.label`
   font-size: var(--normal);
+  width: 100px;
+  text-align: left;
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    width: initial;
+    text-align: initial;
+  }
 `;
 
 export default function ColorSlider() {
@@ -187,9 +201,15 @@ export default function ColorSlider() {
       </SliderSet>
       <ExpandButton aria-label="Open Color Slider" onClick={toggleColorSlider}>
         {isOpen ? (
-          <RiArrowUpSLine color={"var(--white)"} size={22}></RiArrowUpSLine>
+          <RiArrowUpSLine
+            color={"var(--color-two-light)"}
+            size={22}
+          ></RiArrowUpSLine>
         ) : (
-          <RiArrowDownSLine color={"var(--white)"} size={22}></RiArrowDownSLine>
+          <RiArrowDownSLine
+            color={"var(--color-two-light)"}
+            size={22}
+          ></RiArrowDownSLine>
         )}
       </ExpandButton>
     </SliderWrapper>
