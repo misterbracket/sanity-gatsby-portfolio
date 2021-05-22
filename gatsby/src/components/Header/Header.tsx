@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import { ColorSlider } from "../ui-components";
 import { Nav, Title } from "./components";
 
 const HeaderSyles = styled.header`
   grid-area: header;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-template-areas: "title nav";
+  grid-template-areas:
+    "slider slider"
+    "title nav";
   position: sticky;
   top: 0;
   width: 100%;
@@ -23,6 +26,7 @@ function Header() {
     <HeaderSyles>
       <Title />
       <Nav />
+      <ColorSlider />
     </HeaderSyles>
   );
 }

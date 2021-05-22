@@ -1,38 +1,46 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { RiArrowLeftSLine } from "react-icons/ri";
+import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
+
+const SliderWrapper = styled.section`
+  grid-area: slider;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+`;
 
 const SliderSet = styled.div`
-  position: fixed;
-  top: 150px;
-  right: 0px;
+  display: ${(p: { isOpen: boolean }) => (p.isOpen ? "flex" : "none")};
+  flex-wrap: wrap;
+  justify-content: center;
   background: var(--white);
   border-radius: 5px 0 0 5px;
-  width: 250px;
   padding: 10px 20px 10px 10px;
-  box-shadow: var(--shd);
-  display: grid;
-  grid-template-columns: 20px 1fr;
-  grid-template-rows: 1fr 1fr;
   column-gap: 20px;
-  right: ${(p: { isOpen: boolean }) => (p.isOpen ? "0" : "-210px")};
+  position: relative;
+  top: ${(p: { isOpen: boolean }) => (p.isOpen ? "0px" : "-40px")};
+  transition: top 0.5s; ;
 `;
 
 const ExpandButton = styled.button`
-  grid-row: 1/3;
-  grid-column: 1;
-  border-radius: 5px 0 0 5px;
+  border-radius: 500px;
+  width: 30px;
+  align-items: center;
   background-color: var(--color-two-light);
   border: none;
   padding: 0;
+  position: absolute;
+  bottom: -45px;
 `;
 
 const SingleSlider = styled.div`
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
   height: 40px;
-  grid-column: 2;
 `;
 
 const Slider = styled.input`
@@ -142,36 +150,41 @@ export default function ColorSlider() {
 
   const toggleColorSlider = () => {
     setIsOpen(!isOpen);
-    console.log("IS OPEN ", isOpen);
   };
 
   return (
-    <SliderSet isOpen={isOpen}>
+    <SliderWrapper isOpen={isOpen}>
+      <SliderSet isOpen={isOpen}>
+        <SingleSlider>
+          <SliderLabel htmlFor="slider-two">Background</SliderLabel>
+          <Slider
+            id="slider-one"
+            onChange={handleColorOneChange}
+            type="range"
+            min="1"
+            max="360"
+            value={colorOne}
+          />
+        </SingleSlider>
+        <SingleSlider>
+          <SliderLabel htmlFor="slider-two">Accent</SliderLabel>
+          <Slider
+            id="slider-two"
+            onChange={handleColorTwoChange}
+            type="range"
+            min="1"
+            max="360"
+            value={colorTwo}
+          />
+        </SingleSlider>
+      </SliderSet>
       <ExpandButton aria-label="Open Color Slider" onClick={toggleColorSlider}>
-        <RiArrowLeftSLine color={"var(--white)"} size={22}></RiArrowLeftSLine>
+        {isOpen ? (
+          <RiArrowUpSLine color={"var(--white)"} size={22}></RiArrowUpSLine>
+        ) : (
+          <RiArrowDownSLine color={"var(--white)"} size={22}></RiArrowDownSLine>
+        )}
       </ExpandButton>
-      <SingleSlider>
-        <SliderLabel htmlFor="slider-two">Background</SliderLabel>
-        <Slider
-          id="slider-one"
-          onChange={handleColorOneChange}
-          type="range"
-          min="1"
-          max="360"
-          value={colorOne}
-        />
-      </SingleSlider>
-      <SingleSlider>
-        <SliderLabel htmlFor="slider-two">Accent</SliderLabel>
-        <Slider
-          id="slider-two"
-          onChange={handleColorTwoChange}
-          type="range"
-          min="1"
-          max="360"
-          value={colorTwo}
-        />
-      </SingleSlider>
-    </SliderSet>
+    </SliderWrapper>
   );
 }

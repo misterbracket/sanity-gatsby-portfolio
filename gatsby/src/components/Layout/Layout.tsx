@@ -33,7 +33,6 @@ const Layout = ({ children }: LayoutProps) => {
         {children}
         <Footer />
       </LayoutStyles>
-      {/* <ColorSlider /> */}
     </>
   );
 };
