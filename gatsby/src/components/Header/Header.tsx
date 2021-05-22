@@ -6,7 +6,7 @@ import { Nav, Title } from "./components";
 const HeaderSyles = styled.header`
   grid-area: header;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(2, minmax(250px, 1fr));
   grid-template-areas:
     "slider slider"
     "title nav";

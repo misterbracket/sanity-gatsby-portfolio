@@ -39,7 +39,7 @@ const ExpandButton = styled.button`
   position: absolute;
   bottom: -15px;
 
-  @media ${(props) => props.theme.queries.laptopAndUp} {
+  @media ${(props) => props.theme.queries.tabletAndUp} {
     bottom: -45px;
   }
 `;
@@ -199,7 +199,10 @@ export default function ColorSlider() {
           />
         </SingleSlider>
       </SliderSet>
-      <ExpandButton aria-label="Open Color Slider" onClick={toggleColorSlider}>
+      <ExpandButton
+        aria-label="Toggle Color Slider"
+        onClick={toggleColorSlider}
+      >
         {isOpen ? (
           <RiArrowUpSLine
             color={"var(--color-two-light)"}

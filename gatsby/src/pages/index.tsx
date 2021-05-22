@@ -85,6 +85,7 @@ const ContentWrapper = styled(motion.div)`
 const HeroTitle = styled(motion.h1)`
   font-size: var(--very-very-big);
   font-weight: 700;
+  margin-bottom: 0px;
   @media ${(props) => props.theme.queries.laptopAndUp} {
     font-size: var(--super-big);
     font-weight: 700;
