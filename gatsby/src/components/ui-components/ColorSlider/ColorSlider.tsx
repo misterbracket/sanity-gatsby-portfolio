@@ -8,19 +8,21 @@ const SliderWrapper = styled.section`
   flex-direction: column;
   align-items: center;
   position: relative;
+  margin-top: ${(p: { isOpen: boolean }) => (p.isOpen ? "0px" : "-60px")};
+  transition: margin-top 0.5s;
+  will-change: transform;
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+  }
 `;
 
 const SliderSet = styled.div`
-  display: ${(p: { isOpen: boolean }) => (p.isOpen ? "flex" : "none")};
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   background: var(--white);
   border-radius: 5px 0 0 5px;
   padding: 10px 20px 10px 10px;
   column-gap: 20px;
-  position: relative;
-  top: ${(p: { isOpen: boolean }) => (p.isOpen ? "0px" : "-40px")};
-  transition: top 0.5s; ;
 `;
 
 const ExpandButton = styled.button`
@@ -129,7 +131,9 @@ const Slider = styled.input`
   }
 `;
 
-const SliderLabel = styled.label``;
+const SliderLabel = styled.label`
+  font-size: var(--normal);
+`;
 
 export default function ColorSlider() {
   const [colorOne, setColorOne] = useState("30");
@@ -154,7 +158,7 @@ export default function ColorSlider() {
 
   return (
     <SliderWrapper isOpen={isOpen}>
-      <SliderSet isOpen={isOpen}>
+      <SliderSet>
         <SingleSlider>
           <SliderLabel htmlFor="slider-two">Background</SliderLabel>
           <Slider
