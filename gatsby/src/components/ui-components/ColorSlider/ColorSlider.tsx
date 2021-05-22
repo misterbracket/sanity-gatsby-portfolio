@@ -10,6 +10,9 @@ const SliderWrapper = styled.section`
   position: relative;
   margin-top: ${(p: { isOpen: boolean }) => (p.isOpen ? "0px" : "-60px")};
   transition: margin-top 0.5s;
+  @media (prefers-reduced-motion: reduce) {
+    transition: unset;
+  }
   will-change: transform;
   @media ${(props) => props.theme.queries.laptopAndUp} {
   }
