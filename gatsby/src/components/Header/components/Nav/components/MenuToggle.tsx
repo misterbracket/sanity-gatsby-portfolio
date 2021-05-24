@@ -9,27 +9,32 @@ type MenuToggleProps = {
 };
 
 const MenuToggleStyles = styled.div`
-  z-index: 9999;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding-right: 3rem;
-  @media ${props => props.theme.queries.laptopAndUp}{
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     display: none;
   }
 `;
 
 function MenuToggle({ isOpen, toggleNav }: MenuToggleProps) {
   return (
-    <MenuToggleStyles onClick={() => toggleNav()}>
+    <MenuToggleStyles>
       {isOpen ? (
         <AiOutlineClose
+          onClick={() => toggleNav()}
           color={"var(--color-two)"}
           title={"Close Menu"}
           size={"35"}
         />
       ) : (
-        <RiMenuFill color={"var(--color-two)"} title={"Open Menu"} size={"35"} />
+        <RiMenuFill
+          color={"var(--color-two)"}
+          title={"Open Menu"}
+          size={"35"}
+          onClick={() => toggleNav()}
+        />
       )}
     </MenuToggleStyles>
   );

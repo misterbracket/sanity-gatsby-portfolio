@@ -17,6 +17,7 @@ const NavStyles = styled.nav`
   text-decoration: none;
   background-color: var(--color-one-alpha-700);
   display: ${(p: { isOpen: boolean }) => (p.isOpen ? "grid" : "none")};
+  z-index: ${(p: { isOpen: boolean }) => (p.isOpen ? "3" : "1")};
   justify-items: center;
 
   @media ${(props) => props.theme.queries.laptopAndUp} {
