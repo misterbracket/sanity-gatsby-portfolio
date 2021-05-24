@@ -11,6 +11,7 @@ const SliderWrapper = styled.section`
   will-change: transform;
   margin-top: ${(p: { isOpen: boolean }) => (p.isOpen ? "0px" : "-80px")};
   transition: margin-top 0.5s;
+  z-index: 2;
   @media (prefers-reduced-motion: reduce) {
     transition: unset;
   }

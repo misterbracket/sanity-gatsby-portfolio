@@ -13,3 +13,7 @@ export function wrapPageElement({ element, props }) {
     </ThemeProvider>
   );
 }
+
+export const onRenderBody = ({ setPostBodyComponents }) => {
+  setPostBodyComponents([<div key={"portal"} id={"portal"}></div>]);
+};

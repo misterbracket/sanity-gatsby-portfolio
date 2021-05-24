@@ -15,6 +15,7 @@ const HeaderSyles = styled.header`
   width: 100%;
   text-align: center;
   z-index: 999;
+  isolation: isolate;
   background: var(--white);
   @media ${(props) => props.theme.queries.laptopAndUp} {
     grid-template-columns: 1fr 2fr;
@@ -24,9 +25,9 @@ const HeaderSyles = styled.header`
 function Header() {
   return (
     <HeaderSyles>
+      <ColorSlider />
       <Title />
       <Nav />
-      <ColorSlider />
     </HeaderSyles>
   );
 }
