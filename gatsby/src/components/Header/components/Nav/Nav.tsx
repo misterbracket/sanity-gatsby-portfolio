@@ -2,8 +2,9 @@ import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { useMedia, usePrefersReducedMotion } from "./../../../hooks";
 import { Link } from "gatsby";
-import { MenuToggle } from "./components";
+import { MobileMenu } from "./components";
 import { motion } from "framer-motion";
+import { RiMenuFill } from "react-icons/ri";
 
 const NavStyles = styled.nav`
   grid-area: nav;
@@ -24,6 +25,17 @@ const NavStyles = styled.nav`
     display: grid;
     place-items: center center;
     background: var(--white);
+  }
+`;
+
+const NavBurgerIcon = styled.div`
+  z-index: 9999;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 3rem;
+  display: ${(p: { isOpen: boolean }) => (p.isOpen ? "none" : "flex")};
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    display: none;
   }
 `;
 
@@ -85,14 +97,23 @@ const Nav = () => {
   const isWide = useMedia("(min-width: 1100px)");
   const prefersReducedMotion = usePrefersReducedMotion();
 
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleNav = () => {
-    setOpen(!isOpen);
+    setIsOpen(!isOpen);
   };
   return (
     <>
-      <MenuToggle isOpen={isOpen} toggleNav={toggleNav} />
+      <NavBurgerIcon isOpen={isOpen}>
+        <RiMenuFill
+          onClick={() => setIsOpen(true)}
+          color={"var(--color-two)"}
+          title={"Open Menu"}
+          size={"35"}
+        />
+      </NavBurgerIcon>
+      <MobileMenu isOpen={isOpen} toggleNav={toggleNav} />
+
       <NavStyles isOpen={isOpen} ref={navItems}>
         <NavList
           variants={!isWide && !prefersReducedMotion && animationVariants}
