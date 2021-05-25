@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "gatsby";
 import React, { useRef } from "react";
-import { AiOutlineClose } from "react-icons/ai";
 import styled from "styled-components";
-import { useMedia, usePrefersReducedMotion } from "../../../../hooks";
+import { usePrefersReducedMotion } from "../../../../hooks";
 
 const NavStyles = styled.nav`
   grid-area: nav;
@@ -81,52 +80,22 @@ const animationVariants = {
   },
 };
 
-type MobileMenuProps = {
-  isOpen: boolean;
-  toggleNav: Function;
-};
-
-const MenuCloseButton = styled.div`
-  z-index: 9999;
-  display: ${(p: { isOpen: boolean }) => (p.isOpen ? "flex" : "none")};
-  justify-content: flex-end;
-  align-items: center;
-  padding-right: 3rem;
-  @media ${(props) => props.theme.queries.laptopAndUp} {
-    display: none;
-  }
-`;
-
-function MobileMenu({ isOpen, toggleNav }: MobileMenuProps) {
+export default function DesktopMenu() {
   const navItems = useRef<HTMLElement>(null);
-  const isWide = useMedia("(min-width: 1100px)");
   const prefersReducedMotion = usePrefersReducedMotion();
   return (
     <>
-      <MenuCloseButton isOpen={isOpen} onClick={() => toggleNav()}>
-        {isOpen && (
-          <AiOutlineClose
-            color={"var(--color-two)"}
-            title={"Close Menu"}
-            size={"35"}
-          />
-        )}
-      </MenuCloseButton>
-      <NavStyles isOpen={isOpen} ref={navItems}>
+      <NavStyles ref={navItems}>
         <NavList
-          variants={!isWide && !prefersReducedMotion && animationVariants}
-          initial={!isWide && "hidden"}
+          variants={!prefersReducedMotion && animationVariants}
+          initial={"hidden"}
           animate="visible"
         >
           <motion.li
             whileHover={prefersReducedMotion ? "" : { scale: 1.1 }}
             whileTap={prefersReducedMotion ? "" : { scale: 0.9 }}
           >
-            <NavLink
-              onClick={!isWide ? toggleNav : undefined}
-              activeClassName={"active"}
-              to="/"
-            >
+            <NavLink activeClassName={"active"} to="/">
               About Me
             </NavLink>
           </motion.li>
@@ -134,11 +103,7 @@ function MobileMenu({ isOpen, toggleNav }: MobileMenuProps) {
             whileHover={prefersReducedMotion ? "" : { scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
-            <NavLink
-              onClick={!isWide ? toggleNav : undefined}
-              activeClassName={"active"}
-              to="/resume"
-            >
+            <NavLink activeClassName={"active"} to="/resume">
               Resume
             </NavLink>
           </motion.li>
@@ -146,11 +111,7 @@ function MobileMenu({ isOpen, toggleNav }: MobileMenuProps) {
             whileHover={prefersReducedMotion ? "" : { scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
-            <NavLink
-              onClick={!isWide ? toggleNav : undefined}
-              activeClassName={"active"}
-              to="/projects"
-            >
+            <NavLink activeClassName={"active"} to="/projects">
               Projects
             </NavLink>
           </motion.li>
@@ -158,20 +119,12 @@ function MobileMenu({ isOpen, toggleNav }: MobileMenuProps) {
             whileHover={prefersReducedMotion ? "" : { scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
-            <NavLink
-              onClick={!isWide ? toggleNav : undefined}
-              activeClassName={"active"}
-              to="/blog"
-            >
+            <NavLink activeClassName={"active"} to="/blog">
               Blog
             </NavLink>
           </motion.li>
           <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-            <NavLink
-              onClick={!isWide ? toggleNav : undefined}
-              activeClassName={"active"}
-              to="/contact"
-            >
+            <NavLink activeClassName={"active"} to="/contact">
               Contact Me
             </NavLink>
           </motion.li>
@@ -180,5 +133,3 @@ function MobileMenu({ isOpen, toggleNav }: MobileMenuProps) {
     </>
   );
 }
-
-export default MobileMenu;
