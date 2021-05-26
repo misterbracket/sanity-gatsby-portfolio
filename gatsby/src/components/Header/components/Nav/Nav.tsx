@@ -37,7 +37,11 @@ const Nav = () => {
           size={"35"}
         />
       </NavBurgerIcon>
-      {/* <MobileMenu isOpen={isOpen} toggleNav={toggleNav} menuItems={menuItems} /> */}
+      <MobileMenu
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        menuItems={menuItems}
+      />
       <DesktopMenu menuItems={menuItems} />
     </>
   );

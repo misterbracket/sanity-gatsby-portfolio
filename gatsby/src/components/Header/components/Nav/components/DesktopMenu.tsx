@@ -50,18 +50,6 @@ const NavLink = styled(Link)`
   }
 `;
 
-const animationVariants = {
-  hidden: { opacity: 0, y: "10vh" },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      duration: 0.2,
-    },
-  },
-};
-
 export default function DesktopMenu({
   menuItems,
 }: {
@@ -72,11 +60,7 @@ export default function DesktopMenu({
   return (
     <>
       <NavStyles ref={navItems}>
-        <NavList
-          variants={!prefersReducedMotion && animationVariants}
-          initial={"hidden"}
-          animate="visible"
-        >
+        <NavList>
           {menuItems.map((item) => (
             <motion.li
               key={item.linkName}
