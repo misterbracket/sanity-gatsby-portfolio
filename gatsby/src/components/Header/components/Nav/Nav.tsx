@@ -4,12 +4,18 @@ import styled from "styled-components";
 import { VisuallyHidden } from "../../../ui-components";
 import { DesktopMenu, MobileMenu } from "./components";
 
-const NavBurgerIcon = styled.div`
-  z-index: 9999;
+const NavBurgerIconWrapper = styled.div`
+  display: flex;
   justify-content: flex-end;
   align-items: center;
   padding-right: 3rem;
-  display: ${(p: { isOpen: boolean }) => (p.isOpen ? "none" : "flex")};
+  background: var(--white);
+`;
+const NavBurgerIcon = styled.button`
+  z-index: 9999;
+  display: ${(p: { isOpen: boolean }) => (p.isOpen ? "none" : "block")};
+  border: none;
+  background: var(--white);
   @media ${(props) => props.theme.queries.laptopAndUp} {
     display: none;
   }
@@ -28,15 +34,17 @@ const Nav = () => {
 
   return (
     <>
-      <NavBurgerIcon isOpen={isOpen} onClick={() => setIsOpen(true)}>
-        <VisuallyHidden>Open Menu</VisuallyHidden>
-        <RiMenuFill
-          aria-hidden
-          color={"var(--color-two)"}
-          title={"Open Menu"}
-          size={"35"}
-        />
-      </NavBurgerIcon>
+      <NavBurgerIconWrapper>
+        <NavBurgerIcon isOpen={isOpen} onClick={() => setIsOpen(true)}>
+          <VisuallyHidden>Open Menu</VisuallyHidden>
+          <RiMenuFill
+            aria-hidden
+            color={"var(--color-two)"}
+            title={"Open Menu"}
+            size={"35"}
+          />
+        </NavBurgerIcon>
+      </NavBurgerIconWrapper>
       <MobileMenu
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
