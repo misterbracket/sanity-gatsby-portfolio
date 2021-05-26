@@ -18,23 +18,27 @@ const NavBurgerIcon = styled.div`
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleNav = () => {
-    setIsOpen(!isOpen);
-  };
+  const menuItems = [
+    { linkName: "About Me", to: "/" },
+    { linkName: "Resume", to: "/resume" },
+    { linkName: "Projects", to: "/projects" },
+    { linkName: "Blog", to: "/blog" },
+    { linkName: "Contact Me", to: "/contact" },
+  ];
+
   return (
     <>
-      <NavBurgerIcon isOpen={isOpen}>
+      <NavBurgerIcon isOpen={isOpen} onClick={() => setIsOpen(true)}>
         <VisuallyHidden>Open Menu</VisuallyHidden>
         <RiMenuFill
           aria-hidden
-          onClick={() => setIsOpen(true)}
           color={"var(--color-two)"}
           title={"Open Menu"}
           size={"35"}
         />
       </NavBurgerIcon>
-      <MobileMenu isOpen={isOpen} toggleNav={toggleNav} />
-      <DesktopMenu />
+      {/* <MobileMenu isOpen={isOpen} toggleNav={toggleNav} menuItems={menuItems} /> */}
+      <DesktopMenu menuItems={menuItems} />
     </>
   );
 };
