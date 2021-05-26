@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
+import { VisuallyHidden } from "..";
 
 const SliderWrapper = styled.section`
   grid-area: slider;
@@ -205,15 +206,23 @@ export default function ColorSlider() {
         onClick={toggleColorSlider}
       >
         {isOpen ? (
-          <RiArrowUpSLine
-            color={"var(--color-two-light)"}
-            size={22}
-          ></RiArrowUpSLine>
+          <>
+            <VisuallyHidden>Close Color Switcher</VisuallyHidden>
+            <RiArrowUpSLine
+              aria-hidden
+              color={"var(--color-two-light)"}
+              size={22}
+            ></RiArrowUpSLine>
+          </>
         ) : (
-          <RiArrowDownSLine
-            color={"var(--color-two-light)"}
-            size={22}
-          ></RiArrowDownSLine>
+          <>
+            <VisuallyHidden>Open Color Switcher</VisuallyHidden>
+            <RiArrowDownSLine
+              aria-hidden
+              color={"var(--color-two-light)"}
+              size={22}
+            ></RiArrowDownSLine>
+          </>
         )}
       </ExpandButton>
     </SliderWrapper>

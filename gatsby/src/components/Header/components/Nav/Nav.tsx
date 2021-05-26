@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { RiMenuFill } from "react-icons/ri";
 import styled from "styled-components";
+import { VisuallyHidden } from "../../../ui-components";
 import { DesktopMenu, MobileMenu } from "./components";
 
 const NavBurgerIcon = styled.div`
@@ -23,7 +24,9 @@ const Nav = () => {
   return (
     <>
       <NavBurgerIcon isOpen={isOpen}>
+        <VisuallyHidden>Open Menu</VisuallyHidden>
         <RiMenuFill
+          aria-hidden
           onClick={() => setIsOpen(true)}
           color={"var(--color-two)"}
           title={"Open Menu"}

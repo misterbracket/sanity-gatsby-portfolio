@@ -5,23 +5,17 @@ import styled from "styled-components";
 import { usePrefersReducedMotion } from "../../../../hooks";
 
 const NavStyles = styled.nav`
-  grid-area: nav;
-  position: fixed;
-  right: 0;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  background-color: var(--color-one-alpha-700);
-  display: ${(p: { isOpen: boolean }) => (p.isOpen ? "grid" : "none")};
-  z-index: ${(p: { isOpen: boolean }) => (p.isOpen ? "3" : "1")};
-  justify-items: center;
-
+  display: none;
   @media ${(props) => props.theme.queries.laptopAndUp} {
-    position: static;
+    grid-area: nav;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    background-color: var(--color-one-alpha-700);
+    display: ${(p: { isOpen: boolean }) => (p.isOpen ? "grid" : "none")};
+    z-index: ${(p: { isOpen: boolean }) => (p.isOpen ? "3" : "1")};
     display: grid;
+    justify-items: center;
     place-items: center center;
     background: var(--white);
   }

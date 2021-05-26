@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import styled from "styled-components";
 import { useMedia, usePrefersReducedMotion } from "../../../../hooks";
+import { VisuallyHidden } from "../../../../ui-components";
 
 const NavStyles = styled.nav`
   grid-area: nav;
@@ -19,13 +20,6 @@ const NavStyles = styled.nav`
   display: ${(p: { isOpen: boolean }) => (p.isOpen ? "grid" : "none")};
   z-index: ${(p: { isOpen: boolean }) => (p.isOpen ? "3" : "1")};
   justify-items: center;
-
-  @media ${(props) => props.theme.queries.laptopAndUp} {
-    position: static;
-    display: grid;
-    place-items: center center;
-    background: var(--white);
-  }
 `;
 
 const NavList = styled(motion.ul)`
@@ -42,13 +36,6 @@ const NavList = styled(motion.ul)`
   .active {
     color: var(--color-two);
   }
-  @media ${(props) => props.theme.queries.laptopAndUp} {
-    top: 0;
-    flex-direction: row;
-    width: 100%;
-    justify-content: flex-end;
-    padding: 1rem 7rem 1rem 3rem;
-  }
 `;
 
 const NavLink = styled(Link)`
@@ -58,15 +45,6 @@ const NavLink = styled(Link)`
   font-size: var(--big);
   text-transform: uppercase;
   font-weight: 700;
-
-  @media ${(props) => props.theme.queries.laptopAndUp} {
-    line-height: 35px;
-    font-weight: 300;
-    font-size: var(--normal);
-    &:hover {
-      color: var(--color-two);
-    }
-  }
 `;
 
 const animationVariants = {
@@ -92,9 +70,6 @@ const MenuCloseButton = styled.div`
   justify-content: flex-end;
   align-items: center;
   padding-right: 3rem;
-  @media ${(props) => props.theme.queries.laptopAndUp} {
-    display: none;
-  }
 `;
 
 function MobileMenu({ isOpen, toggleNav }: MobileMenuProps) {
@@ -105,11 +80,15 @@ function MobileMenu({ isOpen, toggleNav }: MobileMenuProps) {
     <>
       <MenuCloseButton isOpen={isOpen} onClick={() => toggleNav()}>
         {isOpen && (
-          <AiOutlineClose
-            color={"var(--color-two)"}
-            title={"Close Menu"}
-            size={"35"}
-          />
+          <>
+            <VisuallyHidden>Close Menu</VisuallyHidden>
+            <AiOutlineClose
+              aria-hidden
+              color={"var(--color-two)"}
+              title={"Close Menu"}
+              size={"35"}
+            />
+          </>
         )}
       </MenuCloseButton>
       <NavStyles isOpen={isOpen} ref={navItems}>
