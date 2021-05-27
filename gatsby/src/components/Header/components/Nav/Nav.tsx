@@ -3,7 +3,6 @@ import { RiMenuFill } from "react-icons/ri";
 import styled from "styled-components";
 import { VisuallyHidden } from "../../../ui-components";
 import { DesktopMenu, MobileMenu } from "./components";
-
 const NavBurgerIconWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -35,21 +34,25 @@ const Nav = () => {
   return (
     <>
       <NavBurgerIconWrapper>
-        <NavBurgerIcon isOpen={isOpen} onClick={() => setIsOpen(true)}>
+        <NavBurgerIcon
+          aria-label="Open Menu"
+          isOpen={isOpen}
+          onClick={() => setIsOpen(true)}
+        >
           <VisuallyHidden>Open Menu</VisuallyHidden>
           <RiMenuFill
             aria-hidden
-            color={"var(--color-two)"}
-            title={"Open Menu"}
-            size={"35"}
+            color="var(--color-two)"
+            title="Open Menu"
+            size="35"
           />
         </NavBurgerIcon>
+        <MobileMenu
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          menuItems={menuItems}
+        />
       </NavBurgerIconWrapper>
-      <MobileMenu
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        menuItems={menuItems}
-      />
       <DesktopMenu menuItems={menuItems} />
     </>
   );

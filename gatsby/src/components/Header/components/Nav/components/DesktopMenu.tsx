@@ -67,7 +67,7 @@ export default function DesktopMenu({
               whileHover={prefersReducedMotion ? "" : { scale: 1.1 }}
               whileTap={prefersReducedMotion ? "" : { scale: 0.9 }}
             >
-              <NavLink activeClassName={"active"} to={item.to}>
+              <NavLink activeClassName="active" to={item.to}>
                 {item.linkName}
               </NavLink>
             </motion.li>

@@ -9,6 +9,7 @@ import { Dialog } from "@reach/dialog";
 
 const NavStyles = styled.nav`
   grid-area: nav;
+  display: grid;
   position: fixed;
   right: 0;
   left: 0;
@@ -18,12 +19,7 @@ const NavStyles = styled.nav`
   height: 100%;
   text-decoration: none;
   background-color: var(--color-one-alpha-700);
-  display: ${(p: { isOpen: boolean }) => (p.isOpen ? "grid" : "none")};
-  z-index: ${(p: { isOpen: boolean }) => (p.isOpen ? "3" : "1")};
   justify-items: center;
-  @media ${(props) => props.theme.queries.laptopAndUp} {
-    display: none;
-  }
 `;
 
 const NavList = styled(motion.ul)`
@@ -81,20 +77,24 @@ function MobileMenu({ isOpen, onClose, menuItems }: MobileMenuProps) {
   const navItems = useRef<HTMLElement>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
   return (
-    <Dialog isOpen={isOpen} onDismiss={() => onClose()}>
-      <NavStyles isOpen={isOpen} ref={navItems}>
+    <Dialog
+      aria-label="Mobile Menu"
+      isOpen={isOpen}
+      onDismiss={() => onClose()}
+    >
+      <NavStyles ref={navItems}>
         <MenuCloseButton onClick={() => onClose()}>
           <VisuallyHidden>Close Menu</VisuallyHidden>
           <AiOutlineClose
             aria-hidden
-            color={"var(--color-two)"}
-            title={"Close Menu"}
-            size={"35"}
+            color="var(--color-two)"
+            title="Close Menu"
+            size="35"
           />
         </MenuCloseButton>
         <NavList
           variants={!prefersReducedMotion && animationVariants}
-          initial={"hidden"}
+          initial="hidden"
           animate="visible"
         >
           {menuItems.map((item) => (
@@ -103,11 +103,7 @@ function MobileMenu({ isOpen, onClose, menuItems }: MobileMenuProps) {
               whileHover={prefersReducedMotion ? "" : { scale: 1.1 }}
               whileTap={prefersReducedMotion ? "" : { scale: 0.9 }}
             >
-              <NavLink
-                onClick={onClose}
-                activeClassName={"active"}
-                to={item.to}
-              >
+              <NavLink onClick={onClose} activeClassName="active" to={item.to}>
                 {item.linkName}
               </NavLink>
             </motion.li>
