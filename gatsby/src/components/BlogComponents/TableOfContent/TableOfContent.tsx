@@ -44,8 +44,10 @@ const ListItem = styled.li`
 const ContentLink = styled.a`
   text-decoration: none;
   @media ${(props) => props.theme.queries.laptopAndUp} {
-    &:hover {
-      color: var(--color-two);
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: var(--color-two);
+      }
     }
   }
 `;

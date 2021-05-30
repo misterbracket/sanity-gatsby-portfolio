@@ -38,8 +38,10 @@ const ProjectImageWrapper = styled.div`
 `;
 
 const ProjectLink = styled(Link)`
-  &:hover {
-    cursor: pointer;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      cursor: pointer;
+    }
   }
 `;
 

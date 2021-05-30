@@ -11,10 +11,12 @@ const StyledH2 = styled.h2`
   svg {
     visibility: hidden;
   }
-  &:hover {
-    a {
-      svg {
-        visibility: visible;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      a {
+        svg {
+          visibility: visible;
+        }
       }
     }
   }

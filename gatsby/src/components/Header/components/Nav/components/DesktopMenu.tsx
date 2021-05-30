@@ -45,8 +45,10 @@ const NavLink = styled(Link)`
   line-height: 35px;
   font-weight: 300;
   font-size: var(--normal);
-  &:hover {
-    color: var(--color-two);
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--color-two);
+    }
   }
 `;
 
