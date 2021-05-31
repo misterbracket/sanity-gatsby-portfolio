@@ -132,15 +132,11 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
         <HorizontalRuler />
         <ProfileSlug>{person.profileslug}</ProfileSlug>
         <ButtonGroup>
-          <Button type="button" color="dark">
-            <Link className="link" to="/resume">
-              Resume
-            </Link>
+          <Button color="dark">
+            <Link to="/resume">Resume</Link>
           </Button>
-          <Button type="button" color="light">
-            <Link className="link" to="/projects">
-              Projects
-            </Link>
+          <Button color="light">
+            <Link to="/projects">Projects</Link>
           </Button>
         </ButtonGroup>
       </CardStyles>

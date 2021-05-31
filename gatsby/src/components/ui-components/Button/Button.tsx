@@ -2,32 +2,37 @@ import { motion } from "framer-motion";
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 
+const THEME = {
+  dark: {
+    "--bg-color": "var(--color-two)",
+    "--color": "var(--white)",
+    "--border": "1px solid var(--color-two)",
+  },
+  light: {
+    "--bg-color": "transparent",
+    "--color": "var(--color-gray-900)",
+    "--border": "1px solid var(--color-gray-900)",
+  },
+};
+
 const ButtonStyles = styled(motion.button)`
   cursor: pointer;
-  background: ${(props) =>
-    props.color === "dark" ? "var(--color-two)" : "transparent"};
-  color: ${(props) =>
-    props.color === "dark" ? "var(--white)" : "var(--color-gray-900)"
-};
+  background: var(--bg-color);
+  color: var(--color);
   border-radius: 50px;
-  border: 1px solid
-    ${(props) => (props.color === "dark" ? "var(--color-two)" : "var(--color-gray-900)"
-)};
+  border: var(--border);
   padding: 0.6rem 3rem;
   font-size: var(--normal);
-
   a {
     text-decoration: none;
-    color: ${(props) =>
-      props.color === "dark" ? "var(--white)" : "var(--color-gray-900)"
-};
+    color: var(--color);
   }
 `;
 
 type ButtonProps = {
   children: ReactNode;
   color: "dark" | "light";
-  type: "button" | "submit" | "reset";
+  type?: "button" | "submit" | "reset";
 };
 const Button = ({
   children,
@@ -35,12 +40,14 @@ const Button = ({
   type = "button",
   ...delegated
 }: ButtonProps) => {
+  const styles = THEME[color];
+
   return (
     <ButtonStyles
+      style={styles}
       {...delegated}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      color={color}
       type={type}
     >
       {children}

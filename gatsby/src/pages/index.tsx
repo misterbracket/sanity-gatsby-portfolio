@@ -3,7 +3,7 @@ import { graphql, Link, PageProps } from "gatsby";
 import { SEO } from "../components";
 import styled from "styled-components";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
-import { Button, ColorSlider, Sparkles } from "../components/ui-components";
+import { Button, Sparkles } from "../components/ui-components";
 import { motion } from "framer-motion";
 
 const AboutMeStyles = styled.div`
