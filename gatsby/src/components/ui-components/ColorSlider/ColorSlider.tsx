@@ -187,6 +187,7 @@ export default function ColorSlider() {
             min="1"
             max="360"
             value={colorOne}
+            data-testid="slider-one"
           />
         </SingleSlider>
         <SingleSlider>
@@ -198,6 +199,7 @@ export default function ColorSlider() {
             min="1"
             max="360"
             value={colorTwo}
+            data-testid="slider-two"
           />
         </SingleSlider>
       </SliderSet>
