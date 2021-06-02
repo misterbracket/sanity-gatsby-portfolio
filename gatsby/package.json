@@ -17,7 +17,9 @@
   },
   "eslintConfig": {
     "extends": [
-      "wesbos"
+      "wesbos",
+      "testing-library",
+      "jest-dom"
     ],
     "rules": {
       "react/prop-types": 0
@@ -70,10 +72,12 @@
     "eslint-config-standard": "^16.0.2",
     "eslint-config-standard-react": "^11.0.1",
     "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest-dom": "^3.9.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-standard": "^5.0.0",
+    "eslint-plugin-testing-library": "^4.6.0",
     "esm": "^3.2.25",
     "gatsby-plugin-sharp": "^3.3.1",
     "gatsby-remark-images": "^5.0.0",
