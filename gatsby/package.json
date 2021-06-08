@@ -31,6 +31,7 @@
     "@mdx-js/react": "^1.6.22",
     "@reach/dialog": "^0.15.0",
     "@sanity/block-content-to-react": "^2.0.7",
+    "framer-motion": "^4.1.17",
     "gatsby": "^3.2.1",
     "gatsby-plugin-google-tagmanager": "^3.2.0",
     "gatsby-plugin-image": "^1.2.1",
