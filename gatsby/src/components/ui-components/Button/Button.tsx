@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 
-const THEME = {
+const VARIANT = {
   dark: {
     "--bg-color": "var(--color-two)",
     "--color": "var(--white)",
@@ -40,7 +40,7 @@ const Button = ({
   type = "button",
   ...delegated
 }: ButtonProps) => {
-  const styles = THEME[color];
+  const styles = VARIANT[color];
 
   return (
     <ButtonStyles

@@ -4,7 +4,6 @@ import Footer from "../Footer";
 import "normalize.css";
 import styled from "styled-components";
 import Header from "../Header";
-import { ColorSlider } from "../ui-components";
 
 const LayoutStyles = styled.div`
   display: grid;
