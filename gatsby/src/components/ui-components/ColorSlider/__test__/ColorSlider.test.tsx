@@ -1,15 +1,10 @@
 import React from "react";
 import ColorSlider from "../ColorSlider";
-import { fireEvent, render, screen } from "@testing-library/react";
-import { ThemeProvider } from "styled-components";
-import { QUERIES } from "../../../../styles/constants";
+import { fireEvent, screen } from "@testing-library/react";
+import { render } from "../../../../utils/test-utils";
 
 const renderComponent = () => {
-  const utils = render(
-    <ThemeProvider theme={{ queries: QUERIES }}>
-      <ColorSlider />
-    </ThemeProvider>
-  );
+  const utils = render(<ColorSlider />);
   const sliderOne = screen.getByTestId("slider-one") as HTMLInputElement;
   const sliderTwo = screen.getByTestId("slider-two") as HTMLInputElement;
 
