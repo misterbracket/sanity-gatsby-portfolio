@@ -1,6 +1,11 @@
 import { motion } from "framer-motion";
 import React, { ReactNode } from "react";
 import styled from "styled-components";
+export interface ButtonProps {
+  children: ReactNode;
+  color: "dark" | "light";
+  type?: "button" | "submit" | "reset";
+};
 
 const VARIANT = {
   dark: {
@@ -29,18 +34,13 @@ const ButtonStyles = styled(motion.button)`
   }
 `;
 
-type ButtonProps = {
-  children: ReactNode;
-  color: "dark" | "light";
-  type?: "button" | "submit" | "reset";
-};
 const Button = ({
   children,
   color = "dark",
   type = "button",
   ...delegated
 }: ButtonProps) => {
-  const styles = VARIANT[color];
+  const styles = VARIANT[color] as React.CSSProperties;
 
   return (
     <ButtonStyles
