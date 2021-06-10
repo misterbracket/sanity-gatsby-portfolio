@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import styled, { keyframes } from "styled-components";
 import { usePrefersReducedMotion, useRandomInterval } from "../../hooks";
-import { random, range } from "../../utils";
+import { random, range } from "../../../utils";
 
 const DEFAULT_COLOR = "#FFC700";
 const generateSparkle = (color: string) => {

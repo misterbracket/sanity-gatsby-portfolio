@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from "react";
 import { render, RenderOptions } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
-import { QUERIES } from "../styles/constants";
+import { QUERIES } from "../../styles/constants";
 
 const AllTheProviders: FC = ({ children }) => {
   return <ThemeProvider theme={{ queries: QUERIES }}>{children}</ThemeProvider>;

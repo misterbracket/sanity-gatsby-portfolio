@@ -1,16 +1,18 @@
 import React, { ReactNode } from "react";
+import styled from "styled-components"
 
-const hiddenStyles = {
-  display: "inline-block",
-  position: "absolute" as "absolute",
-  overflow: "hidden",
-  clip: "rect(0 0 0 0)",
-  height: 1,
-  width: 1,
-  margin: -1,
-  padding: 0,
-  border: 0,
-};
+
+const HiddenStyles = styled.span`
+  display: inline-block;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1;
+  width: 1;
+  margin: -1;
+  padding: 0;
+  border: 0;
+ `
 
 const VisuallyHidden = ({
   children,
@@ -43,9 +45,9 @@ const VisuallyHidden = ({
     return <span>{children}</span>;
   }
   return (
-    <span style={hiddenStyles} {...delegated}>
+    <HiddenStyles {...delegated}>
       {children}
-    </span>
+    </HiddenStyles>
   );
 };
 export default VisuallyHidden;
