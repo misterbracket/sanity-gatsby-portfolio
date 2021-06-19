@@ -13,12 +13,12 @@ const renderComponent = () => {
 
 test("Slider Two starts with the right color one", () => {
   const { sliderOne } = renderComponent();
-  expect(sliderOne.value).toBe("30");
+  expect(sliderOne.value).toBe("169");
 });
 
 test("Slider Two starts with the right color two", () => {
   const { sliderTwo } = renderComponent();
-  expect(sliderTwo).toHaveValue("221");
+  expect(sliderTwo).toHaveValue("126");
 });
 
 test("Change the Slider One Value", () => {
