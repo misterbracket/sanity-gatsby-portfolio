@@ -155,8 +155,8 @@ const SliderLabel = styled.label`
 `;
 
 export default function ColorSlider() {
-  const [colorOne, setColorOne] = useState("30");
-  const [colorTwo, setColorTwo] = useState("221");
+  const [colorOne, setColorOne] = useState("169");
+  const [colorTwo, setColorTwo] = useState("126");
   const [isOpen, setIsOpen] = useState(false);
 
   const handleColorOneChange = (e: React.ChangeEvent<HTMLInputElement>) => {

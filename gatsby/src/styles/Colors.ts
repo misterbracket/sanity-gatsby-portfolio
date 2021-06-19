@@ -13,7 +13,8 @@ const Colors = createGlobalStyle`
 
 /* Color Variations */
   --pink: hsl(30, 32%, 85%);
-  --pink-partial: 30;
+  /* --pink-partial: 30; */
+  --pink-partial: 169;
 
   --color-one: hsl(var(--pink-partial), 32%, 93%);
   --color-one-light: hsl(var(--pink-partial), 32%, 95%);
@@ -24,7 +25,9 @@ const Colors = createGlobalStyle`
 
 /* Color Two */
   --shadow-blue: hsl(221, 55%, 43%);
-  --blue-partial: 221;
+  /* --blue-partial: 221; */
+  --blue-partial: 126;
+
 
   --color-two: hsl(var(--blue-partial), 55%,  43%);
   --color-two-light: hsl(var(--blue-partial), 45%,  58%);
