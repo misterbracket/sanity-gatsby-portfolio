@@ -171,6 +171,7 @@ export default function ColorSlider() {
     root.style.setProperty("--blue-partial", `${colorTwo}`);
   };
 
+
   const toggleColorSlider = () => {
     setIsOpen(!isOpen);
   };
@@ -188,6 +189,7 @@ export default function ColorSlider() {
             max="360"
             value={colorOne}
             data-testid="slider-one"
+            tabIndex={isOpen ? 0 : -1}
           />
         </SingleSlider>
         <SingleSlider>
@@ -200,6 +202,7 @@ export default function ColorSlider() {
             max="360"
             value={colorTwo}
             data-testid="slider-two"
+            tabIndex={isOpen ? 0 : -1}
           />
         </SingleSlider>
       </SliderSet>
