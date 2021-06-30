@@ -41,12 +41,13 @@ const TextSection = styled.section`
   padding: 3rem 3rem;
   max-width: 60rem;
   @media ${(props) => props.theme.queries.laptopAndUp} {
+    /* box-shadow: var(--shd, 0 1px 4px rgba(0, 0, 0, 0.6)); */
     background-color: var(--white);
     grid-column: 2/3;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 10rem;
+    padding-left: 8rem;
     padding-right: 7rem;
   }
 `;
@@ -72,15 +73,13 @@ const item = {
 
 const ContentWrapper = styled(motion.div)`
   @media ${(props) => props.theme.queries.laptopAndUp} {
-    padding-left: 1rem;
+    padding-left: 3rem;
     padding-right: 2rem;
     display: flex;
     flex-direction: column;
     max-width: 500px;
     background-color: var(--white);
     max-height: 500px;
-    overflow-y: scroll;
-    padding-left: 10px;
   }
 `;
 

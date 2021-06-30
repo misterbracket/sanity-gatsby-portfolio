@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 const FooterStyles = styled.footer`
   grid-area: footer;
+  background-color: var(--white);
+  box-shadow: 0px 0px 17px 11px hsla(30, 6%, 51%, 0.07);
 `;
 
 const SmallText = styled.p`
