@@ -16,6 +16,7 @@ const HeaderSyles = styled.header`
   z-index: 999;
   isolation: isolate;
   background: var(--white);
+  box-shadow: var(--shd-light);
   @media ${(props) => props.theme.queries.laptopAndUp} {
     grid-template-columns: 1fr 2fr;
   }

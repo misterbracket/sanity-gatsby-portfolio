@@ -72,6 +72,7 @@ const Colors = createGlobalStyle`
 
   /* Boxshadow */
   --shd:-11.31px 11.31px 17px 0px hsla(30, 6%, 51%, 0.23);
+  --shd-light:-11.31px 11.31px 17px 0px hsla(30, 6%, 51%, 0.1);
   }
   `;
 

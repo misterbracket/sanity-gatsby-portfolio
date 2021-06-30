@@ -72,6 +72,8 @@ const item = {
 
 const ContentWrapper = styled(motion.div)`
   @media ${(props) => props.theme.queries.laptopAndUp} {
+    padding-left: 1rem;
+    padding-right: 2rem;
     display: flex;
     flex-direction: column;
     max-width: 500px;
