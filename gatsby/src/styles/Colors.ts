@@ -13,28 +13,27 @@ const Colors = createGlobalStyle`
 
 /* Color Variations */
   --pink: hsl(30, 32%, 85%);
-  /* --pink-partial: 30; */
-  --pink-partial: 169;
+  --color-one-partial: 221;
 
-  --color-one: hsl(var(--pink-partial), 32%, 93%);
-  --color-one-light: hsl(var(--pink-partial), 32%, 95%);
-  --color-one-dark: hsl(var(--pink-partial), 32%, 76%);
-  --color-one-alpha-300: hsla(var(--pink-partial), 32%, 93%, 0.3);
-  --color-one-alpha-500: hsla(var(--pink-partial), 32%, 93%, 0.5);
-  --color-one-alpha-700: hsla(var(--pink-partial), 32%, 93%, 0.7);
+  --color-one: hsl(var(--color-one-partial), 32%, 93%);
+  --color-one-light: hsl(var(--color-one-partial), 32%, 95%);
+  --color-one-dark: hsl(var(--color-one-partial), 32%, 76%);
+  --color-one-alpha-300: hsla(var(--color-one-partial), 32%, 93%, 0.3);
+  --color-one-alpha-500: hsla(var(--color-one-partial), 32%, 93%, 0.5);
+  --color-one-alpha-700: hsla(var(--color-one-partial), 32%, 93%, 0.7);
 
 /* Color Two */
   --shadow-blue: hsl(221, 55%, 43%);
   /* --blue-partial: 221; */
-  --blue-partial: 126;
+  --color-two-partial: 169;
 
 
-  --color-two: hsl(var(--blue-partial), 55%,  43%);
-  --color-two-light: hsl(var(--blue-partial), 45%,  58%);
-  --color-two-dark: hsl(var(--blue-partial),  55%, 35%);
-  --color-two-alpha-300: hsla(var(--blue-partial), 55%,  43%, 0.3);
-  --color-two-alpha-500: hsla(var(--blue-partial), 55%, 43%, 0.5);
-  --color-two-alpha-700: hsla(var(--blue-partial), 55%,  43%, 0.7);
+  --color-two: hsl(var(--color-two-partial), 55%,  43%);
+  --color-two-light: hsl(var(--color-two-partial), 45%,  58%);
+  --color-two-dark: hsl(var(--color-two-partial),  55%, 35%);
+  --color-two-alpha-300: hsla(var(--color-two-partial), 55%,  43%, 0.3);
+  --color-two-alpha-500: hsla(var(--color-two-partial), 55%, 43%, 0.5);
+  --color-two-alpha-700: hsla(var(--color-two-partial), 55%,  43%, 0.7);
 
 /* Color Three */
   --black-coffee: hsl(349, 14%, 15%);
@@ -72,7 +71,7 @@ const Colors = createGlobalStyle`
 
   /* Boxshadow */
   --shd:-11.31px 11.31px 17px 0px hsla(30, 6%, 51%, 0.23);
-  --shd-light:-11.31px 11.31px 17px 0px hsla(30, 6%, 51%, 0.1);
+  --shd-light:-11.31px 11.31px 17px 0px hsla(30, 6%, 51%, 0.05);
   }
   `;
 

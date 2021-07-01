@@ -75,8 +75,9 @@ const ProfileSlug = styled.span`
   @media ${(props) => props.theme.queries.laptopAndUp} {
     display: inline;
     font-size: 2rem;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.15rem;
     text-align: center;
+    padding: 0 2rem;
   }
 `;
 

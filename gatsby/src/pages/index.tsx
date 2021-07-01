@@ -106,6 +106,7 @@ const ButtonGroup = styled(motion.div)`
   display: none;
   @media ${(props) => props.theme.queries.laptopAndUp} {
     margin-top: 1.5rem;
+    margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
     width: 100%;

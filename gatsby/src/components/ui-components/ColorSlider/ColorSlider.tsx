@@ -155,20 +155,20 @@ const SliderLabel = styled.label`
 `;
 
 export default function ColorSlider() {
-  const [colorOne, setColorOne] = useState("169");
-  const [colorTwo, setColorTwo] = useState("126");
+  const [colorOne, setColorOne] = useState("221");
+  const [colorTwo, setColorTwo] = useState("169");
   const [isOpen, setIsOpen] = useState(false);
 
   const handleColorOneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setColorOne(e.target.value);
     let root = document.documentElement;
-    root.style.setProperty("--pink-partial", `${colorOne}`);
+    root.style.setProperty("--color-one-partial", `${colorOne}`);
   };
 
   const handleColorTwoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setColorTwo(e.target.value);
     let root = document.documentElement;
-    root.style.setProperty("--blue-partial", `${colorTwo}`);
+    root.style.setProperty("--color-two-partial", `${colorTwo}`);
   };
 
 

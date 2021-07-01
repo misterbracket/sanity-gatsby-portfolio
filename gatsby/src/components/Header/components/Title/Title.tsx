@@ -41,6 +41,7 @@ const Slug = styled.p`
   white-space: nowrap;
   margin: 0;
   line-height: inherit;
+  letter-spacing: 0.15rem;
 `;
 
 const Title = () => {
