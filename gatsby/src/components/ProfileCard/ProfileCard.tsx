@@ -155,7 +155,7 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
           <SocialLink href="https://twitter.com/maxklammer">
             <AiFillTwitterSquare
               color={"black"}
-              title={"Go to Linkedin Profile"}
+              title={"Go to Twitter Profile"}
               size={"35"}
             />
           </SocialLink>
@@ -164,7 +164,7 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
           <SocialLink href="https://github.com/misterbracket">
             <AiFillGithub
               color={"black"}
-              title={"Go to Linkedin Profile"}
+              title={"Go to Github Profile"}
               size={"35"}
             />
           </SocialLink>
