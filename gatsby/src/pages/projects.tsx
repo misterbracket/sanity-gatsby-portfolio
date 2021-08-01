@@ -75,7 +75,7 @@ export const query = graphql`
         _rawProjectIntroduction
       }
     }
-    allSanityProject {
+    allSanityProject(sort: { fields: [endedAt], order: DESC }) {
       nodes {
         endedAt(formatString: "MMM YYYY")
         id
