@@ -1,29 +1,32 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import Icon from "../../../ui-components/Icon";
 
 const TitleStyles = styled.div`
   grid-area: title;
-  text-align: left;
   padding: 1rem 3rem;
-  line-height: 1.3;
+  line-height: 1.1;
+  width: min-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-items: start;
+  align-items: center;
+  gap: 0 10px ;
 `;
 
+const HeadingLogo = styled(Icon)`
+    grid-column: 1;
+    grid-row: 1 / 3;
+`
 const NameWrapper = styled.p`
   margin: 0;
   padding: 0;
-`;
-
-const BlueDot = styled.span`
-  display: inline-block;
-  background: var(--color-two);
-  width: 16px;
-  height: 16px;
+  line-height: 1rem;
 `;
 
 const Name = styled(Link)`
-  position: relative;
-  left: 10px;
   text-decoration: none;
   font-weight: 900;
   font-size: var(--big);
@@ -47,8 +50,8 @@ const Slug = styled.p`
 const Title = () => {
   return (
     <TitleStyles>
+      <HeadingLogo size={50} color="var(--color-two-dark)"></HeadingLogo>
       <NameWrapper>
-        <BlueDot></BlueDot>
         <Name to="/">Max Klammer</Name>
       </NameWrapper>
       <SlugWrapper>
