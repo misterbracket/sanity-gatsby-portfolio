@@ -5,7 +5,7 @@ import Icon from "../../../ui-components/Icon";
 
 const TitleStyles = styled.div`
   grid-area: title;
-  padding: 1rem 3rem;
+  padding: 1rem;
   line-height: 1.1;
   width: min-content;
   display: grid;
