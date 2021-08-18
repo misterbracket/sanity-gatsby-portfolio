@@ -5,7 +5,7 @@ import Icon from "../../../ui-components/Icon";
 
 const TitleStyles = styled.div`
   grid-area: title;
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 3rem;
   line-height: 1.1;
   width: min-content;
   display: grid;
@@ -19,6 +19,7 @@ const TitleStyles = styled.div`
 const HeadingLogo = styled(Icon)`
     grid-column: 1;
     grid-row: 1 / 3;
+    transform: translateY(-3px);
 `
 const NameWrapper = styled.p`
   margin: 0;
@@ -31,7 +32,7 @@ const Name = styled(Link)`
   font-weight: 900;
   font-size: var(--big);
   white-space: nowrap;
-  line-height: inherit;
+  /* line-height: inherit; */
 `;
 
 const SlugWrapper = styled.div`
@@ -43,7 +44,7 @@ const Slug = styled.p`
   text-transform: uppercase;
   white-space: nowrap;
   margin: 0;
-  line-height: inherit;
+  /* line-height: 1.3; */
   letter-spacing: 0.15rem;
 `;
 
