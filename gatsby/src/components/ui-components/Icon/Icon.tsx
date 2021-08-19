@@ -33,7 +33,7 @@ function Icon({ size = 40, color = "#000", ...delegated }: { size: number, color
         stroke={color}
         strokeOpacity="0.75"
         strokeWidth="30"
-        d="M242 33.887l188.516 97.493v192.24L242 421.113 53.484 323.62V131.38L242 33.887z"
+        d="M235 33.887l188.516 97.493v192.24L242 421.113 53.484 323.62V131.38L242 33.887z"
         variants={pathVariant}
         initial="hidden"
         animate="visible"
