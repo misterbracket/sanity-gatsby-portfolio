@@ -6,7 +6,7 @@ import { graphql } from "gatsby";
 import { ProjectData } from "../pages/projects";
 import { BlockText, Heading } from "../components/ui-components";
 import useFadeIn from "../components/hooks/useFadeIn";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 type ProjectType = {
   data: {
@@ -63,7 +63,7 @@ function Project({ data: { sanityProject } }: ProjectType) {
         <Heading>{sanityProject.name}</Heading>
         <ProjectStyles
           ref={intersectionRef}
-          variants={fadeInVariants}
+          variants={fadeInVariants as Variants | undefined}
           initial={initial}
           animate={animate}
         >
