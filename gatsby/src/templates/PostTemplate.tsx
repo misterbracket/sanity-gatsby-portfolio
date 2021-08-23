@@ -8,10 +8,11 @@ import {
   TableOfContent,
   Quote,
 } from "./../components/BlogComponents";
+import { NewsLetterCTA } from './../components'
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Heading } from "../components/ui-components";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import useFadeIn from "../components/hooks/useFadeIn";
 import { SEO } from "../components";
 
@@ -108,6 +109,7 @@ const shortcodes = {
     </strong>
   ),
   Quote,
+  NewsLetterCTA
 };
 
 export default function PostLayout({
@@ -131,7 +133,7 @@ export default function PostLayout({
           </MobileTableOfContent>
           <PostStyles
             ref={intersectionRef}
-            variants={fadeInVariants}
+            variants={fadeInVariants as Variants | undefined}
             initial={initial}
             animate={animate}
           >
