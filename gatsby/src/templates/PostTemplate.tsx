@@ -147,6 +147,7 @@ export default function PostLayout({
               {data.mdx.tableOfContents.items}
             </DesktopTableOfContent>
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
+            <NewsLetterCTA></NewsLetterCTA>
           </PostStyles>
         </PostPageStyles>
       </MDXProvider>
