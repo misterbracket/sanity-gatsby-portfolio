@@ -42,7 +42,7 @@ const ExpandButton = styled.button`
   bottom: -15px;
 
   @media ${(props) => props.theme.queries.tabletAndUp} {
-    bottom: -45px;
+    bottom: -50px;
   }
 `;
 
