@@ -36,6 +36,7 @@ const ConvertKitFormWrapper = styled(ConvertKitForm)`
    font-weight: bold;
    transition: transform 0.3s cubic-bezier(0.5, 0, 0.5, 1), opacity 0.2s linear;
    cursor: pointer;
+  border-radius: 50px;
  }
 
   button:hover {
