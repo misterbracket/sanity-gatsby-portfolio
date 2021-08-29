@@ -4,10 +4,9 @@ import { QUERIES } from "./src/styles/constants";
 import { Layout } from "./src/components";
 
 export function wrapPageElement({ element, props }) {
-  return (
-    <ThemeProvider theme={{ queries: QUERIES }}>
+  return <Layout {...props}>{element}</Layout>;
+}
 
-        <Layout {...props}>{element}</Layout>
-    </ThemeProvider>
-  );
+export function wrapRootElement({ element }) {
+  return <ThemeProvider theme={{ queries: QUERIES }}>{element}</ThemeProvider>
 }

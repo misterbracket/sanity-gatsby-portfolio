@@ -5,8 +5,11 @@ import styled from "styled-components";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
 import { Button, Sparkles } from "../components/ui-components";
 import { motion } from "framer-motion";
+import NewsletterLauncher from "../components/NewsletterLauncher";
+
 
 const AboutMeStyles = styled.div`
+  position: relative;
   --margin-top: 150px;
   margin-top: var(--margin-top);
   background: var(--color-one);
@@ -16,7 +19,6 @@ const AboutMeStyles = styled.div`
   flex-direction: column;
 
   @media ${(props) => props.theme.queries.laptopAndUp} {
-    position: static;
     margin: 0;
   }
 `;
@@ -31,7 +33,7 @@ const MainWrapper = styled.div`
     padding-right: 0;
     display: grid;
     grid-template: auto / 45% 55%;
-    position: static;
+    position: static;;
     width: 100%;
     height: 100%;
   }
@@ -114,6 +116,15 @@ const ButtonGroup = styled(motion.div)`
     gap: 1rem;
   }
 `;
+
+const NewsletterLauncherWrapper = styled(NewsletterLauncher)`
+position: absolute;
+bottom: 24px;
+right: 24px;
+@media ${(props) => props.theme.queries.tabletAndUp} {
+}
+`
+
 export interface PersonProps {
   name: string;
   profileslug: string;
@@ -167,6 +178,7 @@ const index = ({ location, data }: PageProps & AboutMePageProps) => {
             </ContentWrapper>
           </TextSection>
         </MainWrapper>
+        <NewsletterLauncherWrapper />
       </AboutMeStyles>
     </>
   );
