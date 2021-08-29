@@ -1,4 +1,3 @@
-export { default as useContactForm } from "./useContactForm";
 export { default as useIntersection } from "./useIntersection";
 export { default as useRandomInterval } from "./useRandomInterval";
 export { default as useMedia } from "./useMedia";
