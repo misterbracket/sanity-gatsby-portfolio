@@ -27,9 +27,7 @@ const Nav = () => {
     { linkName: "About Me", to: "/" },
     { linkName: "Resume", to: "/resume" },
     { linkName: "Projects", to: "/projects" },
-    { linkName: "Blog", to: "/blog" },
-    { linkName: "Contact Me", to: "/contact" },
-  ];
+    { linkName: "Blog", to: "/blog" }];
 
   return (
     <>
