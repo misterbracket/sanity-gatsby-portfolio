@@ -9,11 +9,12 @@ const config = {
 }
 
 const ConvertKitFormWrapper = styled(ConvertKitForm)`
-   max-width: 400px;
+
    margin: auto;
    padding: 30px 20px;
    border-radius: var(--curve);
    background: linear-gradient(45deg, var(--color-two), var(--color-one));
+   width: 400px;
 
  input,
  button {

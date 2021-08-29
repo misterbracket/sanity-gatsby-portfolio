@@ -13,13 +13,12 @@ const LauncherWrapper = styled(motion.div)`
 
 
 
-const Launcher = styled.button`
+const Launcher = styled(motion.button)`
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
   border-radius: 500px;
-  font-weight: 600;
   font-size: var(--big);
   background-color: var(--white);
   padding: 0 24px 0 0;
@@ -37,6 +36,8 @@ const LogoWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  isolation: isolate;
+  position: relative;
 `;
 
 const NewsletterLauncher = ({ ...delegated }) => {
@@ -53,11 +54,10 @@ const NewsletterLauncher = ({ ...delegated }) => {
       variants={fadeInVariants}
       initial={initial}
       animate={animate}
-      whileHover={{ scale: 1.1 }}
       {...delegated}
     >
       <NewsLetterDialog isOpen={isOpen} onClose={() => setIsOpen(false)} />
-      <Launcher onClick={() => setIsOpen(!isOpen)}>
+      <Launcher whileHover={{ scale: 1.1 }} onClick={() => setIsOpen(!isOpen)}>
         <VisuallyHidden>Subscribe To the Newsletter</VisuallyHidden>
         <LogoWrapper>
           <AiOutlineMail
