@@ -6,7 +6,6 @@ const GlobalStyles = createGlobalStyle`
   #___gatsby,
   #gatsby-focus-wrapper {
     height: 100%;
-    overflow: auto;
   }
 
   div[role="group"][tabindex] {
