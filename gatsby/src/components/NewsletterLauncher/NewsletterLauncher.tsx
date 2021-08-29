@@ -1,21 +1,19 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import styled from "styled-components";
+import useFadeIn from "../hooks/useFadeIn";
 import { VisuallyHidden } from "../ui-components";
+import { NewsLetterDialog } from "./components"
 
 
-const launcherVariants = {
-  hidden: { opacity: 0, y: 50 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { ease: "easeOut", duration: 0.7, deplay: 0.2 },
-  },
-}
+const LauncherWrapper = styled(motion.div)`
+  cursor: pointer;
+`
 
 
-const Launcher = styled(motion.button)`
+
+const Launcher = styled.button`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,21 +40,36 @@ const LogoWrapper = styled.div`
 `;
 
 const NewsletterLauncher = ({ ...delegated }) => {
+
+  const intersectionRef = React.useRef(null);
+
+  const [isOpen, setIsOpen] = useState(false)
+  const [initial, animate, fadeInVariants] = useFadeIn(intersectionRef);
+
+
   return (
-    <Launcher variants={launcherVariants}
-      initial="hidden"
-      animate="show" {...delegated}>
-      <VisuallyHidden>Subscribe To the Newsletter</VisuallyHidden>
-      <LogoWrapper>
-        <AiOutlineMail
-          aria-hidden
-          color="var(--white)"
-          title="Subscribe to Newsletter"
-          size="30"
-        />
-      </LogoWrapper>
-      Subscribe
-    </Launcher>
+    <LauncherWrapper
+      ref={intersectionRef}
+      variants={fadeInVariants}
+      initial={initial}
+      animate={animate}
+      whileHover={{ scale: 1.1 }}
+      {...delegated}
+    >
+      <NewsLetterDialog isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <Launcher onClick={() => setIsOpen(!isOpen)}>
+        <VisuallyHidden>Subscribe To the Newsletter</VisuallyHidden>
+        <LogoWrapper>
+          <AiOutlineMail
+            aria-hidden
+            color="var(--white)"
+            title="Subscribe to Newsletter"
+            size="30"
+          />
+        </LogoWrapper>
+        Subscribe
+      </Launcher>
+    </LauncherWrapper>
   );
 };
 
