@@ -34,7 +34,7 @@ const NavList = styled(motion.ul)`
   gap: 3rem;
 
   .active {
-    color: var(--color-two);
+    color: var(--color-two-dark);
   }
 `;
 
