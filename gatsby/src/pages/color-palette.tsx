@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css'; // optional
 import { ColorSlider } from "../components/ui-components";
 
 const Row = styled.div`
@@ -150,80 +152,80 @@ function colorPalette() {
         <h1>Color Palette</h1>
         <Row>
           <h3>Color Gray</h3>
-          <div className="demo-box color-gray-100"></div>
-          <div className="demo-box color-gray-300"></div>
-          <div className="demo-box color-gray-500"></div>
-          <div className="demo-box color-gray-700"></div>
-          <div className="demo-box color-gray-900"></div>
+          <Tippy content="--color-gray-100"><div className="demo-box color-gray-100"></div></Tippy>
+          <Tippy content="--color-gray-300"><div className="demo-box color-gray-300"></div></Tippy>
+          <Tippy content="--color-gray-500"><div className="demo-box color-gray-500"></div></Tippy>
+          <Tippy content="--color-gray-700"><div className="demo-box color-gray-700"></div></Tippy>
+          <Tippy content="--color-gray-900"><div className="demo-box color-gray-900"></div></Tippy>
         </Row>
         <Row>
           <Heading3>Color One</Heading3>
           <Row>
-            <div className="demo-box color-one-light"></div>
-            <div className="demo-box color-one"></div>
-            <div className="demo-box color-one-dark"></div>
+            <Tippy content="--color-one-light"><div className="demo-box color-one-light"></div></Tippy>
+            <Tippy content="--color-one"><div className="demo-box color-one"></div></Tippy>
+            <Tippy content="--color-one-dark"><div className="demo-box color-one-dark"></div></Tippy>
           </Row>
           <RowWithBackground>
-            <div className="demo-box color-one"></div>
-            <div className="demo-box color-one-alpha-700"></div>
-            <div className="demo-box color-one-alpha-500"></div>
-            <div className="demo-box color-one-alpha-300"></div>
+            <Tippy content="--color-one"><div className="demo-box color-one"></div></Tippy>
+            <Tippy content="--color-one-alpha-700"><div className="demo-box color-one-alpha-700"></div></Tippy>
+            <Tippy content="--color-one-alpha-500"><div className="demo-box color-one-alpha-500"></div></Tippy>
+            <Tippy content="--color-one-alpha-300"><div className="demo-box color-one-alpha-300"></div></Tippy>
           </RowWithBackground>
         </Row>
         <Row>
           <h3>Color Two</h3>
           <Row>
-            <div className="demo-box color-two-light"></div>
-            <div className="demo-box color-two"></div>
-            <div className="demo-box color-two-dark"></div>
+            <Tippy content="--color-two-light"><div className="demo-box color-two-light"></div></Tippy>
+            <Tippy content="--color-two"><div className="demo-box color-two"></div></Tippy>
+            <Tippy content="--color-two-dark"><div className="demo-box color-two-dark"></div></Tippy>
           </Row>
           <RowWithBackground>
-            <div className="demo-box color-two"></div>
-            <div className="demo-box color-two-alpha-700"></div>
-            <div className="demo-box color-two-alpha-500"></div>
-            <div className="demo-box color-two-alpha-300"></div>
+            <Tippy content="--color-two"><div className="demo-box color-two"></div></Tippy>
+            <Tippy content="--color-two-alpha-700"><div className="demo-box color-two-alpha-700"></div></Tippy>
+            <Tippy content="--color-two-alpha-500"><div className="demo-box color-two-alpha-500"></div></Tippy>
+            <Tippy content="--color-two-alpha-300"><div className="demo-box color-two-alpha-300"></div></Tippy>
           </RowWithBackground>
         </Row>
         <Row>
           <h3>Color Three</h3>
           <Row>
-            <div className="demo-box color-three-light"></div>
-            <div className="demo-box color-three"></div>
-            <div className="demo-box color-three-dark"></div>
+            <Tippy content="--color-three-light"><div className="demo-box color-three-light"></div></Tippy>
+            <Tippy content="--color-three"><div className="demo-box color-three"></div></Tippy>
+            <Tippy content="--color-three-dark"><div className="demo-box color-three-dark"></div></Tippy>
           </Row>
           <RowWithBackground>
-            <div className="demo-box color-three"></div>
-            <div className="demo-box color-three-alpha-700"></div>
-            <div className="demo-box color-three-alpha-500"></div>
-            <div className="demo-box color-three-alpha-300"></div>
+            <Tippy content="--color-three"><div className="demo-box color-three"></div></Tippy>
+            <Tippy content="--color-three-alpha-700"><div className="demo-box color-three-alpha-700"></div></Tippy>
+            <Tippy content="--color-three-alpha-500"><div className="demo-box color-three-alpha-500"></div></Tippy>
+            <Tippy content="--color-three-alpha-300"><div className="demo-box color-three-alpha-300"></div></Tippy>
           </RowWithBackground>
         </Row>
         <Row>
           <h3>Color Four</h3>
           <Row>
-            <div className="demo-box color-four-light"></div>
-            <div className="demo-box color-four"></div>
-            <div className="demo-box color-four-dark"></div>
+            <Tippy content="--color-four-light"><div className="demo-box color-four-light"></div></Tippy>
+            <Tippy content="--color-four"><div className="demo-box color-four"></div></Tippy>
+            <Tippy content="--color-four-dark"><div className="demo-box color-four-dark"></div></Tippy>
           </Row>
           <RowWithBackground>
-            <div className="demo-box color-four"></div>
-            <div className="demo-box color-four-alpha-700"></div>
-            <div className="demo-box color-four-alpha-500"></div>
-            <div className="demo-box color-four-alpha-300"></div>
+            <Tippy content="--color-four"><div className="demo-box color-four"></div></Tippy>
+            <Tippy content="--color-four-alpha-700"><div className="demo-box color-four-alpha-700"></div></Tippy>
+            <Tippy content="--color-four-alpha-500"><div className="demo-box color-four-alpha-500"></div></Tippy>
+            <Tippy content="--color-four-alpha-300"><div className="demo-box color-four-alpha-300"></div></Tippy>
           </RowWithBackground>
         </Row>
         <Row>
           <h3>Color Five</h3>
           <Row>
-            <div className="demo-box color-five-light"></div>
-            <div className="demo-box color-five"></div>
-            <div className="demo-box color-five-dark"></div>
+            <Tippy content="--color-five-light"><div className="demo-box color-five-light"></div></Tippy>
+            <Tippy content="--color-five"><div className="demo-box color-five"></div></Tippy>
+            <Tippy content="--color-five-dark"><div className="demo-box color-five-dark"></div></Tippy>
           </Row>
           <RowWithBackground>
-            <div className="demo-box color-five"></div>
-            <div className="demo-box color-five-alpha-700"></div>
-            <div className="demo-box color-five-alpha-500"></div>
-            <div className="demo-box color-five-alpha-300"></div>
+            <Tippy content="--color-five"><div className="demo-box color-five"></div></Tippy>
+            <Tippy content="--color-five-alpha-700"><div className="demo-box color-five-alpha-700"></div></Tippy>
+            <Tippy content="--color-five-alpha-500"><div className="demo-box color-five-alpha-500"></div></Tippy>
+            <Tippy content="--color-five-alpha-300"><div className="demo-box color-five-alpha-300"></div></Tippy>
           </RowWithBackground>
         </Row>
         <ColorSlider></ColorSlider>
