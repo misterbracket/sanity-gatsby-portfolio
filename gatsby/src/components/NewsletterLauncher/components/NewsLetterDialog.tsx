@@ -27,9 +27,14 @@ const animationVariants = {
 };
 
 const NewsLetterPopup = styled(motion.div)`
-  position: absolute;
-  bottom: 70px;
-  right: 0;
+position: absolute;
+bottom: 70px;
+right: 0;
+width: 360px;
+@media ${(props) => props.theme.queries.tabletAndUp} {
+  width: 400px;
+
+}
 `;
 
 const DialogWrapper = styled(motion.div)`

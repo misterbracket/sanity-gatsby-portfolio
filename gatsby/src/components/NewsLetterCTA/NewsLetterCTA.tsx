@@ -12,7 +12,6 @@ const ConvertKitFormWrapper = styled(ConvertKitForm)`
 
    margin: auto;
    background: transparent;
-   width: 400px;
 
  input,
  button {

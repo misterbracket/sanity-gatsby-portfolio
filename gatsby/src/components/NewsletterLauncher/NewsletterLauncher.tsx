@@ -55,7 +55,7 @@ const NewsletterLauncher = ({ ...delegated }) => {
         )}
       </AnimatePresence>
 
-      <Launcher whileHover={{ scale: 1.1 }} onClick={() => setIsOpen(!isOpen)}>
+      <Launcher whileHover={{ scale: 1.02 }} onClick={() => setIsOpen(!isOpen)}>
         <VisuallyHidden>Subscribe To the Newsletter</VisuallyHidden>
         <LogoWrapper>
           <AiOutlineMail
