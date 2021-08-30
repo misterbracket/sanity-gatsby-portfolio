@@ -1,5 +1,5 @@
+import ConvertKitForm from 'convertkit-react';
 import React from "react";
-import ConvertKitForm from 'convertkit-react'
 import styled from "styled-components";
 
 const config = {
@@ -9,11 +9,9 @@ const config = {
 }
 
 const ConvertKitFormWrapper = styled(ConvertKitForm)`
-   max-width: 400px;
+
    margin: auto;
-   padding: 30px 20px;
-   border-radius: var(--curve);
-   background: linear-gradient(45deg, var(--color-two), var(--color-one));
+   background: transparent;
 
  input,
  button {
@@ -31,12 +29,12 @@ const ConvertKitFormWrapper = styled(ConvertKitForm)`
  }
 
   button {
-   background: rgba(255, 255, 255, 0.5);
-   color: var(--color-gray-700);
+   background: var(--color-two);
+   color: var(--white);
    font-weight: bold;
    transition: transform 0.3s cubic-bezier(0.5, 0, 0.5, 1), opacity 0.2s linear;
    cursor: pointer;
-  border-radius: 50px;
+   border-radius: 50px;
  }
 
   button:hover {

@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
-import { usePrefersReducedMotion } from "../hooks";
 import useFadeIn from "../hooks/useFadeIn";
 import { post } from "./../../pages/blog";
 
@@ -57,13 +56,12 @@ function BlogPostExcerpt({ data }: { data: post }) {
 
   const [initial, animate, fadeInVariants] = useFadeIn(intersectionRef);
 
-  const prefersReducedMotion = usePrefersReducedMotion();
   return (
     <BlogPostExcerptWrapper
       ref={intersectionRef}
       variants={fadeInVariants}
       initial={initial}
-      animate={prefersReducedMotion ? "" : animate}
+      animate={animate}
     >
       <Link to={`${removeTrailingSlash(data.fields.slug)}`}>
         <BlogTitle>{data.frontmatter.title}</BlogTitle>

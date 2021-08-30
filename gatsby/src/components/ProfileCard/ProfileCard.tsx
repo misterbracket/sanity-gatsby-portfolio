@@ -56,7 +56,7 @@ const HorizontalRuler = styled.hr`
   width: 10rem;
   background-color: var(--color-two);
   height: 2px;
-  margin-top: 5px 0 15px 0;
+  margin: 5px 0 15px 0;
 `;
 const ButtonGroup = styled.div`
   margin-top: 1.5rem;

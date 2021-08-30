@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { GoLocation } from "react-icons/go";
 import { EducationData, JobData } from "../../pages/resume";
-import { useIntersection, usePrefersReducedMotion } from "../hooks";
 import { motion } from "framer-motion";
 import useFadeIn from "../hooks/useFadeIn";
 

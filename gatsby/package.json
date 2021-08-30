@@ -48,6 +48,7 @@
     "gatsby-source-sanity": "^7.0.2",
     "netlify-lambda": "^2.0.3",
     "normalize.css": "^8.0.1",
+    "postcss": "^8.3.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",

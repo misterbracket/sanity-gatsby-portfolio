@@ -1,5 +1,6 @@
-import React from "react"
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import React from "react";
+import { usePrefersReducedMotion } from "../../hooks";
 
 
 const pathVariant = {
@@ -18,6 +19,7 @@ const pathVariant = {
 }
 
 function Icon({ size = 40, color = "#000", ...delegated }: { size: number, color: string }) {
+  const prefersReducedMotion = usePrefersReducedMotion();
   return (
     <svg
       {...delegated}
@@ -34,7 +36,7 @@ function Icon({ size = 40, color = "#000", ...delegated }: { size: number, color
         strokeOpacity="0.75"
         strokeWidth="30"
         d="M235 33.887l188.516 97.493v192.24L242 421.113 53.484 323.62V131.38L242 33.887z"
-        variants={pathVariant}
+        variants={prefersReducedMotion ?  undefined : pathVariant}
         initial="hidden"
         animate="visible"
 

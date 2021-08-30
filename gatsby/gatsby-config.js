@@ -49,6 +49,7 @@ module.exports = {
         projectId: process.env.GATSBY_SANITY_PROJECT_ID || "4t789e8u",
         dataset: process.env.GATSBY_SANITY_DATASET || "production",
         fragmentTypeName: "SanityFigure",
+        apiVersion: '2021-03-25'
       },
     },
     //Used to get the data like MDX from the local filesystem
