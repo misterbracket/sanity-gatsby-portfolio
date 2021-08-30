@@ -1,14 +1,10 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import styled from "styled-components";
 import useFadeIn from "../hooks/useFadeIn";
 import { VisuallyHidden } from "../ui-components";
 import { NewsLetterDialog } from "./components";
-
-
-
-
 
 const Launcher = styled(motion.button)`
   display: flex;
@@ -23,10 +19,11 @@ const Launcher = styled(motion.button)`
   box-shadow: var(--shd);
   border: none;
   cursor: pointer;
+  position: relative;
 `;
 
 const LogoWrapper = styled.div`
-  background: var(--color-two-dark);
+  background: var(--color-one-dark);
   padding: 8px;
   border-radius: 500px;
   width: 60px;
@@ -39,12 +36,10 @@ const LogoWrapper = styled.div`
 `;
 
 const NewsletterLauncher = ({ ...delegated }) => {
-
   const intersectionRef = React.useRef(null);
 
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
   const [initial, animate, fadeInVariants] = useFadeIn(intersectionRef);
-
 
   return (
     <motion.div
@@ -54,7 +49,12 @@ const NewsletterLauncher = ({ ...delegated }) => {
       animate={animate}
       {...delegated}
     >
-      <NewsLetterDialog isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <AnimatePresence>
+        {isOpen && (
+          <NewsLetterDialog isOpen={isOpen} onClose={() => setIsOpen(false)} />
+        )}
+      </AnimatePresence>
+
       <Launcher whileHover={{ scale: 1.1 }} onClick={() => setIsOpen(!isOpen)}>
         <VisuallyHidden>Subscribe To the Newsletter</VisuallyHidden>
         <LogoWrapper>
