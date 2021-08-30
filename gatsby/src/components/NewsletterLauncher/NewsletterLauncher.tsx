@@ -4,12 +4,9 @@ import { AiOutlineMail } from "react-icons/ai";
 import styled from "styled-components";
 import useFadeIn from "../hooks/useFadeIn";
 import { VisuallyHidden } from "../ui-components";
-import { NewsLetterDialog } from "./components"
+import { NewsLetterDialog } from "./components";
 
 
-const LauncherWrapper = styled(motion.div)`
-  cursor: pointer;
-`
 
 
 
@@ -25,6 +22,7 @@ const Launcher = styled(motion.button)`
   letter-spacing: 2.2px;
   box-shadow: var(--shd);
   border: none;
+  cursor: pointer;
 `;
 
 const LogoWrapper = styled.div`
@@ -49,7 +47,7 @@ const NewsletterLauncher = ({ ...delegated }) => {
 
 
   return (
-    <LauncherWrapper
+    <motion.div
       ref={intersectionRef}
       variants={fadeInVariants}
       initial={initial}
@@ -69,7 +67,7 @@ const NewsletterLauncher = ({ ...delegated }) => {
         </LogoWrapper>
         Subscribe
       </Launcher>
-    </LauncherWrapper>
+    </motion.div>
   );
 };
 
