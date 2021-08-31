@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import styled from "styled-components";
+import { usePrefersReducedMotion } from "../hooks";
 import useFadeIn from "../hooks/useFadeIn";
 import { VisuallyHidden } from "../ui-components";
 import { NewsLetterDialog } from "./components";
@@ -40,7 +41,7 @@ const NewsletterLauncher = ({ ...delegated }) => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [initial, animate, fadeInVariants] = useFadeIn(intersectionRef);
-
+  const prefersReducedMotion = usePrefersReducedMotion()
   return (
     <motion.div
       ref={intersectionRef}
@@ -49,10 +50,13 @@ const NewsletterLauncher = ({ ...delegated }) => {
       animate={animate}
       {...delegated}
     >
-
       <NewsLetterDialog isOpen={isOpen} onClose={() => setIsOpen(false)} />
 
-      <Launcher whileHover={{ scale: 1.02 }} onClick={() => setIsOpen(!isOpen)}>
+      <Launcher
+        whileHover={prefersReducedMotion ? "" : { scale: 1.02 }}
+        whileTap={prefersReducedMotion ? "" : { scale: 0.9 }}
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <VisuallyHidden>Subscribe To the Newsletter</VisuallyHidden>
         <LogoWrapper>
           <AiOutlineMail
@@ -64,7 +68,7 @@ const NewsletterLauncher = ({ ...delegated }) => {
         </LogoWrapper>
         Subscribe
       </Launcher>
-    </motion.div>
+    </motion.div >
   );
 };
 

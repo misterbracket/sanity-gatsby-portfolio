@@ -27,8 +27,6 @@ const animationVariants = {
   },
 };
 
-// const CustomDialogOverlay = motion.custom(DialogOverlay);
-
 const NewsLetterPopup = styled(DialogOverlay)`
   position: absolute;
   bottom: 150px;
@@ -62,26 +60,27 @@ type NewsLetterDialogProps = {
 
 function NewsLetterDialog({ isOpen, onClose }: NewsLetterDialogProps) {
   const prefersReducedMotion = usePrefersReducedMotion();
+
+  const MotionDialogContent = motion(DialogContent);
+
   return (
     <AnimatePresence>
       {isOpen && (
-        <NewsLetterPopup
-          isOpen={isOpen}
-          onDismiss={onClose}
-          initial={"inital"}
-          animate={isOpen ? "visible" : "inital"}
-          variants={prefersReducedMotion ? undefined : animationVariants}
-          aria-label="Newsletter Subscribtion Box"
-          exit={{
-            y: 100,
-            opacity: 0,
-            transition: {
-              ease: "easeIn",
-              duration: 0.3,
-            },
-          }}
-        >
-          <DialogContent>
+        <NewsLetterPopup onDismiss={onClose} isOpen={isOpen}>
+          <MotionDialogContent
+            initial={"inital"}
+            animate={isOpen ? "visible" : "inital"}
+            variants={prefersReducedMotion ? undefined : animationVariants}
+            aria-label="Newsletter Subscribtion Box"
+            exit={{
+              y: 100,
+              opacity: 0,
+              transition: {
+                ease: "easeIn",
+                duration: 0.3,
+              },
+            }}
+          >
             <DialogWrapper>
               <h3>Subscribe to my Newsletter</h3>
               <NewsLetterDialogCloseButton onClick={() => onClose()}>
@@ -97,7 +96,7 @@ function NewsLetterDialog({ isOpen, onClose }: NewsLetterDialogProps) {
               </NewsLetterDialogCloseButton>
               <NewsLetterCTA />
             </DialogWrapper>
-          </DialogContent>
+          </MotionDialogContent>
         </NewsLetterPopup>
       )}
     </AnimatePresence>
