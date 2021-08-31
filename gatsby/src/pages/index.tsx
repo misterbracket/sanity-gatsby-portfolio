@@ -8,7 +8,7 @@ import ProfileCard from "../components/ProfileCard/ProfileCard";
 import { Button, Sparkles } from "../components/ui-components";
 
 
-const AboutMeStyles = styled.div`
+const AboutMeStyles = styled.main`
   position: relative;
   --margin-top: 150px;
   margin-top: var(--margin-top);
