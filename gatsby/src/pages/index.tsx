@@ -1,11 +1,11 @@
-import React from "react";
+import { motion } from "framer-motion";
 import { graphql, Link, PageProps } from "gatsby";
-import { SEO } from "../components";
+import React from "react";
 import styled from "styled-components";
+import { SEO } from "../components";
+import NewsletterLauncher from "../components/NewsletterLauncher";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
 import { Button, Sparkles } from "../components/ui-components";
-import { motion } from "framer-motion";
-import NewsletterLauncher from "../components/NewsletterLauncher";
 
 
 const AboutMeStyles = styled.div`
@@ -178,7 +178,7 @@ const index = ({ location, data }: PageProps & AboutMePageProps) => {
             </ContentWrapper>
           </TextSection>
         </MainWrapper>
-        {/* <NewsletterLauncherWrapper /> */}
+        <NewsletterLauncherWrapper />
       </AboutMeStyles>
     </>
   );

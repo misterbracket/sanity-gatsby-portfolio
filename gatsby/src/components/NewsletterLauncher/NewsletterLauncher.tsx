@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import styled from "styled-components";
@@ -49,11 +49,8 @@ const NewsletterLauncher = ({ ...delegated }) => {
       animate={animate}
       {...delegated}
     >
-      <AnimatePresence>
-        {isOpen && (
-          <NewsLetterDialog isOpen={isOpen} onClose={() => setIsOpen(false)} />
-        )}
-      </AnimatePresence>
+
+      <NewsLetterDialog isOpen={isOpen} onClose={() => setIsOpen(false)} />
 
       <Launcher whileHover={{ scale: 1.02 }} onClick={() => setIsOpen(!isOpen)}>
         <VisuallyHidden>Subscribe To the Newsletter</VisuallyHidden>

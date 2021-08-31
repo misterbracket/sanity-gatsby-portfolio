@@ -1,5 +1,5 @@
-import React from "react";
 import { Link } from "gatsby";
+import React from "react";
 import styled from "styled-components";
 import Icon from "../../../ui-components/Icon";
 
@@ -9,11 +9,11 @@ const TitleStyles = styled.div`
   line-height: 1.1;
   width: min-content;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 50px 1fr;
   justify-items: start;
   align-items: center;
-  gap: 0 10px ;
+  gap: 0 10px;
+  width: 100%;
 `;
 
 const HeadingLogo = styled(Icon)`
@@ -25,6 +25,9 @@ const NameWrapper = styled.p`
   margin: 0;
   padding: 0;
   line-height: 1rem;
+  height: 40px;
+  display: flex;
+  align-items: center;
 `;
 
 const Name = styled(Link)`
@@ -42,8 +45,8 @@ const SlugWrapper = styled.div`
 const Slug = styled.p`
   font-size: 1.4rem;
   text-transform: uppercase;
-  white-space: nowrap;
   margin: 0;
+  text-align: start;
   /* line-height: 1.3; */
   letter-spacing: 0.15rem;
 `;

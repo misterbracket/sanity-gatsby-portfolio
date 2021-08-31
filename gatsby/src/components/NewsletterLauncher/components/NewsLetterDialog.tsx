@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { DialogContent, DialogOverlay } from "@reach/dialog";
+import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import { RiCloseCircleLine } from "react-icons/ri";
 import styled from "styled-components";
@@ -26,15 +27,16 @@ const animationVariants = {
   },
 };
 
-const NewsLetterPopup = styled(motion.div)`
-position: absolute;
-bottom: 70px;
-right: 0;
-width: 360px;
-@media ${(props) => props.theme.queries.tabletAndUp} {
-  width: 400px;
+// const CustomDialogOverlay = motion.custom(DialogOverlay);
 
-}
+const NewsLetterPopup = styled(DialogOverlay)`
+  position: absolute;
+  bottom: 150px;
+  right: 0;
+  width: 360px;
+  @media ${(props) => props.theme.queries.tabletAndUp} {
+    width: 400px;
+  }
 `;
 
 const DialogWrapper = styled(motion.div)`
@@ -61,34 +63,44 @@ type NewsLetterDialogProps = {
 function NewsLetterDialog({ isOpen, onClose }: NewsLetterDialogProps) {
   const prefersReducedMotion = usePrefersReducedMotion();
   return (
-      <NewsLetterPopup
-        initial={"inital"}
-        animate={isOpen ? "visible" : "inital"}
-        variants={prefersReducedMotion ? undefined : animationVariants}
-        aria-label="Newsletter Subscribtion Box"
-        exit={{
-          y: 100,
-          opacity: 0,
-          transition: {
-            ease: "easeIn",
-            duration: 0.3,
-          },
-        }}
-      >
-        <DialogWrapper>
-          <h3>Subscribe to my Newsletter</h3>
-          <NewsLetterDialogCloseButton onClick={() => onClose()}>
-            <VisuallyHidden>Close Newsletter Subscription Popup</VisuallyHidden>
-            <RiCloseCircleLine
-              aria-hidden
-              color="var(--color-gray-900)"
-              title="Close Menu"
-              size="35"
-            />
-          </NewsLetterDialogCloseButton>
-          <NewsLetterCTA />
-        </DialogWrapper>
-      </NewsLetterPopup>
+    <AnimatePresence>
+      {isOpen && (
+        <NewsLetterPopup
+          isOpen={isOpen}
+          onDismiss={onClose}
+          initial={"inital"}
+          animate={isOpen ? "visible" : "inital"}
+          variants={prefersReducedMotion ? undefined : animationVariants}
+          aria-label="Newsletter Subscribtion Box"
+          exit={{
+            y: 100,
+            opacity: 0,
+            transition: {
+              ease: "easeIn",
+              duration: 0.3,
+            },
+          }}
+        >
+          <DialogContent>
+            <DialogWrapper>
+              <h3>Subscribe to my Newsletter</h3>
+              <NewsLetterDialogCloseButton onClick={() => onClose()}>
+                <VisuallyHidden>
+                  Close Newsletter Subscription Popup
+                </VisuallyHidden>
+                <RiCloseCircleLine
+                  aria-hidden
+                  color="var(--color-gray-900)"
+                  title="Close Menu"
+                  size="35"
+                />
+              </NewsLetterDialogCloseButton>
+              <NewsLetterCTA />
+            </DialogWrapper>
+          </DialogContent>
+        </NewsLetterPopup>
+      )}
+    </AnimatePresence>
   );
 }
 
