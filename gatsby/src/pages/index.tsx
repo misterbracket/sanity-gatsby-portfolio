@@ -1,11 +1,25 @@
 import { motion } from "framer-motion";
 import { graphql, Link, PageProps } from "gatsby";
 import React from "react";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { SEO } from "../components";
 import NewsletterLauncher from "../components/NewsletterLauncher";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
 import { Button, Sparkles } from "../components/ui-components";
+
+const GlobalStyles = createGlobalStyle`
+
+  @media(min-width: 1100px) {
+    html, body, #___gatsby {
+    height: 100%;
+    }
+    #gatsby-focus-wrapper {
+      height: 100%;
+    }
+  }
+`
+
+
 
 
 const AboutMeStyles = styled.main`
@@ -146,6 +160,7 @@ const index = ({ location, data }: PageProps & AboutMePageProps) => {
 
   return (
     <>
+      <GlobalStyles />
       <SEO title={`A little about me`} location={location} />
       <AboutMeStyles>
         <MainWrapper>

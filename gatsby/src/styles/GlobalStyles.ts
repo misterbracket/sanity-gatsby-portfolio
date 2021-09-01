@@ -2,14 +2,6 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 
-  html, body, #___gatsby {
-    height: 100%;
-  }
-
-  #gatsby-focus-wrapper {
-    height: 100%;
-  }
-
   body {
     scroll-behavior: smooth
   }

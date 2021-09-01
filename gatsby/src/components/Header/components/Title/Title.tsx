@@ -25,7 +25,7 @@ const NameWrapper = styled.p`
   margin: 0;
   padding: 0;
   line-height: 1rem;
-  height: 40px;
+  height: 25px;
   display: flex;
   align-items: center;
 `;
