@@ -1,14 +1,28 @@
-import React from "react";
+import { motion } from "framer-motion";
 import { graphql, Link, PageProps } from "gatsby";
+import React from "react";
+import styled, { createGlobalStyle } from "styled-components";
 import { SEO } from "../components";
-import styled from "styled-components";
+import NewsletterLauncher from "../components/NewsletterLauncher";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
 import { Button, Sparkles } from "../components/ui-components";
-import { motion } from "framer-motion";
-import NewsletterLauncher from "../components/NewsletterLauncher";
+
+const GlobalStyles = createGlobalStyle`
+
+  @media(min-width: 1100px) {
+    html, body, #___gatsby {
+    height: 100%;
+    }
+    #gatsby-focus-wrapper {
+      height: 100%;
+    }
+  }
+`
 
 
-const AboutMeStyles = styled.div`
+
+
+const AboutMeStyles = styled.main`
   position: relative;
   --margin-top: 150px;
   margin-top: var(--margin-top);
@@ -120,7 +134,7 @@ const ButtonGroup = styled(motion.div)`
 const NewsletterLauncherWrapper = styled(NewsletterLauncher)`
 position: absolute;
 bottom: 24px;
-right: 24px;
+right: 20px;
 @media ${(props) => props.theme.queries.tabletAndUp} {
 }
 `
@@ -146,6 +160,7 @@ const index = ({ location, data }: PageProps & AboutMePageProps) => {
 
   return (
     <>
+      <GlobalStyles />
       <SEO title={`A little about me`} location={location} />
       <AboutMeStyles>
         <MainWrapper>

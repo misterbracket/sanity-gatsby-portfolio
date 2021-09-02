@@ -1,36 +1,14 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
-  html,
-  body,
-  #___gatsby,
-  #gatsby-focus-wrapper {
-    height: 100%;
-  }
-
-  div[role="group"][tabindex] {
-      height: 100%;
-  }
 
   body {
     scroll-behavior: smooth
   }
 
-
-  #gatsby-focus-wrapper {
-    height: 100%;
-    min-height: 100%;
-  }
-
   *, *::before, *::after {
   box-sizing: border-box;
   }
-
-
-  fieldset {
-    border: none;
-  }
-
 
   /* Scrollbar Styles */
   /*Firefox implementation */
@@ -38,6 +16,7 @@ const GlobalStyles = createGlobalStyle`
     scrollbar-width: thin;
     scrollbar-color: var(--color-gray-300) var(--white);
     scroll-padding-top: 230px; /* height of sticky header */
+    --reach-dialog: 1;
   }
 
 
@@ -63,7 +42,6 @@ const GlobalStyles = createGlobalStyle`
   img {
     max-width: 100%;
   }
-
 `;
 
 export default GlobalStyles;
