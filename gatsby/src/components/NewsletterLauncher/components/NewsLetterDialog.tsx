@@ -29,8 +29,8 @@ const animationVariants = {
 
 const NewsLetterPopup = styled(DialogOverlay)`
   position: absolute;
-  bottom: 150px;
-  right: 0;
+  bottom: 160px;
+  right: 8px;
   width: 360px;
   @media ${(props) => props.theme.queries.tabletAndUp} {
     width: 400px;

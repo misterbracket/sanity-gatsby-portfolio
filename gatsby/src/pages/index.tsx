@@ -134,7 +134,7 @@ const ButtonGroup = styled(motion.div)`
 const NewsletterLauncherWrapper = styled(NewsletterLauncher)`
 position: absolute;
 bottom: 24px;
-right: 24px;
+right: 20px;
 @media ${(props) => props.theme.queries.tabletAndUp} {
 }
 `
@@ -193,7 +193,7 @@ const index = ({ location, data }: PageProps & AboutMePageProps) => {
             </ContentWrapper>
           </TextSection>
         </MainWrapper>
-        <NewsletterLauncherWrapper />
+        {/* <NewsletterLauncherWrapper /> */}
       </AboutMeStyles>
     </>
   );
