@@ -5,22 +5,23 @@ import Icon from "../../../ui-components/Icon";
 
 const TitleStyles = styled.div`
   grid-area: title;
-  padding: 1rem 1rem 1rem 3rem;
+  padding: 1rem 1rem 1rem 2rem;
   line-height: 1.1;
   width: min-content;
   display: grid;
   grid-template-columns: 50px 1fr;
   justify-items: start;
   align-items: center;
-  gap: 0 10px;
   width: 100%;
+  gap: 0 1.5rem;
 `;
 
 const HeadingLogo = styled(Icon)`
-    grid-column: 1;
-    grid-row: 1 / 3;
-    transform: translateY(-3px);
-`
+  grid-column: 1;
+  grid-row: 1 / 3;
+  /* transform: translateY(-3px); */
+  align-self: center;
+`;
 const NameWrapper = styled.p`
   margin: 0;
   padding: 0;

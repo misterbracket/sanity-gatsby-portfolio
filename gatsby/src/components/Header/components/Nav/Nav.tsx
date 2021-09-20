@@ -7,7 +7,7 @@ const NavBurgerIconWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 3rem;
+  padding-right: 2rem;
   background: var(--white);
 `;
 const NavBurgerIcon = styled.button`
