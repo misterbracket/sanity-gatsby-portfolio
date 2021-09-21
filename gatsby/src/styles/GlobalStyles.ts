@@ -17,7 +17,9 @@ const GlobalStyles = createGlobalStyle`
     scrollbar-color: var(--color-gray-300) var(--white);
     scroll-padding-top: 230px; /* height of sticky header */
     --reach-dialog: 1;
-  }
+/* Prevents appearing scrollbar from shifting content */
+    margin-left: calc(100vw - 100%)
+}
 
 
   /* Chrome implementation*/
