@@ -34,7 +34,7 @@ function Icon({ size = 40, color = "#000", ...delegated }: { size: number, color
       <motion.path
         stroke={color}
         strokeOpacity="0.75"
-        strokeWidth="30"
+        strokeWidth="20"
         d="M235 33.887l188.516 97.493v192.24L242 421.113 53.484 323.62V131.38L242 33.887z"
         variants={prefersReducedMotion ?  undefined : pathVariant}
         initial="hidden"

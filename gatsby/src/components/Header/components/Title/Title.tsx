@@ -48,7 +48,7 @@ const Slug = styled.p`
   text-transform: uppercase;
   margin: 0;
   text-align: start;
-  /* line-height: 1.3; */
+  line-height: 1;
   letter-spacing: 0.15rem;
 `;
 
