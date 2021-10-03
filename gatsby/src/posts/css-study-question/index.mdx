@@ -23,43 +23,43 @@ date: 2021-10-03
 ## Rendering Logic I
 
 - How is CSS inheritance like prototypal inheritance?
-- What properties are naturally içnherited?
-- Can a property that is inherited be overwritten by the users-agent stylesheet of a browser? Eg. color
+- What properties are inherited by default?
+- Can a property that is inherited be overwritten by the users-agent stylesheet of a browser (e.g. color)?
 - How can you force inheritance?
 - What does the _cascading_ in CSS mean?
 - Is cascading still relevant in modern web development? If yes, in which way?
 - What is cardinality?
 - What is the box model? What are the four elements?
 
-  ```html
-  <style>
-    section {
-      width: 500px;
-    }
-    .box {
-      width: 100%;
-      padding: 20px;
-      border: 4px solid;
-    }
-  </style>
-  <section>
-    <div class="box"></div>
-  </section>
-  ```
+```html
+<style>
+  section {
+    width: 500px;
+  }
+  .box {
+    width: 100%;
+    padding: 20px;
+    border: 4px solid;
+  }
+</style>
+<section>
+  <div class="box"></div>
+</section>
+```
 
 - By default how is the total width of an element calculated? In the example above: what will ultimately be the width and the height of the element?
 - What option does the box-sizing property take? What is the difference?
 - Does margin have an effect on boxsizing?
 
-  ```css
-  .something {
-    width: 400px;
-    height: 150px;
-    padding-bottom: 50%;
-  }
-  ```
+```css
+.something {
+  width: 400px;
+  height: 150px;
+  padding-bottom: 50%;
+}
+```
 
-- What does padding-block do? Where does padding-inline set the padding? Where does padding-inline-start set the padding?
+- What does `padding-block` do? Where does `padding-inline` set the padding? Where does `padding-inline-start` set the padding?
 - What is the difference between outline and border?
 - What does `margin: auto` do? How is this behaviour similar to `width: auto`?
 - What is the behaviour when you set the height or the width of a `display: inline` element?
@@ -68,3 +68,71 @@ date: 2021-10-03
 - What does `width: 100%` and `margin: 32px` do on a block level element?
 - What does `width: min-content`, `width: max-content`, `width: fit-content` do?
 - What are the rules for margin collapse? When do margins of elements collapse?
+
+## Rendering Logic II
+
+- What is the point of positioned Layout (as in `position: absolute|fixed|relative`)?
+- What is the default position?
+- What does `position: relative` do?
+- What is the difference with moving elements with margin and with position?
+- How do percentages work in `position: absolute`?
+- What effect has `position: absolute` on layout?
+- What is the issue when children have the `position: absolute` property set? What is the height of the containg element?
+- What is the width of a `position: absolute` element that is display block?
+- Is it better to use margins or padding elements that have the property `position: absolute`? Why would you want to use margins and paddings anyway?
+- What happens if you set all four items on a `position: absolute` element (top, bottom, left, right)?
+- How can you center a modal in the middle of the screen (with `position: absolute`)?
+- How does a `position: absolute` element get contained so that it does not automatically jump to the edge of the screen?
+- What happens if you just set an item to `position: absolute` without the any directions (top, bottom, left right)?
+- How does a `position: absolute` element get contained so that it does not automatically jump to the edge of the screen?
+- In a stack of overlapping elements which item renders on top without using z-index or positioned layout?
+- What is a stacking context?
+- What happens if one element is styled with positioned layout? How will it change the default behaviour of the browser?
+- What is the main way to create a stacking context?
+- What are other ways to create stacking contexts?
+- Can you contain a `position: fixed` element with a wrapping `position: relative`?
+- In some cases a CSS property on an ancestor will interfere with how a `position: fixed` element is contained. What is the exception for positioning elements with fixed?
+- Can you implement a model also with `position: fixed`? What will be the difference to `position: absolute` modal?
+- What is the difference between `overflow: scroll` and `overflow: auto`?
+- What is the use case of `overflow: hidden`?
+- What is the use case of `overflow: hidden`?
+- How can you overflow: hidden an overflowing `position: absolute` element?
+- `position: sticky` means that there is a transition between two values the the position property. Which one?
+- Does `position: sticky` take up space in the layout or is it like `position: absolute`?
+- How to contain a `position: sticky` element?
+- What does `top: 50px` do on a `position: sticky` element?
+- What does `top: -50px` do on a `position: sticky` element?
+- What will prevent `position: sticky` to work?
+- What is the difference between `visibility: hidden` and `display: none` and `opacity: 0`?
+
+## Modern Component Architecture
+
+- What does the revert value do (e.g `text-decoration: revert`)?
+- How can you select all the elements except for the first one in a list?
+- What is the native HTML element to create a progress bar?
+- If you have to make a Progress Bar accessible, how would you do it?
+
+## FlexBox
+
+- How does cardinality and Flexbox relate?
+- What is the primary axis? What is the cross axis? How can you flip it?
+- What is the default size of a flex item? The parent only has `display: flex` applied and a fixed height and width.
+- What does `align-items: baseline` do?
+- What is the minimum width that an item can become? <strong>Hint:</strong> What would be the corresponding width value? What would overflow? The container or the items?
+- What does `flex-basi`s do?
+- If an item has both flex-basis and a height set, who your win? Assume the parent has the property `flex-direction: column`.
+- What does `flex-grow` do? What happen to a set `flex-basi`s on the same element?
+- What does `flex-shrink` do? What happen to a set `flex-basi`s on the same element?
+- What does `flex: 1` do? To what will `flex-basi`s be set?
+- How can you constrain an elements size after applying `flex-grow` or `flex-shrink` on it? Does it make sense to constrain the height and the width? When can it become problematic constraining the height?
+- How can you control when a flex row should wrap? How can you control the size of the items that goes into the next line?
+- What is the difference between `align-items` and `justify-content` (in FlexBox)?
+- What does `align-content :center` do? Under what condition is it useful? What is the difference to `align-items`?
+- What does `gap: 30px` do?
+- What is the "magic space" for images? Why is it there? How can we fix it?
+- How does the `order` property work on flex children?
+- What does the `tab-index` attribute on a HTML element do?
+- What happens if layout modes crash? E.g. what happens if an element is a flex item and has a `position: fixed` property?
+- What about relative positioning?
+- What about margin collapse?
+- How do FlexBox and z-index interact with each other?

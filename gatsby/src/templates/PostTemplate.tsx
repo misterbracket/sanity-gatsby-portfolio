@@ -10,8 +10,7 @@ import { Heading } from "../components/ui-components";
 import {
   CodeBlock,
   Heading1,
-  Heading2,
-  Paragraph,
+  Heading2, ListItem, Paragraph,
   Quote,
   TableOfContent
 } from "./../components/BlogComponents";
@@ -42,12 +41,6 @@ const PostPageStyles = styled.main`
   code {
     color: #ce4d3c;
   }
-
-  /* li {
-    display: list-item;
-    list-style-type: "➔";
-    padding-inline-start: 1ch;
-  } */
   
   @media ${(props) => props.theme.queries.laptopAndUp} {
     gap: 2.5rem;
@@ -116,6 +109,9 @@ const shortcodes = {
     <strong {...props} style={{ color: "var(--color-two-dark)" }}>
       {props.children}
     </strong>
+  ),
+  li: (props: { children: ReactNode; delegated: Array<any> }) => (
+    <ListItem {...props} />
   ),
   Quote,
   code: CodeBlock,
