@@ -11,12 +11,12 @@ date: 2021-10-03
 - How does `:active` work?
 - How does `:checked` work?
 - What does HSL stand for? What do the values stand for?
-- Can you write a HSL color declaration with transparency?
+- Can you write an HSL color declaration with transparency?
 - What does the `em` tag do?
-- What is the prefered unit for typography and why?
-- What is the prefered unit for width and height and why?
-- What is the prefered unit for margin, padding and border?
-- What is the prefered unit for color?
+- What is the preferred unit for typography and why?
+- What is the preferred unit for width and height and why?
+- What is the preferred unit for margin, padding, and border?
+- What is the preferred unit for color?
 - What happens if you use `font-style: bold`? What happens if you use the corresponding number instead? What happens if you did not provide a e.g. 700 weight character set for your font?
 - What should be a good value for contrast ratio?
 
@@ -62,8 +62,8 @@ date: 2021-10-03
 - What does `padding-block` do? Where does `padding-inline` set the padding? Where does `padding-inline-start` set the padding?
 - What is the difference between outline and border?
 - What does `margin: auto` do? How is this behaviour similar to `width: auto`?
-- What is the behaviour when you set the height or the width of a `display: inline` element?
-  - What are the exceptions?
+- What is the behavior when you set the height or the width of a `display: inline` element?
+- What are the exceptions?
 - What is the default width behaviour?
 - What does `width: 100%` and `margin: 32px` do on a block level element?
 - What does `width: min-content`, `width: max-content`, `width: fit-content` do?
@@ -74,30 +74,30 @@ date: 2021-10-03
 - What is the point of positioned Layout (as in `position: absolute|fixed|relative`)?
 - What is the default position?
 - What does `position: relative` do?
-- What is the difference with moving elements with margin and with position?
+- What is the difference between moving elements with margin and with position?
 - How do percentages work in `position: absolute`?
-- What effect has `position: absolute` on layout?
-- What is the issue when children have the `position: absolute` property set? What is the height of the containg element?
-- What is the width of a `position: absolute` element that is display block?
+- What effect has `position: absolute` on the layout?
+- What is the issue when children have the `position: absolute` property set? What is the height of the containing element?
+- What is the width of a `position: absolute` element that is has the property `display: block` set?
 - Is it better to use margins or padding elements that have the property `position: absolute`? Why would you want to use margins and paddings anyway?
 - What happens if you set all four items on a `position: absolute` element (top, bottom, left, right)?
 - How can you center a modal in the middle of the screen (with `position: absolute`)?
-- How does a `position: absolute` element get contained so that it does not automatically jump to the edge of the screen?
-- What happens if you just set an item to `position: absolute` without the any directions (top, bottom, left right)?
-- How does a `position: absolute` element get contained so that it does not automatically jump to the edge of the screen?
+- How is a `position: absolute` element contained so that it does not automatically jump to the edge of the screen?
+- What happens if you just set an item to `position: absolute` without any directions (top, bottom, left, and right)?
+- How is a `position: absolute` element contained so that it does not automatically jump to the edge of the screen?
 - In a stack of overlapping elements which item renders on top without using z-index or positioned layout?
 - What is a stacking context?
 - What happens if one element is styled with positioned layout? How will it change the default behaviour of the browser?
 - What is the main way to create a stacking context?
 - What are other ways to create stacking contexts?
 - Can you contain a `position: fixed` element with a wrapping `position: relative`?
-- In some cases a CSS property on an ancestor will interfere with how a `position: fixed` element is contained. What is the exception for positioning elements with fixed?
-- Can you implement a model also with `position: fixed`? What will be the difference to `position: absolute` modal?
+- In some cases, a CSS property on an ancestor will interfere with how a `position: fixed` element is contained. What is the exception for positioning elements with fixed?
+- Can you implement a model also with `position: fixed`? What will be the difference to the `position: absolute` modal?
 - What is the difference between `overflow: scroll` and `overflow: auto`?
 - What is the use case of `overflow: hidden`?
 - What is the use case of `overflow: hidden`?
 - How can you overflow: hidden an overflowing `position: absolute` element?
-- `position: sticky` means that there is a transition between two values the the position property. Which one?
+- `position: sticky` means that there is a transition between two values of the position property. Which one?
 - Does `position: sticky` take up space in the layout or is it like `position: absolute`?
 - How to contain a `position: sticky` element?
 - What does `top: 50px` do on a `position: sticky` element?
@@ -114,24 +114,24 @@ date: 2021-10-03
 
 ## FlexBox
 
-- How does cardinality and Flexbox relate?
+- How do cardinality and Flexbox relate?
 - What is the primary axis? What is the cross axis? How can you flip it?
 - What is the default size of a flex item? The parent only has `display: flex` applied and a fixed height and width.
 - What does `align-items: baseline` do?
 - What is the minimum width that an item can become? <strong>Hint:</strong> What would be the corresponding width value? What would overflow? The container or the items?
-- What does `flex-basi`s do?
+- What does `flex-basis` do?
 - If an item has both flex-basis and a height set, who your win? Assume the parent has the property `flex-direction: column`.
-- What does `flex-grow` do? What happen to a set `flex-basi`s on the same element?
-- What does `flex-shrink` do? What happen to a set `flex-basi`s on the same element?
-- What does `flex: 1` do? To what will `flex-basi`s be set?
-- How can you constrain an elements size after applying `flex-grow` or `flex-shrink` on it? Does it make sense to constrain the height and the width? When can it become problematic constraining the height?
-- How can you control when a flex row should wrap? How can you control the size of the items that goes into the next line?
+- What does `flex-grow` do? What happens to a set `flex-basis` on the same element?
+- What does `flex-shrink` do? What happens to a set `flex-basis` on the same element?
+- What does `flex: 1` do? To what will `flex-basis` be set?
+- How can you constrain the size of an element after applying `flex-grow` or `flex-shrink` on it? Does it make sense to constrain the height and the width? When can it become problematic to constrain the height?
+- How can you control when a flex row should wrap? How can you control the size of the items that go into the next line?
 - What is the difference between `align-items` and `justify-content` (in FlexBox)?
-- What does `align-content :center` do? Under what condition is it useful? What is the difference to `align-items`?
+- What does `align-content: center` do? Under what condition is it useful? What is the difference to `align-items`?
 - What does `gap: 30px` do?
 - What is the "magic space" for images? Why is it there? How can we fix it?
 - How does the `order` property work on flex children?
-- What does the `tab-index` attribute on a HTML element do?
+- What does the `tab-index` attribute on an HTML element do?
 - What happens if layout modes crash? E.g. what happens if an element is a flex item and has a `position: fixed` property?
 - What about relative positioning?
 - What about margin collapse?
@@ -150,13 +150,13 @@ date: 2021-10-03
 ```
 
 - What does this tag do?
-- How is a media query like a if statement?
+- How is a media query like an if statement?
 - Do media queries influence specificity? If yes, how?
 - What does the revert keyword do and how does it relate to media queries
-- Should you wrap your :hover styles in a media query so they only show on desktop?
+- Should you wrap your `:hover` styles in a media query so they only show on desktop?
 - What does `@media (hover: hover) and (pointer: fine)` do?
-- How do you specify the perfered color scheme in a media query?
-- How do you specify if a user preferes motion in a media query?
+- How do you specify the preferred color scheme in a media query?
+- How do you specify if a user prefers motion in a media query?
 - What is the difference between `@media (min-width: 550px) and (max-width: 1099.99px)` or `@media (min-width: 550px)`? Is one better than the other? Why?
 - Are CSS variables global?
 - What does `@property` do and why is it useful?
@@ -170,13 +170,13 @@ h2 {
 - It is better to set the font sizes in rem. Why? What is the use of the code above?
 - What is a common problem when using `vh`?
 - What is a common problem when using `vw`?
-- What does `vmin` and `vmax` do?
-- How does `clamp()` work? How can you reproduce the same effect with other css properties?
+- What do `vmin` and `vmax` do?
+- How does `clamp()` work? How can you reproduce the same effect with other CSS properties?
 - What does `min()` and `max()` do? How does it relate to `clamp()`?
 - What does `minmax()` do?
 - Should the font-size get bigger or smaller on small viewports? How about Headings?
-- How does the zoom in feature on inputs of safari work? How can it be avoided with CSS?
-- Why does `clamp()` in typography often introduce a accessibility violation?
+- How does the zoom-in feature on inputs of safari work? How can it be avoided with CSS?
+- Why does `clamp()` in typography often introduce an accessibility violation?
 - What is the difference between fluid and responsive design?
 
 ## Typography and Images
@@ -188,7 +188,7 @@ h2 {
 - How can you add hyphenation on a word that line-breaks?
 - How can you add an ellipsis if the word is too long to fit into the width of the element?
 - How can you add an ellipsis if the paragraph is too long to fit in the element?
-- How does Multi-Column layout work? (e.g. if you want to produce a magazine like look)
+- How does the Multi-Column layout work? (e.g. if you want to produce a magazine-like look)
 - In a Multi-Column layout what does `break-inside: avoid` do?
 - What does `float: left` do?
 - How to indent the first line?
@@ -212,7 +212,7 @@ h2 {
 - What is the default `display` mode on an image?
 - How do `width` and `height` work on images? What are the defaults?
 - With `object-fit` you can have three priorities and you only get two. What are the three priorities?
-- Usually we choose `object-fit: cover` and loose some of the information, but use up all the available space and preserve the aspect ratio. By default `cover` will center the image. What can you use to position the image that has the `object-fit:cover` declaration set?
+- Usually, we choose `object-fit: cover` and lose some of the information, but use up all the available space and preserve the aspect ratio. By default `cover` will center the image. What can you use to position the image that has the `object-fit:cover` declaration set?
 
 ## CSS Grid
 
@@ -260,16 +260,16 @@ h2 {
 - How can you transform a child when you hover over a parent? What is the selector?
 - How can you add a timing function to a keyframes animation?
 - How can you specify how often an animation will run?
-- If you apply an timing function to the animation, will the timing be applied to the animation or each step of the animation?
+- If you apply a timing function to the animation, will the timing be applied to the animation or each step of the animation?
 - What does `animation-direction` do and what values does it take?
 - What values can `animation-fill-mode` take?
 - What does the property `animation-play-state` do?
 - What are things `keyframes` can do and `transition` can't?
-- In her amazing book “Animation At Work”, author Rachel Nabors describes 5 common categories of animation. Can you name them?
+- In her amazing book “Animation At Work”, author Rachel Nabors describes 5 common categories of animation. Can you name them?
 - How can animations hurt accessibility? How can you prevent this?
 - What is the difference between _Orthographic Perspective_ and _Perspective Projection_?
 - How can you switch between Orthographic Perspective and Perspective Projection in CSS?
-- Do you set `perspective` on the the parent or the children?
+- Do you set `perspective` on the parent or the children?
 - What does `transform: perspective(250px)` do? How is it different from the `perspective` declaration?
 - What does `backface-visibility: hidden` do?
 - What does `transform-style: preserve-3d` do?
@@ -279,4 +279,6 @@ h2 {
 
 - What kind of color filters exists in CSS? Can you name some examples?
 - How many values does `border-radius` take?
-- You have an image and you round the borders of the image and you put that image in a frame. This frame also need to have the same border radius. How can you make sure that the outer radius matches the inside radius?
+- You have an image and you round the borders of the image and you put that image in a frame. This frame also needs to have the same border-radius. How can you make sure that the outer radius matches the inside radius? Note: The frame is bigger than the image so the `border-radius` value on the image will not be the same as on the frame.
+- How can you create a pill-shaped button that stays pill-shaped even if its dimensions change?
+- What are the four arguments of `box-shadow`?
