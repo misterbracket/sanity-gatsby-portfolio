@@ -19,7 +19,6 @@ const TitleStyles = styled.div`
 const HeadingLogo = styled(Icon)`
   grid-column: 1;
   grid-row: 1 / 3;
-  /* transform: translateY(-3px); */
   align-self: center;
 `;
 const NameWrapper = styled.p`
@@ -29,6 +28,11 @@ const NameWrapper = styled.p`
   height: 25px;
   display: flex;
   align-items: center;
+  grid-column: 2;
+  grid-row: 1 / 3;
+  @media ${(props) => props.theme.queries.tabletAndUp} {
+    grid-row: 1 / 2;
+  }
 `;
 
 const Name = styled(Link)`
@@ -36,11 +40,15 @@ const Name = styled(Link)`
   font-weight: 900;
   font-size: var(--big);
   white-space: nowrap;
-  /* line-height: inherit; */
+  color: var(--black);
 `;
 
 const SlugWrapper = styled.div`
-  margin-top: 0rem;
+  display: none;
+  @media ${(props) => props.theme.queries.tabletAndUp} {
+    display: block;
+    margin-top: 0rem;
+  }
 `;
 
 const Slug = styled.p`
