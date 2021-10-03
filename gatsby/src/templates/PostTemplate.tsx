@@ -1,20 +1,20 @@
+import { MDXProvider } from "@mdx-js/react";
+import { motion, Variants } from "framer-motion";
+import { graphql, PageProps } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import React, { ReactNode } from "react";
 import styled from "styled-components";
-import { graphql, PageProps } from "gatsby";
+import { SEO } from "../components";
+import useFadeIn from "../components/hooks/useFadeIn";
+import { Heading } from "../components/ui-components";
 import {
+  CodeBlock,
   Heading1,
   Heading2,
   Paragraph,
-  TableOfContent,
   Quote,
+  TableOfContent
 } from "./../components/BlogComponents";
-import { NewsLetterCTA } from './../components'
-import { MDXProvider } from "@mdx-js/react";
-import { MDXRenderer } from "gatsby-plugin-mdx";
-import { Heading } from "../components/ui-components";
-import { motion, Variants } from "framer-motion";
-import useFadeIn from "../components/hooks/useFadeIn";
-import { SEO } from "../components";
 
 interface BlogPostProps {
   data: {
@@ -39,7 +39,16 @@ const PostPageStyles = styled.main`
   background: var(--color-one);
   padding: 2.5rem 0;
   display: grid;
+  code {
+    color: #ce4d3c;
+  }
 
+  /* li {
+    display: list-item;
+    list-style-type: "➔";
+    padding-inline-start: 1ch;
+  } */
+  
   @media ${(props) => props.theme.queries.laptopAndUp} {
     gap: 2.5rem;
     padding: 5rem 0;
@@ -109,7 +118,7 @@ const shortcodes = {
     </strong>
   ),
   Quote,
-  NewsLetterCTA
+  code: CodeBlock,
 };
 
 export default function PostLayout({
@@ -147,7 +156,6 @@ export default function PostLayout({
               {data.mdx.tableOfContents.items}
             </DesktopTableOfContent>
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
-            {/* <NewsLetterCTA></NewsLetterCTA> */}
           </PostStyles>
         </PostPageStyles>
       </MDXProvider>

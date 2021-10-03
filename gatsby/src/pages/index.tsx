@@ -193,7 +193,7 @@ const index = ({ location, data }: PageProps & AboutMePageProps) => {
             </ContentWrapper>
           </TextSection>
         </MainWrapper>
-        {/* <NewsletterLauncherWrapper /> */}
+        <NewsletterLauncherWrapper />
       </AboutMeStyles>
     </>
   );

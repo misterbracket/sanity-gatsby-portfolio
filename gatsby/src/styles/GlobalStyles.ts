@@ -21,7 +21,6 @@ const GlobalStyles = createGlobalStyle`
     margin-left: calc(100vw - 100%)
 }
 
-
   /* Chrome implementation*/
   body::-webkit-scrollbar {
     width: 10px;
@@ -44,6 +43,8 @@ const GlobalStyles = createGlobalStyle`
   img {
     max-width: 100%;
   }
+
+
 `;
 
 export default GlobalStyles;

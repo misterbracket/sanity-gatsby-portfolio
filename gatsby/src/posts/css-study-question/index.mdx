@@ -1,0 +1,70 @@
+---
+title: CSS Study Questions
+date: 2021-10-03
+---
+
+## Fundamentals
+
+- What is a declaration in CSS?
+- What is a property in CSS?
+- How does `:focus` work?
+- How does `:active` work?
+- How does `:checked` work?
+- What does HSL stand for? What do the values stand for?
+- Can you write a HSL color declaration with transparency?
+- What does the `em` tag do?
+- What is the prefered unit for typography and why?
+- What is the prefered unit for width and height and why?
+- What is the prefered unit for margin, padding and border?
+- What is the prefered unit for color?
+- What happens if you use `font-style: bold`? What happens if you use the corresponding number instead? What happens if you did not provide a e.g. 700 weight character set for your font?
+- What should be a good value for contrast ratio?
+
+## Rendering Logic I
+
+- How is CSS inheritance like prototypal inheritance?
+- What properties are naturally içnherited?
+- Can a property that is inherited be overwritten by the users-agent stylesheet of a browser? Eg. color
+- How can you force inheritance?
+- What does the _cascading_ in CSS mean?
+- Is cascading still relevant in modern web development? If yes, in which way?
+- What is cardinality?
+- What is the box model? What are the four elements?
+
+  ```html
+  <style>
+    section {
+      width: 500px;
+    }
+    .box {
+      width: 100%;
+      padding: 20px;
+      border: 4px solid;
+    }
+  </style>
+  <section>
+    <div class="box"></div>
+  </section>
+  ```
+
+- By default how is the total width of an element calculated? In the example above: what will ultimately be the width and the height of the element?
+- What option does the box-sizing property take? What is the difference?
+- Does margin have an effect on boxsizing?
+
+  ```css
+  .something {
+    width: 400px;
+    height: 150px;
+    padding-bottom: 50%;
+  }
+  ```
+
+- What does padding-block do? Where does padding-inline set the padding? Where does padding-inline-start set the padding?
+- What is the difference between outline and border?
+- What does `margin: auto` do? How is this behaviour similar to `width: auto`?
+- What is the behaviour when you set the height or the width of a `display: inline` element?
+  - What are the exceptions?
+- What is the default width behaviour?
+- What does `width: 100%` and `margin: 32px` do on a block level element?
+- What does `width: min-content`, `width: max-content`, `width: fit-content` do?
+- What are the rules for margin collapse? When do margins of elements collapse?

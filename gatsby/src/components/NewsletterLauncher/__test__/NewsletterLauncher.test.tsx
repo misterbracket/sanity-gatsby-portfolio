@@ -1,5 +1,4 @@
-import React from "react";
-import NewsletterLauncher from "../NewsletterLauncher";
+import NewsletterLauncher from "../NewsLetterLauncher";
 
 test("loads ", async () => {
   console.log("Testing, ", NewsletterLauncher);
