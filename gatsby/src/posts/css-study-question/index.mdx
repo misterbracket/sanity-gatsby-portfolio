@@ -136,3 +136,80 @@ date: 2021-10-03
 - What about relative positioning?
 - What about margin collapse?
 - How do FlexBox and z-index interact with each other?
+
+## Responsive and Behavioural CSS
+
+- What is the difference between adaptive design and responsive design?
+- What is Pixel Ratio?
+
+```html
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/>
+```
+
+- What does this tag do?
+- How is a media query like a if statement?
+- Do media queries influence specificity? If yes, how?
+- What does the revert keyword do and how does it relate to media queries
+- Should you wrap your :hover styles in a media query so they only show on desktop?
+- What does `@media (hover: hover) and (pointer: fine)` do?
+- How do you specify the perfered color scheme in a media query?
+- How do you specify if a user preferes motion in a media query?
+- What is the difference between `@media (min-width: 550px) and (max-width: 1099.99px)` or `@media (min-width: 550px)`? Is one better than the other? Why?
+- Are CSS variables global?
+- What does `@property` do and why is it useful?
+
+```css
+h2 {
+  font-size: calc(24 / 16 * 1rem);
+}
+```
+
+- It is better to set the font sizes in rem. Why? What is the use of the code above?
+- What is a common problem when using `vh`?
+- What is a common problem when using `vw`?
+- What does `vmin` and `vmax` do?
+- How does `clamp()` work? How can you reproduce the same effect with other css properties?
+- What does `min()` and `max()` do? How does it relate to `clamp()`?
+- What does `minmax()` do?
+- Should the font-size get bigger or smaller on small viewports? How about Headings?
+- How does the zoom in feature on inputs of safari work? How can it be avoided with CSS?
+- Why does `clamp()` in typography often introduce a accessibility violation?
+- What is the difference between fluid and responsive design?
+
+## Typography and Images
+
+- What is kerning?
+- What is rasterization?
+- What is anti-aliasing?
+- What does `overflow-wrap: break-word` do?
+- How can you add hyphenation on a word that line-breaks?
+- How can you add an ellipsis if the word is too long to fit into the width of the element?
+- How can you add an ellipsis if the paragraph is too long to fit in the element?
+- How does Multi-Column layout work? (e.g. if you want to produce a magazine like look)
+- In a Multi-Column layout what does `break-inside: avoid` do?
+- What does `float: left` do?
+- How to indent the first line?
+
+```css
+.title {
+  font-family: "Lato", Futura, Helvetica, Arial, sans-serif;
+}
+```
+
+- What does the code above do?
+- What are examples of font categories?
+- What are system font stacks?
+- What is FOIT?
+- What is FOUT?
+- What are the three periods of font loading (font-display timeline)?
+- What does the property `font-display: swap` do?
+- What does `font-display: fallback` do?
+- What is font matching?
+- What is a Variable Font?
+- What is the default `display` mode on an image?
+- How do `width` and `height` work on images? What are the defaults?
+- With `object-fit` you can have three priorities and you only get two. What are the three priorities?
+- Usually we choose `object-fit: cover` and loose some of the information, but use up all the available space and preserve the aspect ratio. By default `cover` will center the image. What can you use to position the image that has the `object-fit:cover` declaration set?
