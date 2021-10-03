@@ -10,6 +10,10 @@ const GlobalStyles = createGlobalStyle`
   box-sizing: border-box;
   }
 
+
+  /* Text Selectoion color */
+  ::selection { background: var(--color-two-light); }
+
   /* Scrollbar Styles */
   /*Firefox implementation */
   html {
