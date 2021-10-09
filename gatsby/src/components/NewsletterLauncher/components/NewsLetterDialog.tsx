@@ -82,7 +82,8 @@ function NewsLetterDialog({ isOpen, onClose }: NewsLetterDialogProps) {
             }}
           >
             <DialogWrapper>
-              <h3>Subscribe to my Newsletter</h3>
+              <h3>Psst! Do You Want to Be Part of Something Cool</h3>
+              <p>I am creating a newsletter about my journey as a developer. I will be sharing cool some ideas and thoughts. I would love to keep in touch with you.</p>
               <NewsLetterDialogCloseButton onClick={() => onClose()}>
                 <VisuallyHidden>
                   Close Newsletter Subscription Popup

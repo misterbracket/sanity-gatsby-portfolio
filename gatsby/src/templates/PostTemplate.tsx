@@ -10,7 +10,10 @@ import { Heading } from "../components/ui-components";
 import {
   CodeBlock,
   Heading1,
-  Heading2, ListItem, Paragraph,
+  Heading2,
+  ListItem,
+  NewsLetterBlogCTA,
+  Paragraph,
   Quote,
   TableOfContent
 } from "./../components/BlogComponents";
@@ -41,7 +44,7 @@ const PostPageStyles = styled.main`
   code {
     color: #ce4d3c;
   }
-  
+
   @media ${(props) => props.theme.queries.laptopAndUp} {
     gap: 2.5rem;
     padding: 5rem 0;
@@ -131,13 +134,12 @@ export default function PostLayout({
         publishDate={data.mdx.frontmatter.seodate}
       />
       <MDXProvider components={shortcodes}>
-        <PostPageStyles>
+        <PostPageStyles ref={intersectionRef}>
           <PostHeading>{data.mdx.frontmatter.title}</PostHeading>
           <MobileTableOfContent>
             {data.mdx.tableOfContents.items}
           </MobileTableOfContent>
           <PostStyles
-            ref={intersectionRef}
             variants={fadeInVariants as Variants | undefined}
             initial={initial}
             animate={animate}
@@ -152,6 +154,7 @@ export default function PostLayout({
               {data.mdx.tableOfContents.items}
             </DesktopTableOfContent>
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
+            <NewsLetterBlogCTA />
           </PostStyles>
         </PostPageStyles>
       </MDXProvider>

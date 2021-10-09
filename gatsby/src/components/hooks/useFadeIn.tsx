@@ -16,16 +16,15 @@ const fadeInVariants : Variants= {
 function useFadeIn(intersectionRef: React.MutableRefObject<null>) {
   const intersection = useIntersection(intersectionRef, {
     root: null,
-    rootMargin: "0px",
-    threshold: 0.07,
+    rootMargin: "0px ",
+    threshold: 0.10,
   });
 
   const prefersReducedMotion = usePrefersReducedMotion();
 
   const variants = prefersReducedMotion ? undefined : fadeInVariants;
-  const isIntersecting = intersection && intersection.intersectionRatio > 0.06;
+  const isIntersecting = intersection && intersection.intersectionRatio > 0.05;
   const animate = isIntersecting ? "visible" : undefined;
-
   const initial = "hidden";
 
   return [initial, animate, variants];

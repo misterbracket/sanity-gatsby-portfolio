@@ -14,10 +14,10 @@ const useIntersection = (
       const handler = (entries: IntersectionObserverEntry[]) => {
         setIntersectionObserverEntry(entries[0]);
       };
-
+      
       const observer = new IntersectionObserver(handler, options);
       observer.observe(ref.current);
-
+      
       return () => {
         setIntersectionObserverEntry(null);
         observer.disconnect();

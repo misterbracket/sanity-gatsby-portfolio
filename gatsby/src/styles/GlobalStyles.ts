@@ -48,7 +48,9 @@ const GlobalStyles = createGlobalStyle`
     max-width: 100%;
   }
 
-
+  li {
+    line-height: 2;
+  }
 `;
 
 export default GlobalStyles;
