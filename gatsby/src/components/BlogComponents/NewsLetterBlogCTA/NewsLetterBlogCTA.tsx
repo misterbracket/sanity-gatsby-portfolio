@@ -2,17 +2,33 @@ import React, { ReactNode } from "react";
 import styled from "styled-components";
 import { NewsLetterCTA } from "./../../";
 
-const StyledNewsletterCTA = styled(NewsLetterCTA)`
+const StyledNewsletterCTAMobile = styled(NewsLetterCTA)`
   padding: 32px;
-`
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    display: none;
+  }
+`;
+
+
+const StyledNewsletterCTADesktop = styled(NewsLetterCTA)`
+  padding: 32px;
+`;
 
 const Moat = styled.section`
+  display: none;
   padding: 30px;
   background: var(--color-one);
   box-shadow: inset var(--shd);
+  border-radius: 3px;
 
-  ${StyledNewsletterCTA} {
+  ${StyledNewsletterCTADesktop} {
     background: var(--white);
+    box-shadow: var(--shd);
+    border-radius: 3px;
+  }
+
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    display: block;
   }
 `;
 const NewsLetterBlogCTA = ({
@@ -24,18 +40,25 @@ const NewsLetterBlogCTA = ({
   return (
     <>
       <Moat>
-        <StyledNewsletterCTA {...delegated}>
-          <h3>Psst! Do You Want to Be Part of Something Cool</h3>
+        <StyledNewsletterCTADesktop {...delegated}>
+          <h3>Psst! Do You Want to Be Part of Something Cool?</h3>
           <p>
-            I am creating a newsletter about my journey as a developer. I will
-            be sharing cool some ideas and thoughts. I would love to keep in
-            touch with you.
+            I am creating a newsletter about my journey as a developer. I am
+            going to share some cool ideas and thoughts. Let's keep in touch and
+            go on this journey forever.
           </p>
-        </StyledNewsletterCTA>
+        </StyledNewsletterCTADesktop>
       </Moat>
+      <StyledNewsletterCTAMobile aria-hidden {...delegated}>
+        <h3>Psst! Do You Want to Be Part of Something Cool?</h3>
+        <p>
+          I am creating a newsletter about my journey as a developer. I am going
+          to share some cool ideas and thoughts. Let's keep in touch and go on
+          this journey forever.
+        </p>
+      </StyledNewsletterCTAMobile>
     </>
   );
 };
-
 
 export default NewsLetterBlogCTA;

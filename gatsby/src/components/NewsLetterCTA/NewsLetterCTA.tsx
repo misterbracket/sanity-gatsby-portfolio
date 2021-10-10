@@ -8,7 +8,8 @@ const config = {
   submitText: "Sign up",
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+`;
 
 const ConvertKitFormWrapper = styled(ConvertKitForm)`
   margin: auto;
@@ -48,9 +49,9 @@ const ConvertKitFormWrapper = styled(ConvertKitForm)`
   }
 `;
 
-function NewsLetterCTA({ children, className,  ...delegated }: { children?: ReactNode, className?: string }) {
+function NewsLetterCTA({ children, ...delegated }: { children?: ReactNode, className?: string }) {
   return (
-    <Wrapper className={ className}{...delegated}>
+    <Wrapper {...delegated}>
       {children}
       <ConvertKitFormWrapper {...config} />
     </Wrapper>
