@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { graphql, Link, PageProps } from "gatsby";
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import { SEO } from "../components";
-import NewsletterLauncher from "../components/NewsletterLauncher";
+import { NewsLetterLauncher, SEO } from "../components";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
 import { Button, Sparkles } from "../components/ui-components";
 
@@ -131,7 +130,7 @@ const ButtonGroup = styled(motion.div)`
   }
 `;
 
-const NewsletterLauncherWrapper = styled(NewsletterLauncher)`
+const NewsletterLauncherWrapper = styled(NewsLetterLauncher)`
 position: absolute;
 bottom: 24px;
 right: 20px;
