@@ -45,7 +45,7 @@ const NewsLetterBlogCTA = ({
           <p>
             I am creating a newsletter about my journey as a developer. I am
             going to share some cool ideas and thoughts. Let's keep in touch and
-            go on this journey forever.
+            go on this journey together.
           </p>
         </StyledNewsletterCTADesktop>
       </Moat>
@@ -54,7 +54,7 @@ const NewsLetterBlogCTA = ({
         <p>
           I am creating a newsletter about my journey as a developer. I am going
           to share some cool ideas and thoughts. Let's keep in touch and go on
-          this journey forever.
+          this journey together.
         </p>
       </StyledNewsletterCTAMobile>
     </>
