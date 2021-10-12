@@ -31,6 +31,10 @@ const ConvertKitFormWrapper = styled(ConvertKitForm)`
     display: block;
     height: 35px;
     margin: 0 0 15px;
+    background-color: var(--white);
+    @media ${(props) => props.theme.queries.laptopAndUp} {
+      background-color: var(--color-one-light);
+    }
   }
 
   button {
