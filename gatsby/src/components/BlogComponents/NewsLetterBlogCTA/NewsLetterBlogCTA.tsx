@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
-import { NewsLetterCTA } from "./../../";
+import { NewsLetterCTA } from "../../../components";
 
 const StyledNewsletterCTAMobile = styled(NewsLetterCTA)`
   padding: 32px;
