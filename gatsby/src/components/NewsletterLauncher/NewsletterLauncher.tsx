@@ -45,7 +45,7 @@ const NewsLetterLauncher = ({ ...delegated }) => {
   return (
     <motion.div
       ref={intersectionRef}
-      variants={fadeInVariants}
+      // variants={fadeInVariants}
       initial={initial}
       animate={animate}
       {...delegated}

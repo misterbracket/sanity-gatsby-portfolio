@@ -32,9 +32,6 @@ const ConvertKitFormWrapper = styled(ConvertKitForm)`
     height: 35px;
     margin: 0 0 15px;
     background-color: var(--white);
-    @media ${(props) => props.theme.queries.laptopAndUp} {
-      background-color: var(--color-one-light);
-    }
   }
 
   button {
@@ -51,6 +48,7 @@ const ConvertKitFormWrapper = styled(ConvertKitForm)`
     transform: scale(1.02);
     opacity: 0.8;
   }
+
 `;
 
 function NewsLetterCTA({ children, ...delegated }: { children?: ReactNode, className?: string }) {

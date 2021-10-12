@@ -9,7 +9,6 @@ const StyledNewsletterCTAMobile = styled(NewsLetterCTA)`
   }
 `;
 
-
 const StyledNewsletterCTADesktop = styled(NewsLetterCTA)`
   padding: 32px;
 `;
@@ -25,6 +24,12 @@ const Moat = styled.section`
     background: var(--white);
     box-shadow: var(--shd);
     border-radius: 3px;
+  }
+
+  input {
+    @media ${(props) => props.theme.queries.laptopAndUp} {
+      background-color: var(--color-one-light);
+    }
   }
 
   @media ${(props) => props.theme.queries.laptopAndUp} {
