@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { graphql, Link, PageProps } from "gatsby";
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import { NewsLetterLauncher, SEO } from "../components";
+import { SEO } from "../components";
+import NewsLetterLauncher from "../components/NewsLetterLauncher";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
 import { Button, Sparkles } from "../components/ui-components";
 
