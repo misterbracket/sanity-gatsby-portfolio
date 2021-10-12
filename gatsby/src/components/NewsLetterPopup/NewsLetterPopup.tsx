@@ -36,7 +36,7 @@ const LogoWrapper = styled.div`
   position: relative;
 `;
 
-const NewsLetterLauncher = ({ ...delegated }) => {
+const NewsLetterPopup = ({ ...delegated }) => {
   const intersectionRef = React.useRef(null);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -72,4 +72,4 @@ const NewsLetterLauncher = ({ ...delegated }) => {
   );
 };
 
-export default NewsLetterLauncher;
+export default NewsLetterPopup;
