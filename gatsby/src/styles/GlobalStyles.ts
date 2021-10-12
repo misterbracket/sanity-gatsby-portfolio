@@ -10,6 +10,10 @@ const GlobalStyles = createGlobalStyle`
   box-sizing: border-box;
   }
 
+
+  /* Text Selectoion color */
+  ::selection { background: var(--color-two-light); }
+
   /* Scrollbar Styles */
   /*Firefox implementation */
   html {
@@ -20,7 +24,6 @@ const GlobalStyles = createGlobalStyle`
 /* Prevents appearing scrollbar from shifting content */
     margin-left: calc(100vw - 100%)
 }
-
 
   /* Chrome implementation*/
   body::-webkit-scrollbar {
@@ -43,6 +46,10 @@ const GlobalStyles = createGlobalStyle`
 
   img {
     max-width: 100%;
+  }
+
+  li {
+    line-height: 2;
   }
 `;
 

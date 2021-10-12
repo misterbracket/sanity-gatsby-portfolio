@@ -1,20 +1,22 @@
+import { MDXProvider } from "@mdx-js/react";
+import { motion, Variants } from "framer-motion";
+import { graphql, PageProps } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import React, { ReactNode } from "react";
 import styled from "styled-components";
-import { graphql, PageProps } from "gatsby";
+import { SEO } from "../components";
+import useFadeIn from "../components/hooks/useFadeIn";
+import { Heading } from "../components/ui-components";
 import {
+  CodeBlock,
   Heading1,
   Heading2,
+  ListItem,
+  NewsLetterBlogCTA,
   Paragraph,
-  TableOfContent,
   Quote,
+  TableOfContent
 } from "./../components/BlogComponents";
-import { NewsLetterCTA } from './../components'
-import { MDXProvider } from "@mdx-js/react";
-import { MDXRenderer } from "gatsby-plugin-mdx";
-import { Heading } from "../components/ui-components";
-import { motion, Variants } from "framer-motion";
-import useFadeIn from "../components/hooks/useFadeIn";
-import { SEO } from "../components";
 
 interface BlogPostProps {
   data: {
@@ -39,6 +41,9 @@ const PostPageStyles = styled.main`
   background: var(--color-one);
   padding: 2.5rem 0;
   display: grid;
+  code {
+    color: #ce4d3c;
+  }
 
   @media ${(props) => props.theme.queries.laptopAndUp} {
     gap: 2.5rem;
@@ -77,7 +82,7 @@ const DesktopTableOfContent = styled(TableOfContent)`
 const PostStyles = styled(motion.article)`
   padding: 3rem;
   font-size: var(--normal);
-  max-width: 60rem;
+  max-width: 70rem;
   grid-column: 2;
   @media ${(props) => props.theme.queries.laptopAndUp} {
     background: var(--white);
@@ -108,8 +113,11 @@ const shortcodes = {
       {props.children}
     </strong>
   ),
+  li: (props: { children: ReactNode; delegated: Array<any> }) => (
+    <ListItem {...props} />
+  ),
   Quote,
-  NewsLetterCTA
+  code: CodeBlock,
 };
 
 export default function PostLayout({
@@ -126,13 +134,12 @@ export default function PostLayout({
         publishDate={data.mdx.frontmatter.seodate}
       />
       <MDXProvider components={shortcodes}>
-        <PostPageStyles>
+        <PostPageStyles ref={intersectionRef}>
           <PostHeading>{data.mdx.frontmatter.title}</PostHeading>
           <MobileTableOfContent>
             {data.mdx.tableOfContents.items}
           </MobileTableOfContent>
           <PostStyles
-            ref={intersectionRef}
             variants={fadeInVariants as Variants | undefined}
             initial={initial}
             animate={animate}
@@ -147,7 +154,7 @@ export default function PostLayout({
               {data.mdx.tableOfContents.items}
             </DesktopTableOfContent>
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
-            {/* <NewsLetterCTA></NewsLetterCTA> */}
+            <NewsLetterBlogCTA />
           </PostStyles>
         </PostPageStyles>
       </MDXProvider>

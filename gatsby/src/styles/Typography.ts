@@ -1,9 +1,9 @@
-import { createGlobalStyle } from "styled-components";
 import "@fontsource/poppins/300.css";
+import "@fontsource/poppins/400-italic.css";
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/700.css";
 import "@fontsource/poppins/900.css";
-import "@fontsource/poppins/400-italic.css";
+import { createGlobalStyle } from "styled-components";
 
 const Typography = createGlobalStyle`
 
@@ -70,7 +70,7 @@ const Typography = createGlobalStyle`
   }
 
   a {
-    color: var(--color-gray-900);
+    color: var(--color-two);
     text-decoration-color: var(--color-two);
     cursor: pointer;
   }

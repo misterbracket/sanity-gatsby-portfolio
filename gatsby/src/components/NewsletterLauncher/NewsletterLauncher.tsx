@@ -36,7 +36,7 @@ const LogoWrapper = styled.div`
   position: relative;
 `;
 
-const NewsletterLauncher = ({ ...delegated }) => {
+const NewsLetterLauncher = ({ ...delegated }) => {
   const intersectionRef = React.useRef(null);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -45,7 +45,7 @@ const NewsletterLauncher = ({ ...delegated }) => {
   return (
     <motion.div
       ref={intersectionRef}
-      variants={fadeInVariants}
+      // variants={fadeInVariants}
       initial={initial}
       animate={animate}
       {...delegated}
@@ -72,4 +72,4 @@ const NewsletterLauncher = ({ ...delegated }) => {
   );
 };
 
-export default NewsletterLauncher;
+export default NewsLetterLauncher;

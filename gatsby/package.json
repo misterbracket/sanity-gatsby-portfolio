@@ -6,7 +6,7 @@
   "scripts": {
     "build": "NODE_OPTIONS=\"-r esm\" gatsby build",
     "clean-cache": "gatsby clean",
-    "develop": "NODE_OPTIONS=\"-r esm\" gatsby develop --port 8001",
+    "develop": "NODE_OPTIONS=\"-r esm\" gatsby develop",
     "start": " npm run develop",
     "lint": "eslint .",
     "format": "prettier-eslint --write \"**/*.js\" \"!.cache/**\" \"!node_modules/**\" \"!public/**\"",
@@ -49,6 +49,7 @@
     "netlify-lambda": "^2.0.3",
     "normalize.css": "^8.0.1",
     "postcss": "^8.3.6",
+    "prism-react-renderer": "^1.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
