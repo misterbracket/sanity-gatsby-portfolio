@@ -1,1 +1,2 @@
-export { default } from "./NewsLetterLauncher";
+export { default as NewsLetterLauncher } from "./NewsLetterLauncher";
+
