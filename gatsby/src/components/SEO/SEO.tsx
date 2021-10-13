@@ -42,7 +42,7 @@ const SEO = ({
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       <link rel="alternate icon" href="/favicon.ico" />
       {/* Meta Tags */}
-      <meta name="viewport" content="width=device-width,inital-scale=1.0" />
+      <meta name="viewport" content="width=device-width" />
       <meta charSet="utf8" />
       <meta name="description" content={site.siteMetadata.description} />
       {/* Open Graph */}

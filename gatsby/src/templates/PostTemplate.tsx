@@ -1,11 +1,10 @@
 import { MDXProvider } from "@mdx-js/react";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { graphql, PageProps } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 import { SEO } from "../components";
-import useFadeIn from "../components/hooks/useFadeIn";
 import { Heading } from "../components/ui-components";
 import {
   CodeBlock,
@@ -124,8 +123,8 @@ export default function PostLayout({
   data,
   location,
 }: PageProps & BlogPostProps) {
-  const intersectionRef = React.useRef(null);
-  const [initial, animate, fadeInVariants] = useFadeIn(intersectionRef);
+  // const intersectionRef = React.useRef(null);
+  // const [initial, animate, fadeInVariants] = useFadeIn(intersectionRef);
   return (
     <>
       <SEO
@@ -134,15 +133,17 @@ export default function PostLayout({
         publishDate={data.mdx.frontmatter.seodate}
       />
       <MDXProvider components={shortcodes}>
-        <PostPageStyles ref={intersectionRef}>
+        <PostPageStyles
+        //ref={intersectionRef}
+        >
           <PostHeading>{data.mdx.frontmatter.title}</PostHeading>
           <MobileTableOfContent>
             {data.mdx.tableOfContents.items}
           </MobileTableOfContent>
           <PostStyles
-            variants={fadeInVariants as Variants | undefined}
-            initial={initial}
-            animate={animate}
+          // variants={fadeInVariants as Variants | undefined}
+          // initial={initial}
+          // animate={animate}
           >
             <PostHeading1>{data.mdx.frontmatter.title}</PostHeading1>
             <PublishDate>
