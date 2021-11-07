@@ -4,30 +4,36 @@ date: 2021-11-03
 ---
 
 Closures are a functional programming concept built into the languages like JavaScript. They are important for JavaScript as it gives you a way to deal with asynchronous calls, allows you to store private variables in a language that does not support that.
-Closures are a fundamental part of JavaScript. Still, t took me a while to wrap my head around them. I knew kind of what they are and why they are helpful, but I never really "got it”. In this blog post, I will try to dissecat this topic and explain it step by step by first introducing the concept of open and closed expressions and then show a typical example of a closure. Finally, I will discuss some use cases and why closures are essential for the web.
-Let’s start with a definition of a closure. Don’t worry: We will build up our understanding of this definition step by step.
-"A closure is the combination of a function and the lexical environment within which that function was declared."
-The first time I heard this definition, I did not understand what it meant. It clicked for me once I understood the concept of **open** and **closed expressions**.
+Closures are a fundamental part of JavaScript. Still, t took me a while to wrap my head around them. I knew kind of what they are and why they are helpful, but I never really "got it”. In this blog post, I will try to dissect this topic and explain Closures step by step by first introducing the concept of open and closed expressions. Finally, I will discuss some use cases and why closures are essential for the web.
+Let’s start with a definition of a closure. If the definition is not clear to you, don’t worry: We will build up our understanding of this definition step by step.
+
+<Quote>
+  A closure is the combination of a function and the lexical environment within
+  which that function was declared.
+</Quote>
+
+The first time I heard this definition, I did not understand what it meant. It only clicked
+for me once I understood the concept of **open** and **closed expressions**.
 
 ## Open and Closed Expressions
 
-In JavaScript you can have functions like this:
+In JavaScript you can define a function like this:
 
 ```js
 //Closed expression
-function(x) { return (x*2) }
+function(x) { return x*2 }
 ```
 
-The example above is an anonymous function. An anonymous function can sometimes be called lambda.
-One intersting thing about lambdas is that they can be called right away like this:
+The example above is an anonymous function. An anonymous function can sometimes be called a **lambda** or **function expression**.
+One intersting thing about function expressions is that they can be called right away like this:
 
 ```js
-//Lambda that is called right away
+//Function Expresssion that is called right away
 (function()x { return x*2 })(2)
 ```
 
 This is called a **IIFE** which stand for **Immediately Invoked Function Expression**.
-This lambda is self-contained, meaning that it has everything it needs to calculate the resulting value of the function. Once a parameter is applied, all the necessary data is present. Since we have all the data, we can call this a closed expression. Let's assign this function to a variable and call the function.
+This lambda is self-contained, meaning that it has everything it needs to calculate the resulting value of the function. Once a parameter is passed to the function, all the necessary data is present. Since we have all the data, we can call this a closed expression. We can also assign this function to a variable and call the function.
 
 ```js
 //Closed expression
@@ -37,7 +43,7 @@ const doubler = function (x) {
 doubler(3); // Will double 3, so the result is 6
 ```
 
-We can return a value from doubler, because all the variables have been defined. What is an open expression? We cannot return a value from an open expression as we don’t know what all the variables will resolve to.
+Again, the `doubler` function is able to return a result, because all the variables have been defined. What is an open expression? We cannot return a value from an open expression as we don’t know what all the variables will resolve to.
 
 ```js
 //Open Expression
@@ -57,7 +63,7 @@ const adder = function (x) {
 };
 ```
 
-In this case, we have an outer variable y defined. Now we know everything that we need to know to resolve our function. If I call the function `adder(2)`, I know that the result will be 6 as 2+3=6. We have captured the free variable and transformed our function from an open expression to a closed expression.
+In this case, we have an outer variable `y` defined. Now we have all the information needed to resolve our function. If I call the function `adder` as `adder(2)`, I know that the result will be 6 as 2+3=6. We have captured the free variable and transformed our function from an open expression to a closed expression.
 
 ## Closures
 
@@ -68,13 +74,12 @@ All this talk about open and closed expressions has you probably thinking: "Okay
   which that function was declared.
 </Quote>
 
-If we look at our example above, the closure would be the adder function **AND** whatever we need from the outer scope to transform our open expression into a closed one.
-`y` is a variable that is not defined in the function body. `y` is in the lexical scope of our function.
-A closure "closes over" the variable y and makes out of an open expression a closed expression. That is why it is called closure.
+If we look at our example above, the closure would be the `adder` function **AND** whatever we need from the outer scope to transform our open expression into a closed one. `y` is a variable that is not defined in the function body. `y` is in the lexical scope of our function.
+A closure "closes over" the variable `y` and makes out of an open expression a closed expression. That is why it is called closure.
 
 ## A Classic Use Case
 
-There are many use cases in a language like JavaScript. Let's look at the following example:
+There are many use cases for closures in JavaScript. I will limit myself to give you one example for now.
 
 ```js
 let isOn = true;
@@ -84,16 +89,9 @@ button.addEventListener("click", () => {
 });
 ```
 
-In this example, we have a button to which we connect an event listener. If we click the button, we execute a callback, an anonymous function (or lambda). This lambda will turn the `isOn` variable to false. The callback cannot access the `isOn` variable and will first check if the `isOn` variable is part for the function body. It will not find the variable there and is therefore an open expression and not a closed one. To become closed, it needs to check its lexical scope, which means it looks whether on the outside of the function there is a variable called `isOn`. Luckily, we don't have to look too far, and we can see it defined just outside.
-One important note: When we set up an event listener, we don't know when that callback that we specified will run. Maybe we set up the event listener when the page first loads, but the button gets clicked hours later. How will we know the value of `isOn` hours later? Let's remember that the callback is a closure:
-
-<Quote>
-  A closure is the combination of a function and the lexical environment within
-  which that function was declared.
-</Quote>
-It is trying to say that when we set up the event listener, the browser will store
-away the callback function AND the lexical context that our function needs to become
-a closed expression. You can imagine an in-memory object that looks like this:
+In the code above, we have a button to which we connect an event listener. If we click the button, we execute a callback, an anonymous function (or lambda). This lambda will turn the `isOn` variable to false. The callback cannot access the `isOn` variable and will first check if the `isOn` variable is part for the function body. It will not find the variable there and is therefore an open expression and not a closed one. To become closed, it needs to check its lexical scope, which means it looks whether on the outside of the function there is a variable called `isOn`. Luckily, we don't have to look too far, and we can see it defined just outside.
+One important note: When we set up an event listener, we don't know when that callback that we specified will run. Maybe we set up the event listener when the page first loads, but the button gets clicked hours later. How will we know the value of `isOn` hours later? Let's remember that the callback is a closure.
+A cool thing about the closure is that when we set up the event listener, the browser will store away the callback function AND the lexical context that our function needs to become a closed expression. You can imagine an in-memory object that looks like this:
 
 ```js
 {
@@ -102,7 +100,7 @@ fn: function() {isOn = false}
 }
 ```
 
-This way, when we click the button, we know the value of is`On and the function that we need to call.
+This way, when we click the button, we know the value of `isOn` and the function that we need to call.
 
 ## Summary
 
