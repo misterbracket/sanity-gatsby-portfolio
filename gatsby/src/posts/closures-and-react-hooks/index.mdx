@@ -1,0 +1,106 @@
+---
+title: Finally Understanding Closures
+date: 2021-11-03
+---
+
+Closures are a functional programming concept built into the languages like JavaScript. They are important for JavaScript as it gives you a way to deal with asynchronous call and allow you to store private variables in a language that does not support that.
+Closures are a fundamental part of JavaScript. Still, it took me a while to wrap my head around them. I knew kind of what they are and why they are useful, but I never really "got it”. In this blog post, I will try to dissect this topic and explain Closures step by step by first introducing the concept of open and closed expressions. Finally, I will discuss some use cases and why closures are essential for the web.
+Let’s start with a definition of a closure. If the definition is not clear to you, don’t worry: We will build up our understanding of this definition step by step.
+
+<Quote>
+  A closure is the combination of a function and the lexical environment within
+  which that function was declared.
+</Quote>
+
+The first time I heard this definition, I did not understand what it meant. It only clicked for me once I understood the concept of **open** and **closed expressions**.
+
+## Open and Closed Expressions
+
+In JavaScript you can define a function like this:
+
+```js
+//Closed expression
+function(x) { return x*2 }
+```
+
+The example above is an anonymous function. An anonymous function can sometimes be called a **lambda** or **function expression**.
+One interesting thing about function expressions is that they can be called right away like this:
+
+```js
+//Function Expresssion that is called right away
+(function()x { return x*2 })(2)
+```
+
+This is called an **IIFE** which stands for **Immediately Invoked Function Expression**.
+This lambda is self-contained, meaning that it has everything it needs to calculate the resulting value of the function. Once a parameter is passed to the function, all the necessary data is present. Since we have all the data, we can call this a closed expression. We can also assign this function to a variable and call the function.
+
+```js
+//Closed expression
+const doubler = function (x) {
+  return x * 2;
+};
+doubler(3); // Will double 3, so the result is 6
+```
+
+Again, the `doubler` function is able to return a result, because all the variables have been defined. What is an open expression? We cannot return a value from an open expression as we don’t know what all the variables will resolve to.
+
+```js
+//Open Expression
+const adder = function (x) {
+  return x + y;
+};
+```
+
+The above expression cannot be resolved as we cannot know what `y` is. `y` in our case, could be just about any value. We call `y`, therefore, a **free variable**. So how do we deal with free variables in JavaScript? In JavaScript, we would check the outer scope if the variable is defined there. Consider the following example:
+
+```js
+// Relevant context / environment for our function.
+const y = 3;
+//Open Expression
+const adder = function (x) {
+  return x + y;
+};
+```
+
+In this case, we have an outer variable `y` defined. Now we have all the information needed to resolve our function. If I call the function `adder` as `adder(2)`, I know that the result will be 6 as 2+3=6. We have captured the free variable and transformed our function from an open expression to a closed expression.
+
+## Closures
+
+All this talk about open and closed expressions has you probably thinking: "Okay, but what about a closure now?" Let's look at the definition again:
+
+<Quote>
+  A closure is the combination of a function and the lexical environment within
+  which that function was declared.
+</Quote>
+
+If we look at our example above, the closure would be the `adder` function **AND** whatever we need from the outer scope to transform our open expression into a closed one. `y` is a variable that is not defined in the function body. `y` is in the lexical scope of our function.
+A closure "closes over" the variable `y` and makes out of an open expression a closed expression. That is why it is called closure.
+
+## A Classic Use Case
+
+There are many use cases for closures in JavaScript. I will limit myself to give you one example for now.
+
+```js
+let isOn = true;
+const button = document.querySelector("button");
+button.addEventListener("click", () => {
+  isOn = false;
+});
+```
+
+In the code above, we have a button to which we connect an event listener. If we click the button, we execute a callback, an anonymous function (or lambda). This lambda will turn the `isOn` variable to false. The callback cannot access the `isOn` variable and will first check if the `isOn` variable is part of the function body. It will not find the variable there and is, therefore, an open expression and not a closed one. To become closed, it needs to check its lexical scope, which means it looks whether on the outside of the function there is a variable called `isOn`. Luckily, we don't have to look too far, and we can see it defined just outside.
+One important note: When we set up an event listener, we don't know when that callback that we specified will run. Maybe we set up the event listener when the page first loads, but the button gets clicked hours later. How will we know the value of `isOn` hours later? Let's remember that the callback is a closure.
+A cool thing about the closure is that when we set up the event listener, the browser will store away the callback function AND the lexical context that our function needs to become a closed expression. You can imagine an in-memory object that looks like this:
+
+```js
+{
+isOn: true;
+fn: function() {isOn = false}
+}
+```
+
+This way, when we click the button, we know the value of `isOn` and the function that we need to call.
+
+## Summary
+
+Closures are essential for JavaScript and the web. In the example above, we barely scratched the surface. There are many things that we do every day as programmers that work, thanks to closures. Closures allow us to have function composition and private variables. React Hooks are a concept based entirely around closures, but I think we should explore the topic another day.
