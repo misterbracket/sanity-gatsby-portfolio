@@ -70,7 +70,7 @@ function BlogPostExcerpt({ data }: { data: post }) {
         <MetaData>
           <TimeToRead>
             <strong>Time to read:</strong>
-            <em>{data.timeToRead}</em>
+            <em>{data.timeToRead} Minutes</em>
           </TimeToRead>
           <PublishedDate>
             <strong>Published:</strong>
