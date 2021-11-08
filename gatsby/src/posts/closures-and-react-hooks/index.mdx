@@ -3,8 +3,8 @@ title: Finally Understanding Closures
 date: 2021-11-03
 ---
 
-Closures are a functional programming concept built into the languages like JavaScript. They are important for JavaScript as it gives you a way to deal with asynchronous calls, allows you to store private variables in a language that does not support that.
-Closures are a fundamental part of JavaScript. Still, t took me a while to wrap my head around them. I knew kind of what they are and why they are helpful, but I never really "got it”. In this blog post, I will try to dissect this topic and explain Closures step by step by first introducing the concept of open and closed expressions. Finally, I will discuss some use cases and why closures are essential for the web.
+Closures are a functional programming concept built into the languages like JavaScript. They are important for JavaScript as it gives you a way to deal with asynchronous call and allow you to store private variables in a language that does not support that.
+Closures are a fundamental part of JavaScript. Still, it took me a while to wrap my head around them. I knew kind of what they are and why they are useful, but I never really "got it”. In this blog post, I will try to dissect this topic and explain Closures step by step by first introducing the concept of open and closed expressions. Finally, I will discuss some use cases and why closures are essential for the web.
 Let’s start with a definition of a closure. If the definition is not clear to you, don’t worry: We will build up our understanding of this definition step by step.
 
 <Quote>
@@ -12,8 +12,7 @@ Let’s start with a definition of a closure. If the definition is not clear to 
   which that function was declared.
 </Quote>
 
-The first time I heard this definition, I did not understand what it meant. It only clicked
-for me once I understood the concept of **open** and **closed expressions**.
+The first time I heard this definition, I did not understand what it meant. It only clicked for me once I understood the concept of **open** and **closed expressions**.
 
 ## Open and Closed Expressions
 
@@ -25,14 +24,14 @@ function(x) { return x*2 }
 ```
 
 The example above is an anonymous function. An anonymous function can sometimes be called a **lambda** or **function expression**.
-One intersting thing about function expressions is that they can be called right away like this:
+One interesting thing about function expressions is that they can be called right away like this:
 
 ```js
 //Function Expresssion that is called right away
 (function()x { return x*2 })(2)
 ```
 
-This is called a **IIFE** which stand for **Immediately Invoked Function Expression**.
+This is called an **IIFE** which stands for **Immediately Invoked Function Expression**.
 This lambda is self-contained, meaning that it has everything it needs to calculate the resulting value of the function. Once a parameter is passed to the function, all the necessary data is present. Since we have all the data, we can call this a closed expression. We can also assign this function to a variable and call the function.
 
 ```js
@@ -89,7 +88,7 @@ button.addEventListener("click", () => {
 });
 ```
 
-In the code above, we have a button to which we connect an event listener. If we click the button, we execute a callback, an anonymous function (or lambda). This lambda will turn the `isOn` variable to false. The callback cannot access the `isOn` variable and will first check if the `isOn` variable is part for the function body. It will not find the variable there and is therefore an open expression and not a closed one. To become closed, it needs to check its lexical scope, which means it looks whether on the outside of the function there is a variable called `isOn`. Luckily, we don't have to look too far, and we can see it defined just outside.
+In the code above, we have a button to which we connect an event listener. If we click the button, we execute a callback, an anonymous function (or lambda). This lambda will turn the `isOn` variable to false. The callback cannot access the `isOn` variable and will first check if the `isOn` variable is part of the function body. It will not find the variable there and is, therefore, an open expression and not a closed one. To become closed, it needs to check its lexical scope, which means it looks whether on the outside of the function there is a variable called `isOn`. Luckily, we don't have to look too far, and we can see it defined just outside.
 One important note: When we set up an event listener, we don't know when that callback that we specified will run. Maybe we set up the event listener when the page first loads, but the button gets clicked hours later. How will we know the value of `isOn` hours later? Let's remember that the callback is a closure.
 A cool thing about the closure is that when we set up the event listener, the browser will store away the callback function AND the lexical context that our function needs to become a closed expression. You can imagine an in-memory object that looks like this:
 
@@ -102,6 +101,6 @@ fn: function() {isOn = false}
 
 This way, when we click the button, we know the value of `isOn` and the function that we need to call.
 
-## Summary
+## Summary
 
 Closures are essential for JavaScript and the web. In the example above, we barely scratched the surface. There are many things that we do every day as programmers that work, thanks to closures. Closures allow us to have function composition and private variables. React Hooks are a concept based entirely around closures, but I think we should explore the topic another day.
