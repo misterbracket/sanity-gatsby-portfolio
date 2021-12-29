@@ -1,0 +1,163 @@
+---
+title: React Hooks and Closures
+date: 2021-12-28
+---
+
+Hi friends,
+After writing about closures some time ago, I wanted to produce a follow-up blog post about hooks and closures in React. Did you realize that all React hooks are implementations of closures? When I found out about this, it blew my mind, and I wanted to share this with you. This [talk of Swyx](https://www.swyx.io/hooks/) taught me a lot about closures in React, and if you want to know more, you should go check it out after reading this.
+
+When hooks came to React, everyone was excited. Truthfully, I never really liked working with classes in React, and it always felt somewhat clunky. You had stateful and stateless components (remember those?). Stateful components were class-based components, and stateless components could be simple functions but could not hold any local state. React Hooks allowed developers to define all components as functions, and all function components could now also hold state. Hooks, however, came with [some rules](https://reactjs.org/docs/hooks-rules.html). In this blog post, we will look under the hood of React and try to understand how hooks work, how hooks relate to closures, and why these rules are there in the first place.
+
+## React Hooks are Closures
+
+In this section I am going to show a simple implementation of a calculator first, and then expand this to a only slightly more complicated mock of React and how hooks are implemented in React.
+If you read this [previous blog post](https://maxklammer.com/blog/finally-understanding-closures) of mine, you will remember that I mentioned that closures are helpful to have private variables and hold state. Consider this simple implementation of a calculator.
+
+```js
+const Calculator = (() => {
+  let x = 0;
+
+  function add(y) {
+    x += y;
+    return x;
+  }
+  function substract(y) {
+    x -= y;
+    return x;
+  }
+
+  return {
+    add,
+    substract,
+  };
+})();
+
+console.log(Calculator.add(1)); // 1
+console.log(Calculator.add(2)); // 3
+console.log(Calculator.add(3)); // 6
+console.log(Calculator.substract(4)); // 2
+```
+
+The `Calculator` function follows (the module design pattern)[https://coryrylan.com/blog/javascript-module-pattern-basics] and is an immediately invoked function expression (IIFE). It looks like I am assigning a function to `Calculator`, but I immediately invoke that function. So the variable `Calculator` will hold the return value of the function. In this case, `Calculator` will be an object with several functions attached to it.
+Remember: _“A closure is the combination of a function and the lexical environment within which that function was declared.”_ This means that each function returned from the `Calculator` function will look in the parent scope to capture the value of `x`. The exciting part here is that the state is persisted between functions, and I can update the state with the exposed functions.
+
+Now consider this substantially more complicated example:
+
+```js
+const DefinitlyNotReact = (() => {
+  let _state;
+
+  function render(Component) {
+    const Comp = Component();
+    Comp.render();
+    return Comp;
+  }
+
+  function useState(initialValue) {
+    _state = _state || initialValue;
+    const setState = (value) => {
+      _state = value;
+    };
+    return [_state, setState];
+  }
+
+  return {
+    render,
+    useState,
+  };
+})();
+
+function Component() {
+  const [state, setState] = DefinitlyNotReact.useState(0);
+  return {
+    click: () => {
+      setState(state + 1);
+    },
+    render: () => {
+      console.log(`I am the current state: ${state}`);
+    },
+  };
+}
+let App;
+App = DefinitlyNotReact.render(Component); // I am the current state: 0
+
+App.click();
+App = DefinitlyNotReact.render(Component); // I am the current state: 1
+
+App.click();
+App = DefinitlyNotReact.render(Component); // I am the current state: 2
+
+App.click();
+App = DefinitlyNotReact.render(Component); // I am the current state: 3
+
+App.click();
+App = DefinitlyNotReact.render(Component); // I am the current state: 4
+```
+
+There are two main parts to this code block:
+
+- The `DefinitlyNotReact` function
+- The `Component` that we want to render
+
+So we have another IIFE, which is definitely not React. This function exposes a `render` function and the `useState` function. Notice that the `useState` function works exactly the same way as the `add` function in the previous example. We also have a `render` function that takes in a component as an argument. Since components in React are functions, we execute the passed component. A component always needs to return a `render` function (can you remember this from class-based components?), and we run that `render` function and return the result.
+The second part of the code block above is the component. This component is nothing but a function that returns two things: a `render` function that our `DefinitlyNotReact` function can call and a `click` function that updates the state.
+I can now instantiate that component and render it. I can add some fake clicks on that components, and the internal component state will update. Since React re-renders every time we update the state, we manually instruct `DefinitlyNotReact` to re-render our component after each click.
+Notice again that the useState hook that we implemented is just a closure that keeps track of our state in our `DefinitlyNotReact` function. The Component itself does not care about the implementation of the state. It just knows that if it calls useState, the state can be updated and will be persisted between renders.
+
+## Expanding to use multiple useState
+
+There is an issue with our implementation above. Specifically, we are only storing the state in a single value. Should I use a second useState, the internal `_state` variable would update and always return the new state. However, we want to keep track of independent pieces of state, and we, therefore, transform the internal state of `DefinitlyNotReact` into an array. We also want to keep track of some text and add a type method to our Component. Whenever we call the function `type`, we want to set it to state and render the component.
+So we start by changing the `_state` variable into `hooks` and initialize it as an empty array. We need an `idx` now to check know which position in the hooks array we need to check. Every time we render, we set the `idx` back to zero in the `render` function. This way on each render we start at `idx = 0`. Then, in the `useState` function, after we define what we are returning, we update the index by one at the end so we can store a new value in the next position if we want. Note the similarity to the calculator example above, where we increase the internal sum. The useState function now checks the value at the current index in the `hooks` array and returns that value and a setter function that sets the value in this position.
+Notice, however, that we are assigning `idx` to `_idx`. We assign `idx` to `_idx` because `idx` will increase every time we use the useState hook. When `setState` is defined, it looks to the parent scopes to capture the value of `idx` and return `state` and `setState`. It will discover `idx` in the scope on `DefinitlyNotReact`, but the value of `idx` might have been updated already, giving us the wrong index. We can freeze the index by assigning it to the variable `_idx` in the function. Now when `setState` is defined, it only looks to the scope of the useState function to find the correct index. Render will invariably set the idx to zero, but we can copy the current value of idx to a local `_idx`. Even if idx now changes, or a local copy that we used to create our `setState` closure with will not.
+
+```js
+const DefinitlyNotReact = (() => {
+  let hooks = [];
+  let idx = 0;
+
+  function render(Component) {
+    idx = 0;
+    const Comp = Component();
+    Comp.render();
+    return Comp;
+  }
+  function useState(initVal) {
+    const state = hooks[idx] || initVal;
+    const _idx = idx;
+    const setState = (newVal) => {
+      hooks[_idx] = newVal;
+    };
+    idx++;
+    return [state, setState];
+  }
+
+  return { useState, render };
+})();
+
+function Component() {
+  const [count, setCount] = DefinitlyNotReact.useState(1);
+  const [text, setText] = DefinitlyNotReact.useState("apple");
+
+  return {
+    render: () => console.log({ count, text }),
+    click: () => setCount(count + 1),
+    type: (word) => setText(word),
+  };
+}
+
+var App = DefinitlyNotReact.render(Component); // { count: 1, text: 'apple' }
+App.click();
+var App = DefinitlyNotReact.render(Component); // { count: 2, text: 'apple' }
+App.click();
+var App = DefinitlyNotReact.render(Component); // { count: 3, text: 'apple' }
+App.type("pear");
+var App = DefinitlyNotReact.render(Component); // { count: 3, text: 'pear' }
+App.type("orange");
+var App = DefinitlyNotReact.render(Component); // { count: 3, text: 'orange' }
+```
+
+This example also shows why we cannot put hooks into conditionals. If that were the case, we would not always have the same amount of hooks on each render. We could no longer keep track of the values by index as the value we held at index 0 of our `hooks` array now potentially moved to slot 1. Swyx goes into more detail by also adding a useEffect hook. The useEffect hook is almost implemented in the same way as the useState hook but keeps track internally of the dependencies in an array. We can store the dependency array passed by useEffect in a slot in the hooks array. Then on each render, we run the useEffect, but we only run the callback if the dependency array has changed. I highly recommend checking out [Swyx's original blog post](https://www.swyx.io/hooks/) for that additional information.
+
+## Conclusion
+
+I found that implementing this mock version of React was helpful to clear up some concepts around hooks and closures. We have seen how the useState hook gets implemented under the hood and how this relates to closures. I wanted to go a bit more step-by-step than swyx and narrow down the concept of closures in hooks. I hope this is helpful to you and helps you build up your understanding of React and hooks as well.
