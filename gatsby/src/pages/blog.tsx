@@ -37,7 +37,7 @@ const BlogWrapper = styled.main`
     grid-column: 2;
     width: 100%;
   }
-  @media ${props => props.theme.queries.laptopAndUp}{
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     grid-template-columns: 1fr min(90ch, calc(100% - 5rem)) 1fr;
   }
 `;
@@ -57,7 +57,7 @@ function blog({ data, location }: PageProps & allBlogPostsData) {
 
 export const query = graphql`
   query BlogPostList {
-    allMdx {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       edges {
         node {
           id
