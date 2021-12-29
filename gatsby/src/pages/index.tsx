@@ -15,10 +15,7 @@ const GlobalStyles = createGlobalStyle`
       height: 100%;
     }
   }
-`
-
-
-
+`;
 
 const AboutMeStyles = styled.main`
   position: relative;
@@ -45,7 +42,7 @@ const MainWrapper = styled.div`
     padding-right: 0;
     display: grid;
     grid-template: auto / 45% 55%;
-    position: static;;
+    position: static;
     width: 100%;
     height: 100%;
   }
@@ -55,7 +52,6 @@ const TextSection = styled.section`
   padding: 3rem 3rem;
   max-width: 60rem;
   @media ${(props) => props.theme.queries.laptopAndUp} {
-    /* box-shadow: var(--shd, 0 1px 4px rgba(0, 0, 0, 0.6)); */
     background-color: var(--white);
     grid-column: 2/3;
     display: flex;
@@ -81,7 +77,7 @@ const item = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { ease: "easeOut", duration: 0.7, deplay: 0.2 },
+    transition: { ease: "easeOut", duration: 0.7, delay: 0.2 },
   },
 };
 
@@ -130,12 +126,12 @@ const ButtonGroup = styled(motion.div)`
 `;
 
 const NewsletterLauncherWrapper = styled(NewsLetterPopup)`
-position: absolute;
-bottom: 24px;
-right: 20px;
-@media ${(props) => props.theme.queries.tabletAndUp} {
-}
-`
+  position: absolute;
+  bottom: 24px;
+  right: 20px;
+  @media ${(props) => props.theme.queries.tabletAndUp} {
+  }
+`;
 
 export interface PersonProps {
   name: string;
