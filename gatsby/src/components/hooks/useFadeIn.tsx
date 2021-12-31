@@ -1,7 +1,7 @@
 import { Variants } from "framer-motion";
 import { useIntersection, usePrefersReducedMotion } from ".";
 
-const fadeInVariants : Variants= {
+const fadeInVariants: Variants = {
   hidden: { opacity: 0, y: 10 },
   visible: {
     opacity: 1,
@@ -13,11 +13,13 @@ const fadeInVariants : Variants= {
   },
 };
 
-function useFadeIn(intersectionRef: React.MutableRefObject<null>) {
+function useFadeIn(
+  intersectionRef: React.MutableRefObject<null>
+): [string, string | undefined, Variants | undefined] {
   const intersection = useIntersection(intersectionRef, {
     root: null,
     rootMargin: "0px ",
-    threshold: 0.10,
+    threshold: 0.1,
   });
 
   const prefersReducedMotion = usePrefersReducedMotion();

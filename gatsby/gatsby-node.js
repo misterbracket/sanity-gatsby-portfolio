@@ -60,8 +60,7 @@ async function turnBlogPostsIntoPages({ graphql, actions }) {
     createPage({
       // This is the slug you created before
       // (or `node.frontmatter.slug`)
-      // Replace trailing '/' with empty string
-      path: node.fields.slug.replace(/\/$/, ``),
+      path: node.fields.slug,
       // This component will wrap our MDX content
       component: path.resolve("./src/templates/PostTemplate.tsx"),
       // You can use the values in this context in
@@ -96,25 +95,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       // don't need a separating "/" before the value because
       // createFilePath returns a path with the leading "/".
       // Replace trailing '/' with empty string
-      value: `/blog${value.replace(/\/$/, ``)}`,
+      value: `/blog${value}`,
     });
   }
-};
-
-// Replacing '/' would result in empty string which is invalid
-const replacePath = (_path) =>
-  _path === `/` ? _path : _path.replace(/\/$/, ``);
-
-exports.onCreatePage = ({ page, actions }) => {
-  const { createPage, deletePage } = actions;
-
-  return new Promise((resolve) => {
-    const oldPage = Object.assign({}, page);
-    page.path = replacePath(page.path);
-    if (page.path !== oldPage.path) {
-      deletePage(oldPage);
-      createPage(page);
-    }
-    resolve();
-  });
 };
