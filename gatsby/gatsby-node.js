@@ -1,5 +1,5 @@
-import path from "path";
 import { createFilePath } from "gatsby-source-filesystem";
+import path from "path";
 
 async function turnProjectsIntoPages({ graphql, actions }) {
   const projectTemplate = path.resolve("./src/templates/ProjectTemplate.tsx");
@@ -60,7 +60,8 @@ async function turnBlogPostsIntoPages({ graphql, actions }) {
     createPage({
       // This is the slug you created before
       // (or `node.frontmatter.slug`)
-      path: node.fields.slug,
+      // Replace trailing '/' with empty string
+      path: node.fields.slug.replace(/\/$/, ``),
       // This component will wrap our MDX content
       component: path.resolve("./src/templates/PostTemplate.tsx"),
       // You can use the values in this context in
@@ -94,24 +95,26 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       // Generated value based on filepath with "blog" prefix. you
       // don't need a separating "/" before the value because
       // createFilePath returns a path with the leading "/".
-      value: `/blog${value}`,
+      // Replace trailing '/' with empty string
+      value: `/blog${value.replace(/\/$/, ``)}`,
     });
   }
 };
 
 // Replacing '/' would result in empty string which is invalid
-const replacePath = _path => (_path === `/` ? _path : _path.replace(/\/$/, ``))
+const replacePath = (_path) =>
+  _path === `/` ? _path : _path.replace(/\/$/, ``);
 
 exports.onCreatePage = ({ page, actions }) => {
-  const { createPage, deletePage } = actions
+  const { createPage, deletePage } = actions;
 
-  return new Promise(resolve => {
-    const oldPage = Object.assign({}, page)
-    page.path = replacePath(page.path)
+  return new Promise((resolve) => {
+    const oldPage = Object.assign({}, page);
+    page.path = replacePath(page.path);
     if (page.path !== oldPage.path) {
-      deletePage(oldPage)
-      createPage(page)
+      deletePage(oldPage);
+      createPage(page);
     }
-    resolve()
-  })
-}
+    resolve();
+  });
+};
