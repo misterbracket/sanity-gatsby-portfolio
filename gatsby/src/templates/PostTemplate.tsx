@@ -14,7 +14,7 @@ import {
   NewsLetterBlogCTA,
   Paragraph,
   Quote,
-  TableOfContent
+  TableOfContent,
 } from "./../components/BlogComponents";
 
 interface BlogPostProps {
@@ -128,6 +128,7 @@ export default function PostLayout({
   return (
     <>
       <SEO
+        title={data.mdx.frontmatter.title}
         description={data.mdx.excerpt}
         location={location}
         publishDate={data.mdx.frontmatter.seodate}

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import styled from "styled-components";
 import { NewsLetterCTA } from "../../../components";
 
@@ -11,12 +11,7 @@ const StyledNewsletterCTA = styled(NewsLetterCTA)`
   }
 `;
 
-const NewsLetterBlogCTA = ({
-  children,
-  ...delegated
-}: {
-  children: ReactNode;
-}) => {
+const NewsLetterBlogCTA = ({ ...delegated }) => {
   return (
     <>
       <StyledNewsletterCTA {...delegated}>
