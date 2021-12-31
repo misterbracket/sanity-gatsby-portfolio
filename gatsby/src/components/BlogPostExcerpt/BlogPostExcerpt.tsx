@@ -48,9 +48,6 @@ const LinkStyles = styled(Link)`
   display: block;
 `;
 
-const removeTrailingSlash = (_path: string) =>
-  _path === `/` ? _path : _path.replace(/\/$/, ``);
-
 function BlogPostExcerpt({ data }: { data: post }) {
   const intersectionRef = React.useRef(null);
 
@@ -63,7 +60,7 @@ function BlogPostExcerpt({ data }: { data: post }) {
       initial={initial}
       animate={animate}
     >
-      <Link to={`${removeTrailingSlash(data.fields.slug)}`}>
+      <Link to={`${data.fields.slug}`}>
         <BlogTitle>{data.frontmatter.title}</BlogTitle>
       </Link>
       <ContentSection>

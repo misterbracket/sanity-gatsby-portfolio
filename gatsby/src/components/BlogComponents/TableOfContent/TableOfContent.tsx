@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
@@ -41,7 +42,7 @@ const ListItem = styled.li`
   }
 `;
 
-const ContentLink = styled.a`
+const ContentLink = styled(Link)`
   text-decoration: none;
   color: var(--color-gray-900);
   @media ${(props) => props.theme.queries.laptopAndUp} {
@@ -71,7 +72,7 @@ export default function TableOfContent({
         <LinkList>
           {children?.map((i: any) => (
             <ListItem key={i.url}>
-              <ContentLink href={i.url} key={i.url}>
+              <ContentLink to={`${i.url}/`} key={i.url}>
                 {i.title}
               </ContentLink>
             </ListItem>

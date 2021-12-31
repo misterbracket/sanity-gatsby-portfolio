@@ -1,16 +1,16 @@
-import React from "react";
-import styled from "styled-components";
-import SanityImage from "gatsby-plugin-sanity-image";
+import { motion } from "framer-motion";
 import { Link } from "gatsby";
-import { Button } from "../ui-components";
+import SanityImage from "gatsby-plugin-sanity-image";
+import React from "react";
 import {
   AiFillGithub,
   AiFillLinkedin,
   AiFillTwitterSquare,
 } from "react-icons/ai";
+import styled from "styled-components";
 import { PersonProps } from "../../pages";
-import { motion } from "framer-motion";
 import { usePrefersReducedMotion } from "../hooks";
+import { Button } from "../ui-components";
 
 const ProfileCardStyles = styled(motion.div)`
   display: grid;
@@ -134,10 +134,10 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
         <ProfileSlug>{person.profileslug}</ProfileSlug>
         <ButtonGroup>
           <Button color="dark">
-            <Link to="/resume">Resume</Link>
+            <Link to="/resume/">Resume</Link>
           </Button>
           <Button color="light">
-            <Link to="/projects">Projects</Link>
+            <Link to="/projects/">Projects</Link>
           </Button>
         </ButtonGroup>
       </CardStyles>

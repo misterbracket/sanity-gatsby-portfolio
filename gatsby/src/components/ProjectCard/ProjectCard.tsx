@@ -1,12 +1,12 @@
+import { motion } from "framer-motion";
+import { Link } from "gatsby";
+import SanityImage from "gatsby-plugin-sanity-image";
 import React from "react";
 import styled from "styled-components";
-import SanityImage from "gatsby-plugin-sanity-image";
 import { ProjectData } from "../../pages/projects";
+import useFadeIn from "../hooks/useFadeIn";
 import { BlockText } from "../ui-components";
 import { Tags } from "./components";
-import { Link } from "gatsby";
-import { motion } from "framer-motion";
-import useFadeIn from "../hooks/useFadeIn";
 
 const ProjectCardStyles = styled(motion.article)`
   padding: 5rem;
@@ -66,14 +66,14 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
       animate={animate}
     >
       <ProjectTextSection>
-        <Link to={`/project/${project.slug.current}`}>
+        <Link to={`/project/${project.slug.current}/`}>
           <ProjectTitle>{project.name}</ProjectTitle>
         </Link>
         <BlockText blocks={project._rawExcerpt}></BlockText>
         <Tags tags={project.tags} />
       </ProjectTextSection>
       <ProjectImageWrapper>
-        <ProjectLink to={`/project/${project.slug.current}`}>
+        <ProjectLink to={`/project/${project.slug.current}/`}>
           <ProjectImage {...project.mainImage} alt={project.name} />
         </ProjectLink>
       </ProjectImageWrapper>
