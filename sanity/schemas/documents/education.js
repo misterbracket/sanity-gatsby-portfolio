@@ -71,7 +71,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'degree',
+      title: 'education',
       slug: 'slug',
       media: 'mainImage',
       excerpt: 'excerpt'
@@ -85,3 +85,4 @@ export default {
     }
   }
 }
+
