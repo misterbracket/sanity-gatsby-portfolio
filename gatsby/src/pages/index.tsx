@@ -173,12 +173,12 @@ const index = ({ location, data }: PageProps & AboutMePageProps) => {
               </Subheading>
               <ButtonGroup variants={item}>
                 <Button type="button" color="dark">
-                  <Link className="link" to="/resume/">
+                  <Link className="link" to="/resume">
                     Resume
                   </Link>
                 </Button>
                 <Button type="button" color="light">
-                  <Link className="link" to="/projects/">
+                  <Link className="link" to="/projects">
                     Projects
                   </Link>
                 </Button>

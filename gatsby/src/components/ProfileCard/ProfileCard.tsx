@@ -134,10 +134,10 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
         <ProfileSlug>{person.profileslug}</ProfileSlug>
         <ButtonGroup>
           <Button color="dark">
-            <Link to="/resume/">Resume</Link>
+            <Link to="/resume">Resume</Link>
           </Button>
           <Button color="light">
-            <Link to="/projects/">Projects</Link>
+            <Link to="/projects">Projects</Link>
           </Button>
         </ButtonGroup>
       </CardStyles>

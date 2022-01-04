@@ -1,3 +1,4 @@
+import { Dialog } from "@reach/dialog";
 import { motion } from "framer-motion";
 import { Link } from "gatsby";
 import React, { useRef } from "react";
@@ -5,7 +6,6 @@ import { AiOutlineClose } from "react-icons/ai";
 import styled from "styled-components";
 import { usePrefersReducedMotion } from "../../../../hooks";
 import { VisuallyHidden } from "../../../../ui-components";
-import { Dialog } from "@reach/dialog";
 
 const NavStyles = styled.nav`
   grid-area: nav;
