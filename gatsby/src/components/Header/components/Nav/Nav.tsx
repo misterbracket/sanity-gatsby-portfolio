@@ -25,9 +25,9 @@ const Nav = () => {
 
   const menuItems = [
     { linkName: "About Me", to: "/" },
-    { linkName: "Resume", to: "/resume" },
-    { linkName: "Projects", to: "/projects" },
-    { linkName: "Blog", to: "/blog" },
+    { linkName: "Resume", to: "/resume/" },
+    { linkName: "Projects", to: "/projects/" },
+    { linkName: "Blog", to: "/blog/" },
   ];
 
   return (
