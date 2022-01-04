@@ -1,13 +1,108 @@
 ---
-title: Advanced TypeScript: Guards and Type Predicates
-date: 2021-11-03
+title: "Advanced TypeScript: Guards and Type Predicates"
+date: 2022-01-04
+description: "Guards and Type Predicates in TypeScript"
 ---
 
-<Quote>
-  A closure is the combination of a function and the lexical environment within
-  which that function was declared.
-</Quote>
+TypeScript is amazing in inferring what that type of a given object is. However, sometimes we pass more generic types like `Animal` to a function, but then then in the function we access properties that are not on all permutaion of `Animal`. We can use guards to make sure that we are operating on an object with all the required properties.
 
-The first time I heard this definition, I did not understand what it meant. It only clicked for me once I understood the concept of **open** and **closed expressions**.
+## The Problem
 
-## Open and Closed Expressions
+Consider a function or component that takes in two types of objects. The function needs to do something specific depending on the type of object that you passed it.
+Check out this example, for instance.
+
+```ts
+interface Dog {
+  __type: "dog";
+  name: string;
+  woof: () => void;
+}
+
+interface Cat {
+  __type: "cat";
+  name: string;
+  mew: () => void;
+}
+
+type Animal = Cat | Dog;
+
+const kitty: Cat = {
+  __type: "cat",
+  name: "Kitty",
+  mew: () => console.log("Mewwwewew!"),
+};
+
+const andi: Dog = {
+  __type: "dog",
+  name: "Andi",
+  woof: () => console.log("Woof!"),
+};
+
+function makeSound(animal: Animal) {
+  if (animal.mew) {
+    // Error: Property 'mew' does not exist on type 'Animal'. Property 'mew' does not exist on type 'Dog.
+
+    animal.mew();
+  } else {
+    animal.woof();
+  }
+}
+
+makeSound(kitty); // Mewwwewew!
+```
+
+The `makeSound` function can be applied to any animal. If we do not check for the type of object, we can not be sure that the animal passed in is a `Cat` or a `Dog`. In Vanilla JavaScript, we would ensure that the property is on the object. We can check it `animal.mew` is truthy, and if that is the case, we know the `animal` can "mew".
+In all other cases, we know that the `animal` can "woof".
+Unfortunately, TypeScript is not happy with this implementation, and it will throw an error. In TypeScript, you can only access members guaranteed to be in all the constituents of a union type. In the union type `Animal`, not every type has the property `mew`. Therefore, we get the following error.
+
+```txt
+Property 'mew' does not exist on type 'Animal'.
+Property 'mew' does not exist on type 'Dog.
+```
+
+There are a couple of solutions to this problem. In this blog post, we will focus on the `in` keyword and Type Predicates.
+
+## Solution 1: The <span style="min-width: 8px;display: inline-block;"></span>`in` <span style="min-width: 8px;display: inline-block;"></span> Keyword
+
+The `in` keyword can rescue us from this situation. It is a particular keyword that is super simple to use. The solution looks very similar to Vanilla JS.
+
+```ts
+function makeSound(animal: Animal) {
+  if ("mew" in animal) {
+    animal.mew();
+  } else {
+    animal.woof();
+  }
+}
+```
+
+We are doing the same check on the property: we are checking if the mew is “in” the animal and if not, we assume it is a dog.
+
+## Solution 2: Type Predicates
+
+Another option is using type predicates. A “predicate” is a function with a single parameter that returns either true or false. We can define a function that checks if the passed object is a dog or a cat and returns a boolean value.
+
+```ts
+function isDog(animal: Animal): animal is Dog {
+  return animal.__type === "dog";
+}
+
+function isCat(animal: Animal): animal is Cat {
+  return animal.__type === "cat";
+}
+
+function makeSound(animal: Animal) {
+  if (isCat(animal)) {
+    animal.mew();
+  } else {
+    animal.woof();
+  }
+}
+```
+
+We can create a new function called `isDog` or `isCat`, and they will return a type predicate. The type predicate takes the form of _parameterName is Type_ where the parameter is a parameter of the current type. Notice that we only need to check if the passed object is a cat. TypeScript will infer automatically that if it is not a cat, it must be a dog. Guards using type predicates have one downside in my experience. They assume that there is one common property on all objects of type `Animal` that we can use to differentiate between them.
+Assume that only `Cat` had the property `__type`. TypeScript will throw an error in the guard function because you can only access members guaranteed to be in all the constituents of a union type.
+
+## Conclusion
+
+I find that both solutions have some advantages and disadvantages. I like the simplicity of the `in` operator. I can see cases where you cannot define all the types yourself, and you cannot have a differentiating property like `__type`, but if you can define all the types, you might as well be specific and use a type predicate to catch all cases.
