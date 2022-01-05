@@ -1,12 +1,12 @@
+import { motion, Variants } from "framer-motion";
+import { graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
-import SanityImage from "gatsby-plugin-sanity-image";
 import { SEO } from "../components";
-import { graphql } from "gatsby";
-import { ProjectData } from "../pages/projects";
-import { BlockText, Heading } from "../components/ui-components";
 import useFadeIn from "../components/hooks/useFadeIn";
-import { motion, Variants } from "framer-motion";
+import { BlockText, Heading } from "../components/ui-components";
+import { ProjectData } from "../pages/projects";
 
 type ProjectType = {
   data: {
@@ -27,12 +27,12 @@ const ProjectPageStyles = styled.main`
     width: 100%;
   }
 
-  @media ${props => props.theme.queries.laptopAndUp}{
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     grid-template-columns: 1fr min(90ch, calc(100% - 5rem)) 1fr;
   }
 `;
 
-const ProjectImage = styled(SanityImage)`
+const ProjectImage = styled(GatsbyImage)`
   width: 100%;
   height: auto;
   max-width: 600px;
@@ -76,7 +76,10 @@ function Project({ data: { sanityProject } }: ProjectType) {
               <li key={tag.name}>{tag.name}</li>
             ))}
           </ul>
-          <ProjectImage {...sanityProject.mainImage} />
+          <ProjectImage
+            alt={sanityProject.mainImage.alt}
+            image={sanityProject.mainImage.asset.gatsbyImageData}
+          />
         </ProjectStyles>
       </ProjectPageStyles>
     </>
@@ -96,13 +99,11 @@ export const query = graphql`
         name
       }
       mainImage {
-        ...ImageWithPreview
         alt
         asset {
-          path
+          gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
         }
       }
-
       publishedAt(formatString: "MMM YYYY")
       startedAt(formatString: "MMM YYYY")
       endedAt(formatString: "MMM YYYY")

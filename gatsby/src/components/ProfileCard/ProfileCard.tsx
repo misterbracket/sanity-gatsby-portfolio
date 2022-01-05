@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "gatsby";
-import SanityImage from "gatsby-plugin-sanity-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import {
   AiFillGithub,
@@ -31,7 +31,7 @@ const ProfileCardStyles = styled(motion.div)`
   }
 `;
 
-const ProfileImage = styled(SanityImage)`
+const ProfileImage = styled(GatsbyImage)`
   height: 23rem;
   width: 23rem;
   border-radius: 50%;
@@ -128,7 +128,10 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
       animate={"visible"}
     >
       <CardStyles>
-        <ProfileImage alt={person.alt} {...person.image} />
+        <ProfileImage
+          alt={person.alt}
+          image={person.image.asset.gatsbyImageData}
+        />
         <Name>{person.name}</Name>
         <HorizontalRuler />
         <ProfileSlug>{person.profileslug}</ProfileSlug>

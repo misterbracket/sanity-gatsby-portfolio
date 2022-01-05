@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { graphql, Link, PageProps } from "gatsby";
+import { IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { NewsLetterPopup, ProfileCard, SEO } from "../components";
@@ -140,7 +141,7 @@ export interface PersonProps {
   profilesubheading: string;
   bio: string;
   alt: string;
-  image: {};
+  image: { asset: { gatsbyImageData: IGatsbyImageData } };
 }
 
 interface AboutMePageProps {
@@ -202,8 +203,9 @@ export const query = graphql`
       profiletitle
       profilesubheading
       image {
-        ...ImageWithPreview
-        alt
+        asset {
+          gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+        }
       }
     }
   }
