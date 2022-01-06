@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "gatsby";
-import SanityImage from "gatsby-plugin-sanity-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
 import { ProjectData } from "../../pages/projects";
@@ -45,7 +45,7 @@ const ProjectLink = styled(Link)`
   }
 `;
 
-const ProjectImage = styled(SanityImage)`
+const ProjectImage = styled(GatsbyImage)`
   flex-grow: 1;
   flex-basis: 50%;
   img {
@@ -74,7 +74,10 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
       </ProjectTextSection>
       <ProjectImageWrapper>
         <ProjectLink to={`/project/${project.slug.current}/`}>
-          <ProjectImage {...project.mainImage} alt={project.name} />
+          <ProjectImage
+            image={project.mainImage.asset.gatsbyImageData}
+            alt={project.name}
+          />
         </ProjectLink>
       </ProjectImageWrapper>
     </ProjectCardStyles>

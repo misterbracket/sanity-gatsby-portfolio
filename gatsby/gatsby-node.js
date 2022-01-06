@@ -7,10 +7,16 @@ async function turnProjectsIntoPages({ graphql, actions }) {
   const result = await graphql(`
     query {
       projects: allSanityProject {
-        nodes {
-          name
-          slug {
-            current
+        edges {
+          node {
+            id
+            name
+            slug {
+              current
+            }
+            tags {
+              name
+            }
           }
         }
       }
@@ -20,14 +26,14 @@ async function turnProjectsIntoPages({ graphql, actions }) {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
   }
   // 3. Loop over each project and create a page for that project
-  result.data.projects.nodes.forEach((project) => {
+  result.data.projects.edges.forEach((project) => {
     actions.createPage({
       // What is the URL for this new page??
-      path: `project/${project.slug.current}`,
+      path: `project/${project.node.slug.current}`,
       component: projectTemplate,
       context: {
-        context: { id: project.id },
-        slug: project.slug.current,
+        context: { id: project.node.id },
+        slug: project.node.slug.current,
       },
     });
   });

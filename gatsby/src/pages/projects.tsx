@@ -1,10 +1,11 @@
-import React from "react";
-import { graphql, PageProps } from "gatsby";
-import { SEO } from "../components";
-import styled from "styled-components";
-import { BlockText, Heading } from "../components/ui-components";
-import { ProjectCard } from "../components/ProjectCard";
 import { BlockContentProps } from "@sanity/block-content-to-react";
+import { graphql, PageProps } from "gatsby";
+import { IGatsbyImageData } from "gatsby-plugin-image";
+import React from "react";
+import styled from "styled-components";
+import { SEO } from "../components";
+import { ProjectCard } from "../components/ProjectCard";
+import { BlockText, Heading } from "../components/ui-components";
 
 const ProjectsStyles = styled.main`
   display: grid;
@@ -18,7 +19,7 @@ const ProjectsStyles = styled.main`
     grid-column: 2;
     width: 100%;
   }
-  @media ${props => props.theme.queries.laptopAndUp}{
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     grid-template-columns: 1fr min(90ch, calc(100% - 5rem)) 1fr;
   }
 `;
@@ -42,6 +43,7 @@ export interface ProjectData {
     alt: string;
     asset: {
       path: string;
+      gatsbyImageData: IGatsbyImageData;
     };
   };
   _rawDescription: BlockContentProps["blocks"];
@@ -82,7 +84,11 @@ export const query = graphql`
         name
         _rawExcerpt
         mainImage {
-          ...ImageWithPreview
+          alt
+          asset {
+            path
+            gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+          }
         }
         publishedAt(formatString: "MMM YYYY")
         startedAt(formatString: "MMM YYYY")
