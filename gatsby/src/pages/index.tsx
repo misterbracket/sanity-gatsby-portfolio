@@ -140,8 +140,10 @@ export interface PersonProps {
   profiletitle: string;
   profilesubheading: string;
   bio: string;
-  alt: string;
-  image: { asset: { gatsbyImageData: IGatsbyImageData } };
+  image: {
+    alt: string;
+    asset: { gatsbyImageData: IGatsbyImageData };
+  };
 }
 
 interface AboutMePageProps {
@@ -156,7 +158,10 @@ const index = ({ location, data }: PageProps & AboutMePageProps) => {
   return (
     <>
       <GlobalStyles />
-      <SEO title={`A little about me`} location={location} />
+      <SEO
+        title={`Welcome to my Personal Website and Blog`}
+        location={location}
+      />
       <AboutMeStyles>
         <MainWrapper>
           <ProfileCard person={person}></ProfileCard>
@@ -174,12 +179,12 @@ const index = ({ location, data }: PageProps & AboutMePageProps) => {
               </Subheading>
               <ButtonGroup variants={item}>
                 <Button type="button" color="dark">
-                  <Link className="link" to="/resume">
+                  <Link className="link" to="/resume/">
                     Resume
                   </Link>
                 </Button>
                 <Button type="button" color="light">
-                  <Link className="link" to="/projects">
+                  <Link className="link" to="/projects/">
                     Projects
                   </Link>
                 </Button>
@@ -203,6 +208,7 @@ export const query = graphql`
       profiletitle
       profilesubheading
       image {
+        alt
         asset {
           gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
         }

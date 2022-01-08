@@ -13,8 +13,8 @@ module.exports = {
   },
   siteMetadata: {
     title: `MK`,
-    siteUrl: `https://maxklammer.com`,
-    description: `Welcome to my Portfolio Website`,
+    siteUrl: `https://maxklammer.com/`,
+    description: `Welcome to my personal website. It is the place where you can find my latest projects, my resume and contact information. I also started blogging a little.`,
   },
   plugins: [
     {

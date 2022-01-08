@@ -53,7 +53,10 @@ export interface ProjectData {
 const projects = ({ location, data }: PageProps & allProjectData) => {
   return (
     <>
-      <SEO title={`I've been busy...`} location={location} />
+      <SEO
+        title={`I’ve Been Busy - Sample Projects That I Developed for Fun`}
+        location={location}
+      />
       <ProjectsStyles>
         <Heading>Projects</Heading>
         <BlockText

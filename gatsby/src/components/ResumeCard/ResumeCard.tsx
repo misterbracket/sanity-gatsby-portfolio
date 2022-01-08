@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { GoLocation } from "react-icons/go";
-import { EducationData, JobData } from "../../pages/resume";
 import { motion } from "framer-motion";
+import React from "react";
+import { GoLocation } from "react-icons/go";
+import styled from "styled-components";
+import { EducationData, JobData } from "../../pages/resume";
 import useFadeIn from "../hooks/useFadeIn";
 
 const ResumeCardStyles = styled(motion.article)`

@@ -1,7 +1,7 @@
-import React from "react";
 import { graphql, PageProps } from "gatsby";
-import { SEO } from "../components";
+import React from "react";
 import styled from "styled-components";
+import { SEO } from "../components";
 import { ResumeCard } from "../components/ResumeCard";
 import { Heading } from "../components/ui-components";
 
@@ -21,7 +21,7 @@ const ResumeStyles = styled.main`
     margin-top: 2.5rem;
     justify-self: flex-start;
   }
-  @media ${props => props.theme.queries.laptopAndUp}{
+  @media ${(props) => props.theme.queries.laptopAndUp} {
     grid-template-columns: 1fr min(90ch, calc(100% - 5rem)) 1fr;
   }
 `;
@@ -59,15 +59,18 @@ export interface EducationData {
 const resume = ({ location, data }: allResumeData & PageProps) => {
   return (
     <>
-      <SEO title={`Where I come from`} location={location} />
+      <SEO
+        title={`Where I Come From - Working Experience`}
+        location={location}
+      />
       <ResumeStyles>
         <Heading>Resume</Heading>
         <h2 className="subheading">Experience</h2>
-        {data.allSanityJob.nodes.map(item => (
+        {data.allSanityJob.nodes.map((item) => (
           <ResumeCard key={item.id} job={item} />
         ))}
         <h2 className="subheading">Education</h2>
-        {data.allSanityEducation.nodes.map(item => (
+        {data.allSanityEducation.nodes.map((item) => (
           <ResumeCard key={item.id} education={item} />
         ))}
       </ResumeStyles>

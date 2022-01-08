@@ -44,7 +44,10 @@ const BlogWrapper = styled.main`
 function blog({ data, location }: PageProps & allBlogPostsData) {
   return (
     <>
-      <SEO title={`Blog Posts`} location={location} />
+      <SEO
+        title={`Latest Blog Posts About Things That Interest Me`}
+        location={location}
+      />
       <BlogWrapper>
         <Heading>Things I Write About</Heading>
         {data.allMdx.edges.map((post, index) => (
