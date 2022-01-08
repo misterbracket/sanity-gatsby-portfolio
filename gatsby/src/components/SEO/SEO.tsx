@@ -29,11 +29,15 @@ const SEO = ({
       }
     }
   `);
+
   return (
     <Helmet titleTemplate={`%s - ${site.siteMetadata.title}`}>
       {/** specify in which language your website is in */}
       <html lang="en" />
       <title>{title}</title>
+      {/** Canonical Link*/}
+      {location?.href && <link rel="canonical" href={location?.href} />}
+
       <meta name="author" content="Max Klammer" />
       {publishDate && (
         <meta property="article:published_time" content={publishDate} />

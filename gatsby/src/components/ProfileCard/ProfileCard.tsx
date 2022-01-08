@@ -129,7 +129,7 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
     >
       <CardStyles>
         <ProfileImage
-          alt={person.alt}
+          alt={person.image.alt}
           image={person.image.asset.gatsbyImageData}
         />
         <Name>{person.name}</Name>
