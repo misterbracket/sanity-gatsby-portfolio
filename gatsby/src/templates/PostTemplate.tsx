@@ -10,6 +10,7 @@ import {
   CodeBlock,
   Heading1,
   Heading2,
+  Link,
   ListItem,
   NewsLetterBlogCTA,
   Paragraph,
@@ -117,6 +118,9 @@ const shortcodes = {
   ),
   Quote,
   code: CodeBlock,
+  a: (props: { children: ReactNode; delegated: Array<any> }) => (
+    <Link {...props} />
+  ),
 };
 
 export default function PostLayout({
