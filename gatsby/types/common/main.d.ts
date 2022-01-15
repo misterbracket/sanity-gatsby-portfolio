@@ -3,5 +3,7 @@
 // <reference path="./interfaces.d.ts" />
 // <reference path="./functions.d.ts" />
 
-export type MakeRequired<T, K extends keyof T> = Omit<T, K> &
-  Required<{ [P in K]: T[P] }>;
+declare namespace common {
+  type MakeRequired<T, K extends keyof T> = Omit<T, K> &
+    Required<{ [P in K]: T[P] }>;
+}
