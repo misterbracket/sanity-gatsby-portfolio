@@ -53,15 +53,20 @@ const SEO = ({
         content={description ?? site.siteMetadata.description}
       />
       {/* Open Graph */}
-      {location && <meta property="og:href" content={location.href} />}
-      <meta property="og:image" content={image || "/logo.svg"} />
+      <meta property="og:url" content={location?.href} />
+      <meta property="og:href" content={location?.href} />
+      <meta property="og:image" content={image || "/favicon.svg"} />
       <meta property="og:title" content={title} key="ogtitle" />
       <meta
         property="og:site_name"
         content={site.siteMetadata.title}
         key="ogsitename"
       />
-      <meta property="og:description" content={description} key="ogdesc" />
+      <meta
+        property="og:description"
+        content={description ?? site.siteMetadata.description}
+        key="ogdesc"
+      />
       {publishDate && (
         <meta
           property="og:publish_date"
