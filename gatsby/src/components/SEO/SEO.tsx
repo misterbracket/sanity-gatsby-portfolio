@@ -48,7 +48,10 @@ const SEO = ({
       {/* Meta Tags */}
       <meta name="viewport" content="width=device-width" />
       <meta charSet="utf8" />
-      <meta name="description" content={site.siteMetadata.description} />
+      <meta
+        name="description"
+        content={description ?? site.siteMetadata.description}
+      />
       {/* Open Graph */}
       {location && <meta property="og:href" content={location.href} />}
       <meta property="og:image" content={image || "/logo.svg"} />

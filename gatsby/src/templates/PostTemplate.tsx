@@ -27,6 +27,7 @@ interface BlogPostProps {
         title: string;
         date: string;
         seodate: string;
+        description: string;
       };
       tableOfContents: {
         items: [{ url: string; title: string }];
@@ -127,11 +128,12 @@ export default function PostLayout({
   data,
   location,
 }: PageProps & BlogPostProps) {
+  console.log(data.mdx.frontmatter.description);
   return (
     <>
       <SEO
         title={data.mdx.frontmatter.title}
-        description={data.mdx.excerpt}
+        description={data.mdx.frontmatter.description}
         location={location}
         publishDate={data.mdx.frontmatter.seodate}
       />
@@ -169,6 +171,7 @@ export const pageQuery = graphql`
         title
         date: date(formatString: "YYYY MMMM Do")
         seodate: date(formatString: "YYYY-MM-DD")
+        description
       }
       body
       excerpt
