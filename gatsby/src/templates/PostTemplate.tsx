@@ -127,8 +127,6 @@ export default function PostLayout({
   data,
   location,
 }: PageProps & BlogPostProps) {
-  // const intersectionRef = React.useRef(null);
-  // const [initial, animate, fadeInVariants] = useFadeIn(intersectionRef);
   return (
     <>
       <SEO
@@ -138,18 +136,12 @@ export default function PostLayout({
         publishDate={data.mdx.frontmatter.seodate}
       />
       <MDXProvider components={shortcodes}>
-        <PostPageStyles
-        //ref={intersectionRef}
-        >
+        <PostPageStyles>
           <PostHeading>{data.mdx.frontmatter.title}</PostHeading>
           <MobileTableOfContent>
             {data.mdx.tableOfContents.items}
           </MobileTableOfContent>
-          <PostStyles
-          // variants={fadeInVariants as Variants | undefined}
-          // initial={initial}
-          // animate={animate}
-          >
+          <PostStyles>
             <PostHeading1>{data.mdx.frontmatter.title}</PostHeading1>
             <PublishDate>
               <strong>Published on: </strong>
