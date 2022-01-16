@@ -153,7 +153,9 @@ export default function PostLayout({
             <PostHeading1>{data.mdx.frontmatter.title}</PostHeading1>
             <PublishDate>
               <strong>Published on: </strong>
-              <span>{data.mdx.frontmatter.date}</span>
+              <time dateTime={data.mdx.frontmatter.seodate}>
+                {data.mdx.frontmatter.date}
+              </time>
             </PublishDate>
 
             <DesktopTableOfContent>
