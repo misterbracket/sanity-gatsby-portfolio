@@ -1,7 +1,7 @@
-import React from "react";
-import ColorSlider from "../ColorSlider";
 import { fireEvent, screen } from "@testing-library/react";
+import React from "react";
 import { render } from "../../../../utils/test-utils";
+import ColorSlider from "../ColorSlider";
 
 const renderComponent = () => {
   const utils = render(<ColorSlider />);
@@ -18,7 +18,7 @@ test("Slider Two starts with the right color one", () => {
 
 test("Slider Two starts with the right color two", () => {
   const { sliderTwo } = renderComponent();
-  expect(sliderTwo).toHaveValue("169");
+  expect(sliderTwo).toHaveValue("187");
 });
 
 test("Change the Slider One Value", () => {

@@ -2,21 +2,9 @@ import { motion } from "framer-motion";
 import { graphql, Link, PageProps } from "gatsby";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 import { NewsLetterPopup, ProfileCard, SEO } from "../components";
 import { Button, Sparkles } from "../components/ui-components";
-
-const GlobalStyles = createGlobalStyle`
-
-  @media(min-width: 1100px) {
-    html, body, #___gatsby {
-    height: 100%;
-    }
-    #gatsby-focus-wrapper {
-      height: 100%;
-    }
-  }
-`;
 
 const AboutMeStyles = styled.main`
   position: relative;
@@ -157,7 +145,6 @@ const index = ({ location, data }: PageProps & AboutMePageProps) => {
 
   return (
     <>
-      <GlobalStyles />
       <SEO
         title={`Welcome to my Personal Website and Blog`}
         location={location}
@@ -193,7 +180,7 @@ const index = ({ location, data }: PageProps & AboutMePageProps) => {
             </ContentWrapper>
           </TextSection>
         </MainWrapper>
-        <NewsletterLauncherWrapper />
+        {/* <NewsletterLauncherWrapper /> */}
       </AboutMeStyles>
     </>
   );

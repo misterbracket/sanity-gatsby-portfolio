@@ -3,7 +3,7 @@ import { graphql, PageProps } from "gatsby";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
-import { SEO } from "../components";
+import { Disclaimer, SEO } from "../components";
 import { ProjectCard } from "../components/ProjectCard";
 import { BlockText, Heading } from "../components/ui-components";
 
@@ -59,11 +59,13 @@ const projects = ({ location, data }: PageProps & allProjectData) => {
       />
       <ProjectsStyles>
         <Heading>Projects</Heading>
-        <BlockText
-          blocks={
-            data.allSanityProjectIntroduction.nodes[0]._rawProjectIntroduction
-          }
-        ></BlockText>
+        <Disclaimer>
+          <BlockText
+            blocks={
+              data.allSanityProjectIntroduction.nodes[0]._rawProjectIntroduction
+            }
+          ></BlockText>
+        </Disclaimer>
         {data.allSanityProject.nodes.map((project) => {
           return <ProjectCard key={project.id} project={project}></ProjectCard>;
         })}

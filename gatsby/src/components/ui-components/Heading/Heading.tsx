@@ -15,7 +15,7 @@ const HeadingStyles = styled.div`
   }
 
   @media ${(props) => props.theme.queries.laptopAndUp} {
-    padding: 10rem 3rem 6rem 3rem;
+    padding: 10rem 3rem 2rem 3rem;
   }
 `;
 

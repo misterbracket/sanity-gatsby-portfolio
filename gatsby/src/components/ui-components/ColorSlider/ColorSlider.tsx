@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
+import styled from "styled-components";
 import { VisuallyHidden } from "..";
 
 const SliderWrapper = styled.section`
@@ -156,7 +156,7 @@ const SliderLabel = styled.label`
 
 export default function ColorSlider() {
   const [colorOne, setColorOne] = useState("221");
-  const [colorTwo, setColorTwo] = useState("169");
+  const [colorTwo, setColorTwo] = useState("187");
   const [isOpen, setIsOpen] = useState(false);
 
   const handleColorOneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -170,7 +170,6 @@ export default function ColorSlider() {
     let root = document.documentElement;
     root.style.setProperty("--color-two-partial", `${colorTwo}`);
   };
-
 
   const toggleColorSlider = () => {
     setIsOpen(!isOpen);
