@@ -1,23 +1,28 @@
 import { graphql, PageProps } from "gatsby";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { SEO } from "../components";
-import BlogPostExcerpt from "../components/BlogPostExcerpt";
-import { Heading } from "../components/ui-components";
+import { BlogPostExcerpt, Disclaimer, SEO } from "../components";
+import { FilterButtons, Heading } from "../components/ui-components";
 
 type allBlogPostsData = {
   data: {
     allMdx: {
-      edges: [{ node: post }];
+      edges: [{ node: IPost }];
     };
   };
 };
 
-export interface post {
+enum NoteType {
+  essay = "essay",
+  note = "note",
+}
+export interface IPost {
   excerpt: string;
   frontmatter: {
     title: string;
     date: string;
+    description: string;
+    type: NoteType;
   };
   headings: [{ depth: number; value: string }];
   id: string;
@@ -41,7 +46,9 @@ const BlogWrapper = styled.main`
     grid-template-columns: 1fr min(90ch, calc(100% - 5rem)) 1fr;
   }
 `;
+
 function blog({ data, location }: PageProps & allBlogPostsData) {
+  const [noteType, setNoteType] = useState<NoteType>(NoteType.essay);
   return (
     <>
       <SEO
@@ -50,9 +57,23 @@ function blog({ data, location }: PageProps & allBlogPostsData) {
       />
       <BlogWrapper>
         <Heading>Things I Write About</Heading>
-        {data.allMdx.edges.map((post, index) => (
-          <BlogPostExcerpt data={post.node} key={index} />
-        ))}
+
+        <FilterButtons
+          filter={Object.values(NoteType)}
+          setFilter={(type) => setNoteType(type as NoteType)}
+        />
+        <Disclaimer>
+          My goal is to be public about what currently interest me and what I am
+          currently working on. The notes and essays posted here have been
+          thoroughly researched and validated, but I am still new to many
+          things. Feel free to reach out to correct any disagreements and issues
+          you may find.
+        </Disclaimer>
+        {data.allMdx.edges
+          .filter((post) => post.node.frontmatter.type === noteType)
+          .map((post, index) => (
+            <BlogPostExcerpt data={post.node} key={index} />
+          ))}
       </BlogWrapper>
     </>
   );
@@ -76,6 +97,7 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "DD-MM-YYYY")
+            type
           }
         }
       }

@@ -12,7 +12,6 @@ import {
   Heading2,
   Link,
   ListItem,
-  NewsLetterBlogCTA,
   Paragraph,
   Quote,
   TableOfContent,
@@ -156,7 +155,6 @@ export default function PostLayout({
               {data.mdx.tableOfContents.items}
             </DesktopTableOfContent>
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
-            <NewsLetterBlogCTA />
           </PostStyles>
         </PostPageStyles>
       </MDXProvider>

@@ -25,7 +25,7 @@ const Colors = createGlobalStyle`
 /* Color Two */
   --shadow-blue: hsl(221, 55%, 43%);
   /* --blue-partial: 221; */
-  --color-two-partial: 169;
+  --color-two-partial: 187;
 
 
   --color-two: hsl(var(--color-two-partial), 55%,  43%);
