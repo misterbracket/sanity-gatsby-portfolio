@@ -9,19 +9,22 @@ const FilterWrapper = styled.div`
   flex-direction: row;
   width: fit-content;
   margin: 0 auto;
+  box-shadow: var(--shd);
 `;
 const FilterButton = styled.button`
-  padding: 1.5rem;
   background: var(--color-two);
   color: var(--white);
   border: 1px solid var(--color-two-dark);
-  padding: 0.6rem 3rem;
+  padding: 2rem 1.5rem;
   font-size: var(--big);
-  font-weight: 700;
+  font-weight: 500;
+  width: 150px;
 
   &:hover,
   &:focus {
     background: var(--color-two-light);
+    font-weight: 700;
+    text-decoration: underline;
   }
   &:first-of-type {
     border-radius: 5px 0 0 5px;

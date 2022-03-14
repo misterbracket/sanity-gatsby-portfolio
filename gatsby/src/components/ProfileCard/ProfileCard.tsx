@@ -7,6 +7,7 @@ import {
   AiFillLinkedin,
   AiFillTwitterSquare,
 } from "react-icons/ai";
+import { IoLogoNpm } from "react-icons/io";
 import styled from "styled-components";
 import { PersonProps } from "../../pages";
 import { usePrefersReducedMotion } from "../hooks";
@@ -168,6 +169,15 @@ const ProfileCard = ({ person }: ProfileCardProps) => {
             <AiFillGithub
               color={"black"}
               title={"Go to Github Profile"}
+              size={"35"}
+            />
+          </SocialLink>
+        </SocialLinkItem>
+        <SocialLinkItem>
+          <SocialLink href="https://www.npmjs.com/~maxklammer">
+            <IoLogoNpm
+              color={"black"}
+              title={"Go to NPM profile"}
               size={"35"}
             />
           </SocialLink>

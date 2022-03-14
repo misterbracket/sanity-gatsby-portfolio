@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 import useFadeIn from "../hooks/useFadeIn";
-import { post } from "./../../pages/blog";
+import type { IPost } from "./../../pages/blog";
 
 const BlogPostExcerptWrapper = styled(motion.article)`
   background: var(--white);
@@ -48,7 +48,7 @@ const LinkStyles = styled(Link)`
   display: block;
 `;
 
-function BlogPostExcerpt({ data }: { data: post }) {
+function BlogPostExcerpt({ data }: { data: IPost }) {
   const intersectionRef = React.useRef(null);
 
   const [initial, animate, fadeInVariants] = useFadeIn(intersectionRef);
