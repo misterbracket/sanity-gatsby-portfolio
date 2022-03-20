@@ -1,22 +1,24 @@
 ---
-title: "Walkthrough: React from Scratch"
-date: 2021-05-16
-description: "A walkthrough of how to create React from Scratch"
+title: "Walkthrough: Creating Concurrent React from Scratch"
+date: 2022-05-16
+description: "A walkthrough of how to create concurrent React from Scratch"
 type: "note"
 ---
 
-I implemented the library react from scratch by only using 200-300 lines of code. I also implemented hooks (as closures - see [my blog post about react hooks and closures](https://maxklammer.com/blog/react-hooks-and-closures/) ). The coolest thing is that I also implemented Concurrent React, which is one of the major updates to React that is going to be released in React 18. Note that this is all heavily inspired by veterans of the industry, especially by [Rodrigo Pombo](https://pomb.us/build-your-own-react/) and [Swyx](https://www.youtube.com/watch?v=yeyiA9U8Ep8). Check out their original content for more details.
+I implemented the React library from scratch by only using 200-300 lines of code. I also implemented hooks as closures (see [my blog post about React hooks and closures](https://maxklammer.com/blog/react-hooks-and-closures/) ). The coolest thing is that I also implemented **Concurrent React**, which is one of the major updates to React that is going to be released in React 18.
+
+**Note**: This is all heavily inspired by veterans of the industry, especially by [Rodrigo Pombo](https://pomb.us/build-your-own-react/) and [Swyx](https://www.youtube.com/watch?v=yeyiA9U8Ep8). Check out their original content for more details.
 
 ## Implemented Components
 
 - **JSX**: You can just use the Babel preset and run it in your build job to take JSX and convert it into objects.
 - **Create HTML Elements from JSX:** Once the JSX has been transformed we need to update some functions that create the Elements on the DOM should I need it.
-- **React Fiber:** We need to recreate the React Fiber architecture (basically linked lists) in order to efficiently recurse over all React elements and to traverse back to the root.
+- **React Fiber:** We need to recreate the React fiber architecture (which is basically a [linked list data structure](https://www.tutorialspoint.com/data_structures_algorithms/linked_list_algorithms.htm)) in order to efficiently recurse over all React fiber elements and to traverse back to the root.
 - **Work Loop:** In order not to block the main thread we need a work loop that executes a unit of work every time the main thread is idle. We can do that by using the `requestIdleCallback` function of the browser.
 - **Reconciliation:** We need a process that checks if the component should re-render or not. Basically, we are comparing our internal state, with the state of the DOM and re-render the nodes that have changed. Note that in the `alternate` property we store the previous “state” of the fiber. Like this, we can check if it has changed.
 - **Batch Updating:** We do not update the DOM on every change, rather we calculate the changes beforehand and then commit to the DOM.
 - **`useState` hook**: In order to have some re-renders and to update the DOM.
-- **`useEffect` hook**: Fetch some pokemon over an API and update the state. Run the hook based on dependencies.
+- **`useEffect` hook**: Fetch some Pokemon over an API and update the state. Run the hook based on dependencies.
 
 ## Result
 
@@ -36,7 +38,7 @@ There are essentially three main parts to the logic:
 - The reconciliation process that creates the fibers and updates the fibers should something change.
   - Loops through all the fibers (performUnitOfWork)
 - The commit phase loops over the previously created fibers and creates the DOM.
-  - Creates, updates and deletes the fibers based on the effect tag.
+- Creates, updates and deletes the fibers based on the effect tag.
 
 ## Links:
 

@@ -11,14 +11,21 @@ const FilterWrapper = styled.div`
   margin: 0 auto;
   box-shadow: var(--shd);
 `;
-const FilterButton = styled.button`
-  background: var(--color-two);
+const FilterButton = styled.button<{ active: boolean }>`
+  background: ${(props) =>
+    props.active ? "var(--color-two-light)" : "var(--color-two)"};
   color: var(--white);
   border: 1px solid var(--color-two-dark);
   padding: 2rem 1.5rem;
   font-size: var(--big);
-  font-weight: 500;
+  font-weight: ${(props) => (props.active ? 700 : 500)};
   width: 150px;
+  text-decoration: {({active} => active ? 'underline' : 'none')};
+
+
+  box-shadow: ${(props) =>
+    props.active ? "inset 0px 0px 5px #675f5f" : "none"};
+
 
   &:hover,
   &:focus {
@@ -35,9 +42,11 @@ const FilterButton = styled.button`
 `;
 
 const FilterButtons = ({
+  activeFilter,
   filter,
   setFilter,
 }: {
+  activeFilter: string;
   filter: Array<string>;
   setFilter: (x: string) => void;
 }) => {
@@ -45,7 +54,11 @@ const FilterButtons = ({
     <section>
       <FilterWrapper>
         {filter.map((type) => (
-          <FilterButton onClick={() => setFilter(type)}>
+          <FilterButton
+            key={type}
+            active={activeFilter === type}
+            onClick={() => setFilter(type)}
+          >
             {capitalize(pluralize(type))}
           </FilterButton>
         ))}

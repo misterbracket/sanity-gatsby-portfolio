@@ -59,15 +59,21 @@ function blog({ data, location }: PageProps & allBlogPostsData) {
         <Heading>Things I Write About</Heading>
 
         <FilterButtons
+          activeFilter={noteType}
           filter={Object.values(NoteType)}
           setFilter={(type) => setNoteType(type as NoteType)}
         />
         <Disclaimer>
-          My goal is to be public about what currently interest me and what I am
-          currently working on. The notes and essays posted here have been
-          thoroughly researched and validated, but I am still new to many
-          things. Feel free to reach out to correct any disagreements and issues
-          you may find.
+          <>
+            <strong>
+              <u>Disclaimer:</u>
+            </strong>{" "}
+            My goal is to be public about what currently interest me and what I
+            am currently working on. The notes and essays posted here have been
+            thoroughly researched and validated, but I am still new to many
+            things. Feel free to reach out to correct any disagreements and
+            issues you may find.
+          </>
         </Disclaimer>
         {data.allMdx.edges
           .filter((post) => post.node.frontmatter.type === noteType)
