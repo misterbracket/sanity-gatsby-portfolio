@@ -68,5 +68,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     //Used from importing images in MDX
     `gatsby-remark-images`,
+    //Used for Embedding CodeSandBox and Tweets etc.
+    `@pauliescanlon/gatsby-mdx-embed`,
   ],
 };
