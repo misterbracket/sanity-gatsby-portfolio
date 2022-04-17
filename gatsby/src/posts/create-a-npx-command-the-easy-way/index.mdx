@@ -1,0 +1,134 @@
+---
+title: "Create a NPX Command: The Easy Way"
+date: 2022-04-17
+description: "Create a NPX command and pubish it to npm."
+type: "note"
+---
+
+If you are looking for a quick guide on creating automation scripts for yourself, you came to the right place. These are my notes on how to create an npx command from scratch. I found it useful as previously, I created all the files that I needed for a component or a blog post manually by copy-pasting older folders. I showed it to a DevOps colleague, and he proposed to create a couple of scripts and run them during our CI process, e.g., to create a Sitemap. The advantage is that now he does not even need to deploy a script to run it, as he can simply call `npx <your-script>` in the pipeline. Finally, he argued that writing a script like this is more accessible to most devs than writing it in, e.g., BASH.
+
+### Setup the Project
+
+To get started, set up a project with the following command. It will give you a great starting point to create the script. It will ask you for the name of your command in the setup process. In my case, I wanted a script that creates the file structure for a new blog post, and I called my command `new-blog`.
+
+```bash
+npx create-node-cli
+```
+
+The main entry point to your script is in the `index.js` file.
+
+Next, we want to set up the command to run it locally. With `npm` you can create a symlink to the global package directory on your machine. Run `npm link` at the root of your project. Now try to execute the command you specified previously in the setup process( `new-blog` in my case). You can find and change the command's name in the package.json file under the `bin` property.
+
+```bash
+# Link Package
+npm link
+# Execute Command
+new-blog
+```
+
+Alternatively, you can also call the command below and run `./index.js` afterward to execute your script.
+
+```bash
+#Set up file permissions to execute the file
+sudo chmod 777 ./index.js
+# Execute the file
+./index.js
+```
+
+I want to keep track of all the changes made to this project. To do that, I will add git to the project.
+
+```bash
+# Add Git to the project
+git init
+```
+
+I also want to use ESLint for the project as it makes the development experience much nicer.
+
+```bash
+#Set up ESLint
+npm i -D eslint
+npx eslint --init
+
+#Install this package to avoid clashes between Prettier and ESLint
+npm install eslint-config-prettier --save-dev
+```
+
+The command `npx eslint --init` will help you set up your ESLint config, but I frequently use the same configuration. You can copy this minimalist config to get you started.
+
+```json
+{
+  "env": {
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {}
+}
+```
+
+In all my projects, I pretty much add these scripts to the `package.json`. It will run linting and styling when I run `npm run validate`
+
+```bash
+{
+...
+"scripts": {
+		"format": "prettier --write \"./**/*.{js,json}\"",
+		"lint": "eslint --ignore-path .gitignore .",
+		"validate": "npm run format && npm run lint"
+	},
+...
+}
+```
+
+Finally, I want to use the modern JavaScript Module syntax to import modules. To enable this syntax, make sure you are using at least Node.js 14. In the `package.json` file, add the property “type” with the value “module.”
+
+```bash
+//Change Package.json to
+
+"type": "module",
+
+// Change change all the files to module system
+```
+
+Change all the imports to this format below.
+
+```bash
+import init from './utils/init.js';
+```
+
+There is one limitation that I have not figured out yet. Importing JSON files like the `package.json` does not work with the module syntax in Node. In the `init.js` I hardcoded the version and the package description for now.
+
+This is the basic setup for the project. :🎉🎉
+
+Consider [Inquirer.js](https://github.com/SBoudrias/Inquirer.js/) if you want to set up interactive prompts in your script and ask the user questions. If you want to add flags to your command, you can parse them easily by using the preinstalled [meow](https://github.com/sindresorhus/meow) package. You can also use [chalk](https://github.com/chalk/chalk) to have a more colorful output. You can even animate the output with [chalk animated](https://www.npmjs.com/package/chalk-animation).
+
+### Publishing to NPM
+
+Last but not least, we wanted to publish the package to npm to make it easy to use in the future. You need an npm account and log in with your CLI.
+
+```bash
+#Login to npm
+npm login
+# Follow the login instructions
+```
+
+To publish the command you simple run:
+
+```bash
+npm publish --access=public
+```
+
+If you have a free account (like me), you need to add the public access flag. This means that anyone can download and use your package. If you need your package to be private, you need to upgrade to a paid version of npm. Consider also placing the package naming under your account name, as every package name must be unique, e.g., `@maxklammer/new-blog`.
+If you want to see what I created check out my package [https://www.npmjs.com/package/@maxklammer/new-blog](@maxklammer/new-blog).
+
+### Further Resources
+
+- [Fireship Tutorial](https://www.youtube.com/watch?v=_oHByo8tiEY)
+
+- [Twilio Guide](https://www.twilio.com/blog/how-to-build-a-cli-with-node-js)
+
+- [Guide from James Q. Quick](https://www.youtube.com/watch?v=dfTpFFZwazI&t=933s)
