@@ -68,8 +68,8 @@ function blog({ data, location }: PageProps & allBlogPostsData) {
             <strong>
               <u>Disclaimer:</u>
             </strong>{" "}
-            My goal is to be public about what currently interest me and what I
-            am currently working on. The notes and essays posted here have been
+            My goal is to be public about what interests me and what I am
+            currently working on. The notes and essays posted here have been
             thoroughly researched and validated, but I am still new to many
             things. Feel free to reach out to correct any disagreements and
             issues you may find.
