@@ -2,13 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.section`
-    background: var(--white);
-    font-size: var(--normal);
-    box-shadow: var(--shd);
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-}
+  background: var(--white);
+  font-size: var(--normal);
+  box-shadow: var(--shd);
+  height: fit-content;
 `;
 
 const Text = styled.p`

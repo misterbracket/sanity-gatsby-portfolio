@@ -14,7 +14,7 @@ import {
   ListItem,
   Paragraph,
   Quote,
-  TableOfContent,
+  TableOfContent
 } from "./../components/BlogComponents";
 
 interface BlogPostProps {
@@ -85,9 +85,7 @@ const PostStyles = styled(motion.article)`
   max-width: 70rem;
   grid-column: 2;
   @media ${(props) => props.theme.queries.laptopAndUp} {
-    background: var(--white);
     padding: 6rem;
-    box-shadow: var(--shd);
   }
 `;
 

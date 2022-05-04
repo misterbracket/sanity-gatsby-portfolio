@@ -6,15 +6,16 @@ import useFadeIn from "../hooks/useFadeIn";
 import type { IPost } from "./../../pages/blog";
 
 const BlogPostExcerptWrapper = styled(motion.article)`
-  background: var(--white);
   font-size: var(--normal);
-  padding: 5rem;
-  box-shadow: var(--shd);
   height: fit-content;
+
 `;
 
 const ContentSection = styled.section`
   padding-top: 2rem;
+  p {
+    margin-bottom: 0px;
+  }
 `;
 
 const BlogTitle = styled.h2`

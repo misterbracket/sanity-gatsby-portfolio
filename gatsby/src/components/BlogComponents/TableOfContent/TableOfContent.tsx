@@ -13,8 +13,6 @@ const TableOfContentWrapper = styled.aside`
     position: sticky;
     height: min-content;
     top: 90px;
-    background-color: var(--white);
-    box-shadow: var(--shd);
     max-width: 200px;
     justify-self: end;
   }
