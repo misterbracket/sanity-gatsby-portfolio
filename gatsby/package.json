@@ -4,7 +4,7 @@
   "version": "1.0.2",
   "author": "Max Klammer",
   "scripts": {
-    "build": "NODE_OPTIONS=\"-r esm\" gatsby build",
+    "build": "GATSBY_CPU_COUNT=1 NODE_OPTIONS=\"-r esm\" gatsby build",
     "clean-cache": "gatsby clean",
     "develop": "NODE_OPTIONS=\"-r esm\" gatsby develop",
     "start": " npm run develop",
