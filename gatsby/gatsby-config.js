@@ -69,6 +69,6 @@ module.exports = {
     //Used from importing images in MDX
     `gatsby-remark-images`,
     //Used for Embedding CodeSandBox and Tweets etc.
-    `@pauliescanlon/gatsby-mdx-embed`,
+    `gatsby-plugin-mdx-embed`,
   ],
 };
